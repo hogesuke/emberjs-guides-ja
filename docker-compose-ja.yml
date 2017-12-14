@@ -1,0 +1,11 @@
+version: '2'
+services:
+  guides:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: /bin/bash -c "cd ja && bundle exec middleman"
+    ports:
+      - "4567:4567"
+    volumes:
+      - .:/src

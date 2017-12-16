@@ -12,7 +12,7 @@
       url: "quick-start"
     - title: "Emberのインストール"
       url: "index"
-    - title: "Core Concepts"
+    - title: "Emberのコアコンセプト"
       url: "core-concepts"
     - title: "JavaScript Primer"
       url: "js-primer"

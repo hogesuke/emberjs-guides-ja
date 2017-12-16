@@ -12,9 +12,13 @@
 | English                        | 日本語
 |:-------------------------------|:-------------
 | addon                          | アドオン
+| app                            | アプリ
 | application                    | アプリケーション
 | asset                          | アセット
+| double curly braces            | 二重波括弧
 | concatnation                   | (Ember CLIの機能の場合) 結合、結合機能
 | generator                      | (Ember CLIの機能の場合)ジェネレータ
+| handler                        | ハンドラ
 | minification                   | (Ember CLIの機能の場合) 縮小、縮小機能
+| router                         | ルーター
 | versioning                     | バージョニング

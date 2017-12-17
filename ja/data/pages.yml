@@ -22,7 +22,7 @@
   pages:
     - title: "アプリの作成"
       url: "ember-cli"
-    - title: "作成するアプリについて"
+    - title: "プランニング"
       url: 'acceptance-test'
     - title: "ルートとテンプレート"
       url: "routes-and-templates"

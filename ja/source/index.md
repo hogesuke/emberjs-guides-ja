@@ -53,7 +53,7 @@ ordered from basic to advanced concepts.
 -->
 
 各ページの左側にあるものは、区分と項目から成る目次です。部を開くとその中にある項目が展開され、項目をクリックしてページを開くことができます。
-区分と項目は、初歩的なものから高度なもの順に並んでいます。
+区分と項目は、基礎的なものから高度なものの順に並んでいます。
 
 <!--
 The Guides are intended to contain practical explanations of how to
@@ -80,7 +80,7 @@ Emberは初めてという方は、[はじめに](./getting-started/quick-start)
 ## Assumptions
 -->
 
-<h2 id="toc_what-is-ember" class="anchorable-toc">対象の読者レベル</h2>
+<h2 id="toc_assumptions" class="anchorable-toc">対象の読者レベル</h2>
 
 <!--
 While we try to make the Guides as beginner-friendly as we can,
@@ -180,7 +180,7 @@ in a last-minute scramble.
 ## Reporting a problem
 -->
 
-<h2 id="toc_what-is-ember" class="anchorable-toc">問題の報告</h2>
+<h2 id="toc_reporting-a-problem" class="anchorable-toc">問題の報告</h2>
 
 (訳注: この内容は英語のドキュメント内容を訳したものです。日本語訳のドキュメントの問題報告方法は現在準備中です。)
 

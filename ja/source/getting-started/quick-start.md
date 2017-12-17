@@ -28,7 +28,7 @@ We'll cover these steps:
 ## Install Ember
 -->
 
-<h2 id="toc_installing-ember" class="anchorable-toc">Emberのインストール</h2>
+<h2 id="toc_install-ember" class="anchorable-toc">Emberのインストール</h2>
 
 <!--
 You can install Ember with a single command using npm,

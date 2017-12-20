@@ -36,6 +36,7 @@ Some of these features that you'll learn about in the guides are:
 
 * [Ember CLI](./configuring-ember/configuring-ember-cli/) - Emberアプリケーションの作成、開発、ビルドのための強力な開発ツールキット。このガイドを通して目にする`$ ember <command>` という指示はEmber CLIを使っています。
 * [ルーティング](./routing) - Emberアプリケーションの中心部。開発者がURLからアプリケーションの状態を扱えるようにします。
+* [テンプレートエンジン](./templates/handlebars-basics/) - Handlebars構文を使ったアプリケーションテンプレートの書き方
 * [データレイヤー](./models) - Ember DATAは外部のAPIと通信しデータを永続化しアプリケーションの状態を管理する機能を提供します。
 * [Emberインスペクター](./ember-inspector) - 動作中のアプリケーションを調査するためのブラウザエクステンション、またはブックマークレット。野に放たれたEmberアプリケーションを見つけるのにも使えます。インストールして[NASAのウェブサイト](https://www.nasa.gov/)を見てみましょう！
 
@@ -80,7 +81,7 @@ Emberは初めてという方は、[はじめに](./getting-started/quick-start)
 ## Assumptions
 -->
 
-<h2 id="toc_assumptions" class="anchorable-toc">対象の読者レベル</h2>
+<h2 id="toc_assumptions" class="anchorable-toc">予備知識</h2>
 
 <!--
 While we try to make the Guides as beginner-friendly as we can,

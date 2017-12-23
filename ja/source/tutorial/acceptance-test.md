@@ -3,7 +3,7 @@ To show the basic setup of an Ember application, we'll walk through building an 
 -->
 
 Emberアプリケーションの基本的な仕組みを説明するために、Super Rentalsという不動産賃貸サイトのアプリを作っていきます。
-トップページ、会社概要、お問い合わせの各ページから始めていきましょう。
+トップページ、About、お問い合わせの各ページから始めていきましょう。
 
 <!--
 Here's a look at what we want to build before we get started.

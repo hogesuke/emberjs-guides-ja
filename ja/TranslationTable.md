@@ -20,6 +20,7 @@
 | concatnation                   | (Ember CLIの機能の場合) 結合、結合機能
 | generator                      | (Ember CLIの機能の場合)ジェネレータ
 | handler                        | ハンドラ
+| installation                   | (インストールの手順の場合)インストール方法
 | minification                   | (Ember CLIの機能の場合) 縮小、縮小機能
 | router                         | ルーター
 | versioning                     | バージョニング

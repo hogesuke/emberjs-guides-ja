@@ -6,7 +6,7 @@ not every feature of the JavaScript language may be familiar to the developer.
 -->
 
 ECMAScript2015や[ECMAScript 6 または ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla)として知られる新しい仕様のリリースにより、多くの機能がJavaScriptに導入されました。
-本ガイドでは[読者はJavaScriptの実用的な知識があることを想定](/#toc_assumptions)していますが、全ての機能がよく知られているとも限りません。
+本ガイドでは[読者はJavaScriptの実用的な知識があることを想定](/#toc_予備知識)していますが、全ての機能がよく知られているとも限りません。
 
 <!--
 In this guide we will be covering some JavaScript features,
@@ -19,7 +19,7 @@ and how they are used in Ember applications.
 ## Variable declarations
 -->
 
-<h2 id="toc_variable-declarations" class="anchorable-toc">変数宣言</h2>
+## 変数宣言
 
 <!--
 A variable declaration, also called binding, is when you assign a value to a variable name.
@@ -50,7 +50,7 @@ ES2015のリリースにより、`const`と`let`が導入されました。
 ### `var`
 -->
 
-<h3 id="toc_var" class="anchorable-toc"><code>var</code></h3>
+### `var`
 
 <!--
 Variable declarations using `var` exist in the entire body of the function where they are declared.
@@ -128,7 +128,7 @@ if (true) {
 ### `const` and `let`
 -->
 
-<h3 id="toc_const-and-let" class="anchorable-toc"><code>const</code>と<code>let</code></h3>
+### `const`と`let`
 
 <!--
 There are two major differences between `var` and both `const` and `let`.
@@ -199,7 +199,7 @@ console.log(myObject); // {name: "Leah Silber"}
 ### `for` loops
 -->
 
-<h3 id="toc_for-loops" class="anchorable-toc"><code>for</code>ループ</h3>
+### `for`ループ
 
 <!--
 Something that might be confusing is the behaviour of `let` in `for` loops.
@@ -255,7 +255,7 @@ Using `let` will avoid accidentally leaking and changing the `i` variable from o
 ### Resources
 -->
 
-<h3 id="toc_resources" class="anchorable-toc">参考</h3>
+### 参考
 
 <!--
 For further reference you can consult Developer Network articles:

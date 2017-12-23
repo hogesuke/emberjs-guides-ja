@@ -52,7 +52,7 @@ At this point, you can continue to the [next page](../routes-and-templates/) or 
 ### Testing Our Application As We Go
 -->
 
-<h3 id="toc_testing-our-application-as-we-go" class="anchorable-toc">テストもしていく</h3>
+### テストも書く
 
 <!--
 We can represent the goals above as [Ember acceptance tests](../../testing/acceptance/). Acceptance tests interact with our app like an actual person would, but are automated, helping ensure that our app doesn't break in the future.
@@ -168,7 +168,7 @@ Our launched Chrome web browser now shows 10 successful tests. If you toggle the
 ### Adding Your Application Goals as Acceptance Tests
 -->
 
-<h3 id="toc_adding-your-application-goals-as-acceptance-tests" class="anchorable-toc">アプリケーションの要件を受け入れテストとして追加する</h3>
+### アプリケーションの要件を受け入れテストとして追加する
 
 
 <!--

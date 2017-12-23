@@ -9,7 +9,7 @@ Ember.jsのガイドへようこそ！このドキュメントはあなたを全
 ## What is Ember?
 -->
 
-<h2 id="toc_what-is-ember" class="anchorable-toc">Emberとは</h2>
+## Emberとは
 
 <!--
 Ember is a JavaScript front-end framework designed to help you build websites with rich and complex user interactions.
@@ -44,7 +44,7 @@ Some of these features that you'll learn about in the guides are:
 ## Organization
 -->
 
-<h2 id="toc_what-is-ember" class="anchorable-toc">ガイドの構成</h2>
+## ガイドの構成
 
 <!--
 On the left side of each Guides page is a table of contents,
@@ -81,7 +81,7 @@ Emberは初めてという方は、[はじめに](./getting-started/quick-start)
 ## Assumptions
 -->
 
-<h2 id="toc_assumptions" class="anchorable-toc">予備知識</h2>
+## 予備知識
 
 <!--
 While we try to make the Guides as beginner-friendly as we can,
@@ -121,7 +121,7 @@ online.
 ## A Note on Mobile Performance
 -->
 
-<h2 id="toc_a-note-on-mobile-performance" class="anchorable-toc">モバイルのパフォーマンスについて</h2>
+## モバイルのパフォーマンスについて
 
 <!--
 Ember will do a lot to help you write fast apps, but it can't prevent you from
@@ -181,7 +181,7 @@ in a last-minute scramble.
 ## Reporting a problem
 -->
 
-<h2 id="toc_reporting-a-problem" class="anchorable-toc">問題の報告</h2>
+## 問題の報告
 
 (訳注: この内容は英語のドキュメント内容を訳したものです。日本語訳のドキュメントの問題報告方法は現在準備中です。)
 

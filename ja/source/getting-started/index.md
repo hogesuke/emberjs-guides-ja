@@ -27,13 +27,13 @@ Ember CLIは以下のものを提供します。
 ## Dependencies
 -->
 
-<h2 id="toc_dependencies" class="anchorable-toc">必要なもの</h2>
+## 必要なもの
 
 <!--
 ### Git
 -->
 
-<h3 id="toc_git" class="anchorable-toc">Git</h3>
+### Git
 
 <!--
 Ember requires Git to manage many of its dependencies. Git comes with Mac OS
@@ -50,7 +50,7 @@ Windowsユーザは[こちらからGitインストーラ](http://git-scm.com/dow
 ### Node.js and npm
 -->
 
-<h3 id="toc_nodejs-and-npm" class="anchorable-toc">Git</h3>
+### Node.jsとnpm
 
 <!--
 Ember CLI is built with JavaScript, and requires the most recent LTS version of the [Node.js](https://nodejs.org/)
@@ -103,7 +103,7 @@ If you get an outdated version of npm, run `npm install -g npm`.
 ### Watchman (optional)
 -->
 
-<h3 id="toc_watchman-optional" class="anchorable-toc">Watchman (任意)</h3>
+### Watchman (任意)
 
 <!--
 On Mac and Linux, you can improve file watching performance by installing [Watchman](https://facebook.github.io/watchman/docs/install.html).
@@ -115,7 +115,7 @@ MacとLinuxでは、[Watchman](https://facebook.github.io/watchman/docs/install.
 ## Installation
 -->
 
-<h2 id="toc_installation" class="anchorable-toc">インストール</h2>
+## インストール方法
 
 <!--
 Install Ember using npm:

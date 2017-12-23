@@ -28,7 +28,7 @@ We'll cover these steps:
 ## Install Ember
 -->
 
-<h2 id="toc_install-ember" class="anchorable-toc">Emberのインストール</h2>
+## Emberのインストール
 
 <!--
 You can install Ember with a single command using npm,
@@ -57,7 +57,7 @@ Ember CLIのプロジェクトで必要な物のリストは、ガイド内の[E
 ## Create a New Application
 -->
 
-<h2 id="toc_create-a-new-application" class="anchorable-toc">アプリケーションを作成する</h2>
+## アプリケーションを作成する
 
 <!--
 Once you've installed Ember CLI via npm,
@@ -177,7 +177,7 @@ Emberはファイルの変更を自動で検出し、バックグランドでペ
 ## Define a Route
 -->
 
-<h2 id="toc_define-a-route" class="anchorable-toc">ルートを定義する</h2>
+## ルートを定義する
 
 <!--
 Let's build an application that shows a list of scientists.
@@ -321,7 +321,7 @@ Here, we use the `each` helper to loop over each item in the array we provided f
 ## Create a UI Component
 -->
 
-<h2 id="create-a-ui-component" class="anchorable-toc">UIコンポーネントを書く</h2>
+## UIコンポーネントを書く
 
 <!--
 As your application grows, you will notice you are sharing UI elements between multiple pages,
@@ -431,7 +431,7 @@ By re-using the `people-list` component, you can do it in almost no code at all.
 ## Click Events
 -->
 
-<h2 id="toc_click-events" class="anchorable-toc">クリックイベント</h2>
+## クリックイベント
 
 <!--
 So far, your application is listing data,
@@ -503,7 +503,7 @@ this function is called and the person's name is alerted.
 ## Building For Production
 -->
 
-<h2 id="toc_building-for-production" class="anchorable-toc">リリース用にビルドする</h2>
+## リリース用にビルドする
 
 <!--
 Now that we've written our application and verified that it works in development,

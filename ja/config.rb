@@ -2,6 +2,34 @@ require 'redcarpet'
 require 'active_support'
 require 'active_support/core_ext'
 require 'support-for'
+require 'html/proofer'
+require_relative '../lib/highlighter'
+
+# FIXME: Remove this configuration when translation is completed.
+class TranslatedHtmlProofer < Middleman::Extension
+  def initialize(app, options={}, &block)
+    super
+    app.after_build do
+      HTML::Proofer.new('./build', {
+        :verbose          => true,
+        :alt_ignore       => [/.*/],
+        :href_ignore      => ['#', '/blog/feed.xml'],
+        :disable_external => true,
+        :checks_to_ignore  => %w[LinkCheck] # HTML::Proofer::CheckRunner.checks
+      }).run
+    end
+  end
+end
+
+::Middleman::Extensions.register :translated_html_proofer, TranslatedHtmlProofer
+
+
+class JapaneseRenderer < Highlighter::HighlightedHTML
+  # Quick fix to support multibyte strings
+  def header(text, header_level)
+    %Q{<h#{header_level} id="toc_#{text.gsub(" ", "-")}" class="anchorable-toc">#{text}</h#{header_level}>}.html_safe
+  end
+end
 
 Dir[File.expand_path('../../lib/*', __FILE__)].each { |f| require f }
 
@@ -17,7 +45,7 @@ set :markdown_engine, :redcarpet
 set :markdown, :layout_engine => :erb,
          :fenced_code_blocks => true,
          :lax_html_blocks => true,
-         :renderer => Highlighter::HighlightedHTML.new
+         :renderer => JapaneseRenderer.new
 
 activate :directory_indexes
 activate :toc
@@ -55,7 +83,8 @@ end
 configure :build do
   activate :minify_css
   activate :minify_javascript, ignore: /.*examples.*js/
-  activate :html_proofer
+  # activate :html_proofer
+  activate :translated_html_proofer
 end
 
 ###

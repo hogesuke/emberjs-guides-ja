@@ -11,7 +11,7 @@ Emberでコードを書き始める前に、Emberアプリケーションがど�
 ## Router and Route Handlers
 -->
 
-<h2 id="toc_router-and-route-handler" class="anchorable-toc">ルーターとルートハンドラ</h2>
+## ルーターとルートハンドラ
 
 <!--
 Imagine we are writing a web app for a site that lets users list their properties to rent. At any given time, we should be able to answer questions about the current state like _What rental are they looking at?_ and _Are they editing it?_ In Ember, the answer to these questions is determined by the URL.
@@ -59,7 +59,7 @@ The route handler then typically does two things:
 ## Templates
 -->
 
-<h2 id="toc_template" class="anchorable-toc">テンプレート</h2>
+## テンプレート
 
 <!--
 Ember uses templates to organize the layout of HTML in an application.
@@ -129,7 +129,7 @@ helpers and components, which we'll discuss later.
 ## Models
 -->
 
-<h2 id="toc_models" class="anchorable-toc">モデル</h2>
+## モデル
 
 <!--
 Models represent persistent state.
@@ -153,7 +153,7 @@ A model typically persists information to a web server, although models can be c
 ## Components
 -->
 
-<h2 id="toc_components" class="anchorable-toc">コンポーネント</h2>
+## コンポーネント
 
 <!--
 While templates describe how a user interface looks, components control how the user interface _behaves_.

@@ -12,7 +12,7 @@ Emberチュートリアルへようこそ！
 You can install the latest version of `ember-cli` by following the [Quick Start](../../getting-started/quick-start/#toc_install-ember) guide "Installing Ember" section.
 -->
 
-最新の`ember-cli`のインストールの仕方は、[クイックスタート](../../getting-started/quick-start/#toc_install-ember)のEmberのインストールの項に記載されてます。
+最新の`ember-cli`のインストールの仕方は、[クイックスタート](../../getting-started/quick-start/#toc_Emberのインストール)のEmberのインストールの項に記載されてます。
 
 <!--
 Ember CLI, Ember's command line interface, provides a standard project
@@ -33,7 +33,7 @@ Ember CLI(Emberのコマンドラインインターフェース)は、標準化�
 ## Creating a New App
 -->
 
-<h2 id="toc_creating-a-new-app" class="anchorable-toc">アプリを作成する</h2>
+## アプリを作成する
 
 <!--
 To create a new project using Ember CLI, use the `new` command. In preparation
@@ -64,7 +64,7 @@ cd super-rentals
 ## Directory Structure
 -->
 
-<h2 id="toc_directory-structure" class="anchorable-toc">ディレクトリ構成</h2>
+## ディレクトリ構成
 
 <!--
 The `new` command generates a project structure with the following files and
@@ -151,7 +151,7 @@ and Ember CLI's test runner **testem** is configured in `testem.js`.
 ## ES6 Modules
 -->
 
-<h2 id="toc_es6-modules" class="anchorable-toc">ES6モジュール</h2>
+## ES6モジュール
 
 <!--
 If you take a look at `app/router.js`, you'll notice some syntax that may be
@@ -196,7 +196,7 @@ Ember CLIはアプリ内のコードを組織するのに、ECMAScript 2015(ES20
 ## The Development Server
 -->
 
-<h2 id="toc_the-development-server" class="anchorable-toc">開発サーバ</h2>
+## 開発サーバ
 
 <!--
 Once we have a new project in place, we can confirm everything is working by

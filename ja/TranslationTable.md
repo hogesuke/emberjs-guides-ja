@@ -21,6 +21,7 @@
 | generator                      | (Ember CLIの機能の場合)ジェネレータ
 | handler                        | ハンドラ
 | installation                   | (インストールの手順の場合)インストール方法
+| integration test               | 統合テスト
 | minification                   | (Ember CLIの機能の場合) 縮小、縮小機能
 | router                         | ルーター
 | versioning                     | バージョニング

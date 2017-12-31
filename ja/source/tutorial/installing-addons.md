@@ -34,11 +34,9 @@ The addon works by generating a file called `ember-tutorial.css` and putting tha
 
 <!--
 The [`vendor` directory](../../addons-and-dependencies/managing-dependencies/#toc_other-assets) in Ember is a special directory where you can include content that gets compiled into your application.
-When Ember CLI builds our app from our source code, it copies `ember-tutorial.css` into a file called `vendor.css`.
 -->
 
 Emberの[`vendor`ディレクトリ](../../addons-and-dependencies/managing-dependencies/#toc_other-assets)は、アプリケーションにコンパイルされるコンテンツを含めることができる特別なディレクトリです。
-Ember CLIがソースコードからアプリケーションをビルドすると、 `ember-tutorial.css`を` vendor.css`というファイルにコピーします。
 
 <!--
 As Ember CLI runs, it takes the `ember-tutorial` CSS file and puts it in a file called `vendor.css`.

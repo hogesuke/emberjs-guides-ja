@@ -124,7 +124,7 @@ After a few seconds, you should see output that looks like this:
 
 
 ```text
-Livereload server on http://localhost:49152
+Livereload server on http://localhost:7020
 Serving on http://localhost:4200/
 ```
 

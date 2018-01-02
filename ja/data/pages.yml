@@ -45,10 +45,10 @@
     - title: "デプロイ"
       url: "deploying"
 
-- title: "The Object Model"
+- title: "オブジェクトモデル"
   url: 'object-model'
   pages:
-    - title: "Objects in Ember"
+    - title: "Emberのオブジェクト"
       url: "index"
     - title: "Classes and Instances"
       url: "classes-and-instances"

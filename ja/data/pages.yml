@@ -56,7 +56,7 @@
       url: "reopening-classes-and-instances"
     - title: "算出プロパティ"
       url: "computed-properties"
-    - title: "Computed Properties and Aggregate Data"
+    - title: "算出プロパティとデータ集計"
       url: "computed-properties-and-aggregate-data"
     - title: "Observers"
       url: "observers"

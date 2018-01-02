@@ -359,7 +359,7 @@ export default Controller.extend({
 ```
 
 <!--
-In the `filterByCity` function in the rental controller above,
+In the `filterByCity` function in the rentals controller above,
 we've added a new property called `query` to the filter results instead of just returning an array of rentals as before.
 -->
 

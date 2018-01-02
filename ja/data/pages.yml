@@ -65,10 +65,10 @@
     - title: "列挙型"
       url: 'enumerables'
 
-- title: "Routing"
+- title: "ルーティング"
   url: 'routing'
   pages:
-    - title: "Introduction"
+    - title: "はじめに"
       url: "index"
     - title: "Defining Your Routes"
       url: "defining-your-routes"

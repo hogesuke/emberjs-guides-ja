@@ -15,12 +15,14 @@
 | addon                          | アドオン
 | app                            | アプリ
 | application                    | アプリケーション
+| application route              | アプリケーションルート
 | asset                          | アセット
 | computed property              | 算出プロパティ
 | double curly braces            | 二重波括弧
 | concatnation                   | (Ember CLIの機能の場合) 結合、結合機能
 | generator                      | (Ember CLIの機能の場合)ジェネレータ
 | handler                        | ハンドラ
+| index route                    | インデックスルート
 | installation                   | (インストールの手順の場合)インストール方法
 | integration test               | 統合テスト
 | minification                   | (Ember CLIの機能の場合) 縮小、縮小機能

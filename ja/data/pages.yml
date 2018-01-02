@@ -62,7 +62,7 @@
       url: "observers"
     - title: "バインディング"
       url: "bindings"
-    - title: "Enumerables"
+    - title: "列挙型"
       url: 'enumerables'
 
 - title: "Routing"

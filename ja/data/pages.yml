@@ -60,7 +60,7 @@
       url: "computed-properties-and-aggregate-data"
     - title: "オブザーバー"
       url: "observers"
-    - title: "Bindings"
+    - title: "バインディング"
       url: "bindings"
     - title: "Enumerables"
       url: 'enumerables'

@@ -16,6 +16,7 @@
 | app                            | アプリ
 | application                    | アプリケーション
 | asset                          | アセット
+| computed property              | 算出プロパティ
 | double curly braces            | 二重波括弧
 | concatnation                   | (Ember CLIの機能の場合) 結合、結合機能
 | generator                      | (Ember CLIの機能の場合)ジェネレータ

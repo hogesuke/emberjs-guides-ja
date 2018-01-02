@@ -42,7 +42,7 @@ Here, the dependent key `todos.@each.isDone` instructs Ember.js to update bindin
 and fire observers when any of the following events occurs:
 -->
 
-上記のコードでは、依存キー`todos.@each.isDone`は、Ember.jsに次のイベントが発生したときにバインディングを更新しオブザーバーを起動するように指示してします。
+上記のコードでは、依存キー`todos.@each.isDone`は、Ember.jsに次のイベントが発生したときにバインディングを更新しオブザーバーが作動するように指示してします。
 
 <!--
 1. The `isDone` property of any of the objects in the `todos` array changes.

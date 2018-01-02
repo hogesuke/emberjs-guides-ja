@@ -58,7 +58,7 @@
       url: "computed-properties"
     - title: "算出プロパティとデータ集計"
       url: "computed-properties-and-aggregate-data"
-    - title: "Observers"
+    - title: "オブザーバー"
       url: "observers"
     - title: "Bindings"
       url: "bindings"

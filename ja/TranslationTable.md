@@ -24,5 +24,7 @@
 | installation                   | (インストールの手順の場合)インストール方法
 | integration test               | 統合テスト
 | minification                   | (Ember CLIの機能の場合) 縮小、縮小機能
+| observer                       | オブザーバー
 | router                         | ルーター
+| run loop                       | 実行ループ
 | versioning                     | バージョニング

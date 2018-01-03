@@ -80,7 +80,7 @@
       url: "redirection"
     - title: "トランジションの中止と再開"
       url: "preventing-and-retrying-transitions"
-    - title: "Loading / Error Substates"
+    - title: "ロード中とエラーの表示"
       url: "loading-and-error-substates"
     - title: "Query Parameters"
       url: "query-params"

@@ -78,7 +78,7 @@
       url: "rendering-a-template"
     - title: "リダイレクション"
       url: "redirection"
-    - title: "Preventing and Retrying Transitions"
+    - title: "トランジションの中止と再開"
       url: "preventing-and-retrying-transitions"
     - title: "Loading / Error Substates"
       url: "loading-and-error-substates"

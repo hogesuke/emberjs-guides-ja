@@ -72,7 +72,7 @@
       url: "index"
     - title: "ルートの定義"
       url: "defining-your-routes"
-    - title: "Specifying a Route's Model"
+    - title: "ルートのモデルを指定する"
       url: "specifying-a-routes-model"
     - title: "Rendering a Template"
       url: "rendering-a-template"

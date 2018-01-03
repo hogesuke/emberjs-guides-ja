@@ -351,7 +351,7 @@ replace the `{{outlet}}` in the `posts` template with the
 ## Dynamic Segments
 -->
 
-## ダイナミックセグメント
+## 動的セグメント
 
 <!--
 One of the responsibilities of a route is to load a model.
@@ -380,7 +380,7 @@ possible post into the router.
 Enter _dynamic segments_.
 -->
 
-ここでダイナミックセグメントの出番です。
+そこで動的セグメントの出番です。
 
 <!--
 A dynamic segment is a portion of a URL that starts with a `:` and is followed by an identifier.

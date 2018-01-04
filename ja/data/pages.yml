@@ -74,7 +74,7 @@
       url: "defining-your-routes"
     - title: "ルートのモデルを指定する"
       url: "specifying-a-routes-model"
-    - title: "Rendering a Template"
+    - title: "テンプレートの描画"
       url: "rendering-a-template"
     - title: "Redirecting"
       url: "redirection"

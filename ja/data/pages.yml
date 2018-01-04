@@ -76,7 +76,7 @@
       url: "specifying-a-routes-model"
     - title: "テンプレートの描画"
       url: "rendering-a-template"
-    - title: "Redirecting"
+    - title: "リダイレクション"
       url: "redirection"
     - title: "Preventing and Retrying Transitions"
       url: "preventing-and-retrying-transitions"

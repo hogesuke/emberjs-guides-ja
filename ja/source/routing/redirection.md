@@ -94,7 +94,7 @@ for how to do that.
 トランジションは格納して後で再試行できます。 
 これにより、ユーザーを元のルートに戻すことができます。
 例えば、ユーザーがプロフィールを編集しようとするとログインページにリダイレクトされ、正常にログインした後すぐに編集ページにリダイレクトできます。
-その方法については、 [トランジションの保存と再実行](../preventing-and-retrying-transitions/#toc_storing-and-retrying-a-transition)を参照してください。
+その方法については、 [トランジションの保存と再実行](../preventing-and-retrying-transitions/#toc_トランジションの保存と再実行)を参照してください。
 
 <!--
 If you need to examine some application state to figure out where to redirect,

@@ -96,7 +96,7 @@
       url: "built-in-helpers"
     - title: "条件分岐"
       url: "conditionals"
-    - title: "Displaying a List of Items"
+    - title: "リストの表示"
       url: "displaying-a-list-of-items"
     - title: "Displaying the Keys in an Object"
       url: "displaying-the-keys-in-an-object"

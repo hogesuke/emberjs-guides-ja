@@ -104,7 +104,7 @@
       url: "binding-element-attributes"
     - title: "リンク"
       url: "links"
-    - title: "Actions"
+    - title: "アクション"
       url: "actions"
     - title: "Input Helpers"
       url: "input-helpers"

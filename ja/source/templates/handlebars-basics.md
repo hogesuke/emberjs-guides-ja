@@ -150,7 +150,7 @@ Ember ships with several built-in helpers, which you will learn more about in th
 -->
 
 Emberにはいくつかのビルトイン(組み込み)ヘルパーが同梱されています。
-ビルトインヘルパーについては、次のページで詳しく説明しています。
+ビルトインヘルパーについては、次のセクションで詳しく説明しています。
 
 <!--
 #### Nested Helpers

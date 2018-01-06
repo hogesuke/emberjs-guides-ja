@@ -82,7 +82,7 @@
       url: "preventing-and-retrying-transitions"
     - title: "ロード中とエラーの表示"
       url: "loading-and-error-substates"
-    - title: "Query Parameters"
+    - title: "クエリーパラメーター"
       url: "query-params"
     - title: "Asynchronous Routing"
       url: "asynchronous-routing"

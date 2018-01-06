@@ -146,10 +146,10 @@ on the `posts` controller, but it could also refer to a `direction` property
 on any of the controllers associated with the `posts` route hierarchy,
 matching the leaf-most controller with the supplied property name.
 
-*訳注: 上記の原文をよく理解できなかったため、原文を載せつつ、翻訳も載せていますが、翻訳に間違いがある可能性が高いです。プルリクで直してくれる人が現れるといいな〜！*
+*訳注: 上記の原文をよく理解できなかったため、原文を載せつつ、翻訳も載せていますが、翻訳に間違いがある可能性が高いです。誰か教えてください。(>_<)*
 
 上の例では、`direction`は`posts`コントローラのクエリーパラメータープロパティだと推測できます。
-しかし、`posts`ルート階層に関連付けられたコントローラの最下位のものから順にプロパティ名を一致させて、`direction`プロパティを参照することもできます。
+しかし、`posts`ルート階層配下に配置された直近のコントローラのプロパティ名とマッチして、`direction`プロパティを参照することもできます。
 
 --- 誤訳警報:ここまで ---
 

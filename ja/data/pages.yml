@@ -100,7 +100,7 @@
       url: "displaying-a-list-of-items"
     - title: "オブジェクトのキーの表示"
       url: "displaying-the-keys-in-an-object"
-    - title: "Binding Element Attributes"
+    - title: "要素の属性のバインディング"
       url: "binding-element-attributes"
     - title: "Links"
       url: "links"

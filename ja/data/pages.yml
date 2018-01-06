@@ -94,7 +94,7 @@
       url: "handlebars-basics"
     - title: "ビルトインヘルパー"
       url: "built-in-helpers"
-    - title: "Conditionals"
+    - title: "条件分岐"
       url: "conditionals"
     - title: "Displaying a List of Items"
       url: "displaying-a-list-of-items"

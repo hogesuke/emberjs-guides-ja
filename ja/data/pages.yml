@@ -84,7 +84,7 @@
       url: "loading-and-error-substates"
     - title: "クエリーパラメーター"
       url: "query-params"
-    - title: "Asynchronous Routing"
+    - title: "非同期ルーティング"
       url: "asynchronous-routing"
 
 - title: "Templates"

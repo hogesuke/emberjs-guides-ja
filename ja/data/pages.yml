@@ -87,12 +87,12 @@
     - title: "非同期ルーティング"
       url: "asynchronous-routing"
 
-- title: "Templates"
+- title: "テンプレート"
   url: 'templates'
   pages:
     - title: "Handlebarsの基礎"
       url: "handlebars-basics"
-    - title: "Built-in Helpers"
+    - title: "ビルトインヘルパー"
       url: "built-in-helpers"
     - title: "Conditionals"
       url: "conditionals"

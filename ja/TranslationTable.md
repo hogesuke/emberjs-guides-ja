@@ -17,6 +17,7 @@
 | application                    | アプリケーション
 | application route              | アプリケーションルート
 | asset                          | アセット
+| block parameter                | ブロックパラメーター(ブロック変数)。ブロック自体を引数に渡したり、受け取る時はブロック引数と呼んで区別する。
 | computed property              | 算出プロパティ
 | double curly braces            | 二重波括弧
 | concatnation                   | (Ember CLIの機能の場合) 結合、結合機能

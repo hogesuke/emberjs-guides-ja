@@ -98,7 +98,7 @@
       url: "conditionals"
     - title: "リストの表示"
       url: "displaying-a-list-of-items"
-    - title: "Displaying the Keys in an Object"
+    - title: "オブジェクトのキーの表示"
       url: "displaying-the-keys-in-an-object"
     - title: "Binding Element Attributes"
       url: "binding-element-attributes"

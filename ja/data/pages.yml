@@ -106,7 +106,7 @@
       url: "links"
     - title: "アクション"
       url: "actions"
-    - title: "Input Helpers"
+    - title: "inputヘルパー"
       url: "input-helpers"
     - title: "Development Helpers"
       url: "development-helpers"

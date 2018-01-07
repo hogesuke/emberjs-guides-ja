@@ -108,7 +108,7 @@
       url: "actions"
     - title: "inputヘルパー"
       url: "input-helpers"
-    - title: "Development Helpers"
+    - title: "開発用ヘルパー"
       url: "development-helpers"
     - title: "Writing Helpers"
       url: "writing-helpers"

@@ -124,7 +124,7 @@
       url: "passing-properties-to-a-component"
     - title: "コンポーネント内のコンテンツをラップする"
       url: "wrapping-content-in-a-component"
-    - title: "Customizing a Component's Element"
+    - title: "コンポーネントの要素のカスタマイズ"
       url: "customizing-a-components-element"
     - title: "Using Block Params"
       url: "block-params"

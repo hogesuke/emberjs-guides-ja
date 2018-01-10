@@ -122,7 +122,7 @@
       url: "the-component-lifecycle"
     - title: "コンポーネントへのプロパティの受け渡し"
       url: "passing-properties-to-a-component"
-    - title: "Wrapping Content in a Component"
+    - title: "コンポーネント内のコンテンツをラップする"
       url: "wrapping-content-in-a-component"
     - title: "Customizing a Component's Element"
       url: "customizing-a-components-element"

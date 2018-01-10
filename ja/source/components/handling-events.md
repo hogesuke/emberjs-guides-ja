@@ -1,8 +1,17 @@
+<!--
 You can respond to user events on your component like double-clicking, hovering,
 and key presses through event handlers. Simply implement the name of the event
 you want to respond to as a method on your component.
+-->
 
+コンポーネントではイベントハンドラを使用して、ダブルクリック、ホバリング、キーの押下などのユーザーイベントを処理できます。
+単にコンポーネントに応答したいイベントをメソッド名として実装するだけです。
+
+<!--
 For example, imagine we have a template like this:
+-->
+
+例えば、次のようなテンプレートがあるとします。
 
 ```hbs
 {{#double-clickable}}
@@ -10,8 +19,12 @@ For example, imagine we have a template like this:
 {{/double-clickable}}
 ```
 
+<!--
 Let's implement `double-clickable` such that when it is
 clicked, an alert is displayed:
+-->
+
+ダブルクリックすると警告を表示する`double-click`コンポーネントを実装しましょう。
 
 ```app/components/double-clickable.js
 import Component from '@ember/component';
@@ -23,9 +36,14 @@ export default Component.extend({
 });
 ```
 
+<!--
 Browser events may bubble up the DOM which potentially target parent component(s)
 in succession. To enable bubbling `return true;` from the event handler method
 in your component.
+-->
+
+ブラウザイベントは、親から親へとコンポーネント連続してバブルアップ(伝達)する可能性があります。
+バブリングを有効にするには、コンポーネントのイベントハンドラメソッドで`return true;`します。
 
 ```app/components/double-clickable.js
 import Component from '@ember/component';
@@ -38,22 +56,41 @@ export default Component.extend({
 });
 ```
 
+<!--
 See the list of event names at the end of this page. Any event can be defined
 as an event handler in your component.
+-->
 
+このページの最後にあるイベント名のリストを参照してください。
+一覧にあるイベントはどれもコンポーネント内のイベントハンドラとして定義できます。
+
+<!--
 ## Sending Actions
+-->
 
+## アクションの送信
+
+<!--
 In some cases your component needs to define event handlers, perhaps to support
 various draggable behaviors. For example, a component may need to send an `id`
 when it receives a drop event:
+-->
+
+コンポーネントがさまざまなドラッグ可能な動作をサポートするなど、イベントハンドラを定義したい場合があります。
+例えば、コンポーネントでドロップイベントを受け取ったときに`id`を送信したい場合:
 
 ```hbs
 {{drop-target action=(action "didDrop")}}
 ```
 
+<!--
 You can define the component's event handlers to manage the drop event.
 And if you need to, you may also stop events from bubbling, by using
 `return false;`.
+-->
+
+コンポーネントでドロップイベントを処理するにはイベントハンドラを定義します。
+また、必要に応じて`return false;`することで、イベントの伝播を停止することができます。
 
 ```app/components/drop-target.js
 import Component from '@ember/component';
@@ -73,22 +110,37 @@ export default Component.extend({
 });
 ```
 
+<!--
 In the above component, `didDrop` is the `action` passed in. This action is
 called from the `drop` event handler and passes one argument to the action -
 the `id` value found through the `drop` event object.
+-->
 
+上記のコンポーネントでは、`action`に`didDrop`が渡されています。
+このactionは`drop`イベントハンドラ内で呼び出されます。
+引数には`drop`イベントオブジェクトから得た`id`の値が渡されます。
 
+<!--
 Another way to preserve native event behaviors and use an action, is to
 assign a (closure) action to an inline event handler. Consider the
 template below which includes an `onclick` handler on a `button` element:
+-->
+
+ブラウザネイティブのイベント動作を保ったままアクションを使う他の方法は、インラインイベントハンドラに(クロージャ)アクションを割り当てです。
+下記のテンプレートを見てみましょう。`button`要素に`onclick`ハンドラが含まれています。
 
 ```hbs
 <button onclick={{action 'signUp'}}>Sign Up</button>
 ```
 
+<!--
 The `signUp` action is simply a function defined on the `actions` hash
 of a component. Since the action is assigned to an inline handler, the
 function definition can define the event object as its first parameter.
+-->
+
+`signUp`アクションは、単にコンポーネントの`actions`ハッシュ内に関数で定義します。
+このアクションはインラインハンドラに割り当てられているため、関数定義では最初のパラメータとしてイベントオブジェクトを定義できます。
 
 ```js
 actions: {
@@ -99,10 +151,16 @@ actions: {
 }
 ```
 
+<!--
 The normal behavior for a function defined in `actions` does not receive the
 browser event as an argument. So, the function definition for the action cannot
 define an event parameter. The following example demonstrates the
 default behavior using an action.
+-->
+
+`actions`に定義された関数は、通常、ブラウザイベントが引数に渡されません。
+したがって、通常はアクションの関数定義ではイベントパラメーターを定義しません。
+次の例は、アクションを使用したデフォルトの動作を示しています。
 
 ```hbs
 <button {{action 'signUp'}}>Sign Up</button>
@@ -116,34 +174,65 @@ actions: {
 }
 ```
 
+<!--
 To utilize an `event` object as a function parameter:
+-->
 
+`event`オブジェクトを関数パラメータとして使用するには、
+
+<!--
 - Define the event handler in the component (which is designed to receive the
   browser event object).
 - Or, assign an action to an inline event handler in the template (which
   creates a closure action and does receive the event object as an argument).
+-->
+
+- コンポーネントに(ブラウザイベントオブジェクトを受け取るように設計されている)イベントハンドラを定義する
+- または、テンプレート内のインラインイベントハンドラにアクションを割り当てる(クロージャアクションを作成し、イベントオブジェクトを引数として受け取る)。
 
 
+<!--
 ## Event Names
+-->
 
+## イベント名
+
+<!--
 The event handling examples described above respond to one set of events.
 The names of the built-in events are listed below. Custom events can be
 registered by using [Application.customEvents](https://www.emberjs.com/api/ember/2.16/classes/Application/properties/customEvents?anchor=customEvents).
+-->
 
+上記で説明したものは組み込みイベントの一例です。
+組み込みイベントの名前一覧は次のとおりです。
+カスタムイベントは、[Application.customEvents](https://www.emberjs.com/api/ember/2.16/classes/Application/properties/customEvents?anchor=customEvents)を使用して登録できます。
+
+<!--
 Touch events:
+-->
+
+タッチイベント:
 
 * `touchStart`
 * `touchMove`
 * `touchEnd`
 * `touchCancel`
 
+<!--
 Keyboard events
+-->
+
+キーボードイベント:
 
 * `keyDown`
 * `keyUp`
 * `keyPress`
 
+<!--
 Mouse events
+-->
+
+マウスイベント:
 
 * `mouseDown`
 * `mouseUp`
@@ -156,7 +245,11 @@ Mouse events
 * `mouseEnter`
 * `mouseLeave`
 
+<!--
 Form events:
+-->
+
+フォームイベント:
 
 * `submit`
 * `change`
@@ -164,7 +257,11 @@ Form events:
 * `focusOut`
 * `input`
 
+<!--
 HTML5 drag and drop events:
+-->
+
+HTML5ドラッグ&ドロップイベント:
 
 * `dragStart`
 * `drag`

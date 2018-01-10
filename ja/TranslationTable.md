@@ -27,6 +27,7 @@
 | installation                   | (インストールの手順の場合)インストール方法
 | integration test               | 統合テスト
 | minification                   | (Ember CLIの機能の場合) 縮小、縮小機能
+| named arguments                | 名前付き引数
 | observer                       | オブザーバー
 | one-way binding                | 単方向バインディング
 | router                         | ルーター

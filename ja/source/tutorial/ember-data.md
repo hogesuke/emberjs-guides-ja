@@ -94,12 +94,12 @@ We now have a model object that we can use for our Ember Data implementation.
 <!--
 To use our new Ember Data Model object, we need to update the `model` function we [previously defined](../model-hook/) in our route handler.
 Delete the hard-coded JavaScript Array, and replace it with the following call to the [Ember Data Store service](../../models/#toc_the-store-and-a-single-source-of-truth).
-The [store service](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store) is injected into all routes and components in Ember.
+The [store service](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store) is injected into all routes and their corresponding controllers in Ember.
 It is the main interface you use to interact with Ember Data.
 In this case, call the [`findAll`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findAll?anchor=findAll) function on the store and provide it with the name of your newly created rental model class.
 -->
 
-作成したモデルを使用するには、[以前にルートハンドラで定義したmodel関数](../model-hook/)を変更する必要があります。 ハードコードされたJavaScript配列を削除し、[Ember Data Storeサービス](../../models/#toc_the-store-and-a-single-source-of-truth)を使うよう以下の書き換えてください。 Storeサービスは、Emberのすべてのルートとコンポーネントにインジェクト(注入)されています。 StoreはEmber Dataとやりとりするために使用するメインインターフェイスです。 今回は、Storeの[`findAll`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findAll?anchor=findAll)関数に作成したRentalモデルクラスの名前を指定して実行します。
+作成したモデルを使用するには、[以前にルートハンドラで定義したmodel関数](../model-hook/)を変更する必要があります。 ハードコードされたJavaScript配列を削除し、[Ember Data Storeサービス](../../models/#toc_the-store-and-a-single-source-of-truth)を使うよう以下の書き換えてください。 Storeサービスは、Emberのすべてのルートとルートのコントローラにインジェクト(注入)されています。 StoreはEmber Dataとやりとりするために使用するメインインターフェイスです。 今回は、Storeの[`findAll`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findAll?anchor=findAll)関数に作成したRentalモデルクラスの名前を指定して実行します。
 
 ```app/routes/rentals.js{+5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,-31,-32,-33}
 import Route from '@ember/routing/route';

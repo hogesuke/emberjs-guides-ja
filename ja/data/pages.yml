@@ -118,7 +118,7 @@
   pages:
     - title: "コンポーネントの定義"
       url: "defining-a-component"
-    - title: "The Component Lifecycle"
+    - title: "コンポーネントのライフサイクル"
       url: "the-component-lifecycle"
     - title: "Passing Properties to a Component"
       url: "passing-properties-to-a-component"

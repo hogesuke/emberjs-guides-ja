@@ -169,7 +169,7 @@ which means that any nested route will be rendered in that place.
 -->
 
 Emberはファイルの変更を自動で検出し、バックグランドでページをリロードします。
-ウェルカムページが"PeopleTacker"に置き換わったのが見えるはずです。
+ウェルカムページが"PeopleTracker"に置き換わったのが見えるはずです。
 このページに`{{outlet}}`も合わせて追加しましたので、
 ネストしたルートはそこに表示されることになります。
 
@@ -444,7 +444,7 @@ First add an `action` helper to the `li` in your `people-list` component.
 ここまでデータの一覧表示をやりましたが、まだユーザがその情報を操作したりできません。
 Webアプリケーションでは、クリックやホバーといったイベントを使いたいでしょう。
 Emberでは簡単にそれをすることができます。
-まず始めに、`people-list`コポーネント内の`li`に`action`ヘルパーを追加します。
+まず始めに、`people-list`コンポーネント内の`li`に`action`ヘルパーを追加します。
 
 ```app/templates/components/people-list.hbs{-5,+6}
 <h2>{{title}}</h2>
@@ -468,7 +468,7 @@ Think of this like calling `this.actions.showPerson(person)` from our template.
 `action`ヘルパーは要素にイベントリスナーを追加し名前付き関数を呼ぶようにしてくれます。
 デフォルトで、`action`ヘルパーは`click`イベントリスナーを追加しますが、
 どの要素でも使えるわけではありません。
-さて、これで`li`要素をクリックすると、`people-list`コポーネントの`actions`オブジェクト内の`showPerson`関数が呼ばれるようになりました。
+さて、これで`li`要素をクリックすると、`people-list`コンポーネントの`actions`オブジェクト内の`showPerson`関数が呼ばれるようになりました。
 ここでは `this.actions.showPerson(person)` がテンプレートから呼ばれていると考えておきましょう。
 
 <!--
@@ -497,7 +497,7 @@ Now in the browser when a scientist's name is clicked,
 this function is called and the person's name is alerted.
 -->
 
-ブラウザ上で科学者の名前がクリックされると、この関数が呼ばれ、ある人物の名前か`alert`されるようになりました。
+ブラウザ上で科学者の名前がクリックされると、この関数が呼ばれ、その人物の名前が`alert`されるようになりました。
 
 <!--
 ## Building For Production
@@ -548,7 +548,7 @@ check out the [Ember CLI Deploy](http://ember-cli-deploy.com/) addon.
 -->
 
 Emberコミュニティは協力や皆が頼りにするツールを作ることを大事にしています。
-プロダクションのデプロイと速く、信頼できる方法に興味がある場合は、[Ember CLI Deploy](http://ember-cli-deploy.com/)アドオンをチェックしてみてください。
+速く、信頼できる方法でプロダクションへデプロイすることに興味がある場合は、[Ember CLI Deploy](http://ember-cli-deploy.com/)アドオンをチェックしてみてください。
 
 <!--
 If you deploy your application to an Apache web server, first create a new virtual host for the application.

@@ -30,6 +30,7 @@
 | named arguments                | 名前付き引数
 | observer                       | オブザーバー
 | one-way binding                | 単方向バインディング
+| positional parameter           | 位置パラメーター
 | router                         | ルーター
 | run loop                       | 実行ループ
 | two-way binding                | 双方向バインディング

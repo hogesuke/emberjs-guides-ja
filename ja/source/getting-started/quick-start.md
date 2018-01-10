@@ -547,9 +547,6 @@ If you're interested in deploying your app to production in a fast and reliable 
 check out the [Ember CLI Deploy](http://ember-cli-deploy.com/) addon.
 -->
 
-The Ember community values collaboration and building common tools that everyone relies on. If you're interested in deploying your app to production in a fast and reliable way, check out the Ember CLI Deploy addon.
-
-
 Emberコミュニティは協力や皆が頼りにするツールを作ることを大事にしています。
 速く、信頼できる方法でプロダクションへデプロイすることに興味がある場合は、[Ember CLI Deploy](http://ember-cli-deploy.com/)アドオンをチェックしてみてください。
 

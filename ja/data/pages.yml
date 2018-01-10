@@ -113,10 +113,10 @@
     - title: "ヘルパーの作成"
       url: "writing-helpers"
 
-- title: "Components"
+- title: "コンポーネント"
   url: 'components'
   pages:
-    - title: "Defining a Component"
+    - title: "コンポーネントの定義"
       url: "defining-a-component"
     - title: "The Component Lifecycle"
       url: "the-component-lifecycle"

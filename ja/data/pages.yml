@@ -110,7 +110,7 @@
       url: "input-helpers"
     - title: "開発用ヘルパー"
       url: "development-helpers"
-    - title: "Writing Helpers"
+    - title: "ヘルパーの作成"
       url: "writing-helpers"
 
 - title: "Components"

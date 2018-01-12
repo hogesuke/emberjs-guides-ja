@@ -608,12 +608,16 @@ test('should link to contact information', function (assert) {
 ```
 
 <!--
-In the tests above, we're using [`assert.equal()`](https://api.qunitjs.com/assert/equal). `assert.equal()` checks
-to see if two items (our first and second arguments) equal each other.  If they don't, our test will fail.
-The third optional argument allows us to provide a nicer message which we'll be shown if this test fails.
+In the tests above, we're using [`assert.equal()`](https://api.qunitjs.com/assert/equal) to check if the first and second arguments equal each other.
+If they don't, our test will fail.
 -->
 
-上記のテストでは、[`assert.equal()`](https://api.qunitjs.com/assert/equal)を使用しています。 `assert.equal()`は2つの項目(第1引数と第2引数)が互いに等しいかどうかを調べます。等くなければテストは失敗します。
+上記のテストでは、[`assert.equal()`](https://api.qunitjs.com/assert/equal)を使って第1引数と第2引数が互いに等しいかを確認しています。
+等くなければテストは失敗します。
+
+<!--
+The third optional argument allows us to provide a nicer message which will be shown if this test fails.
+-->
 3番目の引数は省略可能で、テストが失敗した時のメッセージを指定します。
 
 <!--

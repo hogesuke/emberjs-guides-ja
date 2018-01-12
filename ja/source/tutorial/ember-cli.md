@@ -129,10 +129,10 @@ are installed in the node_modules directory.
 
 <!--
 **vendor**: This directory is where front-end dependencies (such as JavaScript
-or CSS) that are not managed by Bower go.
+or CSS) that are not managed by NPM go.
 -->
 
-**vendor**: Bowerによって管理さていないフロントエンドの依存関係(JavaScriptやCSSなど)を置くディレクトリです。
+**vendor**: NPMによって管理さていないフロントエンドの依存関係(JavaScriptやCSSなど)を置くディレクトリです。
 
 <!--
 **tests / testem.js**: Automated tests for our app go in the `tests` folder,

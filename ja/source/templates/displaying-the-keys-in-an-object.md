@@ -42,7 +42,7 @@ while the second block parameter (`products`) is the actual value of that key.
 -->
 
 `{{#each-in}}`ブロック内のテンプレートは、渡されたオブジェクトの各キー毎に1回づつ繰り返されます。
-第1ブロックパラメーター(上記の例では`category`)はキーで、第2ブロックパラメーター(`products`)はそのキーの値です。
+第1ブロック変数(上記の例では`category`)はキーで、第2ブロック変数(`products`)はそのキーの値です。
 
 <!--
 The above example will print a list like this:

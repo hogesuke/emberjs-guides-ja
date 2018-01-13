@@ -8,7 +8,7 @@ available inside the block of their helper.
 
 リスト状のデータをイテレート(反復)するには、[`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each)ヘルパーを使用します。
 このヘルパーの第1引数はイテレートされる配列であり、イテレートされる値はブロックに引数として渡されます。
-ブロックパラメーターは、ヘルパーのブロック内でのみ使用できます。
+ブロック変数は、ヘルパーのブロック内でのみ使用できます。
 
 <!--
 For example, this template iterates an array named `people` that contains
@@ -33,7 +33,7 @@ is what each item is named in the above template, but `human` would work just
 as well.
 -->
 
-ブロックパラメーターは、JavaScriptの関数引数のように位置パラメーターです。
+ブロック変数は、JavaScriptの関数引数のように位置パラメーターです。
 上記のテンプレートでは、`person`という名前が付けられていますが、`human`でも同様に機能します。
 
 <!--
@@ -41,7 +41,7 @@ The template inside of the `{{#each}}` block will be repeated once for
 each item in the array, with the each item set to the `person` block param.
 -->
 
-`{{#each}}`ブロック内のテンプレートは、配列内の各項目に対して1回ずつ繰り返され、各項目はブロックパラメーターとして`person`という名前で渡されています。
+`{{#each}}`ブロック内のテンプレートは、配列内の各項目に対して1回ずつ繰り返され、各項目はブロック変数として`person`という名前で渡されています。
 
 <!--
 Given an input array like:
@@ -101,7 +101,7 @@ block param. Block params are space-separated, without commas. For example:
 -->
 
 イテレートの際、配列内の各項目のインデックスがブロックの第2引数に渡されます。
-ブロックパラメーターはコンマではなくスペースで区切ります。
+ブロック変数はコンマではなくスペースで区切ります。
 
 例:
 

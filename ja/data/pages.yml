@@ -126,7 +126,7 @@
       url: "wrapping-content-in-a-component"
     - title: "コンポーネントの要素のカスタマイズ"
       url: "customizing-a-components-element"
-    - title: "Using Block Params"
+    - title: "ブロック引数を使う"
       url: "block-params"
     - title: "Handling Events"
       url: "handling-events"

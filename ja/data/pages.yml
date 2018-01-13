@@ -130,7 +130,7 @@
       url: "block-params"
     - title: "イベント処理"
       url: "handling-events"
-    - title: "Triggering Changes with Actions"
+    - title: "アクションによる変更のトリガー"
       url: "triggering-changes-with-actions"
 
 - title: "Controllers"

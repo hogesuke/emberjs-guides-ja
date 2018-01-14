@@ -150,7 +150,7 @@
       url: "finding-records"
     - title: "Creating, Updating and Deleting"
       url: "creating-updating-and-deleting-records"
-    - title: "Relationships"
+    - title: "リレーションシップ"
       url: "relationships"
     - title: "Pushing Records into the Store"
       url: "pushing-records-into-the-store"

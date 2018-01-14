@@ -1,8 +1,12 @@
 ## Creating Records
 
+<!--
 You can create records by calling the
 [`createRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/createRecord?anchor=createRecord)
 method on the store.
+-->
+
+ストアで[`createRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/createRecord?anchor=createRecord)メソッドを呼び出すと、レコードを作成できます。
 
 ```js
 store.createRecord('post', {
@@ -11,12 +15,20 @@ store.createRecord('post', {
 });
 ```
 
+<!--
 The store object is available in controllers and routes using `this.get('store')`.
+-->
+
+ストアオブジェクトは、`this.get('store')`を使用してコントローラとルートで使用できます。
 
 ## Updating Records
 
+<!--
 Making changes to Ember Data records is as simple as setting the attribute you
 want to change:
+-->
+
+Ember Dataレコードを変更するのは、変更したい属性を設定するだけです。
 
 ```js
 this.get('store').findRecord('person', 1).then(function(tyrion) {
@@ -25,9 +37,14 @@ this.get('store').findRecord('person', 1).then(function(tyrion) {
 });
 ```
 
+<!--
 All of the Ember.js conveniences are available for
 modifying attributes. For example, you can use `Ember.Object`'s
 [`incrementProperty`](http://emberjs.com/api/classes/Ember.Object.html#method_incrementProperty) helper:
+-->
+
+すべてのEmber.jsの便利さは、属性を変更するために利用できます。
+たとえば、`Ember.Object`の[`incrementProperty`](http://emberjs.com/api/classes/Ember.Object.html#method_incrementProperty)ヘルパーを使用できます。
 
 ```js
 person.incrementProperty('age'); // Happy birthday!
@@ -35,15 +52,29 @@ person.incrementProperty('age'); // Happy birthday!
 
 ## Persisting Records
 
+<!--
 Records in Ember Data are persisted on a per-instance basis.
 Call [`save()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/save?anchor=save)
 on any instance of `DS.Model` and it will make a network request.
+-->
 
+Ember Dataのレコードは、インスタンスごとに保持されます。
+DS.Modelのインスタンスで[`save()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/save?anchor=save)を呼び出すと、ネットワーク要求が行われます。
+
+<!--
 Ember Data takes care of tracking the state of each record for
 you. This allows Ember Data to treat newly created records differently
 from existing records when saving.
+-->
 
+Ember Dataはあなたのために各レコードの状態を追跡します。
+これにより、Ember Dataは、新しく作成されたレコードを、保存時に既存のレコードとは異なる方法で扱うことができます。
+
+<!--
 By default, Ember Data will `POST` newly created records to their type url.
+-->
+
+デフォルトでは、Ember Dataは新しく作成したレコードをタイプURLにPOSTします。
 
 ```javascript
 let post = store.createRecord('post', {
@@ -54,7 +85,11 @@ let post = store.createRecord('post', {
 post.save(); // => POST to '/posts'
 ```
 
+<!--
 Records that already exist on the backend are updated using the HTTP `PATCH` verb.
+-->
+
+すでにバックエンドに存在するレコードは、HTTPの`PATCH`動詞を使用して更新されます。
 
 ```javascript
 store.findRecord('post', 1).then(function(post) {
@@ -66,6 +101,7 @@ store.findRecord('post', 1).then(function(post) {
 });
 ```
 
+<!--
 You can tell if a record has outstanding changes that have not yet been
 saved by checking its
 [`hasDirtyAttributes`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/properties/hasDirtyAttributes?anchor=hasDirtyAttributes)
@@ -74,6 +110,11 @@ the record were changed and what the original value was using the
 [`changedAttributes()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/changedAttributes?anchor=changedAttributes)
 method. `changedAttributes` returns an object, whose keys are the changed
 properties and values are an array of values `[oldValue, newValue]`.
+-->
+
+レコードに[`hasDirtyAttributes`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/properties/hasDirtyAttributes?anchor=hasDirtyAttributes)プロパティをチェックすることで、まだ保存されていない未処理の変更があるかどうかを知ることができます。
+レコードのどの部分が変更されたか、元の値が[`changedAttributes()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/changedAttributes?anchor=changedAttributes)メソッドを使用していたかを確認することもできます。
+`changedAttributes`は、変更されたプロパティをキーとするオブジェクトを返し、値は`[oldValue, newValue]`の値の配列です。
 
 ```js
 person.get('isAdmin');            // => false
@@ -83,11 +124,17 @@ person.get('hasDirtyAttributes'); // => true
 person.changedAttributes();       // => { isAdmin: [false, true] }
 ```
 
+<!--
 At this point, you can either persist your changes via `save()` or you can roll
 back your changes. Calling
 [`rollbackAttributes()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/rollbackAttributes?anchor=rollbackAttributes)
 for a saved record reverts all the `changedAttributes` to their original value.
 If the record `isNew` it will be removed from the store.
+-->
+
+この時点で、`save()`を使って変更を保持することも、変更をロールバックすることもできます。
+保存されたレコードの[`rollbackAttributes()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/rollbackAttributes?anchor=rollbackAttributes)を呼び出すと、すべての`changedAttributes`が元の値に戻ります。
+レコードが新しい(`isNew`)場合は、ストアから削除されます。
 
 ```js
 person.get('hasDirtyAttributes'); // => true
@@ -102,9 +149,14 @@ person.changedAttributes();       // => {}
 
 ## Handling Validation Errors
 
+<!--
 If the backend server returns validation errors after trying to save, they will
 be available on the `errors` property of your model. Here's how you might display
 the errors from saving a blog post in your template:
+-->
+
+バックエンドサーバーが保存しようとした後に検証エラーを返す場合、モデルの`errors`プロパティーで利用可能になります。
+テンプレートにブログ投稿を保存したときのエラーを表示する方法は次のとおりです。
 
 ```handlebars
 {{#each post.errors.title as |error|}}
@@ -117,9 +169,13 @@ the errors from saving a blog post in your template:
 
 ## Promises
 
+<!--
 [`save()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/save?anchor=save) returns
 a promise, which makes it easy to asynchronously handle success and failure
 scenarios.  Here's a common pattern:
+-->
+[`save()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/save?anchor=save)はPromiseを返します。成功と失敗のシナリオを非同期に処理できるようにします。
+一般的なパターンは次のとおりです。
 
 ```javascript
 let post = store.createRecord('post', {
@@ -143,12 +199,25 @@ post.save().then(transitionToPost).catch(failure);
 // => transitioning to posts.show route
 ```
 
+<!--
 ## Deleting Records
+-->
 
+## レコードの削除
+
+<!--
 Deleting records is as straightforward as creating records. Call [`deleteRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/deleteRecord?anchor=deleteRecord)
 on any instance of `DS.Model`. This flags the record as `isDeleted`. The
 deletion can then be persisted using `save()`.  Alternatively, you can use
 the [`destroyRecord`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/deleteRecord?anchor=destroyRecord) method to delete and persist at the same time.
+-->
+
+レコードを削除することは、レコードを作成することと同じくらい簡単です。
+`DS.Model`の任意のインスタンスで[`deleteRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/deleteRecord?anchor=deleteRecord)を呼び出します。
+これは`isDeleted`としてレコードにフラグを立てます。
+削除は、`save()`を使用して永続化することができます。
+また、[`destroyRecord`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Model/methods/deleteRecord?anchor=destroyRecord)メソッドを使用して、同時に削除して永続化することもできます。
+
 
 ```js
 store.findRecord('post', 1, { backgroundReload: false }).then(function(post) {
@@ -163,6 +232,11 @@ store.findRecord('post', 2, { backgroundReload: false }).then(function(post) {
 });
 ```
 
+<!--
 The `backgroundReload` option is used to prevent the fetching of the destroyed record, since [`findRecord()`][findRecord] automatically schedules a fetch of the record from the adapter.
+-->
+
+`backgroundReload`オプションは、[findRecord()][findRecord]が自動的にアダプタからレコードのフェッチをスケジュールするので、破棄されたレコードのフェッチを防ぐために使用されます。
+
 
 [findRecord]: <https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=findRecord>

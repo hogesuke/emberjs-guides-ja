@@ -146,7 +146,7 @@
       url: "index"
     - title: "Defining Models"
       url: "defining-models"
-    - title: "Finding Records"
+    - title: "レコード検索"
       url: "finding-records"
     - title: "Creating, Updating and Deleting"
       url: "creating-updating-and-deleting-records"

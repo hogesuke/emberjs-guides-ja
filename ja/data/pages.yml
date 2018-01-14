@@ -139,10 +139,10 @@
     - title: "はじめに"
       url: "index"
 
-- title: "Models"
+- title: "モデル"
   url: 'models'
   pages:
-    - title: "Introduction"
+    - title: "はじめに"
       url: "index"
     - title: "Defining Models"
       url: "defining-models"

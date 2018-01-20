@@ -128,7 +128,9 @@ Ember Dataを理解すると、アプリケーションでのデータの読み�
 ## The Store and a Single Source of Truth
 -->
 
-## Storeと真実の単一の源
+## Storeと信頼できる唯一の情報源
+
+*訳注: a Single Source of Truthを信頼できる唯一の情報源と訳しています。*
 
 <!--
 One common way of building web applications is to tightly couple user
@@ -137,15 +139,15 @@ writing the admin section of a blogging app, which has a feature that
 lists the drafts for the currently logged in user.
 -->
 
-Webアプリケーションを構築する一般的な方法の1つは、ユーザーインターフェイス要素をデータフェッチに強固に結合することです。
-たとえば、現在ログインしているユーザーの下書きを一覧表示する機能を持つブログアプリの管理セクションを作成しているとします。
+Webアプリ開発でよくあるやり方の1つに、ユーザーインターフェイス要素とデータ取得を密結合させるのがあります。
+例えば、ブログアプリの管理画面を開発していて、ログイン中のユーザの下書き一覧ページを作る場合...
 
 <!--
 You might be tempted to make the component responsible for fetching that
 data and storing it:
 -->
 
-あなたは、そのデータをフェッチして保存する責任を負うことができます：
+以下のように、データをコンポーネントで取得するように書く気になるかもしれません。
 
 ```app/components/list-of-drafts.js
 import Component from '@ember/component';
@@ -164,7 +166,7 @@ You could then show the list of drafts in your component's template like
 this:
 -->
 
-次に、コンポーネントのテンプレートに下書きのリストを次のように表示できます。
+そして以下のように、コンポーネントのテンプレートで下書きの一覧を表示しようとします。
 
 ```app/templates/components/list-of-drafts.hbs
 <ul>
@@ -182,10 +184,10 @@ tempted to copy and paste your existing `willRender` code into the new
 component.
 -->
 
-これは、ドラフトの一覧のコンポーネントに最適です。
-しかし、あなたのアプリはおそらく多くの異なるコンポーネントで構成されています。
-別のページでは、コンポーネントに下書きの数を表示させることができます。
-既存のwillRenderコードをコピーして新しいコンポーネントに貼り付けることができます。
+このやり方は下書き一覧のコンポーネントには最適です。
+しかし、アプリに他にも色々なコンポーネントがある場合はどうでしょう。
+他のページでは、下書きの数を表示するコンポーネントが必要かもしれません。
+その場合、上記の`willRender`コードをそのコンポーネントにコピペしたくなるかもしれません。
 
 ```app/components/drafts-button.js
 import Component from '@ember/component';
@@ -215,9 +217,9 @@ of sync with the counter in a toolbar, leading to a frustrating and
 inconsistent experience.
 -->
 
-残念ながら、アプリは同じ情報に対して2つの別々のリクエストを行います。
-冗長なデータフェッチでは、無駄な帯域幅やアプリのスピードに影響を及ぼすだけでなく、2つの値が同期しなくなることも簡単です。
-アイテムのリストがツールバーのカウンタと同期しなくなり、不満足で矛盾した経験につながるWebアプリケーションをおそらくあなた自身が使用しています。
+残念ながら、この例では、アプリは同じ情報に対して2つのリクエストが別々に発生します。
+不必要なリクエストは、無駄な帯域幅やアプリのスピードに影響を及ぼすだけでなく、簡単に同期ずれが起きるでしょう。
+おそらくあなた自身も、一覧の件数とがメニューバーの件数と同期しなくなってイライラするようなWebアプリをこれまでに使ったことがあるのではないでしょうか。
 
 <!--
 There is also a _tight coupling_ between your application's UI and the
@@ -226,8 +228,8 @@ is likely to break all of your UI components in ways that are hard to
 track down.
 -->
 
-また、アプリケーションのUIとネットワークコードの間に緊密な結合があります。
-JSONペイロードのURLまたは形式が変更された場合、追跡が困難な方法ですべてのUIコンポーネントが破損する可能性があります。
+また、アプリケーションのUIとネットワークコードが密結合になっています。
+URLやJSONの形式が変更された場合、UIコンポーネントが動かなくなり、しかも修正が必要なコンポーネントの把握に支障を来す可能性があります。
 
 <!--
 The SOLID principles of good design tell us that objects should have a
@@ -235,7 +237,7 @@ single responsibility. The responsibility of a component should be
 presenting model data to the user, not fetching the model.
 -->
 
-良いデザインのソリッドな原則は、オブジェクトは単一の責任を持つべきだと教えてくれる。
+良い設計のためのSOLID原則は、オブジェクトは単一の責任を持つべきだと教えています。
 コンポーネントの責任は、モデルをフェッチするのではなく、モデルデータをユーザーに提示することです。
 
 <!--
@@ -245,9 +247,10 @@ Routes and their corresponding controllers can ask the store for models, and the
 responsible for knowing how to fetch them.
 -->
 
-優れたEmberアプリは異なるアプローチをとっています。
-Ember Dataは、アプリケーションのモデルの中央リポジトリである単一のストアを提供します。
-コンポーネントとルートはモデルのストアにストアに問い合わせることができ、ストアはそれらをフェッチする方法を知る責任があります。
+さらに、Emberアプリでは、それとは別に良いやり方を取り入れることができます。
+Ember Dataは、アプリケーションのモデルの中央リポジトリである単一の**store**(ストア)を提供します。
+コントローラーとルートはストアにモデルの問い合わせができます。
+ストアの責任はモデルをフェッチする方法を知っていることです。
 
 <!--
 It also means that the store can detect that two different components
@@ -258,8 +261,10 @@ this shared store; when they need to display or modify a model, they
 first ask the store for it.
 -->
 
-また、ストアでは、2つの異なるコンポーネントが同じモデルを要求していることを検出できるため、アプリは一度サーバーからデータを取得することができます。
-あなたのアプリのモデルのためのストアドキャッシュと考えることができます。コンポーネントとルートの両方がこの共有ストアにアクセスできます。モデルを表示したり変更したりする必要があるときは、まず店舗に問い合わせます。
+また、2つの異なるコンポーネントが同じモデルを要求していることをストアが把握できるため、アプリはサーバーからデータの取得を一度に済ませられます。
+ストアは、モデルのリードスルーキャッシュと考えることもできます。
+コントローラーとルートがストアにアクセスできます。
+モデルを表示したり変更したりする必要があるときは、まずはストアを使いましょう。
 
 <!--
 ## Convention Over Configuration with JSON API

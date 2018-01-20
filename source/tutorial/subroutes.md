@@ -35,9 +35,9 @@ This is where the active nested route will be rendered.
 </div>
 {{#list-filter
    filter=(action 'filterByCity')
-   as |rentals|}}
+   as |filteredResults|}}
   <ul class="results">
-    {{#each rentals as |rentalUnit|}}
+    {{#each filteredResults as |rentalUnit|}}
       <li>{{rental-listing rental=rentalUnit}}</li>
     {{/each}}
   </ul>
@@ -112,9 +112,9 @@ Now that we are returning all of our rentals to the nested route's model, we wil
 </div>
 {{#list-filter
    filter=(action 'filterByCity')
-   as |rentals|}}
+   as |filteredResults|}}
   <ul class="results">
-    {{#each rentals as |rentalUnit|}}
+    {{#each filteredResults as |rentalUnit|}}
       <li>{{rental-listing rental=rentalUnit}}</li>
     {{/each}}
   </ul>
@@ -125,9 +125,9 @@ Now that we are returning all of our rentals to the nested route's model, we wil
 ```app/templates/rentals/index.hbs{+1,+2,+3,+4,+5,+6,+7,+8,+9}
 {{#list-filter
    filter=(action 'filterByCity')
-   as |rentals|}}
+   as |filteredResults|}}
   <ul class="results">
-    {{#each rentals as |rentalUnit|}}
+    {{#each filteredResults as |rentalUnit|}}
       <li>{{rental-listing rental=rentalUnit}}</li>
     {{/each}}
   </ul>
@@ -179,7 +179,7 @@ export default function() {
         title: "Grand Old Mansion",
         owner: "Veruca Salt",
         city: "San Francisco",
-        "property-type": "Estate",
+        category: "Estate",
         bedrooms: 15,
         image: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg",
         description: "This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests."
@@ -192,7 +192,7 @@ export default function() {
         title: "Urban Living",
         owner: "Mike Teavee",
         city: "Seattle",
-        "property-type": "Condo",
+        category: "Condo",
         bedrooms: 1,
         image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg",
         description: "A commuters dream. This rental is within walking distance of 2 bus stops and the Metro."
@@ -205,7 +205,7 @@ export default function() {
         title: "Downtown Charm",
         owner: "Violet Beauregarde",
         city: "Portland",
-        "property-type": "Apartment",
+        category: "Apartment",
         bedrooms: 3,
         image: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg",
         description: "Convenience is at your doorstep with this charming downtown rental. Great restaurants and active night life are within a few feet."

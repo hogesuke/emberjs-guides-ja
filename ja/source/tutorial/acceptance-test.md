@@ -156,11 +156,11 @@ By default, when you run `ember test --server`, Ember CLI runs the [Testem test 
 デフォルトで、`ember test --server`を実行すると、Ember [Testemテストランナー](https://github.com/testem/testem)を実行し、ChromeがQUnitを実行します。
 
 <!--
-Our launched Chrome web browser now shows 10 successful tests. If you toggle the box labeled "Hide passed tests", you should see our successful acceptance test, along with 9 passing ESLint tests. Ember tests each file you create for syntax issues (known as "linting") using [ESLint](http://eslint.org/).
+Our launched Chrome web browser now shows 9 successful tests. If you toggle the box labeled "Hide passed tests", you should see our successful acceptance test, along with 8 passing ESLint tests. Ember tests each file you create for syntax issues (known as "linting") using [ESLint](http://eslint.org/).
 -->
 
-起動されたChromeは10件テストがパスしたのを表示しています。
-"Hide passed tests"というラベルにチェックを外すと、受け入れテストが1件、ESLintが9件パスしたのが表示されます。Emberは[ESLint](http://eslint.org/)で、構文の確認(lint)を実行します。
+Chromeが起動し、9件のテストがパスしたことが表示されます。
+"Hide passed tests"というラベルにチェックを外すと、受け入れテストが1件、ESLintが8件パスしたのが表示されます。Emberは[ESLint](http://eslint.org/)で、構文の確認(lint)を実行します。
 
 ![Initial Tests Screenshot](../../images/acceptance-test/initial-tests.png)
 
@@ -211,10 +211,10 @@ test('visiting /', function(assert) {
 ```
 
 <!--
-Running `ember test --server` will now show 7 failing tests (out of 15). Each of the 6 tests we setup above will fail, plus one ESLint test will fail saying, `assert is defined but never used`. The tests above fail because QUnit requires at least one check for a specific condition (known as an `assert`).
+Running `ember test --server` will now show 7 failing tests (out of 14). Each of the 6 tests we setup above will fail, plus one ESLint test will fail saying, `assert is defined but never used`. The tests above fail because QUnit requires at least one check for a specific condition (known as an `assert`).
 -->
 
-`ember test --server`を実行すると7件の失敗が表示されるはずです。6件は、先ほど置き換えたテストで、1件は`assert`は定義されているが一度も使われていないというESLintの報告です。上記のテストが失敗するのはQUnitが少なくとも1つの`assert`を要求するからです。
+`ember test --server`を実行すると(14件中)7件の失敗が表示されるはずです。6件は、先ほど置き換えたテストで、1件は`assert`は定義されているが一度も使われていないというESLintの報告です。上記のテストが失敗するのはQUnitが少なくとも1つの`assert`を要求するからです。
 
 <!--
 As we continue through this tutorial, we'll use these acceptance tests as our checklist. Once all the tests are passing, we'll have accomplished our high level goals.

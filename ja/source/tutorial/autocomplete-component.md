@@ -56,10 +56,10 @@ which allows a Handlebars template to be rendered _inside_ the component's templ
 これはコンポーネントの[**ブロック形式**](../../components/wrapping-content-in-a-component)の例であり、Handlebarsテンプレートをコンポーネントのテンプレート内の`{{yield}}`式があるところに描画します。
 
 <!--
-In this case we are passing, or "yielding", our filter data to the inner markup as a variable called `rentals` (line 14).
+In this case we are passing, or "yielding", our filter data to the inner markup as a variable called `filteredResults` (line 14).
 -->
 
-この場合、フィルタリングしたデータをブロック内のマークアップに`rentals`という変数として渡しています（14行目）。
+この場合、フィルタリングしたデータをブロック内のマークアップに`filteredResults`という変数として渡しています（14行目）。
 
 ```app/templates/rentals.hbs{+12,+13,+14,+15,+16,+17,+18,+19,+20,-21,-22,-23}
 <div class="jumbo">
@@ -75,9 +75,9 @@ In this case we are passing, or "yielding", our filter data to the inner markup 
 
 {{#list-filter
    filter=(action 'filterByCity')
-   as |rentals|}}
+   as |filteredResults|}}}}
   <ul class="results">
-    {{#each rentals as |rentalUnit|}}
+    {{#each filteredResults as |rentalUnit|}}
       <li>{{rental-listing rental=rentalUnit}}</li>
     {{/each}}
   </ul>
@@ -129,10 +129,14 @@ The `key-up` property will be bound to the `handleFilterEntry` action.
 `key-up`属性は、`handleFilterEntry`アクションにバインドされます。
 
 <!--
-Here is what the component's JavaScript looks like:
+The `handleFilterEntry` action will apply the search term filter to the list of rentals, and set a component attribute called `results`. The `results` are passed to the `{{yield}}` helper in the template. In the yielded block component, those same `results` are referred to as `|filteredResults|`. Let's apply the filter to our rentals:
 -->
 
-コンポーネントのJavaScriptは次のようになります。
+`handleFilterEntry`アクションでは、物件一覧を検索ワードで絞り込み、`results`というコンポーネント属性に設定します。
+`results`はテンプレートの`{{yield}}`ヘルパーに渡されます。
+`list-filter`コンポーネントに渡されるブロックコンポーネントでは、`list-filter`の`results`を`|filteredResults|`という名前で受け取ります。
+物件が絞り込まれるようコードを変更しましょう。
+
 
 ```app/components/list-filter.js
 import Component from '@ember/component';
@@ -248,11 +252,14 @@ Instead of simply returning the list of rentals, our Mirage HTTP GET handler for
 
 この動作を有効にするには、Mirageの`config.js`ファイルを次のように置き換えて、クエリに応答できるようにする必要があります。 単に全物件データを返す代わりに、Mirage HTTP GETハンドラの`rentals`で、`city`というURLクエリパラメータで指定された文字列と一致する物件を返すようにします。
 
-```mirage/config.js
+```mirage/config.js{+4,-5,-6,-7,-44,-45,+47,+48,+49,+50,+51,+52,+53,+54,+55,+56,+57}
 export default function() {
   this.namespace = '/api';
 
   let rentals = [{
+  this.get('/rentals', function() {
+    return {
+      data: [{
       type: 'rentals',
       id: 'grand-old-mansion',
       attributes: {
@@ -289,6 +296,8 @@ export default function() {
         description: "Convenience is at your doorstep with this charming downtown rental. Great restaurants and active night life are within a few feet."
       }
     }];
+  };
+});
 
   this.get('/rentals', function(db, request) {
     if(request.queryParams.city !== undefined) {
@@ -365,7 +374,7 @@ we've added a new property called `query` to the filter results instead of just 
 
 上のrentalsコントローラの`filterByCity`関数では、以前と同様に物件の配列を返すのではなく、検索結果に`query`という新しいプロパティを追加しました。
 
-```app/components/list-filter.js{-18,+9,+10,+11,+19,+20,+21,+22}
+```app/components/list-filter.js{-19,-9,+10,+11,+12,+20,+21,+22,+23,+24}
 import Component from '@ember/component';
 
 export default Component.extend({
@@ -374,6 +383,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
+    this.get('filter')('').then((results) => this.set('results', results));
     this.get('filter')('').then((allResults) => {
       this.set('results', allResults.results);
     });
@@ -443,7 +453,7 @@ Remove the default test, and create a new test that verifies that by default, th
 
 まず、`list-filter`コンポーネントを生成したときに作成されたコンポーネント統合テスト`tests/integration/components/list-filter-test.js`を開きます。 既存のテストを削除し、コンポーネントがデフォルトですべてのアイテムを一覧表示することを確認する新しいテストを作成します。
 
-```tests/integration/components/list-filter-test.js
+```tests/integration/components/list-filter-test.js{+8,+9,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27}
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -452,6 +462,24 @@ moduleForComponent('list-filter', 'Integration | Component | filter listing', {
 });
 
 test('should initially load all listings', function (assert) {
+});
+
+test('it renders', function(assert) {
+  // Set any properties with this.set('myProperty', 'value');
+  // Handle any actions with this.on('myAction', function(val) { ... });
+
+  this.render(hbs`{{list-filter}}`);
+
+  assert.equal(this.$().text().trim(), '');
+
+  // Template block usage:
+  this.render(hbs`
+    {{#list-filter}}
+      template block text
+    {{/list-filter}}
+  `);
+
+  assert.equal(this.$().text().trim(), 'template block text');
 });
 ```
 

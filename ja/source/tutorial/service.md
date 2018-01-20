@@ -105,7 +105,10 @@ and `google.maps.Marker` to pin our map based on the resolved location.
 `google.maps.Geocoder`で場所の座標を検索し、
 `google.maps.Marker`をその座標にピンを置く`createMap`関数を作り、アプリケーションで利用します。
 
-```app/utils/google-maps.js
+```app/utils/google-maps.js{-1,-2,-3,+4,+6,+8,+10,+11,+12,+14,+15,+16,+17,+18,+20,+21,+22,+23,+24,+25,+26,+27,+28,+29,+31}
+export default function googleMaps() {
+  return true;
+}
 import EmberObject from '@ember/object';
 
 const google = window.google;
@@ -113,7 +116,7 @@ const google = window.google;
 export default EmberObject.extend({
 
   init() {
-    this.set('geocoder', new google.maps.Geocoder());
+    this.set('geocoder', new window.google.maps.Geocoder());
   },
 
   createMap(element, location) {
@@ -162,7 +165,7 @@ Accessing our maps API through a [service](../../applications/services) will giv
   allowing for easier refactoring and maintenance.
 * It is lazy-loaded, meaning it won't be initialized until it is called the first time.
   In some cases this can reduce your app's processor load and memory consumption.
-* It is a singleton, which means there is only one instance of the service object in browser.
+* It is a singleton, which means there is only one instance of the service object in the browser.
   This will allow us to keep map data while the user navigates around the app,
   so that returning to a page doesn't require it to reload its maps.
 -->
@@ -192,7 +195,7 @@ otherwise we call a Google Maps utility to create one.
 特定の場所のマップが既に存在するかどうかを確認し、あればそのマップを使用します。
 そうでない場合は、Google Mapsユーティリティを呼び出してマップを作成します。
 
-```app/services/maps.js
+```app/services/maps.js{+2,+3,+5,+9,+10,+11,+12,+13,+14,+15,+16,+18,+19+,+20,+21,+22,+23,+24,+25,+26,+27,+29,+30,+31,+32,+33}
 import Service from '@ember/service';
 import { camelize } from '@ember/string';
 import EmberObject from '@ember/object';
@@ -268,7 +271,8 @@ This `div` will act as a place for the 3rd party map API to render the map to.
 コンポーネントテンプレートに `div`要素を追加することから始めましょう。
 この`div`は、サードパーティのマップAPIがマップを描画する場所として使います。
 
-```app/templates/components/location-map.hbs
+```app/templates/components/location-map.hbs{-1,+2}
+{{yield}}
 <div class="map-container"></div>
 ```
 
@@ -301,7 +305,7 @@ This function runs during the component render, after the component's markup get
 コンポーネントの[ライフサイクルフック](../../components/the-component-lifecycle/#toc_integrating-with-third-party-libraries-with-code-didinsertelement-code)である`didInsertElement`を実装することによって、サービスから取得したmap要素を追加します。
 この関数は、コンポーネントのマークアップがページに挿入後、コンポーネントのレンダリング中に実行されます。
 
-```app/components/location-map.js
+```app/components/location-map.js{+2,+5,+7,+8,+9,+10,+11,+12}
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 
@@ -401,7 +405,7 @@ In our case we are passing in our fake map utility object in the first test, and
 テスト中のオブジェクトをインスタンス化するには、`this.subject`関数を使用します。初期値は引数で指定します。
 ここでは、最初のテストでは偽物のマップユーティリティオブジェクトを渡し、2番目のテストではキャッシュオブジェクトを渡しています。
 
-```tests/unit/services/maps-test.js
+```tests/unit/services/maps-test.js{+2,+4,+6,+7,+8,+9,+10,+11,+12,-14,-15,-16,-17,+18,-20,-21,-22,-23,-24,+25,+26,+27,+28,+29,+30,+31,+32,+34,+35,+36,+37,+38,+39,+40,+41,+42}
 import { moduleFor, test } from 'ember-qunit';
 import EmberObject from '@ember/object';
 
@@ -415,8 +419,17 @@ let MapUtilStub = EmberObject.extend({
   }
 });
 
+moduleFor('service:maps', 'Unit | Service | maps', {
+  // Specify the other units that are required for this test.
+  // needs: ['service:foo']
+});
 moduleFor('service:maps', 'Unit | Service | maps');
 
+// Replace this with your real tests.
+test('it exists', function(assert) {
+  let service = this.subject();
+  assert.ok(service);
+});
 test('should create a new map if one isnt cached for location', function (assert) {
   assert.expect(4);
   let stubMapUtil = MapUtilStub.create({ assert });
@@ -497,7 +510,7 @@ In the stub service, define a method that will fetch the map based on location, 
 アプリケーション内の実際のオブジェクトの代わりにスタブを使って、その動作をシミュレートします。
 スタブに、位置に基づいてマップをフェッチする`getMapElement`というメソッドを定義します。
 
-```tests/integration/components/location-map-test.js
+```tests/integration/components/location-map-test.js{+3,+5,+6,+7,+8,+9,+10,+11,+12,-15,+16,+17,+18,+19,+20,+23,+24,+25,+26,+27,+28}
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
@@ -512,6 +525,7 @@ let StubMapsService = Service.extend({
 });
 
 moduleForComponent('location-map', 'Integration | Component | location map', {
+  integration: true
   integration: true,
   beforeEach() {
     this.register('service:maps', StubMapsService);

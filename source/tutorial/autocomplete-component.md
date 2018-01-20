@@ -22,7 +22,7 @@ Notice that below we "wrap" our rentals markup inside the open and closing menti
 This is an example of the [**block form**](../../components/wrapping-content-in-a-component) of a component,
 which allows a Handlebars template to be rendered _inside_ the component's template wherever the `{{yield}}` expression appears.
 
-In this case we are passing, or "yielding", our filter data to the inner markup as a variable called `rentals` (line 14).
+In this case we are passing, or "yielding", our filter data to the inner markup as a variable called `filteredResults` (line 14).
 
 ```app/templates/rentals.hbs{+12,+13,+14,+15,+16,+17,+18,+19,+20,-21,-22,-23}
 <div class="jumbo">
@@ -38,9 +38,9 @@ In this case we are passing, or "yielding", our filter data to the inner markup 
 
 {{#list-filter
    filter=(action 'filterByCity')
-   as |rentals|}}
+   as |filteredResults|}}
   <ul class="results">
-    {{#each rentals as |rentalUnit|}}
+    {{#each filteredResults as |rentalUnit|}}
       <li>{{rental-listing rental=rentalUnit}}</li>
     {{/each}}
   </ul>
@@ -71,7 +71,7 @@ the new value of the property is present in both the rendered web page and in th
 
 The `key-up` property will be bound to the `handleFilterEntry` action.
 
-Here is what the component's JavaScript looks like:
+The `handleFilterEntry` action will apply the search term filter to the list of rentals, and set a component attribute called `results`. The `results` are passed to the `{{yield}}` helper in the template. In the yielded block component, those same `results` are referred to as `|filteredResults|`. Let's apply the filter to our rentals:
 
 ```app/components/list-filter.js
 import Component from '@ember/component';
@@ -148,11 +148,14 @@ The result of the query is returned to the caller.
 For this action to work, we need to replace our Mirage `config.js` file with the following, so that it can respond to our queries.
 Instead of simply returning the list of rentals, our Mirage HTTP GET handler for `rentals` will return rentals matching the string provided in the URL query parameter called `city`.
 
-```mirage/config.js
+```mirage/config.js{+4,-5,-6,-7,-44,-45,+47,+48,+49,+50,+51,+52,+53,+54,+55,+56,+57}
 export default function() {
   this.namespace = '/api';
 
   let rentals = [{
+  this.get('/rentals', function() {
+    return {
+      data: [{
       type: 'rentals',
       id: 'grand-old-mansion',
       attributes: {
@@ -189,6 +192,8 @@ export default function() {
         description: "Convenience is at your doorstep with this charming downtown rental. Great restaurants and active night life are within a few feet."
       }
     }];
+  };
+});
 
   this.get('/rentals', function(db, request) {
     if(request.queryParams.city !== undefined) {
@@ -244,8 +249,8 @@ export default Controller.extend({
 In the `filterByCity` function in the rentals controller above,
 we've added a new property called `query` to the filter results instead of just returning an array of rentals as before.
 
-```app/components/list-filter.js{-18,+9,+10,+11,+19,+20,+21,+22}
-import Component from '@ember/component';
+```app/components/list-filter.js{-19,-9,+10,+11,+12,+20,+21,+22,+23,+24}
+import Ember from 'ember';
 
 export default Component.extend({
   classNames: ['list-filter'],
@@ -253,6 +258,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
+    this.get("filter")("").then((results) => this.set("results", results))
     this.get('filter')('').then((allResults) => {
       this.set('results', allResults.results);
     });
@@ -297,7 +303,7 @@ similar to [how we tested our rental listing component earlier](../simple-compon
 Lets begin by opening the component integration test created when we generated our `list-filter` component, `tests/integration/components/list-filter-test.js`.
 Remove the default test, and create a new test that verifies that by default, the component will list all items.
 
-```tests/integration/components/list-filter-test.js
+```tests/integration/components/list-filter-test.js{+8,+9,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27}
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -306,6 +312,24 @@ moduleForComponent('list-filter', 'Integration | Component | filter listing', {
 });
 
 test('should initially load all listings', function (assert) {
+});
+
+test('it renders', function(assert) {
+  // Set any properties with this.set('myProperty', 'value');
+  // Handle any actions with this.on('myAction', function(val) { ... });
+
+  this.render(hbs`{{list-filter}}`);
+
+  assert.equal(this.$().text().trim(), '');
+
+  // Template block usage:
+  this.render(hbs`
+    {{#list-filter}}
+      template block text
+    {{/list-filter}}
+  `);
+
+  assert.equal(this.$().text().trim(), 'template block text');
 });
 ```
 

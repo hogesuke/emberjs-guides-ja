@@ -6,6 +6,15 @@ as when an error occurs in loading a route.
 Ember Routerでは、ルートのロード中や、エラーが発生したことを、ユーザに見せることができます。
 
 <!--
+The `error` and `loading` substates exist as a part of each route, so they
+should not be added to your `router.js` file. To utilize a substate, the route, controller,
+and template may be optionally defined as desired.
+-->
+
+`error`と`loading`サブステートは各ルートの一部として存在するため、`router.js`ファイルに追加するべきではありません。
+サブステートを活用するために、ルート、コントローラ、およびテンプレートで、必要に応じて任意に定義することもできます。
+
+<!--
 ## `loading` substates
 -->
 

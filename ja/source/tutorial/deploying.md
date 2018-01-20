@@ -9,6 +9,48 @@ Emberアプリケーションをデプロイは、`ember build`の出力した�
 また、簡単にデプロイできるサービスもあります。
 
 <!--
+## Building for Deployment
+-->
+
+## デプロイ用のビルド
+
+<!--
+Before you run `ember build` for this tutorial ensure you have the environment variable `GOOGLE_MAPS_API_KEY` set on your operating system,
+so that you can view [the maps we set up previously](../service).
+-->
+
+このチュートリアルで`ember build`を実行する前に、オペレーティングシステムで環境変数`GOOGLE_MAPS_API_KEY`を設定しておくことで、[前に設定したマップ](../service)を見ることができます。
+
+<!--
+For many Unix shell environments you can simply provide the key in front of the of the build command, such as:
+-->
+
+多くのUnixシェル環境では、以下のようにビルドコマンドの前にキーを指定するだけです。
+
+```shell
+GOOGLE_MAPS_API_KEY=<your key> ember build --environment=development
+```
+
+<!--
+For windows environments, type the following:
+-->
+
+Windows環境の場合は、次のように実行します。
+
+```shell
+set GOOGLE_MAPS_API_KEY=<your key>
+ember build --environment=development
+```
+
+<!--
+We use `--environment=development` here so that Mirage will continue to mock fake data.
+However, normally we would use `ember build --environment=production` which optimizes your application for production.
+-->
+
+ここではデプロイ用のビルドでもMirageでデータをモックするために`--environment=development`を使用しています。
+しかし、通常は、`ember build --environment=production`を使ってアプリケーションをプロダクション向けに最適化します。
+
+<!--
 ## Deploying with scp
 -->
 
@@ -21,7 +63,6 @@ You can deploy your application to any web server by copying the output from `em
 `ember build`の出力を任意のWebサーバーにコピーすることによって、任意のWebサーバーにアプリケーションをデプロイできます。
 
 ```shell
-ember build
 scp -r dist/* myserver.com:/var/www/public/
 ```
 
@@ -58,13 +99,12 @@ Note you will also need to rename index.html to 200.html to enable Ember's clien
 Emberのクライアント側ルーティングを有効にするには、index.htmlの名前を200.htmlに変更する必要があります。
 
 ```shell
-ember build --environment=development
 mv dist/index.html dist/200.html
 surge dist funny-name.surge.sh
 ```
 
 <!--
-We chose funny-name.surge.sh but you may use any unclaimed subdomain you like or 
+We chose funny-name.surge.sh but you may use any unclaimed subdomain you like or
 use a custom domain that you own and have pointed the DNS to one of surges servers.
 If the second argument is left blank surge will prompt you with a suggested subdomain.
 -->
@@ -73,7 +113,7 @@ funny-name.surge.shを選択しましたが、まだ取得されていないサ�
 2番目の引数を空白にすると、サージはサブドメインの提案と入力を促します。
 
 <!--
-To deploy to the same URL after making changes, perform the same steps, reusing 
+To deploy to the same URL after making changes, perform the same steps, reusing
 the same domain as before.
 -->
 
@@ -81,18 +121,17 @@ the same domain as before.
 
 ```shell
 rm -rf dist
-ember build --environment=development
 mv dist/index.html dist/200.html
 surge dist funny-name.surge.sh
 ```
 
 <!--
-We use `--environment=development` here so that Mirage will continue to mock fake data. -
-However, normally we would use `ember build --environment=production` which optimizes your application for production.
+Note we are building with the google maps api key as shown above for UNIX platforms.
+For windows you will need to set the variable according the example in the previous section.
 -->
 
-ここで `--environment = development`を使用して、Mirageは偽のデータを模倣し続けます。
-しかし、通常は、 `ember build --environment = production`を使ってアプリケーションを最適化して生産します。
+上記のUNIXプラットフォームのやり方でGoogleマップAPIキーを設定してビルドしていることに注意してください。
+Windowsの場合は前のセクションの例に従って変数を設定する必要があります。
 
 <!--
 ## Servers

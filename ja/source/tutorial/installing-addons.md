@@ -242,10 +242,10 @@ export default DS.JSONAPIAdapter.extend({
 ```
 
 <!--
-If you were running `ember serve` in another shell, restart the server to include Mirage in your build.
+If you were running `ember serve` or `ember test --serve` in another shell, restart each of those servers to include Mirage in your build.
 -->
 
-もし`ember serve` を実行したら、Mirageを含めるように再起動してください。(Mirageの変更は再起動は不要ですが、アドオンインストール直後は再起動が必要です。)
+別のシェルで`ember serve`または`ember test --serve`を実行している場合は、Mirageがビルドに含めるよう、サーバを再起動してください。
 
 <!--
 Note that at this point of the tutorial, the data is still provided by the `app/routes/rentals.js` file. We will make use of the mirage data we set up here in the upcoming section called [Using Ember Data](../ember-data/).

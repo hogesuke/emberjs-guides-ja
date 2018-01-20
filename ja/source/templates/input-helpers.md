@@ -83,10 +83,10 @@ To dispatch an action on specific events, such as `enter` or `key-press`, use th
 ```
 
 <!--
-[Event Names](https://www.emberjs.com/api/ember/2.16/classes/Component#toc_event-names) must be dasherized.
+[Event Names](https://www.emberjs.com/api/ember/release/classes/Component) must be dasherized.
 -->
 
-[イベント名](https://www.emberjs.com/api/ember/2.16/classes/Component#toc_event-names)はケバブケース(ダッシュで単語間を区切る)でないといけません。
+[イベント名](https://www.emberjs.com/api/ember/release/classes/Component)はケバブケース(ダッシュで単語間を区切る)でないといけません。
 
 <!--
 ## Checkboxes

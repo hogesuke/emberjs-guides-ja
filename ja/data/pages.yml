@@ -133,10 +133,10 @@
     - title: "アクションによる変更のトリガー"
       url: "triggering-changes-with-actions"
 
-- title: "Controllers"
+- title: "コントローラー"
   url: 'controllers'
   pages:
-    - title: "Introduction"
+    - title: "はじめに"
       url: "index"
 
 - title: "Models"

@@ -220,7 +220,7 @@ should also run after `init` by using [`Ember.on()`](http://emberjs.com/api/clas
 
 ```javascript
 import EmberObject, { observer } from '@ember/object';
-import { on } from "@ember/object/evented"
+import { on } from '@ember/object/evented';
 
 Person = EmberObject.extend({
   init() {

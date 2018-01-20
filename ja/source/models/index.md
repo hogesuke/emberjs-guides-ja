@@ -4,8 +4,8 @@ application presents to the user. Different apps will have very
 different models, depending on what problems they're trying to solve.
 -->
 
-モデルは、アプリケーションがユーザーに提示する基礎となるデータを表すオブジェクトです。
-さまざまなアプリは、解決しようとしている問題に応じて、非常に異なるモデルを持ちます。
+モデルは、ユーザに見せるデータの基礎を表すオブジェクトです。
+解決しようとしている問題に応じて、アプリ毎に様々なモデルが存在します。
 
 <!--
 For example, a photo sharing application might have a `Photo`
@@ -15,8 +15,8 @@ probably have different models, like `ShoppingCart`, `Invoice`, or
 `LineItem`.
 -->
 
-たとえば、写真共有アプリケーションには、特定の写真を表すフォトモデルと、写真のグループを表すPhotoAlbumがあります。
-対照的に、オンラインショッピングアプリには、ShoppingCart、Invoice、LineItemなどの異なるモデルが含まれている可能性があります。
+例えば、写真共有アプリには、特定の写真を表す`Photo`モデルと、写真集を表す`PhotoAlbum`があったり、
+オンラインショッピングアプリには、`ShoppingCart`(カート)、`Invoice`(請求書)、`LineItem`(カートに追加された商品)などの違ったモデルがあったりするでしょう。
 
 <!--
 Models tend to be _persistent_. That means the user does not expect
@@ -25,8 +25,9 @@ no data is lost, if the user makes changes to a model, you need to store
 the model data somewhere that it will not be lost.
 -->
 
-モデルは永続的な傾向があります。 つまり、ブラウザウィンドウを閉じたときにモデルデータが失われることはありません。
-データが失われていないことを確認するには、ユーザーがモデルを変更した場合、モデルデータを失われない場所に保存する必要があります。
+モデルは永続化することが多いです。
+永続化により、ユーザがブラウザウィンドウを閉じるのと同時にモデルデータを失うのを防ぐことができます。
+データが失われないようにするには、ユーザーがモデルを変更した時に、そのデータを失われない場所に保存する必要があります。
 
 <!--
 Typically, most models are loaded from and saved to a server that uses a
@@ -37,9 +38,9 @@ user's hard disk with [IndexedDB][indexeddb], or hosted storage solutions that l
 avoid writing and hosting your own servers.
 -->
 
-通常、ほとんどのモデルは、データベースを使用してデータを格納するサーバーからロードされ、サーバーに保存されます。
-通常は、作成したHTTPサーバーにJSON形式のモデルを前後に送信します。
-ただし、Emberを使用すると、IndexedDBを使用してユーザーのハードディスクに保存するなど、他の耐久性のあるストレージや、独自のサーバーを作成しホストすることを避けることができるホスト型ストレージソリューションを簡単に使用できます。
+典型的に、ほとんどのモデルはサーバからデータを取得し、サーバのデータベースに保存します。
+HTTPサーバーとのモデルデータの送受信には、JSON形式がよく使われます。
+ですが、Emberでは、[IndexedDB][indexeddb]を使用してユーザーのハードディスクに保存したり、他の耐久性のあるストレージや、独自のサーバーを作成しホストすることを避けることができるホスト型ストレージソリューションを簡単に使用できます。
 
 [indexeddb]: https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
 
@@ -51,8 +52,8 @@ more information about how components get model data, see the
 guide.
 -->
 
-モデルをストレージからロードすると、コンポーネントはモデルデータをユーザーが操作できるUIに変換する方法を理解しています。
-コンポーネントがモデルデータを取得する方法の詳細については、「ルートモデルの指定」ガイドを参照してください。
+モデルがストレージからロードされると、コンポーネントがモデルデータをユーザーが操作できるUIに変えます。
+コンポーネントにモデルデータを渡す方法の詳細は、[ルートのモデルを指定する](../routing/specifying-a-routes-model)を参照してください。
 
 <!--
 Ember Data, included by default when you create a new application, is a
@@ -61,7 +62,8 @@ models from your server as JSON, save updates back to the server, and
 create new models in the browser.
 -->
 
-新しいアプリケーションを作成するときにデフォルトで含まれるEmber Dataは、Emberと緊密に統合されたライブラリであり、JSONとしてサーバーからモデルを取得し、サーバーに更新を保存し直し、ブラウザに新しいモデルを作成します。
+Ember DATAは、新しくアプリケーションを作成する際にデフォルトで含まれます。
+Ember DATAはEmberと緊密に統合されたライブラリで、サーバーからモデルをJSON形式で取得したり、サーバーにデータの変更を保存したり、ブラウザ上でデータを作成するのを簡単にします。
 
 <!--
 Thanks to its use of the _adapter pattern_, Ember Data can be configured
@@ -70,8 +72,8 @@ ecosystem of adapters][adapters] that allow your Ember app to talk to different
 types of servers without you writing any networking code.
 -->
 
-アダプタパターンの使用により、Ember Dataは多くの異なる種類のバックエンドで動作するように設定できます。
-あなたのEmberアプリケーションがあなたにネットワーキングコードを書かなくても、さまざまな種類のサーバーと話すことを可能にするアダプターのエコシステムがあります。
+アダプタパターンが使われているお陰で、いろんな種類のバックエンドでEmber Dataを使えるよう変更できます。
+さまざまな種類のサーバーとのやり取りを可能にする[アダプターがよく揃っているエコシステム][adapters]があるため、ライブラリを使えば自分でコードを書かなくて済むでしょう。
 
 [adapters]: http://emberobserver.com/categories/ember-data-adapters
 
@@ -82,7 +84,7 @@ that does not adhere to any JSON specification), Ember Data is designed
 to be configurable to work with whatever data your server returns.
 -->
 
-Ember.jsアプリケーションを使用可能なアダプタを持たないサーバに統合する必要がある場合(たとえば、JSON仕様に準拠していないAPIサーバーを手動でロールした場合)、Ember Dataは、サーバが返すデータで動作するように設定することができます。
+対応したアダプターがなくても(JSON仕様に準拠していない独自仕様のAPIサーバーなど)、Ember Dataは、サーバがどんな形式で返そうが、設定によって使えるように設計されています。
 
 <!--
 Ember Data is also designed to work with streaming servers, like those
@@ -91,8 +93,8 @@ changes into Ember Data whenever they occur, giving your app a real-time
 user interface that is always up-to-date.
 -->
 
-Ember Dataは、WebSocketのようなストリーミングサーバーと連携するように設計されています。
-サーバーへのソケットを開き、変更がEmber Dataに発生するたびに変更をプッシュして、アプリケーションに常に最新のリアルタイムのユーザーインターフェイスを提供することができます。
+Ember Dataは、WebSocketのようなストリーミングサーバーとも使えるよう設計されています。
+サーバーへのソケットを開き、変更が発生するたびにEmber Dataに変更をプッシュして、常に最新のリアルタイムのユーザーインターフェイスをアプリ上で提供することができます。
 
 <!--
 At first, using Ember Data may feel different than the way you're used
@@ -102,9 +104,9 @@ easy at first. Over time, however, complexity leaks out into your
 application code, making it hard to maintain.
 -->
 
-まずEmber Dataを使用すると、JavaScriptアプリケーションの作成方法とは異なる感じになることがあります。
-多くの開発者は、AJAXを使用してエンドポイントから未処理のJSONデータを取得することに精通しています。
-しかし、時間の経過とともに、複雑さがアプリケーションコードに漏れてしまい、保守が困難になります。
+初めてEmber Dataを使う時に、それまでのJavaScriptアプリケーションの作成方法との違和感を感じるかもしれません。
+よく、エンドポイントから生のJSONデータをAJAXで取得していた場合、一見その方が簡単そうですが、
+時間の経過とともに、アプリケーションコードが複雑になると、そのやり方では保守が困難になるでしょう。
 
 <!--
 With Ember Data, managing models as your application grows becomes both
@@ -119,8 +121,8 @@ better way to manage the complexity of data loading in your application.
 This will allow your code to evolve without becoming a mess.
 -->
 
-Ember Dataを理解すると、アプリケーションでのデータ読み込みの複雑さを管理するためのより良い方法が得られます。
-これにより、コードが混乱することなく進化します。
+Ember Dataを理解すると、アプリケーションでのデータの読み込みの複雑さをうまく管理するより良い方法を得られます。
+それにより、コードを汚くすることなく書いていくことができるでしょう。
 
 <!--
 ## The Store and a Single Source of Truth

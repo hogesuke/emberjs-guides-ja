@@ -452,7 +452,7 @@ An **adapter** is an object that translates requests from Ember (such as
 "find the user with an ID of 1") into requests to a server.
 -->
 
-アダプターは、Emberからの要求を（「IDが1のユーザーを見つける」などの）要求をサーバーに変換するオブジェクトです。
+アダプターは、Emberからの要求(「IDが1のユーザーを見つける」など)をサーバーへのリクエストに変換するオブジェクトです。
 
 <!--
 For example, if your application asks for a `Person` with an ID of
@@ -460,7 +460,9 @@ For example, if your application asks for a `Person` with an ID of
 it's HTTP, is the URL `/person/1` or `/resources/people/1`?
 -->
 
-たとえば、アプリケーションがIDが1のPersonを要求した場合、Emberはそれをどのようにロードする必要がありますか？ HTTPまたはWebSocket経由ですか？ HTTPの場合は、URL / person / 1または/ resources / people / 1ですか？
+例えば、アプリケーションがIDが`1`の`Person`を要求した場合、
+HTTPまたはWebSocket経由なのか、HTTPの場合はURLは`/person/1`または`/resources/people/1`なのかなど、
+Emberはそれをどのようにロードするかの判断が必要です。
 
 <!--
 The adapter is responsible for answering all of these questions.
@@ -471,8 +473,8 @@ appropriate data to your server and confirm that the save was
 successful.
 -->
 
-アダプターはこれらの質問にすべて答える責任があります。
-キャッシュされていないレコードをストアに要求すると、アダプタはそれを要求します。
+アダプターはそれらの問いにすべて答える責任があります。
+キャッシュされていないレコードをストアに要求すると、アダプターにその要求がいきます。
 レコードを変更して保存すると、ストアはレコードをアダプタに渡して、適切なデータをサーバーに送信し、保存が成功したことを確認します。
 
 <!--

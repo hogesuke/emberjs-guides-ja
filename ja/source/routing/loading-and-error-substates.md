@@ -42,7 +42,7 @@ Router.map(function() {
 ```
 
 ```app/routes/slow-model.js
-import Route from '@ember/routing/router';
+import Route from '@ember/routing/route';
 
 export default Route.extend({
   model() {
@@ -234,9 +234,9 @@ we can implement the `loading` action and let it bubble by returning `true`.
 `loading`サブステートのカスタムロジックとデフォルトの処理の両方が必要な場合は、`loading`アクションの実装で`true`を返すことで伝播できます。
 
 ```app/routes/foo-slow-model.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   ...
   actions: {
     loading(transition) {
@@ -386,9 +386,9 @@ we can handle the `error` event and let it bubble by returning `true`.
 任意の処理の後に、errorテンプレートを描画するデフォルトの処理が必要な場合は、`error`イベントを実装し、`true`を返して伝達させます。
 
 ```app/routes/articles-overview.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(params) {
     return this.get('store').findAll('privileged-model');
   },

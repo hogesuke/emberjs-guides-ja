@@ -143,11 +143,12 @@ A basic example:
 ```app/routes/tardy.js
 import Ember from 'ember';
 import RSVP from 'rsvp';
+import { later } from '@ember/runloop';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
     return new RSVP.Promise(function(resolve) {
-      Ember.run.later(function() {
+      later(function() {
         resolve({ msg: 'Hold Your Horses' });
       }, 3000);
     });
@@ -216,10 +217,10 @@ Promiseが失敗すると、そのルートで`error`イベントが発生し、
 
 <!--
 ```app/routes/good-for-nothing.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
     return RSVP.reject("FAIL");
   },
@@ -240,10 +241,10 @@ export default Ember.Route.extend({
 -->
 
 ```app/routes/good-for-nothing.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
     return RSVP.reject("FAIL");
   },
@@ -290,9 +291,9 @@ Promiseはチェーン(連鎖)できるので、
 `model`フック自体の中でPromiseの失敗を捕捉(catch)し、トランンジションを停止させないよう変更できます。
 
 ```app/routes/funky.js
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
     return iHopeThisWorks().catch(function() {
       // Promise rejected, fulfill with some default value to

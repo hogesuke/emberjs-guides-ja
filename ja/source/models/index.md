@@ -412,14 +412,14 @@ server. Your application can also create new records and save them back
 to the server.
 -->
 
-レコードは、サーバーからロードされたデータを含むモデルのインスタンスです。
-アプリケーションは、新しいレコードを作成してサーバーに保存することもできます。
+レコードはモデルのインスタンスで、サーバーからロードされたデータを持ちます。
+アプリ側でレコードを作成してサーバーに保存することもできます。
 
 <!--
 A record is uniquely identified by its model **type** and **ID**.
 -->
 
-レコードは、そのモデルタイプとIDによって一意に識別されます。
+レコードは、そのモデルの**タイプ**と**ID**によって一意に識別されます。
 
 <!--
 For example, if you were writing a contact management app, you might
@@ -427,8 +427,8 @@ have a `Person` model. An individual record in your app might
 have a type of `person` and an ID of `1` or `steve-buscemi`.
 -->
 
-たとえば、連絡先管理アプリケーションを作成している場合は、Personモデルがあるとします。
-あなたのアプリの個々のレコードは人のタイプとIDが1またはsteve-buscemiであるかもしれません。
+例えば、連絡先管理アプリケーションを作成していて、`Person`モデルがある場合、
+個々のレコードは、タイプに`person`と、IDに`1`か`steve-buscemi`を持つ、といった感じです。
 
 ```js
 this.get('store').findRecord('person', 1); // => { id: 1, name: 'steve-buscemi' }

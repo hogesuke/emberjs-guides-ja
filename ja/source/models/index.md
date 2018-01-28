@@ -498,8 +498,9 @@ server, and allows your application to render its UI to the user as fast as
 possible.
 -->
 
-ストアは自動的にレコードをキャッシュします。レコードがすでにロードされている場合は、それをもう一度要求すると、常に同じオブジェクトインスタンスが返されます
-これにより、サーバーへのラウンドトリップ回数が最小限に抑えられ、アプリケーションはできるだけ早くUIをユーザーに表示できます。
+ストアは自動的にレコードをキャッシュします。
+レコードがすでにロードされている場合、2回目以降の要求には、常に同じオブジェクトインスタンスが返されます。
+これにより、サーバーへのラウンドトリップ回数が最小限に抑えられ、UIをユーザーにできるだけ速く表示できます。
 
 <!--
 For example, the first time your application asks the store for a
@@ -507,7 +508,7 @@ For example, the first time your application asks the store for a
 your server.
 -->
 
-たとえば、アプリケーションが初めてIDの1の人物レコードをストアに要求すると、サーバーからその情報がフェッチされます。
+例えば、IDが`1`の`person`レコードをストアに初めて要求すると、サーバーからその情報がフェッチされます。
 
 <!--
 However, the next time your app asks for a `person` with ID `1`, the
@@ -519,7 +520,9 @@ record object, no matter how many times you look it up—is sometimes
 called an _identity map_.
 -->
 
-しかし、次にアプリがID 1の人物を尋ねると、その情報はすでにサーバから取得され、キャッシュされていることに気づくでしょう。同じ情報に対して別の要求を送信するのではなく、初めてアプリケーションが提供したのと同じレコードをアプリケーションに提供します。何回目を見ても、常に同じレコードオブジェクトを返すこの機能は、アイデンティティマップと呼ばれることがあります。
+しかし、IDが`1`の`person`を再度要求すると、ストアはその情報はすでにサーバから取得されキャッシュされていることに気づき、
+同じ情報に対して新たにリクエストをサーバに送信するのではなく、最初に提供したのと同じレコードを返します。
+何度見ても常に同じレコードオブジェクトを返すこの機能は、アイデンティティマップと呼ばれることがあります。
 
 <!--
 Using an identity map is important because it ensures that changes you
@@ -529,7 +532,9 @@ ask for a record by ID and not have to worry about whether other parts
 of your application have already asked for and loaded it.
 -->
 
-アイデンティティマップを使用することは、UIの一部で行った変更がUIの他の部分に確実に反映されるため重要です。また、手動でレコードを同期させる必要がないことも意味します。IDでレコードを尋ねることができ、アプリケーションの他の部分がすでに要求してロードしているかどうかを心配する必要はありません。
+アイデンティティマップを使用することは、UIの一部で行った変更をUIの他の部分に確実に反映するのために重要です。
+また、手動でレコードを同期させる必要がないことも意味します。
+アプリケーション内の他のところでロードされたかどうかを心配する必要なく、IDでレコードを要求できます。
 
 <!--
 One downside to returning a cached record is you may find the state of
@@ -542,7 +547,9 @@ changes to the record since the initial render, the template is
 re-rendered with the new information.
 -->
 
-キャッシュされたレコードを返すことの1つの欠点は、データの状態が最初にストアのアイデンティティマップにロードされてから変化していることです。この古くなったデータが長い間問題にならないようにするため、Ember Dataはキャッシュされたレコードがストアから返されるたびにバックグラウンドで自動的にリクエストを行います。新しいデータが到着すると、レコードが更新され、最初のレンダリング以降にレコードが変更された場合、テンプレートは新しい情報で再レンダリングされます。
+キャッシュされたレコードを返すことの1つの欠点は、データの状態が最初にストアのアイデンティティマップにロードされてから同期されないことです。
+この古くなったデータが長い時間問題にならないようにするために、Ember Dataはキャッシュしたレコードをストアから返す度に、自動的にリクエストをバックグラウンドで行います。
+新しいデータが取得されると、レコードが更新され、最初のレンダリング以降にレコードが変更された場合、テンプレートは新しい情報で再レンダリングされます。
 
 <!--
 ## Architecture Overview

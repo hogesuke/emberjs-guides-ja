@@ -279,8 +279,8 @@ will be shared among developers on your team, following them leads
 to code that is easier to maintain and understand.
 -->
 
-Emberの慣習に頼って、書く必要があるコードの量を大幅に減らすことができます。
-これらの慣行はチームの開発者間で共有されるため、それに従うとコードを維持し理解しやすくなります。
+Emberの規約に頼ることで、書く必要があるコードの量を大幅に減らすことができます。
+Emberの規約はチームの開発者間で共有されるため、規約に従うことでコードのメンテナンスと理解がし易くなります。
 
 <!--
 Rather than create an arbitrary set of conventions, Ember Data is
@@ -289,7 +289,7 @@ formal specification for building conventional, robust, and performant
 APIs that allow clients and servers to communicate model data.
 -->
 
-Ember Dataは、任意の一連の慣習を作成するのではなく、JSON APIを使用してすぐに動作するように設計されています。
+Ember Dataは、一連の規約を持つよりも、[JSON API][json-api]ですぐに動作するように設計されています。
 JSON APIは、クライアントとサーバーがモデルデータを通信できるようにする、従来の堅牢で実績のあるAPIを構築するための正式な仕様です。
 
 [json-api]: http://jsonapi.org
@@ -300,7 +300,8 @@ you decrease the coupling between your frontend and backend, and have
 more freedom to change pieces of your stack.
 -->
 
-JSON APIは、JavaScriptアプリケーションとサーバーとの対話方法を標準化しているため、フロントエンドとバックエンドの結合を減らし、スタックの断片を自由に変更できます。
+JSON APIは、JavaScriptアプリケーションとサーバーの対話方法を標準化しているため、
+フロントエンドとバックエンドの結合度を減らし、技術スタックをより自由に変更できます。
 
 <!--
 As an analogy, JSON API is to JavaScript apps and API servers what SQL is
@@ -309,8 +310,8 @@ Rails, Laravel, Django, Spring and more work out of the box with many
 different databases, like MySQL, PostgreSQL, SQL Server, and more.
 -->
 
-同様に、JSON APIは、JavaScriptアプリケーションとAPIサーバーに対して、SQLはサーバー側のフレームワークとデータベースとの関係です。
-Ruby on Rails、Laravel、Django、Springなどの人気のあるフレームワークは、MySQL、PostgreSQL、SQL Serverなど、さまざまなデータベースを使って自由に動作します。
+SQLの「サーバー側のフレームワークとデータベース」の関係と同様に、JSON APIは「JavaScriptアプリケーションとAPIサーバー」の関係です。
+Ruby on Rails、Laravel、Django、Springなどの人気のあるフレームワークは、MySQL、PostgreSQL、SQL Serverなど、さまざまなデータベースをすぐに使うことができます。
 
 <!--
 Frameworks (or apps built on those frameworks) don't need to write
@@ -318,7 +319,8 @@ lots of custom code to add support for a new database; as long as that
 database supports SQL, adding support for it is relatively easy.
 -->
 
-フレームワーク（またはそれらのフレームワーク上に構築されたアプリケーション）は、新しいデータベースのサポートを追加するためのカスタムコードをたくさん書く必要はありません。そのデータベースがSQLをサポートしている限り、そのサポートを追加するのは比較的簡単です。
+フレームワーク(とフレームワーク上に構築されたアプリケーション)を使う場合、データベースをサポートするためのコードをたくさん書く必要はありません。
+そのデータベースがSQLをサポートしていれば、比較的簡単に使えます。
 
 <!--
 So too with JSON API. By using JSON API to interop between your Ember
@@ -329,8 +331,8 @@ those platforms to easily consume the same API your Ember app uses.
 -->
 
 JSON APIもそうです。
-JSON APIを使用してEmberアプリケーションとサーバーを相互運用することで、フロントエンドを壊すことなくバックエンドスタックを完全に変更できます。
-また、iOSやAndroidなどの他のプラットフォーム用のアプリケーションを追加すると、Emberアプリケーションが使用するAPIと同じAPIを簡単に使用できるように、これらのプラットフォーム用のJSON APIライブラリを活用することができます。
+JSON APIをEmberアプリケーションとサーバーで使用して相互運用することで、フロントエンドを壊すことなくバックエンドスタックを完全に変更できます。
+また、iOSやAndroidなどの他のプラットフォーム用のアプリケーションも開発する時は、プラットフォーム用のJSON APIライブラリを活用することで、Emberアプリケーションが使用するAPIと同じAPIを簡単に使用できます。
 
 <!--
 ## Models

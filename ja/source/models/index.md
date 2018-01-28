@@ -26,7 +26,7 @@ the model data somewhere that it will not be lost.
 -->
 
 モデルは永続化することが多いです。
-永続化により、ユーザがブラウザウィンドウを閉じるのと同時にモデルデータを失うのを防ぐことができます。
+永続化により、ユーザがブラウザを閉じるのと同時にモデルデータを失うのを防ぐことができます。
 データが失われないようにするには、ユーザーがモデルを変更した時に、そのデータを失われない場所に保存する必要があります。
 
 <!--
@@ -38,7 +38,7 @@ user's hard disk with [IndexedDB][indexeddb], or hosted storage solutions that l
 avoid writing and hosting your own servers.
 -->
 
-典型的に、ほとんどのモデルはサーバからデータを取得し、サーバのデータベースに保存します。
+一般的に、ほとんどのモデルはサーバからデータを取得し、サーバのデータベースに保存します。
 HTTPサーバーとのモデルデータの送受信には、JSON形式がよく使われます。
 ですが、Emberでは、[IndexedDB][indexeddb]を使用してユーザーのハードディスクに保存したり、他の耐久性のあるストレージや、独自のサーバーを作成しホストすることを避けることができるホスト型ストレージソリューションを簡単に使用できます。
 
@@ -52,7 +52,7 @@ more information about how components get model data, see the
 guide.
 -->
 
-モデルがストレージからロードされると、コンポーネントがモデルデータをユーザーが操作できるUIに変えます。
+モデルがストレージからロードされると、コンポーネントがモデルデータをユーザーが操作できるUIに変換します。
 コンポーネントにモデルデータを渡す方法の詳細は、[ルートのモデルを指定する](../routing/specifying-a-routes-model)を参照してください。
 
 <!--
@@ -218,7 +218,7 @@ inconsistent experience.
 -->
 
 残念ながら、この例では、アプリは同じ情報に対して2つのリクエストが別々に発生します。
-不必要なリクエストは、無駄な帯域幅やアプリのスピードに影響を及ぼすだけでなく、簡単に同期ずれが起きるでしょう。
+不必要なリクエストは、無駄な帯域幅やアプリのスピードに影響を及ぼすだけでなく、簡単に同期ずれを起こすでしょう。
 おそらくあなた自身も、一覧の件数とがメニューバーの件数と同期しなくなってイライラするようなWebアプリをこれまでに使ったことがあるのではないでしょうか。
 
 <!--
@@ -237,7 +237,7 @@ single responsibility. The responsibility of a component should be
 presenting model data to the user, not fetching the model.
 -->
 
-良い設計のためのSOLID原則は、オブジェクトは単一の責任を持つべきだと教えています。
+良い設計のために、SOLID原則はオブジェクトは単一の責任を持つべきだと教えています。
 コンポーネントの責任は、モデルをフェッチするのではなく、モデルデータをユーザーに提示することです。
 
 <!--
@@ -247,7 +247,7 @@ Routes and their corresponding controllers can ask the store for models, and the
 responsible for knowing how to fetch them.
 -->
 
-さらに、Emberアプリでは、それとは別に良いやり方を取り入れることができます。
+良く設計されたEmberアプリでは別の手段を取ります。
 Ember Dataは、アプリケーションのモデルの中央リポジトリである単一の**store**(ストア)を提供します。
 コントローラーとルートはストアにモデルの問い合わせができます。
 ストアの責任はモデルをフェッチする方法を知っていることです。
@@ -279,8 +279,8 @@ will be shared among developers on your team, following them leads
 to code that is easier to maintain and understand.
 -->
 
-Emberの規約に頼ることで、書く必要があるコードの量を大幅に減らすことができます。
-Emberの規約はチームの開発者間で共有されるため、規約に従うことでコードのメンテナンスと理解がし易くなります。
+Emberの規約に頼ることで、コードの記述量と保守を大幅に減らすことができます。
+規約はチームの開発者間で共有されるため、それによりコードの保守と理解をしやすくなります。
 
 <!--
 Rather than create an arbitrary set of conventions, Ember Data is
@@ -289,7 +289,7 @@ formal specification for building conventional, robust, and performant
 APIs that allow clients and servers to communicate model data.
 -->
 
-Ember Dataは、一連の規約を持つよりも、[JSON API][json-api]ですぐに動作するように設計されています。
+Ember Dataは、一連の規約を作るよりも、[JSON API][json-api]ですぐに動作するように設計されています。
 JSON APIは、クライアントとサーバーがモデルデータを通信できるようにする、従来の堅牢で実績のあるAPIを構築するための正式な仕様です。
 
 [json-api]: http://jsonapi.org

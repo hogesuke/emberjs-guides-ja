@@ -565,8 +565,9 @@ persistence layer; typically, this will be a JSON representation of the
 record served from an HTTP server.
 -->
 
-最初にアプリケーションがレコードをストアに要求すると、ストアはローカルコピーを持たず、アダプタから要求します。
-あなたのアダプタは、あなたの永続性レイヤーからレコードを取得します。 通常、これはHTTPサーバーから提供されるレコードのJSON表現になります。
+ストアにレコードを初めて要求すると、ストアはローカルコピーを持っていないため、アダプターに要求します。
+アダプターは永続性レイヤーからレコードを取得します。 
+一般的に、永続性レイヤーはHTTPサーバーでレコードをJSONとして表します。
 
 ![Diagram showing process for finding an unloaded record](../images/guides/models/finding-unloaded-record-step1-diagram.png)
 
@@ -577,8 +578,8 @@ _asynchronous_ request to the server, and only when that request finishes
 loading can the record be created with its backing data.
 -->
 
-上の図に示すように、アダプタは要求されたレコードをいつもすぐに返すことはできません。
-この場合、アダプターはサーバーに対して非同期要求を行わなければならず、その要求のロードが完了したときにのみ、そのバッキング・データでレコードを作成することができます。
+上の図に示すように、アダプターは要求されたレコードをいつもすぐに返すことはできません。
+この場合、アダプターはサーバーに対して非同期要求を行わなければならず、その要求のロードが完了した時にのみ、データを元にレコードを作成することができます。
 
 <!--
 Because of this asynchronicity, the store immediately returns a
@@ -586,8 +587,8 @@ _promise_ from the `findRecord()` method. Similarly, any requests that the
 store makes to the adapter also return promises.
 -->
 
-この非同期性のために、ストアはすぐにfindRecord（）メソッドから約束を返します。
-同様に、ストアがアダプターに対して行う要求も、約束を返します。
+非同期であるため、ストアの`findRecord()`メソッドはPromiseをすぐに返します。
+同様に、ストアがアダプターに対して行う要求も、Promiseを返します。
 
 <!--
 Once the request to the server returns with a JSON payload for the
@@ -595,7 +596,7 @@ requested record, the adapter resolves the promise it returned to the
 store with the JSON.
 -->
 
-サーバーへの要求が、要求されたレコードのJSONペイロードを返すと、アダプターはJSONを使用してストアに戻すという約束を解決します。
+サーバーへの要求に、要求したレコードのJSONペイロードが返されると、アダプターはストアに返したPromiseを解決してJSONを渡します。
 
 <!--
 The store then takes that JSON, initializes the record with the
@@ -603,7 +604,7 @@ JSON data, and resolves the promise returned to your application
 with the newly-loaded record.
 -->
 
-その後、ストアはJSONを受け取り、JSONデータでレコードを初期化し、新しくロードされたレコードでアプリケーションに返された約束を解決します。
+その後、ストアはアダプターから渡されたSONデータでレコードを初期化し、アプリケーションに返したPromiseに解決して、新しくロードされたレコードを渡します。
 
 ![Diagram showing process for finding an unloaded record after the payload has returned from the server](../images/guides/models/finding-unloaded-record-step2-diagram.png)
 
@@ -612,7 +613,7 @@ Let's look at what happens if you request a record that the store
 already has in its cache.
 -->
 
-ストアが既にキャッシュにあるレコードをリクエストするとどうなるかを見てみましょう。
+ストアにキャッシュにあるレコードをリクエストするとどうなるかを見てみましょう。
 
 ![Diagram showing process for finding an unloaded record after the payload has returned from the server](../images/guides/models/finding-loaded-record-diagram.png)
 
@@ -623,8 +624,8 @@ not need to ask the adapter (and, therefore, the server) for a copy
 since it already has it saved locally.
 -->
 
-この場合、店舗はすでにレコードについて知っていたので、すぐにレコードで解決する約束を返します。
-アダプター（したがって、サーバー）にコピーを求める必要はありません
+この場合、ストアが既にそのレコードについて知っていたので、Promiseを返し、そのPromiseはすぐにそのレコードで解決されます。
+アダプター(サーバー)にデータを求める必要はありません
 すでにローカルに保存されているためです。
 
 ---
@@ -637,4 +638,4 @@ use them together.
 -->
 
 モデル、レコード、アダプター、ストアは、Ember Dataを最大限に活用するために理解しておくべき基本的な概念です。
-以下のセクションでは、これらの概念のそれぞれについて深く理解し、それらを一緒に使用する方法について説明します。
+この後のセクションでは、これらの概念についてそれぞれ深く理解し、それらを一緒に使用する方法について説明します。

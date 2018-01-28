@@ -346,7 +346,8 @@ defines the attributes, relationships, and behavior of the data that you
 present to the user.
 -->
 
-Ember Dataでは、各モデルは、ユーザーに提示するデータの属性、関係、および動作を定義するModelのサブクラスで表されます。
+Ember Dataでは、各モデルは`Model`のサブクラスとして定義します。
+モデルには、ユーザーに提示するデータの属性や関係や動作を定義します。
 
 <!--
 Models define the type of data that will be provided by your server. For
@@ -354,8 +355,8 @@ example, a `Person` model might have a `firstName` attribute that is a
 string, and a `birthday` attribute that is a date:
 -->
 
-モデルは、サーバーによって提供されるデータのタイプを定義します。
-たとえば、Personモデルには、文字列であるfirstName属性と、日付であるbirthday属性があります。
+モデルの属性には、サーバーから取得するデータの型を定義します。
+例えば、`Person`モデルに、文字列の`firstName`属性と、日付の`birthday`属性がある場合、以下のように定義します。
 
 ```app/models/person.js
 import DS from 'ember-data';
@@ -372,7 +373,8 @@ example, an `order` may have many `line-items`, and a
 `line-item` may belong to a particular `order`.
 -->
 
-モデルは、他のオブジェクトとの関係も示します。 例えば、注文は多くの`line-items`を有し、`line-item`は特定の注文に属し得る。
+モデルは、他のモデルとの関係も示します。
+例えば、`order`は多くの`line-items`を持ち、`line-item`は特定の`order`に属する場合は、以下のように定義します。
 
 ```app/models/order.js
 import DS from 'ember-data';

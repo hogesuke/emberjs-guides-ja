@@ -336,7 +336,7 @@ Emberではテンプレートを再利用可能なコンポーネントに簡単
 Let's create a `people-list` component that we can use in multiple places to show a list of people.
 -->
 
-人物一覧内 で繰り返す使える`people-list`コンポーネントを作成してみましょう。
+人物一覧内で繰り返し使える`people-list`コンポーネントを作成してみましょう。
 
 <!--
 As usual, there's a generator that makes this easy for us.

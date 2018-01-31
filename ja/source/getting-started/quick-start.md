@@ -98,8 +98,8 @@ By providing everything you need to build production-ready web applications in a
 Ember makes starting new projects a breeze.
 -->
 
-プロダクト向けのWebアプリケーションのビルドできるように、
-必要なもの全てを1つのパッケージで入ることで、
+プロダクト向けのWebアプリケーションをビルドできるように、
+必要なもの全てを1つのパッケージに入れることで、
 Emberでは新しいプロジェクトを楽に始めることができます。
 
 <!--
@@ -260,7 +260,7 @@ We do that by specifying a _model_ for that route,
 and we can specify a model by editing `app/routes/scientists.js`.
 -->
 
-`scientists` のテンプレートが描画されましたので、いくつかデータを描画してましょう。
+`scientists` のテンプレートが描画されましたので、いくつかデータを描画してみましょう。
 データを表示するには、そのルートの _model_ を指定します。 modelの指定は、
 `app/routes/scientists.js` を変更します。
 
@@ -336,7 +336,7 @@ Emberではテンプレートを再利用可能なコンポーネントに簡単
 Let's create a `people-list` component that we can use in multiple places to show a list of people.
 -->
 
-人物一覧内 で繰り返す使える`people-list`コンポネーントを作成してみましょう。
+人物一覧内 で繰り返す使える`people-list`コンポーネントを作成してみましょう。
 
 <!--
 As usual, there's a generator that makes this easy for us.
@@ -381,7 +381,7 @@ Components look like HTML tags but instead of using angle brackets (`<tag>`) the
 
 テンプレートを保存し、 `scientists` テンプレートに戻ります。
 前のコードをコンポーネントを使ったコードに置き換えます。
-コンポーネオントはHTMLタグのように見えますが、山括弧(`<tag>`)の代わりに2回波括弧(`{{component}}`)を使います。
+コンポーネントはHTMLタグのように見えますが、山括弧(`<tag>`)の代わりに2回波括弧(`{{component}}`)を使います。
 
 <!--
 We're going to tell our component:
@@ -425,7 +425,7 @@ By re-using the `people-list` component, you can do it in almost no code at all.
 -->
 
 新しいルートを作成し違う人物一覧を表示すれば実際に分かるでしょう。
-練習として、 有名なプログラマーの一覧を表示する `programmers` ルートを作成してみるのもいいですね。
+練習として、有名なプログラマーの一覧を表示する `programmers` ルートを作成してみるのもいいですね。
 
 <!--
 ## Click Events
@@ -441,7 +441,7 @@ Ember makes this easy to do.
 First add an `action` helper to the `li` in your `people-list` component.
 -->
 
-ここまでデータの一覧表示をやりましたが、まだユーザがその情報を操作したりできません。
+ここまでデータの一覧表示をやりましたが、まだユーザがその情報を操作できません。
 Webアプリケーションでは、クリックやホバーといったイベントを使いたいでしょう。
 Emberでは簡単にそれをすることができます。
 まず始めに、`people-list`コンポーネント内の`li`に`action`ヘルパーを追加します。

@@ -20,7 +20,7 @@ Ember CLIは以下のものを提供します。
 * モダンなアプリケーションアセット管理(結合、縮小、バージョニング)
 * コンポーネントやルートなどの作成を手助けするジェネレータ
 * [Babel](https://babeljs.io/learn-es2015/)を使ったES2015とES6のサポートと、本ガイド内で使われている[JavaScript modules](http://exploringjs.com/es6/ch_modules.html)
-* [QUnit](https://qunitjs.com/)を完全に活用するためテストツール群
+* [QUnit](https://qunitjs.com/)を完全に活用するためのテストツール群
 * [Emberアドオン](https://emberobserver.com/)のサポート
 
 <!--

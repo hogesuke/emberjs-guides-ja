@@ -33,7 +33,7 @@ URLが入力される方法はいくつか存在します。
 * ユーザがアプリにアクセスする
 * ユーザが手動で変える、ブラウザバックしたりアドレスバーで変更するなど
 * アプリ内のリンクをクリックする
-* アプリ内のその他のイベントによりURL変更が変わる
+* アプリ内のその他のイベントによりURLが変更される
 
 <!--
 No matter how the URL gets set, the first thing that happens is that the Ember router maps the URL to a route handler.
@@ -115,7 +115,7 @@ Templates can also display properties provided to them from their context, which
 Here, `{{name}}` is a property provided by the template's context.
 -->
 
-この`{{name}}`はテプレートのコンテキストから与えられるプロパティです。
+この`{{name}}`はテンプレートのコンテキストから与えられるプロパティです。
 
 <!--
 Besides properties, double curly braces (`{{}}`) may also contain
@@ -165,7 +165,7 @@ While templates describe how a user interface looks, components control how the 
 Components consist of two parts: a template written in Handlebars, and a source file written in JavaScript that defines the component's behavior. For example, our property rental application might have a component for displaying all the rentals called `all-rentals`, and another component for displaying an individual rental called `rental-tile`. The `rental-tile` component might define a behavior that lets the user hide and show the image property of the rental.
 -->
 
-コンポーネントは、Handlbars構文で書かれたテンプレートと、振る舞いを書いたJavaScriptの2つから成り立ちます。例えば、賃貸物件アプリで、全物件を表示する`all-rentals`コンポーネントがあり、一つの物件を表示する`rental-tile`コンポーネントがあるとして、`rental-tile`コンポーネントに、ユーザが物件画像の表示や非表示ができるようにコードを書く、という感じです。
+コンポーネントは、Handlebars構文で書かれたテンプレートと、振る舞いを書いたJavaScriptの2つから成り立ちます。例えば、賃貸物件アプリで、全物件を表示する`all-rentals`コンポーネントがあり、一つの物件を表示する`rental-tile`コンポーネントがあるとして、`rental-tile`コンポーネントに、ユーザが物件画像の表示や非表示ができるようにコードを書く、という感じです。
 
 <!--
 Let's see these core concepts in action by building a property rental application in the next lesson.

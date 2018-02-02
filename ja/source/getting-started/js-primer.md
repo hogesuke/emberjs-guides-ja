@@ -144,7 +144,7 @@ You can also not access them before they are declared, or you will get a [`Refer
 -->
 
 これにより、宣言されたブロックのスコープ(`function`内や`{}`内のこと)の外では、その変数にアクセスすることができません。
-また、変数宣言される前の変数へのアクセスもできず、もしアクセスすると[`ReferenceError`](https://developer.mozilla.org/ja-JP/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError)エラーが発生します。
+また、変数宣言される前の変数へのアクセスもできず、もしアクセスすると[`ReferenceError`](https://developer.mozilla.org/ja-JP/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError)が発生します。
 
 
 ```javascript

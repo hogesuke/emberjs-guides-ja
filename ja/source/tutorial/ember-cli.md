@@ -139,7 +139,7 @@ or CSS) that are not managed by NPM go.
 and Ember CLI's test runner **testem** is configured in `testem.js`.
 -->
 
-**tests / testem.js**: アプリの自動テストは`tests`フォルダに起きます。Ember CLIのテストランナーの**testem**は`testem.js`で設定されています。
+**tests / testem.js**: アプリの自動テストは`tests`フォルダに置きます。Ember CLIのテストランナーの**testem**は`testem.js`で設定されています。
 
 <!--
 **ember-cli-build.js**: This file describes how Ember CLI should build our app.
@@ -188,7 +188,7 @@ to other parts of the app.
 -->
 
 Ember CLIはアプリ内のコードを組織するのに、ECMAScript 2015(ES2015、ES6)モジュールを使用しています。
-例えば、`import EmberRouter from '@ember/routing/router';`の行は、EmberのRouterクラスをEmberRouterとしてアクセスできるようします。そして、`import config from './config/environment';`の行は、configという変数でアプリの設定データにアクセスできるようにしています。
+例えば、`import EmberRouter from '@ember/routing/router';`の行は、EmberのRouterクラスをEmberRouterとしてアクセスできるようにします。そして、`import config from './config/environment';`の行は、configという変数でアプリの設定データにアクセスできるようにしています。
 `const`はリードオンリーな変数を宣言し、他のところで思いがけない再代入がないことを明確にしています。
 ファイルの最後部の`export default Router;`は、このファイル内で定義されている`Router`変数を、アプリの他の部分から利用できるようにしています。
 
@@ -209,7 +209,11 @@ starting the Ember development server:
 ember serve
 ```
 
+<!--
 or, for short:
+-->
+
+または、省略して
 
 ```shell
 ember s

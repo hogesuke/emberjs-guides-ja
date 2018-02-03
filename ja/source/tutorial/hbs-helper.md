@@ -141,7 +141,7 @@ Update the content of the integration test to the following to fix it:
 
 統合テストの内容を次のように更新して修正してください。
 
-```/tests/integration/helpers/rental-property-type-test.js{-11,-16,+12,+17}
+```/tests/integration/helpers/rental-property-type-test.js{-9,-10,-11,-17,+12,+13,+18,+21,+22,+23,+24,+25,+26,+27}
 
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
@@ -153,7 +153,8 @@ moduleForComponent('rental-property-type', 'helper:rental-property-type', {
 // Replace this with your real tests.
 test('it renders', function(assert) {
   this.set('inputValue', '1234');
-  this.set('inputValue', 'Standalone');
+test('it renders correctly for a Standalone rental', function(assert) {
+  this.set('inputValue', 'Estate');
 
   this.render(hbs`{{rental-property-type inputValue}}`);
 
@@ -161,4 +162,11 @@ test('it renders', function(assert) {
   assert.equal(this.$().text().trim(), 'Standalone');
 });
 
+test('it renders correctly for a Community rental', function(assert) {
+  this.set('inputValue', 'Apartment');
+
+  this.render(hbs`{{rental-property-type inputValue}}`);
+
+  assert.equal(this.$().text().trim(), 'Community');
+});
 ```

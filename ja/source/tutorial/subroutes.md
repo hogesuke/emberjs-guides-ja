@@ -71,7 +71,7 @@ outletはネストしたアクティブなルートが描画される場所で�
   <div class="right tomster"></div>
   <h2>Welcome!</h2>
   <p>We hope you find exactly what you're looking for in a place to stay.</p>
-  {{#link-to 'about' class="button"}}
+  {{#link-to "about" class="button"}}
     About Us
   {{/link-to}}
 </div>
@@ -188,7 +188,7 @@ Now that we are returning all of our rentals to the nested route's model, we wil
   <div class="right tomster"></div>
   <h2>Welcome!</h2>
   <p>We hope you find exactly what you're looking for in a place to stay.</p>
-  {{#link-to 'about' class="button"}}
+  {{#link-to "about" class="button"}}
     About Us
   {{/link-to}}
 </div>

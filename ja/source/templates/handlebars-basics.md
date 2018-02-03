@@ -118,7 +118,7 @@ For example, let's say you would like the ability to add a few numbers together,
 例えば、算出プロパティを定義しないで、どこでも数値を足せるようにするとしましょう。
 
 ```app/helpers/sum.js
-import { helper } from "@ember/component/helper"
+import { helper } from '@ember/component/helper';
 
 export function sum(params) {
   return params.reduce((a, b) => {

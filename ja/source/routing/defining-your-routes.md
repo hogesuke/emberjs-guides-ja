@@ -489,10 +489,10 @@ so that when a user navigates to `/a/non-existent/path` they will be shown a mes
 To have your route do something beyond render a template with the same name, you'll
 need to create a route handler. The following guides will explore the different
 features of route handlers. For more information on routes, see the API documentation
-for [the router](https://www.emberjs.com/api/ember/2.16/classes/Router) and for [route
-handlers](https://www.emberjs.com/api/ember/2.16/classes/Route).
+for [the router](https://www.emberjs.com/api/ember/release/classes/Router) and for [route
+handlers](https://www.emberjs.com/api/ember/release/classes/Route).
 -->
 
 ルートに同じ名前のテンプレートを描画する以外に何かをさせるには、ルートハンドラを作成する必要があります。
 次のガイドでは、ルートハンドラのさまざまな機能について説明します。
-ルートの詳細については、[ルータ](https://www.emberjs.com/api/ember/2.16/classes/Router)および[ルートハンドラ](https://www.emberjs.com/api/ember/2.16/classes/Route)のAPIドキュメントを参照してください。
+ルートの詳細については、[ルータ](https://www.emberjs.com/api/ember/release/classes/Router)および[ルートハンドラ](https://www.emberjs.com/api/ember/release/classes/Route)のAPIドキュメントを参照してください。

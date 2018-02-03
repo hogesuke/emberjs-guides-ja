@@ -77,7 +77,7 @@ That file should export a function wrapped with [`Ember.Helper.helper()`](http:/
 ヘルパーのファイルでは、[`Ember.Helper.helper()`](http://emberjs.com/api/classes/Ember.Helper.html#method_helper)でラップされた関数をエクスポートします。
 
 ```app/helpers/format-currency.js
-import { helper } from "@ember/component/helper"
+import { helper } from '@ember/component/helper';
 
 export function formatCurrency([value, ...rest]) {
   let dollars = Math.floor(value / 100);
@@ -182,7 +182,7 @@ An array of these arguments is passed to the helper function:
 引数が複数の時は、配列としてヘルパー関数に渡されます。
 
 ```app/helpers/my-helper.js
-import { helper } from "@ember/component/helper"
+import { helper } from '@ember/component/helper';
 
 export function myHelper(params) {
   let [arg1, arg2] = params;
@@ -203,7 +203,7 @@ JavaScriptの分割代入を使用して、コードをクリーンアップす�
 以下の例は上記の例に相当します(関数の書き方を見比べてください)。
 
 ```app/helpers/my-helper.js
-import { helper } from "@ember/component/helper"
+import { helper } from '@ember/component/helper';
 
 export function myHelper([arg1, arg2]) {
   console.log(arg1); // => "hello"
@@ -437,7 +437,7 @@ into a class-based helper:
 練習として、上記の`format-currency`ヘルパーをクラスベースのヘルパーにリファクタリングしました。
 
 ```app/helpers/format-currency.js
-import Helper from "@ember/component/helper";
+import Helper from '@ember/component/helper';
 
 export default Helper.extend({
   compute([value, ...rest], hash) {
@@ -468,8 +468,8 @@ service that welcomes users by their name if they're logged in:
 別の例として、ユーザがログインしている時に、ユーザ名を表示して歓迎する認証サービスを利用するヘルパーを作ってみましょう。
 
 ```app/helpers/is-authenticated.js
-import Helper from "@ember/component/helper";
-import { inject as service } from "@ember/service";
+import Helper from '@ember/component/helper';
+import { inject as service } from '@ember/service;
 
 export default Helper.extend({
   authentication: service(),
@@ -507,7 +507,7 @@ For example, here's a `make-bold` helper that returns a string containing HTML:
 例えば、HTMLを含む文字列を返す`make-bold`ヘルパーがあるとします。
 
 ```app/helpers/make-bold.js
-import { helper } from "@ember/component/helper";
+import { helper } from '@ember/component/helper';
 
 export function makeBold([param, ...rest]) {
   return `<b>${param}</b>`;
@@ -547,7 +547,7 @@ escape the return value (that is, that it is _safe_) by using the
 [`htmlSafe`][4]を使用して、戻り値をエスケープしないようにEmberに指示できます。
 
 ```app/helpers/make-bold.js
-import { helper } from "@ember/component/helper";
+import { helper } from '@ember/component/helper';
 import { htmlSafe } from '@ember/string';
 
 export function makeBold([param, ...rest]) {
@@ -607,7 +607,7 @@ escape anything that may have come from an untrusted user with the
 
 ```app/helpers/make-bold.js
 import Ember from "ember";
-import { helper } from "@ember/component/helper";
+import { helper } from '@ember/component/helper';
 import { htmlSafe } from "@ember/string";
 
 export function makeBold([param, ...rest]) {

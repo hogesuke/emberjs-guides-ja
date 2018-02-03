@@ -114,7 +114,7 @@ route handler file right now. Instead, let's open our `/app/templates/about.hbs`
 Super Rentals:
 -->
 
-aboutページには、静的なコンテンツだけの表示に止めるため、`/app/routes/about.js`ルートハンドラファイルに手を加える必要はありません。代わりに、テンプレートファイル(`/app/templates/about.hbs`)を開き、Super Rentalsに関する情報を追加します。
+aboutページには、静的なコンテンツだけの表示に留めるため、`/app/routes/about.js`ルートハンドラファイルに手を加える必要はありません。代わりに、テンプレートファイル(`/app/templates/about.hbs`)を開き、Super Rentalsに関する情報を追加します。
 
 ```app/templates/about.hbs
 <div class="jumbo">
@@ -158,7 +158,7 @@ ember g route contact
 Here again, we add a new `contact` route in `app/router.js` and generate a route handler in `app/routes/contact.js`.
 -->
 
-ここでもまた、 `app/router.js`に新しい`contact`ルート(エントリ)を追加し、 `app/routes/ contact.js`にルートハンドラを生成します。
+ここでもまた、`app/router.js`に新しい`contact`ルート(エントリ)を追加し、`app/routes/contact.js`にルートハンドラを生成します。
 
 <!--
 In the route template `/app/templates/contact.hbs`, let's add our contact details:
@@ -236,7 +236,7 @@ a working link to our contact page:
 -->
 
 `{{link-to}}`ヘルパーに、リンクしたいルートの名前`contact`を渡しています。
-[`http://localhost:4200/about`](http://localhost:4200/about)にアクセスしてaboutページを開き、お問い合わせページへがリンクされているか確認しましょう。
+[`http://localhost:4200/about`](http://localhost:4200/about)にアクセスしてaboutページを開き、お問い合わせページへリンクされているか確認しましょう。
 
 ![super rentals about page screenshot](../../images/routes-and-templates/ember-super-rentals-about.png)
 
@@ -289,7 +289,7 @@ And then let's update our new template (`/app/templates/rentals.hbs`) with some 
 We'll come back to this page in a bit to add in the actual rental properties.
 -->
 
-そしたら、まずは作成されたテンプレート(`/app/templates/rentals.hbs`)を以下のように置き換えてください。
+そうしたら、まずは作成されたテンプレート(`/app/templates/rentals.hbs`)を以下のように置き換えてください。
 後程、実際の賃貸物件を追加しますので、またこのテンプレートに戻ってきます。
 
 ```app/templates/rentals.hbs
@@ -332,7 +332,7 @@ ember g route index
 We can see the now familiar output for the route generator:
 -->
 
-ルートジェネレータがいつも通りに出力してるのが見えるはずです。
+ルートジェネレータがいつも通りに出力しているのが見えるはずです。
 
 ```shell
 installing route
@@ -416,7 +416,7 @@ In addition to adding individual links to each route of our app, we'd like to
 add a common header across the top of our page to display our app's title and its navigation bar.
 -->
 
-アプリの各ページに各ルートへのリンクを個別に追加はせず、共通のヘッダーをページ上部に追加して、アプリのタイトルとナビゲーションバーを表示するようにしようと思います。
+アプリの各ページに各ルートへのリンクを個別に追加はせず、共通のヘッダーをページ上部に追加して、アプリのタイトルとナビゲーションバーを表示するようにしたいと思います。
 
 <!--
 To show something on every page, we can use the application template (which we edited earlier).
@@ -455,7 +455,7 @@ The `{{outlet}}` helper tells Ember where content for our current route (such as
 or `contact`) should be shown.
 -->
 
-大体が見たがあるものですが、`<div class="body">`の下にある`{{outlet}}`は初めてですね。
+ほとんど見たことがあるものですが、`<div class="body">`の下にある`{{outlet}}`は初めてですね。
 `{{outlet}}`ヘルパーは現在のルート(`about`
 または`contact`)のコンテンツを置く場所をEmberに伝えます。
 
@@ -465,7 +465,7 @@ or `contact`) should be shown.
 At this point, we should be able to navigate between our `about`, `contact`, and `rentals` pages.
 -->
 
-これで`about`、`contact`、 `rentals`のページ間を移動できるようになったはずです。
+これで`about`、`contact`、`rentals`のページ間を移動できるようになったはずです。
 確認してください。
 
 <!--
@@ -485,7 +485,7 @@ From here you can move on to the [next page](../model-hook/) or dive into testin
 Now that we have various pages in our application, let's walk through how to build tests for them.
 -->
 
-アプリケーションにいくつかページを追加したで、そのテストを構築する方法について説明します。
+アプリケーションにいくつかページを追加したので、そのテストを構築する方法について説明します。
 
 <!--
 As mentioned earlier on the [Planning the Application page](../acceptance-test/),
@@ -613,7 +613,7 @@ If they don't, our test will fail.
 -->
 
 上記のテストでは、[`assert.equal()`](https://api.qunitjs.com/assert/equal)を使って第1引数と第2引数が互いに等しいかを確認しています。
-等くなければテストは失敗します。
+等しくなければテストは失敗します。
 
 <!--
 The third optional argument allows us to provide a nicer message which will be shown if this test fails.

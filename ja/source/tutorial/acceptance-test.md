@@ -80,8 +80,8 @@ ember g acceptance-test list-rentals
 The command will generate the following output, showing that it created a single file called `tests/acceptance/list-rentals-test.js`.
 -->
 
-コマンドを実行すると、以下ように出力されるはずです。
-`tests/acceptance/list-rentals-test.js` という1つのファイルが作成されのを表示しています。
+コマンドを実行すると、以下のように出力されるはずです。
+`tests/acceptance/list-rentals-test.js` という1つのファイルが作成されるのを表示しています。
 
 
 ```shell
@@ -93,14 +93,14 @@ installing acceptance-test
 Opening that file will reveal some initial code that will try to go to the `list-rentals` route and verify that the route is loaded. The initial code is there to help us build our first acceptance test.
 -->
 
-作成されたファイルを開くと、`list-rentals`ルートにアクセスし、そのルートが読み込まれていることを検証してるコードがあるのがわかります。
+作成されたファイルを開くと、`list-rentals`ルートにアクセスし、そのルートが読み込まれていることを検証しているコードがあるのがわかります。
 そのコードは、初めて受け入れテストを書く私たちを助けるためにあります。
 
 <!--
 Since we haven't added any functionality to our application yet, we'll use this first test to get started on running tests in our app.
 -->
 
-まだアプリケーションには何も機能を追加していませんし、これからアプリのテストをしてくために、このテストを取り入れましょう。
+まだアプリケーションには何も機能を追加していませんし、これからアプリのテストをしていくために、このテストを取り入れましょう。
 
 <!--
 To do that, replace occurrences of `/list-rentals` in the generated test with `/`. The test will start our app at the base url, `http://localhost:4200/`, and then do a basic check that the page has finished loading and that the url is what we want it to be.
@@ -160,7 +160,7 @@ Our launched Chrome web browser now shows 9 successful tests. If you toggle the 
 -->
 
 Chromeが起動し、9件のテストがパスしたことが表示されます。
-"Hide passed tests"というラベルにチェックを外すと、受け入れテストが1件、ESLintが8件パスしたのが表示されます。Emberは[ESLint](http://eslint.org/)で、構文の確認(lint)を実行します。
+"Hide passed tests"というラベルのチェックを外すと、受け入れテストが1件、ESLintが8件パスしたのが表示されます。Emberは[ESLint](http://eslint.org/)で、構文の確認(lint)を実行します。
 
 ![Initial Tests Screenshot](../../images/acceptance-test/initial-tests.png)
 

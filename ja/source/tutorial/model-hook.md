@@ -12,7 +12,7 @@ Later, we'll switch to using [Ember Data](https://github.com/emberjs/data),
 a library for robustly managing data in our app.
 -->
 
-Emberは、`model`と呼ばれるオブジェクトのページのデータを保持します。
+Emberは、`model`と呼ばれるオブジェクトにページのデータを保持します。
 最初は物事を単純にするため、物件一覧ページのモデルにJavaScriptオブジェクトの配列をハードコードします。
 その次に、アプリでデータを堅牢に管理するためのライブラリである[Ember Data](https://github.com/emberjs/data)の使用に切り替えます。
 
@@ -34,7 +34,7 @@ The model function we've added to our `rentals` route handler will be called whe
 Emberでは、ルートハンドラがページのデータをモデルにロードします。
 [`model`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/model?anchor=model)と呼ばれる関数で行います。
 `model`関数は、その時々において実行される**フック**です。
-`rentals`ルートハンドラに追加したモデル関数は、ルートURL`http://localhost:4200`または`http:// localhost:4200/rentals`経由でレンタルルートにナビゲートすると呼び出されます。
+`rentals`ルートハンドラに追加したモデル関数は、ルートURL`http://localhost:4200`または`http://localhost:4200/rentals`経由でレンタルルートにナビゲートすると呼び出されます。
 
 <!--
 Let's open `app/routes/rentals.js` and return an array of rental objects from the `model` function:
@@ -150,7 +150,7 @@ You may move onto the [next page](../installing-addons/) to keep implementing ne
 -->
 
 新しい機能の実装を続けるには[次のページ](../installing-addons/)に行ってください。
-ここから先は、ここまでで作成した昨日のテストの実装です。
+ここから先は、ここまでで作成した機能のテストの実装です。
 
 <!--
 ### Acceptance Testing the Rental List
@@ -168,7 +168,7 @@ To check that rentals are listed with an automated test, we will create a test t
 In `app/templates/rentals.hbs`, we wrapped each rental display in an `article` element, and gave it a class called `listing`.
 We will use the listing class to find out how many rentals are shown on the page.
 -->
-`app/templates/rentals.hbs`では、各物件情報を`listing`というクラスを持った`article`要素でラップました。
+`app/templates/rentals.hbs`では、各物件情報を`listing`というクラスを持った`article`要素でラップしました。
 listingクラスを使用して、ページに表示される物件数を確認します。
 
 <!--
@@ -179,7 +179,7 @@ In this case it will return an array of all the elements with a class called `li
 
 `listing`というクラスを持つ要素を見つけるために、[find](http://emberjs.com/api/classes/Ember.Test.html#method_find)というテストヘルパーを使います。
 `find`関数は与えられた[CSS selectors(https://developer.mozilla.org/ja-JP/docs/Web/CSS/CSS_Selectors)と一致する要素を返します。
-この場合、 `listing`というクラスを持つすべての要素の配列を返します。
+この場合、`listing`というクラスを持つすべての要素の配列を返します。
 
 
 ```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+5}
@@ -203,6 +203,6 @@ This leaves us with 2 remaining acceptance test failures (and 1 eslint failure):
 -->
 
 物件一覧を表示していることをテストで検証することができました。
-これにより、残りの失敗しているテストが２件になりました。（ESLintを加えると３件）
+これにより、残りの失敗しているテストが2件になりました。（ESLintを加えると3件）
 
 ![list rentals test passing](../../images/model-hook/model-hook.png)

@@ -129,12 +129,12 @@ aboutページには、静的なコンテンツだけの表示に留めるため
 ```
 
 <!--
-Now run `ember server` (or `ember serve`, or even `ember s` for short) on your command line to start
+Now run `ember serve` (or `ember server`, or even `ember s` for short) on your command line to start
 the Ember development server and then go to [`http://localhost:4200/about`](http://localhost:4200/about) to
 see our new page in action!
 -->
 
-`ember server`(または`ember serve`、あるいは短く `ember s`)でEmber開発サーバを起動し、 [`http://localhost:4200/about`](http://localhost:4200/about)に行って実際のページを確認してください。
+`ember serve`(または`ember server`、あるいは短く`ember s`)でEmber開発サーバを起動し、 [`http://localhost:4200/about`](http://localhost:4200/about)に行って実際のページを確認してください。
 
 <!--
 ## A Contact Route

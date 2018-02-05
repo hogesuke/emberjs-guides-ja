@@ -29,7 +29,7 @@ Instead of having you copy/paste in CSS to style Super Rentals, we've created an
 The addon works by generating a file called `ember-tutorial.css` and putting that file in the super-rentals `vendor` directory.
 -->
 
-チュートリアルの読者のために、Super RentalsのスタイルにCSSでコピー/ペーストさせるのではなく、即座にCSSをチュートリアルに追加する[ember-cli-tutorial-style]というアドオンが用意しています。
+チュートリアルの読者のために、Super RentalsのスタイルにCSSをコピー/ペーストさせるのではなく、即座にCSSをチュートリアルに追加する[ember-cli-tutorial-style]というアドオンを用意しています。
 このアドオンは、`ember-tutorial.css`というファイルを生成し、そのファイルをプロジェクトのvendorディレクトリに入れて動作します。
 
 <!--
@@ -43,7 +43,7 @@ As Ember CLI runs, it takes the `ember-tutorial` CSS file and puts it in a file 
 The `vendor.css` file is referenced in `app/index.html`, making the styles available at runtime.
 -->
 
-Ember CLIが実行されると、 `ember-tutorial`CSSファイルが`vendor.css`というファイルに置かれます。
+Ember CLIが実行されると、`ember-tutorial`CSSファイルが`vendor.css`というファイルに置かれます。
 `vendor.css`ファイルは` app/index.html`で参照され、実行時にスタイルを利用可能にします。
 
 <!--
@@ -83,7 +83,7 @@ in `package.json`. Be sure to restart your server after the addon has installed 
 incorporate the new CSS and refreshing the browser window will give you this:
 -->
 
-Emberアドオンはnpmパッケージなので、 `ember install`はアドオンを`node_modules`ディレクトリにインストールし、 `package.json`にエントリを作成します。 アドオンが正常にインストールされたら、必ずサーバーを再起動してください。 サーバーを再起動すると新しいCSSが組み込まれ、ブラウザウィンドウを更新すると次のようになります。
+Emberアドオンはnpmパッケージなので、`ember install`はアドオンを`node_modules`ディレクトリにインストールし、`package.json`にエントリを作成します。 アドオンが正常にインストールされたら、必ずサーバーを再起動してください。 サーバーを再起動すると新しいCSSが組み込まれ、ブラウザウィンドウを更新すると次のようになります。
 
 ![super rentals styled homepage](../../images/installing-addons/styled-super-rentals-basic.png)
 
@@ -207,7 +207,7 @@ Mirageは、ネットワークリクエストを作成するJavaScriptコード�
 これは、開発ツールでネットワークリクエストが表示されず、代わりにコンソールにJSONがログ表示されることに注意してください。
 上記の`mirage/config.js`の変更で、Ember Dataが`api/rentals`にGETリクエストを行うたびに、ハードコードしたJavaScriptオブジェクトをJSONとして返し、実際にネットワークリクエストは行われないようにMirageを設定しています。
 Mirageの設定で`/api`の`namespace`を指定しています。
-この変更がなければ、アプリケーションの `/rentals`へのナビゲーションはMirageと競合します。
+この変更がなければ、アプリケーションの`/rentals`へのナビゲーションはMirageと競合します。
 
 <!--
 In order for this to work, we need our application to default to making requests to the namespace of `/api`.
@@ -245,10 +245,10 @@ export default DS.JSONAPIAdapter.extend({
 If you were running `ember serve` or `ember test --serve` in another shell, restart each of those servers to include Mirage in your build.
 -->
 
-別のシェルで`ember serve`または`ember test --serve`を実行している場合は、Mirageがビルドに含めるよう、サーバを再起動してください。
+別のシェルで`ember serve`または`ember test --serve`を実行している場合は、Mirageをビルドに含めるよう、サーバを再起動してください。
 
 <!--
 Note that at this point of the tutorial, the data is still provided by the `app/routes/rentals.js` file. We will make use of the mirage data we set up here in the upcoming section called [Using Ember Data](../ember-data/).
 -->
 
-チュートリアルのこの時点では、データは `app/routes/rentals.js`ファイルによって提供されていることに注意してください。ここ先の[Ember Dataを使う](../ember-data/)セクションで設定したMirageのデータを使用します。
+チュートリアルのこの時点では、データは`app/routes/rentals.js`ファイルによって提供されていることに注意してください。この先の[Ember Dataを使う](../ember-data/)セクションで設定したMirageのデータを使用します。

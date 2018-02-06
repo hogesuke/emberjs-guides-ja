@@ -40,7 +40,7 @@ installing component-test
 A component consists of two parts:
 -->
 
-コンポーネントは2つの部分で構成されています。
+コンポーネントは2つの部品で構成されています。
 
 <!--
 * A template that defines how it will look (`app/templates/components/rental-listing.hbs`)
@@ -124,7 +124,7 @@ with our new `rental-listing` component:
 Here we invoke the `rental-listing` component by name, and assign each `rentalUnit` as the `rental` attribute of the component.
 -->
 
-ここでは、 `rent-listing`コンポーネントを名前で呼び出し、各`rentalUnit`をコンポーネントの`rent`属性として割り当てます。
+ここでは、`rental-listing`コンポーネントを名前で呼び出し、各`rentalUnit`をコンポーネントの`rental`属性として割り当てます。
 
 <!--
 Our app should behave now as before, with the addition of an image for each rental item.
@@ -201,8 +201,8 @@ To allow the user to widen the image, we will need to add an action that toggles
 Let's call this action `toggleImageSize`
 -->
 
-ユーザーが画像を拡大できるようにするには、 `isWide`の値をトグルするアクションを追加する必要があります。
-このアクションを `toggleImageSize`と呼ぶことにしましょう。
+ユーザーが画像を拡大できるようにするには、`isWide`の値をトグルするアクションを追加する必要があります。
+このアクションを`toggleImageSize`と呼ぶことにしましょう。
 
 ```app/templates/components/rental-listing.hbs{-2,+3}
 <article class="listing">
@@ -400,7 +400,7 @@ Since we set the `rentalObj` variable to our local scope, we can access it as pa
 
 次に、 `render`関数を使ってコンポーネントをレンダリングしましょう。
 `render`関数はテンプレート文字列を渡すことができるので、テンプレートと同じ方法でコンポーネントを宣言することができます。
-`rentObj`変数をローカルスコープに設定したので、レンダリング文字列の一部としてレンダリングすることができます。
+`rentalObj`変数をローカルスコープに設定したので、レンダリング文字列の一部としてレンダリングすることができます。
 
 ```tests/integration/components/rental-listing-test.js{+21,+26}
 import { moduleForComponent, test } from 'ember-qunit';
@@ -461,9 +461,9 @@ Note that we find the image element using the CSS selector `.image`.
 -->
 
 2番目のテストでは、画像をクリックするとサイズが切り替わることを確認します。
-コンポーネントが `wide`クラス名なしでレンダリングされることを確認します。
-画像をクリックすると、クラスに `wide`クラスが追加され、2回目にクリックすると`wide`クラスが削除されます。
-image要素はCSSセレクタ`.image`を使って検索してしていることに注意してしてください。
+コンポーネントが`wide`クラス名なしでレンダリングされることを確認します。
+画像をクリックすると、クラスに`wide`クラスが追加され、2回目にクリックすると`wide`クラスが削除されます。
+image要素はCSSセレクタ`.image`を使って検索していることに注意してください。
 
 
 ```tests/integration/components/rental-listing-test.js{+4,+5,+6,+7,+8}
@@ -527,7 +527,7 @@ To find the new test, locate "Integration | Component | rental listing" in the "
 -->
 
 `ember t -s`を実行して、新しいテストがパスしていることを確認してください。
-新しいテストを探すには、テストUIの"Module"フィールドで"Integration | Component | rental listing"と入力するしてください。
+新しいテストを探すには、テストUIの"Module"フィールドで"Integration | Component | rental listing"と入力してください。
 
 
 ![simple_component_test](../../images/simple-component/simple-component-test.gif)

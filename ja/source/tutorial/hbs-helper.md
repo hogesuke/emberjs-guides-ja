@@ -14,7 +14,7 @@ Let's use a handlebars helper to allow our users to quickly see if a property is
 To get started, let's generate a helper for `rental-property-type`:
 -->
 
-始めに、 `rent-property-type`のヘルパーを生成しましょう：
+始めに、`rental-property-type`のヘルパーを生成しましょう：
 
 ```shell
 ember g helper rental-property-type
@@ -87,8 +87,8 @@ if so, we'll return either `'Community'` or `'Standalone'`:
 -->
 
 理想的には、最初の賃貸物件には"Type: Standalone - Estate"が表示されるはずなのですが、
-代わりに、デフォルトのテンプレートヘルパーが `rental.category`の値を返しています。
- `communityPropertyTypes`プロパティが配列に存在するかどうかを調べるためにヘルパーを更新しましょう。
+代わりに、デフォルトのテンプレートヘルパーが`rental.category`の値を返しています。
+`communityPropertyTypes`プロパティが配列に存在するかどうかを調べるためにヘルパーを更新しましょう。
 存在する場合は`Community`を、そうでない場合は`Standalone`を返します：
 
 ```app/helpers/rental-property-type.js{-3,-4,-5,+7,+8,+9,+10,+11,+13,+14,+15,+16,+18,+19}
@@ -139,7 +139,7 @@ while the other two are listed as "Community".
 Update the content of the integration test to the following to fix it:
 -->
 
-統合テストの内容を次のように更新して修正してください。
+統合テストの内容を次のように更新してください。
 
 ```/tests/integration/helpers/rental-property-type-test.js{-9,-10,-11,-17,+12,+13,+18,+21,+22,+23,+24,+25,+26,+27}
 

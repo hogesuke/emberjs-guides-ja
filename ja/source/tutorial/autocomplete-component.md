@@ -20,7 +20,7 @@ ember g component list-filter
 As before when we created the [`rental-listing` component](../simple-component), the "generate component" CLI command creates
 -->
 
-[`rental-listing`](../simple-component)コンポーネントを作成する前と同様、以下のものが生成されます。
+[`rental-listing`](../simple-component)コンポーネントを作成した時と同様に、以下のものが生成されます。
 
 <!--
 * a Handlebars template (`app/templates/components/list-filter.hbs`),
@@ -44,7 +44,7 @@ As before when we created the [`rental-listing` component](../simple-component),
 In our `app/templates/rentals.hbs` template file, we'll add a reference to our new `list-filter` component.
 -->
 
-`app/templates/rentals.hbs` テンプレートファイルに、作成した`list-filter`コンポーネントの参照を追加します。
+`app/templates/rentals.hbs`テンプレートファイルに、作成した`list-filter`コンポーネントの参照を追加します。
 
 <!--
 Notice that below we "wrap" our rentals markup inside the open and closing mentions of `list-filter` on lines 12 and 20.
@@ -91,7 +91,7 @@ In this case we are passing, or "yielding", our filter data to the inner markup 
 #### Accepting Input to a Component
 -->
 
-#### コンポーネントへの入力の受け付ける
+#### コンポーネントへの入力を受け付ける
 
 <!--
 We want the component to simply provide an input field and yield the results list to its block, so our template will be simple:
@@ -112,7 +112,7 @@ The template contains an [`{{input}}`](../../templates/input-helpers) helper tha
 The `value` property of the `input` will be kept in sync with the `value` property in the component.
 -->
 
-テンプレートにはテキストフィールドとして描画される[`{{input}}`](../../templates/input-helpers)ヘルパーが含まれています。このヘルパーに都市を絞る条件が入力できます。 `input`の`value`属性は、コンポーネントの`value`属性と同期して保持されます。
+テンプレートにはテキストフィールドとして描画される[`{{input}}`](../../templates/input-helpers)ヘルパーが含まれています。このヘルパーに都市を絞る条件を入力できます。 `input`の`value`属性は、コンポーネントの`value`属性と同期して保持されます。
 
 <!--
 Another way to say this is that the `value` property of `input` is [**bound**](../../object-model/bindings/) to the `value` property of the component.
@@ -120,7 +120,7 @@ If the property changes, either by the user typing in the input field, or by ass
 the new value of the property is present in both the rendered web page and in the code.
 -->
 
-または、`input`の`value`属性がコンポーネントの`value`属性に[バインド](../../object-model/bindings/) されているとも言えます。 ユーザーが入力フィールドを入力するか、プログラムで新しい値を割り当てるなどして値が変更されると、value属性の変更された値はレンダリングされたWebページとコードの両方に反映されます。
+または、`input`の`value`属性がコンポーネントの`value`属性に[バインド](../../object-model/bindings/)されているとも言えます。 ユーザーが入力フィールドを入力するか、プログラムで新しい値を割り当てるなどして値が変更されると、value属性の変更された値はレンダリングされたWebページとコードの両方に反映されます。
 
 <!--
 The `key-up` property will be bound to the `handleFilterEntry` action.
@@ -528,14 +528,13 @@ We are not testing the actual filtering of rentals in this test, since it is foc
 We will test the full logic of filtering in acceptance tests, described in the next section. 
 -->
 
-このテストでは、コンポーネントの機能のみに焦点を絞っているため、実際の物件のフィルタリングはテストしていません。 次のセクションで説明する受け入れテストでのフィルタリングの完全なロジックをテストします。
+このテストでは、コンポーネントの機能のみに焦点を絞っているため、実際の物件のフィルタリングはテストしていません。 次のセクションで説明する受け入れテストにおいてフィルタリングの完全なロジックをテストします。
 
 <!--
 Since our component is expecting the filter process to be asynchronous, we return promises from our filter, using [Ember's RSVP library](https://www.emberjs.com/api/ember/2.16/modules/rsvp).
 -->
 
-コンポーネントはフィルタプロセスが非同期であることを期待しているので、[EmberのRSVPライブラリ]
-(https://www.emberjs.com/api/ember/2.16/modules/rsvp)を使用してPromiseを返します。
+コンポーネントはフィルタプロセスが非同期であることを期待しているので、[EmberのRSVPライブラリ](https://www.emberjs.com/api/ember/2.16/modules/rsvp)を使用してPromiseを返します。
 
 <!--
 Next, we'll add the call to render the component to show the cities we've provided above.
@@ -653,8 +652,7 @@ We'll add some additional functionality to our `filterByCity` action to addition
 represented by the variable `FILTERED_ITEMS` when any value is set.
 -->
 
-`filterByCity`アクションにいくつかの追加機能を追加して、値が設定されている時は物件を1件だけ含んだ
-`FILTERED_ITEMS`を常に返すようにします。
+`filterByCity`アクションにいくつかの機能を追加して、値が設定されている時は物件を1件だけ含んだ`FILTERED_ITEMS`を常に返すようにします。
 
 <!--
 We force the action by generating a `keyUp` event on our input field, and then assert that only one item is rendered.
@@ -764,14 +762,14 @@ Our test fills out "Seattle" as the search criteria in the search field,
 and then sends a `keyup` event to the same field with a code of `69` (the `e` key) to simulate a user typing.
 -->
 
-このテストでは、検索フィールドの検索条件として、Seattle」(シアトル)を入力し、ユーザー入力をシミュレートするためにコード69（eキー）を使用して同じフィールドに`keyup`イベントを送信しています。
+このテストでは、検索フィールドの検索条件として、「Seattle(シアトル)」を入力し、ユーザー入力をシミュレートするためにコード69（eキー）を使用して同じフィールドに`keyup`イベントを送信しています。
 
 <!--
 The test locates the results of the search by finding elements with a class of `listing`,
 which we gave to our `rental-listing` component in the ["Building a Simple Component"](../simple-component) section of the tutorial.
 -->
 
-チュートリアルの[コンポーネントの作成](../simple-component)セクションで`rental-listing`コンポーネントのクラスに`listing`を指定したので、それを要素を検索することで、検索結果の場所を特定しています。
+チュートリアルの[コンポーネントの作成](../simple-component)セクションで`rental-listing`コンポーネントのクラスに`listing`を指定したので、その要素を検索することで、検索結果の場所を特定しています。
 
 <!--
 Since our data is hard-coded in Mirage, we know that there is only one rental with a city name of "Seattle",

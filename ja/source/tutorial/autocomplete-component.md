@@ -528,7 +528,7 @@ We are not testing the actual filtering of rentals in this test, since it is foc
 We will test the full logic of filtering in acceptance tests, described in the next section. 
 -->
 
-このテストでは、コンポーネントの機能のみに焦点を絞っているため、実際の物件のフィルタリングはテストしていません。 次のセクションで説明する受け入れテストにおいてフィルタリングの完全なロジックをテストします。
+このテストでは、コンポーネントの機能のみに焦点を絞っているため、実際の物件のフィルタリングはテストしていません。次のセクションは受け入れテストの説明です。フィルタリングのロジックを全てテストします。
 
 <!--
 Since our component is expecting the filter process to be asynchronous, we return promises from our filter, using [Ember's RSVP library](https://www.emberjs.com/api/ember/2.16/modules/rsvp).

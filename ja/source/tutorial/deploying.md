@@ -4,7 +4,7 @@ This can be done with standard Unix file transfer tools such as `rsync` or `scp`
 There are also services that will let you deploy easily.
 -->
 
-Emberアプリケーションをデプロイは、`ember build`の出力したものをWebサーバーに転送するだけです。
+Emberアプリケーションのデプロイは、`ember build`の出力したものをWebサーバーに転送するだけです。
 これは、`rsync`や`scp`のような標準のUnixファイル転送ツールで行うことができます。
 また、簡単にデプロイできるサービスもあります。
 

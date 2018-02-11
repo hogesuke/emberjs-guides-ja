@@ -2,16 +2,21 @@
 The Ember Data store provides an interface for retrieving records of a single type.
 -->
 
-Emberデータストアは、単一のタイプのレコードを取得するためのインターフェイスを提供します。
+Ember DATAのストアは、一つのタイプのレコードを取得するためのインターフェイスを提供します。
 
+<!--
 ### Retrieving a Single Record
+-->
+
+### レコードを1件取得する
 
 <!--
 Use [`store.findRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=findRecord) to retrieve a record by its type and ID.
 This will return a promise that fulfills with the requested record:
 -->
 
-[`store.findRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=findRecord)を使用して、タイプとIDでレコードを取得します。 これは、要求されたレコードを満たす約束を返すでしょう：
+タイプとIDでレコードを取得するには、[`store.findRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=findRecord)を使用します。
+要求されたレコードで解決するPromiseが返されます。
 
 ```javascript
 let blogPost = this.get('store').findRecord('blog-post', 1); // => GET /blog-posts/1
@@ -22,19 +27,24 @@ Use [`store.peekRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/D
 This will return the record only if it is already present in the store:
 -->
 
-ネットワークリクエストを行わずに、[`store.peekRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=peekRecord)を使用して、タイプとIDでレコードを取得します。 これは、ストアにすでに存在する場合にのみレコードを返します。
+ネットワークリクエストなしでタイプとIDでレコードを取得するには、[`store.peekRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=peekRecord)を使用します。
+これは、データがすでにストアに存在する場合にのみレコードを返します。
 
 ```javascript
 let blogPost = this.get('store').peekRecord('blog-post', 1); // => no network request
 ```
 
+<!--
 ### Retrieving Multiple Records
+-->
+
+### レコードを複数取得する
 
 <!--
 Use [`store.findAll()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findAll?anchor=findAll) to retrieve all of the records for a given type:
 -->
 
-指定された型のすべてのレコードを取得するには、[`store.findAll()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findAll?anchor=findAll)を使用します。
+指定されたタイプのレコードを全件取得するには、[`store.findAll()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findAll?anchor=findAll)を使用します。
 
 ```javascript
 let blogPosts = this.get('store').findAll('blog-post'); // => GET /blog-posts
@@ -44,7 +54,8 @@ let blogPosts = this.get('store').findAll('blog-post'); // => GET /blog-posts
 Use [`store.peekAll()`](http://emberjs.com/api/data/classes/DS.Store.html#method_peekAll) to retrieve all of the records for a given type that are already loaded into the store, without making a network request:
 -->
 
-[`store.peekAll()`](http://emberjs.com/api/data/classes/DS.Store.html#method_peekAll)を使用して、ネットワーク要求を行わずに、すでにストアにロードされている特定のタイプのすべてのレコードを取得します。
+ネットワークリクエストなしで取得するには、[`store.peekAll()`](http://emberjs.com/api/data/classes/DS.Store.html#method_peekAll)を使用します。
+ストアにあるデータから、指定されたタイプのレコードを全件返します。
 
 ```javascript
 let blogPosts = this.get('store').peekAll('blog-post'); // => no network request
@@ -54,7 +65,7 @@ let blogPosts = this.get('store').peekAll('blog-post'); // => no network request
 `store.findAll()` returns a `DS.PromiseArray` that fulfills to a `DS.RecordArray` and `store.peekAll` directly returns a `DS.RecordArray`.
 -->
 
-`store.findAll()`は、`DS.RecordArray`を満たす`DS.PromiseArray`を返し、`store.peekAll`は`DS.RecordArray`を直接返します。
+`store.findAll()`は`DS.RecordArray`を解決する`DS.PromiseArray`を返し、`store.peekAll`は`DS.RecordArray`を直接返します。
 
 <!--
 It's important to note that `DS.RecordArray` is not a JavaScript array, it's an object that implements [`Ember.Enumerable`](http://emberjs.com/api/classes/Ember.Enumerable.html).
@@ -62,24 +73,30 @@ This is important because, for example, if you want to retrieve records by index
 the `[]` notation will not work--you'll have to use `objectAt(index)` instead.
 -->
 
-`DS.RecordArray`はJavaScript配列ではなく、[`Ember.Enumerable`](http://emberjs.com/api/classes/Ember.Enumerable.html)を実装するオブジェクトであることに注意することが重要です。
-たとえば、インデックスでレコードを取得する場合は、`[]`表記が機能しないため、代わりに`objectAt(index)`を使用する必要があるため、これは重要です。
+`DS.RecordArray`はJavaScript配列ではなく、[`Ember.Enumerable`](http://emberjs.com/api/classes/Ember.Enumerable.html)を実装しているオブジェクトであることに注意してください。
+例えば、インデックスでレコードを取得する場合は、`[]`を使うことはできず、代わりに`objectAt(index)`を使用する必要があります。
 
+<!--
 ### Querying for Multiple Records
+-->
+
+### クエリーによる複数件のレコード検索
 
 <!--
 Ember Data provides the ability to query for records that meet certain criteria.
 Calling [`store.query()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=query) will make a `GET` request with the passed object serialized as query params.
 This method returns a `DS.PromiseArray` in the same way as `findAll`.
 -->
-Ember Dataは、特定の基準を満たすレコードを照会する機能を提供します。 [`store.query()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=query)を呼び出すと、渡されたオブジェクトをクエリパラメータとしてシリアル化して`GET`リクエストを行います。 このメソッドは、`findAll`と同じ方法で`DS.PromiseArray`を返します。
+Ember Dataには、特定の条件を満たすレコードを検索する機能があります。
+[`store.query()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=query)を呼び出すと、渡されたオブジェクトをクエリパラメータとしてシリアルライズして`GET`リクエストを行います。
+このメソッドは、`findAll`と同様に`DS.PromiseArray`を返します。
 
 <!--
 For example, we could search for all `person` models who have the name of
 `Peter`:
 -->
 
-たとえば、`Peter`の名前を持つすべての`person`モデルを検索できます。
+例えば、`Peter`の名前を持つすべての`person`モデルを検索する場合、以下のように書きます。
 
 ```javascript
 // GET to /persons?filter[name]=Peter
@@ -92,7 +109,11 @@ this.get('store').query('person', {
 });
 ```
 
+<!--
 ### Querying for A Single Record
+-->
+
+### クエリーによる1件のレコード検索
 
 <!--
 If you are using an adapter that supports server requests capable of returning a single model object,
@@ -100,14 +121,14 @@ Ember Data provides a convenience method [`store.queryRecord()`](https://www.emb
 The request is made via a method `queryRecord()` defined by the adapter.
 -->
 
-単一のモデルオブジェクトを返すことができるサーバー要求をサポートするアダプターを使用している場合、Ember Dataは便利なメソッド[`store.queryRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=queryRecord)を提供し、その単一のレコードで解決される約束を返します。
-リクエストは、アダプタによって定義された`queryRecord()`メソッドを介して行われます。
+単一のモデルオブジェクトを返すサーバーリクエストをサポートするアダプターを使用している場合、Ember Dataでは[`store.queryRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=queryRecord)という便利なメソッドが使えます。返し値は単一のレコードで解決するPromiseです。
+リクエストは、アダプタで定義されている`queryRecord()`メソッドを介して行われます。
 
 <!--
 For example, if your server API provides an endpoint for the currently logged in user:
 -->
 
-たとえば、サーバーAPIが現在ログインしているユーザーのエンドポイントを提供する場合は、次のようになります。
+例えば、サーバーAPIが現在ログインしているユーザーのエンドポイントを、以下にのように提供しているとします。
 
 
 ```text
@@ -156,20 +177,21 @@ However the adapter must return a single model object, not an array containing o
 otherwise Ember Data will throw an exception.
 -->
 
-`store.query()`の場合と同様に、照会オブジェクトは`store.queryRecord()`に渡すこともでき、アダプターの`queryRecord()`が要求の修飾に使用するために使用できます。
-ただし、アダプタは1つの要素オブジェクトを含む配列ではなく、単一のモデルオブジェクトを返す必要があります。そうでないと、Ember Dataは例外をスローします。
+`store.query()`の場合と同様に、クエリーオブジェクトは`store.queryRecord()`に渡すこともでき、アダプターの`queryRecord()`でリクエストの条件の指定に使用できます。
+ただし、アダプタは1つの要素オブジェクトを含む配列ではなく、単一のモデルオブジェクトを返す必要があります。
+単一でない場合、Ember Dataは例外を投げます。
 
 <!--
 Note that Ember's default [JSON API adapter](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter) does not provide the functionality needed to support `queryRecord()` directly as it relies on REST request definitions that return result data in the form of an array.
 -->
 
-Emberのデフォルト[JSON APIアダプター](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter)は、結果データを配列形式で返すREST要求定義に依存しているため、`queryRecord()`を直接サポートするために必要な機能を提供していません。
+Emberのデフォルトの[JSON APIアダプター](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter)は、結果のデータを配列形式で返すREST要求定義に依存しているため、`queryRecord()`を直接サポートするための必要な機能は提供していません。
 
 <!--
 If your server API or your adapter only provides array responses but you wish to retrieve just a single record, you can alternatively use the `query()` method as follows:
 -->
 
-サーバーAPIまたはアダプタで配列の応答しか提供されていないが、単一のレコードを取得する場合は、代わりに`query()`メソッドを次のように使用できます。
+サーバーAPIまたはアダプタで配列の応答しか提供されていない場合で、単一のレコードを取得したい場合は、以下のように`query()`メソッドを使用することで解決できます。
 
 ```javascript
 // GET to /users?filter[email]=tomster@example.com

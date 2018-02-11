@@ -148,7 +148,7 @@
       url: "defining-models"
     - title: "レコード検索"
       url: "finding-records"
-    - title: "Creating, Updating and Deleting"
+    - title: "作成、更新、削除"
       url: "creating-updating-and-deleting-records"
     - title: "Relationships"
       url: "relationships"

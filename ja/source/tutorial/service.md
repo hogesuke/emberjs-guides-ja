@@ -3,7 +3,7 @@ For Super Rentals, we want to be able to display a map showing where each rental
 To implement this feature, we will take advantage of several Ember concepts:
 -->
 
-Super Rentalsで、各物件の場所を地図上を表示できるようにしたいですね。 この機能を実装するために、Emberのいくつかのコンセプトを活用しましょう。
+Super Rentalsで、各物件の場所を地図上に表示できるようにしたいですね。 この機能を実装するために、Emberのいくつかのコンセプトを活用しましょう。
 
 <!--
 1. A utility function to create a map from the Google Maps API.
@@ -79,7 +79,7 @@ Now that we have the maps API available to the application, we can create our ma
 Utility files can be generated using Ember CLI.
 -->
 
-アプリケーションでマップAPIを使用できるようになったので、マップユーティリティを作成に取り掛かりましょう。
+アプリケーションでマップAPIを使用できるようになったので、マップユーティリティの作成に取り掛かりましょう。
 ユーティリティファイルは、Ember CLIを使用して生成することができます。
 
 ```shell
@@ -170,7 +170,7 @@ Accessing our maps API through a [service](../../applications/services) will giv
   so that returning to a page doesn't require it to reload its maps.
 -->
 
-* [サービスロケータ](https://en.wikipedia.org/wiki/Service_locator_pattern)とともにインジェクトさルため、マップAPIを使用するコードからマップAPIを抽象化し、より簡単なリファクタリングとメンテナンスが可能になります。
+* [サービスロケータ](https://en.wikipedia.org/wiki/Service_locator_pattern)とともにインジェクトされるため、マップAPIを使用するコードからマップAPIを抽象化し、より簡単なリファクタリングとメンテナンスが可能になります。
 * 遅延ロードされているため、最初に呼び出されるまで初期化されません。 場合によっては、これによりアプリのプロセッサ負荷とメモリ消費量が減少する可能性があります。
 * シングルトンであるため、ブラウザにはサービスオブジェクトのインスタンスが1つしかありません。 これにより、ユーザーがアプリを開いている間は地図データを保持できるため、ページに戻る際に地図を再読み込みする必要はありません。
 
@@ -268,7 +268,7 @@ Let's start by adding a `div` element to the component template.
 This `div` will act as a place for the 3rd party map API to render the map to.
 -->
 
-コンポーネントテンプレートに `div`要素を追加することから始めましょう。
+コンポーネントテンプレートに`div`要素を追加することから始めましょう。
 この`div`は、サードパーティのマップAPIがマップを描画する場所として使います。
 
 ```app/templates/components/location-map.hbs{-1,+2}
@@ -326,7 +326,7 @@ You may have noticed that `this.get('location')` refers to a property location w
 This property will be passed in to the component by its parent template below.
 -->
 
-`this.get('location')`は、定義していないプロパティの場所を参照していることに気づいたかもしれません。 このプロパティは、下の親テンプレートによってコンポーネントに渡されます。
+`this.get('location')`は、定義していないlocationプロパティを参照していることに気づいたかもしれません。 このプロパティは、下の親テンプレートによってコンポーネントに渡されます。
 
 <!--
 Finally open the template file for our `rental-listing` component and add the new `location-map` component.
@@ -393,7 +393,7 @@ We will isolate our tests from actually calling Google Maps by stubbing our map 
 On line 6 of `maps-test.js` below we create an Ember object to simulate the behavior of the utility, but instead of creating a google map, we return an empty JavaScript object.
 -->
 
-サービスの単体テストでは、以前にロードされた場所はキャッシュからフェッチされ、新しい場所はユーティリティーを使用して作成されることを検証します。
+サービスの単体テストでは、以前にロードされた場所はキャッシュからフェッチされ、新しい場所はユーティリティを使用して作成されることを検証します。
 マップユーティリティをスタブして、実際にGoogleマップを呼び出さないようテストを分離します。
 下の`maps-test.js`の6行目では、ユーティリティの動作をシミュレートするEmberオブジェクトを作成しますが、Googleマップを作成する代わりに空のJavaScriptオブジェクトを返します。
 
@@ -455,8 +455,8 @@ When the service calls `createMap` on our fake utility, we will run asserts to v
 In our first test notice that we expect four asserts to be run in line 17. Two of the asserts run in the test function, while the other two are run when `createMap` is called.
 -->
 
-サービスが偽のユーティリティの`createMap`の実行すると、呼び出されたことを確認するためにアサートが実行されます。
-最初のテストでは、17行目で4つのアサーションが実行されることがわかります.2つのアサーションはテスト関数で実行され、残りの2つは `createMap`が呼び出されたときに実行されます。
+サービスが偽のユーティリティの`createMap`を実行すると、呼び出されたことを確認するためにアサートが実行されます。
+最初のテストでは、17行目で4つのアサーションが実行されることがわかります。2つのアサーションはテスト関数で実行され、残りの2つは`createMap`が呼び出されたときに実行されます。
 
 <!--
 In the second test, only one assert is expected (line 26), since the map element is fetched from cache and does not use the utility.
@@ -480,7 +480,7 @@ This matches the behavior in `getMapElement` when city has not yet been cached.
 
 キャッシュ内の都市名は[`camelized`](https://www.emberjs.com/api/ember/2.16/classes/String/methods/camelize?anchor=camelize)されています（30行目）。
 その要素を調べるための鍵として使用することができます。
-これは、都市がまだキャッシュされていないときの `getMapElement`の振る舞いと合わせています。
+これは、都市がまだキャッシュされていないときの`getMapElement`の振る舞いと合わせています。
 
 <!--
 ### Integration Testing the Map Component

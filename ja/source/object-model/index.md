@@ -31,7 +31,7 @@ Ember also extends the JavaScript `Array` prototype with its
 [Ember.Enumerable](http://emberjs.com/api/classes/Ember.Enumerable.html) interface to provide change observation for arrays.
 -->
 
-また、Emberは配列の変更を監視できるように、[Ember.Enumerable](http://emberjs.com/api/classes/Ember.Enumerable.html)インターフェイスを使用してJavaScript `Array`プロトタイプを拡張します。
+また、Emberは配列の変更を監視できるように、[Ember.Enumerable](http://emberjs.com/api/classes/Ember.Enumerable.html)インターフェイスを使用してJavaScript`Array`プロトタイプを拡張します。
 
 <!--
 Finally, Ember extends the `String` prototype with a few [formatting and

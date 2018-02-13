@@ -5,7 +5,7 @@ as other major features of the Ember object model.
 -->
 
 Emberについて学ぶ際、`Component.extend()`や`DS.Model.extend()`などのコードを目にするでしょう。
-ここでは、この`extend()`メソッド、およびEmberオブジェクトモデルのその他の主な機能について学美ます。
+ここでは、この`extend()`メソッド、およびEmberオブジェクトモデルのその他の主な機能について学びます。
 
 <!--
 ### Defining Classes
@@ -120,14 +120,14 @@ let yehuda = Soldier.create({
   name: '矢吹田猫'
 });
 
-yehuda.say('はい'); // "矢吹田猫: はい、了解しした！"をアラート表示
+yehuda.say('はい'); // "矢吹田猫: はい、了解しました！"をアラート表示
 ```
 
 <!--
 In certain cases, you will want to pass arguments to `_super()` before or after overriding.
 -->
 
-場合によっては、オーバーライドの前または後に `_super()`に引数を渡したいと思うでしょう。
+場合によっては、オーバーライドの前または後に`_super()`に引数を渡したいと思うでしょう。
 
 <!--
 This allows the original method to continue operating as it normally would.
@@ -139,7 +139,7 @@ This allows the original method to continue operating as it normally would.
 One common example is when overriding the [`normalizeResponse()`][4] hook in one of Ember-Data's serializers.
 -->
 
- 代表的な例に、Ember-Dataのシリアライザの[`normalizeResponse()`][4]フックをオーバーライドがあります。
+代表的な例に、Ember-Dataのシリアライザの[`normalizeResponse()`][4]フックをオーバーライドがあります。
 
 <!--
 A handy shortcut for this is to use a "spread operator", like `...arguments`:
@@ -160,7 +160,7 @@ normalizeResponse(store, primaryModelClass, payload, id, requestType)  {
 
 ```javascript
 normalizeResponse(store, primaryModelClass, payload, id, requestType)  {
-  // Ember-Data様にJSONペイロードをカスタマイズ
+  // Ember-Data用にJSONペイロードをカスタマイズ
   return this._super(...arguments);
 }
 ```
@@ -208,7 +208,7 @@ When creating an instance, you can initialize the values of its properties
 by passing an optional hash to the `create()` method:
 -->
 
-インスタンスを作成する際、プロパティを初期値を指定できます。
+インスタンスを作成する際、プロパティの初期値を指定できます。
 `create()`メソッドにハッシュを渡します:
 
 ```javascript
@@ -234,7 +234,7 @@ computed properties and should not redefine existing or define new methods. You 
 properties, create a new subclass and instantiate that.
 -->
 
-パフォーマンス上の理由から、`create()` を呼び出す際にインスタンスの算出プロパティを再定義することはできず、既存のメソッドの再定義、新しいメソッドの定義もできません。
+パフォーマンス上の理由から、`create()`を呼び出す際にインスタンスの算出プロパティを再定義することはできず、既存のメソッドの再定義、新しいメソッドの定義もできません。
 `create()`を呼び出すときには、単純なプロパティのみを設定してください。
 メソッドや算出プロパティを定義または再定義する必要がある場合は、新しいサブクラスを作成してインスタンス化してください。
 

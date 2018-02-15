@@ -5,7 +5,7 @@ developers face, computed properties are the appropriate solution.*
 -->
 
 *__注記__:Emberを始めたばかりの開発者はオブザーバーを乱用しがちです。
-オブザーバーはEmberフレームワーク自体の中ではよく使用されていますが、Emberアプリケーション開発者が直面する問題のほとんどが、算出プロパティーで適切に解決できます。*
+オブザーバーはEmberフレームワーク自体の中ではよく使用されていますが、Emberアプリケーション開発者が直面する問題のほとんどが、算出プロパティで適切に解決できます。*
 
 <!--
 Ember supports observing any property, including computed properties.
@@ -151,7 +151,7 @@ This will ensure that any processing you need to do only happens once, and
 happens in the next run loop once all bindings are synchronized:
 -->
 
-これらの問題を回避するには、[`Ember.run.once()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Frunloop/methods/once?anchor=once).を使用する必要があります。
+これらの問題を回避するには、[`Ember.run.once()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Frunloop/methods/once?anchor=once)を使用する必要があります。
 これにより、必要な処理は一度だけ実行され、すべてのバインディングが同期されると次の実行ループで処理が行われます。
 
 
@@ -276,7 +276,7 @@ You can also add observers to an object outside of a class definition
 using [`addObserver()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fobservers/methods/addObserver?anchor=addObserver):
 -->
 
-[`addObserver()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fobservers/methods/addObserver?anchor=addObserver):を使用して、オブザーバーをクラス定義外のオブジェクトに追加することもできます。
+[`addObserver()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fobservers/methods/addObserver?anchor=addObserver)を使用して、オブザーバーをクラス定義外のオブジェクトに追加することもできます。
 
 
 ```javascript

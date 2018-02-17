@@ -1,11 +1,11 @@
 <!--
-The [`{{input}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=input)
-and [`{{textarea}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=textarea)
+The [`{{input}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=input)
+and [`{{textarea}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=textarea)
 helpers in Ember.js are the easiest way to create common form controls.
 Using these helpers, you can create form controls that are almost identical to the native HTML `<input>` or `<textarea>` elements, but are aware of Ember's two-way bindings and can automatically update.
 -->
 
-Ember.jsの[`{{input}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=input)と[`{{textarea}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=textarea)ヘルパーにより、簡単にフォームを作成することができます。
+Ember.jsの[`{{input}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=input)と[`{{textarea}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=textarea)ヘルパーにより、簡単にフォームを作成することができます。
 このヘルパーを使用すると、ネイティブのHTML`<input>`や`<textarea>`要素とほとんど同じフォームを作成でき、Emberの双方向バインディングによって自動で値を同期することができます。
 
 ## Text fields
@@ -96,11 +96,11 @@ To dispatch an action on specific events, such as `enter` or `key-press`, use th
 
 <!--
 You can also use the
-[`{{input}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=input)
+[`{{input}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=input)
 helper to create a checkbox by setting its `type`:
 -->
 
-チェックボックスを作成するには、[`{{input}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=input)の`type`を指定します。
+チェックボックスを作成するには、[`{{input}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=input)の`type`を指定します。
 
 ```handlebars
 {{input type="checkbox" name="isAdmin" checked=isAdmin}}
@@ -144,10 +144,10 @@ Will bind the value of the text area to `name` on the current context.
 上記の例では、コンテキストの`name`とでテキストエリアの値をバインドしています。
 
 <!--
-[`{{textarea}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/textarea?anchor=textarea) supports binding and/or setting the following properties:
+[`{{textarea}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/textarea?anchor=textarea) supports binding and/or setting the following properties:
 -->
 
-[`{{textarea}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/textarea?anchor=textarea)では、以下の属性のバインドと設定をサポートしています。
+[`{{textarea}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/textarea?anchor=textarea)では、以下の属性のバインドと設定をサポートしています。
 
 * `value`
 * `name`
@@ -174,11 +174,11 @@ Will bind the value of the text area to `name` on the current context.
 ### 動的属性のバインディング
 
 <!--
-You might need to bind a property dynamically to an input if you're building a flexible form, for example. To achieve this you need to use the [`{{get}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=get) and [`{{mut}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/mut?anchor=mut) in conjunction like shown in the following example:
+You might need to bind a property dynamically to an input if you're building a flexible form, for example. To achieve this you need to use the [`{{get}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=get) and [`{{mut}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/mut?anchor=mut) in conjunction like shown in the following example:
 -->
 
 柔軟なフォームを作成する際、プロパティをinput要素に動的にバインドする必要がある場合があります。
-これを実現するには、次の例のように [`{{get}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=get)と[`{{mut}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/mut?anchor=mut)を併用します。
+これを実現するには、次の例のように [`{{get}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=get)と[`{{mut}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/mut?anchor=mut)を併用します。
 
 ```handlebars
 {{input value=(mut (get person field))}}

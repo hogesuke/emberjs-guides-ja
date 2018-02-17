@@ -321,7 +321,7 @@ called with the `error` as the model. See example below:
 
 ```js
 setupController(controller, error) {
-  Ember.Logger.debug(error.message);
+  console.debug(error.message);
   this._super(...arguments);
 }
 ```

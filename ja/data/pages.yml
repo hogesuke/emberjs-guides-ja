@@ -150,7 +150,7 @@
       url: "finding-records"
     - title: "作成、更新、削除"
       url: "creating-updating-and-deleting-records"
-    - title: "Relationships"
+    - title: "モデルの関連付け"
       url: "relationships"
     - title: "Pushing Records into the Store"
       url: "pushing-records-into-the-store"

@@ -31,6 +31,7 @@
 | observer                       | オブザーバー
 | one-way binding                | 単方向バインディング
 | positional parameter           | 位置パラメーター
+| relationship (Ember DATA)      | 関連付け、リレーションシップ
 | router                         | ルーター
 | run loop                       | 実行ループ
 | two-way binding                | 双方向バインディング

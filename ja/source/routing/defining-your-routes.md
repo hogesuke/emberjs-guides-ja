@@ -411,6 +411,7 @@ Emberは、2つの理由から、`:model-name_id`の規約に従います。
 キーが重複していると正しく動作しません。以下はその例です。
 
 ```app/router.js
+// This won't work! The dynamic segments will collide.
 Router.map(function() {
   this.route('photo', { path: '/photo/:id' }, function() {
     this.route('comment', { path: '/comment/:id' });

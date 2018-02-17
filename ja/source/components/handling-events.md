@@ -50,7 +50,7 @@ import Component from '@ember/component';
 
 export default Component.extend({
   doubleClick() {
-    Ember.Logger.info("DoubleClickableComponent was clicked!");
+    console.info("DoubleClickableComponent was clicked!");
     return true;
   }
 });

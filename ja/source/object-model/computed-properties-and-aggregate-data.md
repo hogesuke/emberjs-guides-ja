@@ -4,7 +4,7 @@ items in an array. For example, you may have an array of todo items, and want
 to calculate the incomplete todo's based on their `isDone` property.
 -->
 
-算出プロパティが、値が配列内のオブジェクトのプロパティに依存する時もあります。
+算出プロパティが、配列内のオブジェクトのプロパティに依存する時もあります。
 たとえば、ToDoの配列があり、その`isDone`プロパティに基づいて未完了のToDoを算出する場合です。
 
 ## `@each`
@@ -13,7 +13,7 @@ to calculate the incomplete todo's based on their `isDone` property.
 To facilitate this, Ember provides the `@each` key illustrated below:
 -->
 
-これを容易にするため、Emberには以下に示す `@each`キーがあります。
+これを容易にするため、Emberには以下に示す`@each`キーがあります。
 
 ```app/components/todo-list.js
 import EmberObject, { computed } from '@ember/object';
@@ -60,7 +60,7 @@ and fire observers when any of the following events occurs:
 ### Multiple Dependent Keys
 -->
 
-###複数の依存キー
+### 複数の依存キー
 
 <!--
 It's important to note that the `@each` key can be dependent on more than one key.
@@ -110,7 +110,7 @@ export default Component.extend({
 In both of the examples above, `incomplete` is an array containing the single incomplete todo:
 -->
 
-上記ので例は、`incomplete`は1件の未完了のtodoを含む配列になります。
+上記の例では、`incomplete`は1件の未完了のtodoを含む配列になります。
 
 ```javascript
 import TodoListComponent from 'app/components/todo-list';
@@ -197,7 +197,7 @@ Here, `indexOfSelectedTodo` depends on `todos.[]`, so it will update if we add a
 to `todos`, but won't update if the value of `isDone` on a `todo` changes.
 -->
 
-上記のコードでは、`indexOfSelectedTodoはtodos`は`todo.[]`に依存するので、`todos`にオブジェクトを追加すると更新されますが、todoの`isDone`の値が変更された場合は更新されません。
+上記のコードでは、`indexOfSelectedTodo`は`todos.[]`に依存するので、`todos`にオブジェクトを追加すると更新されますが、todoの`isDone`の値が変更された場合は更新されません。
 
 <!--
 Several of the [Ember.computed](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fcomputed) macros
@@ -279,4 +279,4 @@ requires you to tell Ember.js that it is watching for array changes, which is
 where the `[]` key comes in handy.
 -->
 
-上記の算出プロパティマクロは配列を使うことを前提としているので、これらの場合は`[]`キーを使う必要はありません。しかし、独自のカスタム計算プロパティを実装するには、Ember.jsに便利な配列の変更を監視していることを伝える必要があります。その際、`[]`キーを使うと便利です。
+上記の算出プロパティマクロは配列を使うことを前提としているので、これらの場合は`[]`キーを使う必要はありません。しかし、独自のカスタム算出プロパティを実装するには、Ember.jsに配列の変更を監視していることを伝える必要があります。その際、`[]`キーを使うと便利です。

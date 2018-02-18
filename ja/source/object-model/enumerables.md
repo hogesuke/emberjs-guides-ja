@@ -6,7 +6,7 @@ enumerable in the majority of apps is the native JavaScript array, which
 Ember.js extends to conform to the enumerable interface.
 -->
 
-Ember.jsでは、列挙型(Enumberable)は、多数の子オブジェクトを含む任意のオブジェクトであり、[Ember.Enumerable](http://emberjs.com/api/classes/Ember.Enumerable.html)を使用して子オブジェクトを操作できます。
+Ember.jsでは、列挙型(Enumerable)は、多数の子オブジェクトを含む任意のオブジェクトであり、[Ember.Enumerable](http://emberjs.com/api/classes/Ember.Enumerable.html)を使用して子オブジェクトを操作できます。
 アプリケーションで最も一般的な列挙型は、Ember.jsがEnumerableのインターフェイスに準拠するように拡張しているネイティブJavaScriptの配列(Array)です。
 
 <!--
@@ -25,7 +25,7 @@ allows Ember.js to use the native browser implementations in arrays
 where available.
 -->
 
-列挙可能なAPIは、可能な限りECMAScript仕様に準拠しています。 これにより、他のライブラリとの非互換性が最小限に抑えられおり、Ember.jsはブラウザのネイティブ実装が利用できる場合は利用します。
+列挙可能なAPIは、可能な限りECMAScript仕様に準拠しています。 これにより、他のライブラリとの非互換性が最小限に抑えられており、Ember.jsはブラウザのネイティブ実装が利用できる場合は利用します。
 
 
 <!--
@@ -241,7 +241,7 @@ arr.filter((item, index, self) => item < 4);
 When working with a collection of Ember objects, you will often want to filter a set of objects based upon the value of some property. The [`filterBy()`](http://emberjs.com/api/classes/Ember.Enumerable.html#method_filterBy) method provides a shortcut.
 -->
 
-Emberオブジェクトの配列を扱う際、しばしば、プロパティの値に基づいてオブジェクトのセットをフィルタリング場面が出てきます。
+Emberオブジェクトの配列を扱う際、しばしば、プロパティの値に基づいてオブジェクトのセットをフィルタリングする場面が出てきます。
 [`filterBy()`](http://emberjs.com/api/classes/Ember.Enumerable.html#method_filterBy)メソッドはショートカットを提供します。
 
 
@@ -322,7 +322,7 @@ Like the filtering methods, the `every()` and `any()` methods have
 analogous `isEvery()` and `isAny()` methods.
 -->
 
-フィルタリングメソッドと同様に、`every()`メソッド`any()`メソッドには、`isEvery()`メソッドと`isAny()`メソッドがあります。
+フィルタリングメソッドと同様に、`every()`メソッドと`any()`メソッドには、`isEvery()`メソッドと`isAny()`メソッドがあります。
 
 ```javascript
 people.isEvery('isHappy', true); // false

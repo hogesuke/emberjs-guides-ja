@@ -152,7 +152,7 @@ If an identifier (such as an id or slug) is provided instead then the model hook
 -->
 
 注意: 動的セグメントを持つルートは、URLを介して入ったときに呼び出される`model`フックを常に持ちます。 
-例えば、([link-to](../../templates/links)ヘルパーを使用するときなど)ルートに遷移させる際、(`link-to`の第2引数に)モデルを渡すとは、`model`フックは実行されません。
+例えば、([link-to](../../templates/links)ヘルパーを使用するときなど)ルートに遷移させる際、(`link-to`の第2引数に)モデルを渡すと、`model`フックは実行されません。
 識別子(IDやスラッグなど)が渡されている場合は、 `model`フックは実行されます。
 
 <!--
@@ -233,7 +233,7 @@ In the `songs` template, we can specify both models and use the `{{#each}}` help
 each record in the song model and album model:
 -->
 
-`songs`テンプレートでは、両方のモデルを指定し、`{{#each}`}ヘルパーを使用して、songモデルとalbumモデルの各レコードを表示できます。
+`songs`テンプレートでは、両方のモデルを指定し、`{{#each}}`ヘルパーを使用して、songモデルとalbumモデルの各レコードを表示できます。
 
 ```app/templates/songs.hbs
 <h1>Playlist</h1>

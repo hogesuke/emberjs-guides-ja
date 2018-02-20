@@ -40,7 +40,7 @@ calling `map()`, you should pass a function that will be invoked with the value
 -->
 
 Emberアプリケーションのルータの
-The [`map()`](https://www.emberjs.com/api/ember/2.16/classes/Router/methods/map?anchor=map)メソッドを呼び出して、URLマッピングを定義することができます。
+[`map()`](https://www.emberjs.com/api/ember/2.16/classes/Router/methods/map?anchor=map)メソッドを呼び出して、URLマッピングを定義することができます。
 `map()`を呼び出すときには、ルートを作成するのに使う`this`を使用した関数を渡します。
 
 ```app/router.js
@@ -56,7 +56,7 @@ template. Visiting `/favs` will render the `favorites` template.
 -->
 
 ユーザーが`/about`を訪れたとき、Emberは`about`テンプレートを描画します。
-訪問中の `/favs` は`favorites`テンプレートを描画します。
+訪問中の`/favs`は`favorites`テンプレートを描画します。
 
 <!--
 You can leave off the path if it is the same as the route
@@ -100,7 +100,7 @@ points to the currently active route.
 Multi-word route names are conventionally dasherized, such as:
 -->
 
-複数の単語からなるのルート名は、規約上以下のようにダッシュを使って繋げます。
+複数の単語からなるルート名は、規約上以下のようにダッシュを使って繋げます。
 
 ```app/router.js
 Router.map(function() {
@@ -134,7 +134,7 @@ will still by default use the `blog-post.js` route handler and the
 `{{link-to}}` helpers.
 -->
 
-これはデフォルトで `blog-post.js`ルートハンドラーと`blog-post.hbs`テンプレートを使用しますが、`{{link-to}}`ヘルパーでは `blog_post`を渡さなければなりません。
+これはデフォルトで `blog-post.js`ルートハンドラと`blog-post.hbs`テンプレートを使用しますが、`{{link-to}}`ヘルパーでは `blog_post`を渡さなければなりません。
 
 <!--
 ## Nested Routes
@@ -299,7 +299,7 @@ template.
 -->
 
 `index`テンプレートは、`application`テンプレートの`{{outlet}}`に描画されます。
-ユーザーが``/favorites`にアクセスすると、Emberは`index`テンプレートを`favorites`テンプレートに置き換えます。
+ユーザーが`/favorites`にアクセスすると、Emberは`index`テンプレートを`favorites`テンプレートに置き換えます。
 
 <!--
 A nested router like this:
@@ -437,7 +437,7 @@ Router.map(function() {
 In the next section, [Specifying a Route's Model](../specifying-a-routes-model), you will learn more about how to load a model.
 -->
 
-次のセクションの[ルートのモデルの指定する](../specifying-a-routes-model)では、モデルをロードする方法の詳しく学びます。
+次のセクションの[ルートのモデルを指定する](../specifying-a-routes-model)では、モデルをロードする方法を詳しく学びます。
 
 <!--
 ## Wildcard / globbing routes

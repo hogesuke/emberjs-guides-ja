@@ -42,7 +42,7 @@ If you want to render a template other than the default one, set the route's [`t
 the template you want to render instead.
 -->
 
-デフォルト以外のテンプレートを描画したい場合は、ルートの[`templateName`](https://www.emberjs.com/api/ember/2.16/classes/Route/properties/templateName?anchor=templateName)プロパティーに、描画したいテンプレートの名前を指定します。
+デフォルト以外のテンプレートを描画したい場合は、ルートの[`templateName`](https://www.emberjs.com/api/ember/2.16/classes/Route/properties/templateName?anchor=templateName)プロパティに、描画したいテンプレートの名前を指定します。
 
 ```app/routes/posts.js
 import Route from '@ember/routing/route';

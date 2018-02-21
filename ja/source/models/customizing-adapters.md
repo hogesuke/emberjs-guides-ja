@@ -1,3 +1,4 @@
+<!--
 In Ember Data, the Adapter determines how data is persisted to a
 backend data store, such as the URL format and headers for a REST API.
 (The format of the data itself is determined by the
@@ -7,22 +8,43 @@ assumptions of how a [REST API should look](http://jsonapi.org/). If
 your backend conventions differ from these assumptions Ember Data
 makes it easy to change its functionality by swapping out or extending
 the default Adapter.
+-->
 
+Ember Dataでは、アダプタはURL形式やREST APIのヘッダーなど、バックエンドとデータのやり取りをどの行うかを判断します。
+(データ自体のフォーマットは[シリアライザ](../customizing-serializers/)が処理します。)
+Ember Dataのデフォルトアダプタには、[REST APIはどうあるべきか](http://jsonapi.org/)のいくつかの組み込みの前提があります。
+バックエンドの規約がこれらの前提条件と異なる場合、Ember Dataはデフォルトのアダプタを交換または拡張することにより、その機能を簡単に変更することができます。
+
+<!--
 Some reasons for customizing an Adapter include using
 `underscores_case` in your urls, using a medium other than REST to
 communicate with your backend API or even using a
 [local storage backend](https://github.com/locks/ember-localstorage-adapter).
+-->
 
+アダプターをカスタマイズする理由の1つに、URLでアンダースコアを使う、REST以外の手段でバックエンドAPIと通信、[ローカルストレージ](https://github.com/locks/ember-localstorage-adapter)を使うなどがあります。
+
+<!--
 Extending Adapters is a natural process in Ember Data. Ember takes the
 position that you should extend an adapter to add different
 functionality. This results in code that is
 more testable, easier to understand and reduces bloat for people who
 may want to subclass your adapter.
+-->
 
+アダプターの拡張は、Ember Dataの自然なプロセスです。
+Emberは、さまざまな機能を追加するためにはアダプタを拡張すべきという見解を示しています。
+これにより、アダプターをサブクラス化する場合でも、テスト可能で理解しやすいく、コードは肥大化しないでしょう。
+
+<!--
 If your backend has some consistent rules you can define an
 `adapter:application`. The `adapter:application` will get priority over
 the default Adapter, however it will still be superseded by model
 specific Adapters.
+-->
+
+バックエンドに一定の規則がある場合は、`adapter:application`で定義できます。
+`adapter:application`は、デフォルトのアダプタより優先されますが、モデル固有のアダプタによりオーバーライドされます。
 
 ```app/adapters/application.js
 import DS from 'ember-data';
@@ -32,11 +54,16 @@ export default DS.JSONAPIAdapter.extend({
 });
 ```
 
+<!--
 If you have one model that has exceptional rules for communicating
 with its backend than the others you can create a Model specific
 Adapter by running the command `ember generate adapter adapter-name`.
 For example, running `ember generate adapter post` will create the
 following file:
+-->
+
+バックエンドと通信で例外的なルールを持つモデルがある場合は、コマンド`ember generate adapter adapter-name`を実行してモデル固有のアダプタを作成します。
+例えば、`ember generate adapter post`を実行すると、次のファイルが作成されます。
 
 ```app/adapters/post.js
 import DS from 'ember-data';
@@ -46,9 +73,15 @@ export default DS.JSONAPIAdapter.extend({
 });
 ```
 
+<!--
 Ember Data comes with several built-in adapters.
 Feel free to use these adapters as a starting point for creating your own custom adapter.
+-->
 
+Ember Dataには、いくつかのビルトインアダプタが付属しています。
+独自のカスタムアダプターを作成するための出発点として、これらのアダプターを自由に使用してください。
+
+<!--
 - [DS.Adapter](https://www.emberjs.com/api/ember-data/release/classes/DS.Adapter) is the basic adapter
 with no functionality. It is generally a good starting point if you
 want to create an adapter that is radically different from the other
@@ -62,6 +95,12 @@ via XHR.
 - [DS.RESTAdapter](https://www.emberjs.com/api/ember-data/release/classes/DS.RESTAdapter)
 The `RESTAdapter` allows your store to communicate with an HTTP server
 by transmitting JSON via XHR. Before Ember Data 2.0 this adapter was the default.
+-->
+
+- [DS.Adapter](https://www.emberjs.com/api/ember-data/release/classes/DS.Adapter)は機能を持たない基本アダプタです。
+他のEmberアダプタとは根本的に異なるアダプタを作成する場合は、一般的には適切な出発点です。
+- [DS.JSONAPIAdapter](https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPIAdapter) `JSONAPIAdapter`はデフォルトのアダプタであり、XHR経由でJSONを送信してHTTPサーバーと通信するためのJSON API規約に従います。
+- [DS.RESTAdapter](https://www.emberjs.com/api/ember-data/release/classes/DS.RESTAdapter) `RESTAdapter`を使用すると、JSONをXHR経由で送信し、ストアがHTTPサーバーと通信できるようになります。 Ember Data 2.0以前はこのアダプタがデフォルトでした。
 
 
 ## Customizing the JSONAPIAdapter

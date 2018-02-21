@@ -19,11 +19,11 @@ Router.map(function() {
 ```
 
 <!--
-To load a model for the `favorite-posts` route, you would use the [`model()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/model?anchor=model)
+To load a model for the `favorite-posts` route, you would use the [`model()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/model?anchor=model)
 hook in the `favorite-posts` route handler:
 -->
 
-`favorite-posts`ルートのモデルを読み込むには、`favorite-posts`ルートハンドラで[`model()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/model?anchor=model)フックを使います：
+`favorite-posts`ルートのモデルを読み込むには、`favorite-posts`ルートハンドラで[`model()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/model?anchor=model)フックを使います：
 
 ```app/routes/favorite-posts.js
 import Route from '@ember/routing/route';
@@ -205,12 +205,12 @@ Routes without dynamic segments will always execute the model hook.
 
 <!--
 Multiple models can be returned through an
-[RSVP.hash](https://www.emberjs.com/api/ember/2.16/classes/rsvp/methods/hash?anchor=hash).
+[RSVP.hash](https://www.emberjs.com/api/ember/release/classes/rsvp/methods/hash?anchor=hash).
 The `RSVP.hash` method takes an object with promises or values as properties as an argument, and returns a single promise.
 When all of the promises in the object resolve, the returned promise will resolve with an object of all of the promise values. For example:
 -->
 
-複数のモデルは、[RSVP.hash](https://www.emberjs.com/api/ember/2.16/classes/rsvp/methods/hash?anchor=hash)を使って返すことができます。
+複数のモデルは、[RSVP.hash](https://www.emberjs.com/api/ember/release/classes/rsvp/methods/hash?anchor=hash)を使って返すことができます。
 `RSVP.hash`は、引数に`Promise`か値を持つオブジェクトをとり、`Promise`を返します。
 返されたPromiseは、オブジェクト内の`Promise`が全て解決されると、promiseで解決された値を入れたオブジェクトで解決されます。
 例:

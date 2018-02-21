@@ -152,7 +152,7 @@
       url: "creating-updating-and-deleting-records"
     - title: "モデルの関連付け"
       url: "relationships"
-    - title: "Pushing Records into the Store"
+    - title: "レコードをストアにプッシュする"
       url: "pushing-records-into-the-store"
     - title: "Handling Metadata"
       url: "handling-metadata"

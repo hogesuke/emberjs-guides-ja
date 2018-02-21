@@ -154,7 +154,7 @@
       url: "relationships"
     - title: "レコードをストアにプッシュする"
       url: "pushing-records-into-the-store"
-    - title: "Handling Metadata"
+    - title: "メタデータの処理"
       url: "handling-metadata"
     - title: "Customizing Adapters"
       url: "customizing-adapters"

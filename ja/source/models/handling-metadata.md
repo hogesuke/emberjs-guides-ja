@@ -2,14 +2,16 @@
 Along with the records returned from your store, you'll likely need to handle some kind of metadata. *Metadata* is data that goes along with a specific *model* or *type* instead of a record.
 -->
 
-あなたの店から返されたレコードに加えて、ある種のメタデータを扱う必要があるでしょう。
-メタデータとは、レコードではなく特定のモデルまたはタイプに沿ったデータです。
+ストアから返されたレコードに加えて、ある種のメタデータを扱う必要がある場合があります。
+メタデータとは、レコードではなく特定の*モデル*または*型*に沿ったデータです。
 
 <!--
 Pagination is a common example of using metadata. Imagine a blog with far more posts than you can display at once. You might query it like so:
 -->
 
-ページネーションはメタデータを使用する一般的な例です。 一度に表示できるよりもはるかに多くのブログを想像してみてください。 次のようにクエリを実行するかもしれません。
+ページネーションはメタデータを使用する一般的な例です。
+一度に表示できるよりもはるかに多くの記事を持つブログを想像してみてください。
+次のようにデータを取得するでしょう。
 
 ```js
 let result = this.get('store').query('post', {
@@ -22,16 +24,16 @@ let result = this.get('store').query('post', {
 To get different *pages* of data, you'd simply change your offset in increments of 10. So far, so good. But how do you know how many pages of data you have? Your server would need to return the total number of records as a piece of metadata.
 -->
 
-データの異なるページを取得するには、オフセットを10ずつ増減するだけです。
-しかし、どれくらいのページのデータがあるかをどのように知っていますか？
+別のページのデータを取得するには、オフセットを10ずつ増減するだけです。
+しかし、ページ数を知るにはどうすれば良いでしょうか？
 サーバーはメタデータとしてレコードの総数を返す必要があります。
 
 <!--
 Each serializer will expect the metadata to be returned differently. For example, Ember Data's JSON deserializer looks for a `meta` key:
 -->
 
-各シリアライザは、メタデータが異なる方法で返されることを期待します。
-たとえば、Ember DataのJSONデシリアライザはメタキーを探します。
+シリアライザによってメタデータの処理は異なります。
+例えば、Ember DataのJSONデシリアライザは`meta`キーを参照します。
 
 ```js
 {
@@ -56,13 +58,13 @@ Regardless of the serializer used, this metadata is extracted from the response.
 -->
 
 使用されるシリアライザに関係なく、このメタデータはレスポンスから抽出されます。
-その後、`.get('meta')`で読むことができます。
+その後、`.get('meta')`で取得することができます。
 
 <!--
 This can be done on the result of a `store.query()` call:
 -->
 
-これは、`store.query()`呼び出しの結果として実行できます。
+`store.query()`呼び出しの結果で使用します。
 
 ```js
 store.query('post').then((result) => {
@@ -88,7 +90,7 @@ post.get('author').then((author) => {
 Or on a hasMany relationship:
 -->
 
-またはhasManyで、
+またはhasMany場合、
 
 ```js
 let post = store.peekRecord('post', 1);
@@ -102,13 +104,13 @@ post.get('comments').then((comments) => {
 After reading it, `meta.total` can be used to calculate how many pages of posts you'll have.
 -->
 
-それを読んだら、`meta.total`を使って、あなたが持つ投稿のページ数を計算することができます。
+取得後に`meta.total`を使ってブログのページ数を計算することができます。
 
 <!--
 To use the `meta` data outside of the `model` hook, you need to return it:
 -->
 
-`model`フックの外で`meta`データを使用するには、それを返す必要があります。
+`model`フックの外で`meta`データを使用するには、メタデータを返す必要があります。
 
 ```app/routes/users.js
 import Router from '@ember/routing/route';
@@ -133,4 +135,4 @@ export default Route.extend({
 To customize metadata extraction, check out the documentation for your serializer.
 -->
 
-メタデータ抽出をカスタマイズするには、シリアライザのドキュメントを参照してください。
+メタデータの抽出処理をカスタマイズするには、シリアライザのドキュメントを参照してください。

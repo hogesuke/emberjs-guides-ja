@@ -23,8 +23,8 @@ active routes. This gives each active route, starting with the leaf-most
 route, the opportunity to decide whether or not the transition should occur.
 -->
 
- `{{link-to}}`、`transitionTo`、またはURLの変更を経てトランジションが試行されると、アクティブルートで`willTransition`アクションが呼ばれます。
- これにより、一番端のルートから順に、各アクティブルートへ、その遷移が発生するかどうかを判断する機会が与えられます。
+`{{link-to}}`、`transitionTo`、またはURLの変更を経てトランジションが試行されると、アクティブルートで`willTransition`アクションが呼ばれます。
+これにより、一番端のルートから順に、各アクティブルートへ、その遷移が発生するかどうかを判断する機会が与えられます。
 
 <!--
 Imagine your app is in a route that's displaying a complex form for the user
@@ -139,7 +139,7 @@ they've logged in.
 -->
 
 中止されたトランジションは後で再試行できます。
-よくある例だと、認証が必要なルートがユーザをログインページにリダイレクトしてから、ログイン後に元いたルートへのリダイレクトです。
+よくある例だと、認証が必要なルートがユーザーをログインページにリダイレクトしてから、ログイン後に元いたルートへのリダイレクトです。
 
 ```app/routes/some-authenticated.js
 import Route from '@ember/routing/route';
@@ -183,7 +183,7 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   actions: {
     login() {
-      // ユーザをログインさせ、ログイン前にアクセスしたルートがあれば、
+      // ユーザーをログインさせ、ログイン前にアクセスしたルートがあれば、
       // そのルートに飛ばす
       let previousTransition = this.get('previousTransition');
       if (previousTransition) {

@@ -116,7 +116,7 @@ For example:
 -->
 
 リダイレクトするかの判断のために、モデルに関する情報が必要な場合は、[`afterModel()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=afterModel)フックを使用します。
-第1引数にPromiseが)解決したモデルを受け取り、第2引数にトランジションを受け取ります。
+第1引数にPromiseが解決したモデルを受け取り、第2引数にトランジションを受け取ります。
 例えば、下記の場合、
 
 ```app/router.js
@@ -144,7 +144,7 @@ the current transition will be aborted in favor of redirecting to the `PostRoute
 with the single post object being its model.
 -->
 
-`posts`ルートに移動した際、`posts`が1つしかないことが判明したら、現在のトランジションが中止し`post`ルートにリダイレクトし、その1件のpostオブジェクトをモデルにしています。
+`posts`ルートに移動した際、`posts`が1つしかないことが判明したら、現在のトランジションを中止し`post`ルートにリダイレクトし、その1件のpostオブジェクトをモデルにしています。
 
 <!--
 ### Child Routes
@@ -155,7 +155,7 @@ with the single post object being its model.
 Let's change the router above to use a nested route, like this:
 -->
 
-上記のルータを次のようにネストしたルートを使用するように変更しましょう。
+上記のルーターを次のようにネストしたルートを使用するように変更しましょう。
 
 ```app/router.js
 Router.map(function() {
@@ -183,7 +183,7 @@ transition validated, and not cause the parent route's hooks to fire again:
 -->
 
 そこで、[`redirect()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=redirect)メソッドを使います。
-このメソッドでは、元のトランジションを有効なままなので、親ルートのフックは再び発動させません。
+このメソッドでは、元のトランジションは有効なままなので、親ルートのフックは再び発動されません。
 
 ```app/routes/posts.js
 import Route from '@ember/routing/route';

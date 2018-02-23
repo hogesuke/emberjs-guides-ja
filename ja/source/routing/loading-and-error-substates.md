@@ -66,7 +66,7 @@ templates for `slow-model` load.
 
 `slow-model`に移動する時に、`model`フックでクエリが完了するまでに時間がかかることがあります。
 この間、UIは実際に何が起こっているかについてのフィードバックをユーザに与えていません。
-ブラウザの更新でこのルートにアクセスすると、ルートの処理が完全に終わるまではテンプレートが表示されていないため、完全に空白になページが表示されます。
+ブラウザの更新でこのルートにアクセスすると、ルートの処理が完全に終わるまではテンプレートが表示されていないため、完全に空白なページが表示されます。
 `slow-model`に別のルートから移動すると、移動前のルートが表示され続け、`slow-model`のモデルのロードが完了した途端にドバッと`slow-model`のテンプレートが一気に表示されます。
 
 <!--
@@ -115,7 +115,7 @@ find a `routeName-loading` or `loading` template in the hierarchy starting with
 `foo.bar.slow-model-loading`:
 -->
 
-`foo.bar.slow-model`ルートにアクセスすると、Emberは、以下ように、`foo.bar.slow-model-loading`、`routeName-loading`、`loading`という順でテンプレートを探します。
+`foo.bar.slow-model`ルートにアクセスすると、Emberは以下のように、`foo.bar.slow-model-loading`、`routeName-loading`、`loading`という順でテンプレートを探します。
 
 <!--
 1. `foo.bar.slow-model-loading`
@@ -262,7 +262,7 @@ Ember provides an analogous approach to `loading` substates in
 the case of errors encountered during a transition.
 -->
 
-Emberは、トランジション中にエラーが発生した場合、`loading`サブステートと似たの手段を提供します。
+Emberは、トランジション中にエラーが発生した場合、`loading`サブステートと似た手段を提供します。
 
 <!--
 Similar to how the default `loading` event handlers are implemented,
@@ -270,7 +270,7 @@ the default `error` handlers will look for an appropriate error substate to
 enter, if one can be found.
 -->
 
-`loading`イベントハンドラーの実装方法と同様に、`error`ハンドラーも該当する`error`サブステートがあるか探します。
+`loading`イベントハンドラの実装方法と同様に、`error`ハンドラも該当する`error`サブステートがあるか探します。
 
 ```app/router.js
 Router.map(function() {
@@ -306,7 +306,7 @@ that substate (without updating the URL). The "reason" for the error
 to that error state as its `model`.
 -->
 
-上記のいずれかが見つかった場合、ルータはすぐにそのサブステートに移ります。(URLは更新されません)
+上記のいずれかが見つかった場合、ルーターはすぐにそのサブステートに移ります。(URLは更新されません)
 エラーの理由(すなわち、throwされた例外またはPromiseのリジェクト値)、errorが以下のように`model`として渡されます。
 
 <!--
@@ -347,7 +347,7 @@ This `error` event can be handled and used to display an error message,
 redirect to a login page, etc.
 -->
 
-`articles.overview`ルートの`model`フックでPromiseがrejctされた場合(例えばサーバからエラーが返されたり、ユーザがログインしていないなど)、[`error`](https://www.emberjs.com/api/ember/2.16/classes/Route/events/error?anchor=error)イベントはそのルートから発生して、親ルートに伝播されます。
+`articles.overview`ルートの`model`フックでPromiseがrejectされた場合(例えばサーバからエラーが返されたり、ユーザがログインしていないなど)、[`error`](https://www.emberjs.com/api/ember/2.16/classes/Route/events/error?anchor=error)イベントはそのルートから発生して、親ルートに伝播されます。
 `error`イベントは、エラーメッセージの表示、ログインページへのリダイレクトなどに使用できます。
 
 ```app/routes/articles-overview.js

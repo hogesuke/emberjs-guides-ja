@@ -217,8 +217,8 @@ file.
 -->
 
 ポリモーフィズム(多態性)は、開発者が共通の機能を基本クラスに抽象化することを可能にする強力な概念です。
-複数の支払い方法を持つユーザを例に考えてみましょう。
-ユーザはPayPalアカウントとクレジットカードをいくつか持てるとします。
+複数の支払い方法を持つユーザーを例に考えてみましょう。
+ユーザーはPayPalアカウントとクレジットカードをいくつか持てるとします。
 
 <!--
 Note that, for polymorphism to work, Ember Data expects a
@@ -387,7 +387,7 @@ export default DS.Model.extend({
 When a user comments on a blogPost, we need to create a relationship between the two records. We can simply set the `belongsTo` relationship in our new comment:
 -->
 
-ユーザがblogPostにコメントする時は、2つのレコードを関連付ける必要があります。
+ユーザーがblogPostにコメントする時は、2つのレコードを関連付ける必要があります。
 新しいコメントの`belongsTo`関係を設定するだけでできます。
 
 ```javascript

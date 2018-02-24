@@ -33,7 +33,7 @@ transition is prevented, the user might lose all of the progress they
 made on the form, which can make for a pretty frustrating user experience.
 -->
 
-複雑なフォームを表示しているルートにあり、ユーザが誤って前のページに戻るところを想像してください。
+複雑なフォームを表示しているルートにあり、ユーザーが誤って前のページに戻るところを想像してください。
 そのトランジションを中止しないと、ユーザーはフォーム上に入力したデータを失う可能性があり、利便性を損なう可能性があります。
 
 <!--
@@ -139,7 +139,7 @@ they've logged in.
 -->
 
 中止されたトランジションは後で再試行できます。
-よくある例だと、認証が必要なルートがユーザーをログインページにリダイレクトしてから、ログイン後に元いたルートへのリダイレクトです。
+一般的な例は、認証が必要なルートでユーザーをログインページにリダイレクトし、ログイン後に元いたルートにリダイレクトする処理です。
 
 ```app/routes/some-authenticated.js
 import Route from '@ember/routing/route';

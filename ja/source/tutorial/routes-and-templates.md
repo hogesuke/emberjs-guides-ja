@@ -90,7 +90,7 @@ to run our `/app/routes/about.js` file when a visitor navigates to `/about`.
 -->
 
 `/app/router.js`を開くと、**about**ルートの新しいコード行が表示され、`Router.map`関数内に`this.route('about')`が呼ばれていることが確認できます。
-その行は、ユーザが `/about`に移動したときにEmberルータに`/app/routes/about.js`ファイルを実行するよう指示します。
+その行は、ユーザーが `/about`に移動したときにEmberルータに`/app/routes/about.js`ファイルを実行するよう指示します。
 
 ```app/router.js{+10}
 import EmberRouter from '@ember/routing/router';
@@ -278,7 +278,7 @@ In addition to our `about` and `contact` pages, we want to show a list of rental
 our visitors can look through. So let's add a third route and call it `rentals`:
 -->
 
-`about`と`contact`ページに加えて、ユーザが物件を見渡せるように物件一覧を表示したいと思います。`rentals`という3番目のルートを追加しましょう。
+`about`と`contact`ページに加えて、ユーザーが物件を見渡せるように物件一覧を表示したいと思います。`rentals`という3番目のルートを追加しましょう。
 
 ```shell
 ember g route rentals
@@ -357,7 +357,7 @@ To do this we will add code to our index route handler by implementing a route l
 called `beforeModel`.
 -->
 
-ユーザがルート(`/`)URLにアクセスしたときにやりたいことは、 `/rentals`へのリダイレクトです。
+ユーザーがルート(`/`)URLにアクセスしたときにやりたいことは、 `/rentals`へのリダイレクトです。
 これを行うために、インデックスルートハンドラに`beforeModel`と呼ばれるルートライフサイクルフックを実装してコードを追加します。
 
 <!--
@@ -493,7 +493,7 @@ an Ember acceptance test automates interacting with our app in a similar way to 
 -->
 
 前に[プランニングページ](../acceptance-test/)で説明したように、
-Emberの受け入れテストは、ユーザがアプリケーションとやりとりするようなやり方でテストを自動化します。
+Emberの受け入れテストは、ユーザーがアプリケーションとやりとりするようなやり方でテストを自動化します。
 
 <!--
 If you open the acceptance test we created (`/tests/acceptance/list-rentals-test.js`), you'll see our
@@ -587,7 +587,7 @@ Some of the helpers we'll use commonly are:
 Now let's add code that simulates a visitor arriving on our homepage, clicking one of our links and then visiting a new page.
 -->
 
-次に、ユーザがトップページにアクセスし、リンクをクリックし、別のページにアクセスするのをシミュレートするコードを追加します。
+次に、ユーザーがトップページにアクセスし、リンクをクリックし、別のページにアクセスするのをシミュレートするコードを追加します。
 
 ```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+5,+6,+10,+11,+12,+13,+14}
 test('should link to information about the company.', function (assert) {

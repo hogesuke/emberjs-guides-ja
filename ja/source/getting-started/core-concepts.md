@@ -19,7 +19,7 @@ The URL can be set in a few ways:
 -->
 
 不動産賃貸サイトのWebアプリを書いていくことを想像してみましょう。
-ユーザがどの物件を見ているのか、または、その物件を編集しているのか、といった問いに対して、いつでも答えられなければなりません。
+ユーザーがどの物件を見ているのか、または、その物件を編集しているのか、といった問いに対して、いつでも答えられなければなりません。
 Emberでは、それらの問いにURLで特定して答えることができます。
 URLが入力される方法はいくつか存在します。
 
@@ -30,8 +30,8 @@ URLが入力される方法はいくつか存在します。
 * Some other event in the app causes the URL to change.
 -->
 
-* ユーザがアプリにアクセスする
-* ユーザが手動で変える、ブラウザバックしたりアドレスバーで変更するなど
+* ユーザーがアプリにアクセスする
+* ユーザーが手動で変える、ブラウザバックしたりアドレスバーで変更するなど
 * アプリ内のリンクをクリックする
 * アプリ内のその他のイベントによりURLが変更される
 
@@ -141,7 +141,7 @@ Models represent persistent state.
 For example, a property rentals application would want to save the details of a rental when a user publishes it, and so a rental would have a model defining its details, perhaps called the _rental_ model.
 -->
 
-例えば、賃貸物件アプリで、ユーザが物件を公開する時に物件の詳細情報(details)を保存したい場合、アプリ内にdetailsを定義したrentalモデルを持つことになるでしょう。
+例えば、賃貸物件アプリで、ユーザーが物件を公開する時に物件の詳細情報(details)を保存したい場合、アプリ内にdetailsを定義したrentalモデルを持つことになるでしょう。
 
 <!--
 A model typically persists information to a web server, although models can be configured to save to anywhere else, such as the browser's Local Storage.
@@ -165,7 +165,7 @@ While templates describe how a user interface looks, components control how the 
 Components consist of two parts: a template written in Handlebars, and a source file written in JavaScript that defines the component's behavior. For example, our property rental application might have a component for displaying all the rentals called `all-rentals`, and another component for displaying an individual rental called `rental-tile`. The `rental-tile` component might define a behavior that lets the user hide and show the image property of the rental.
 -->
 
-コンポーネントは、Handlebars構文で書かれたテンプレートと、振る舞いを書いたJavaScriptの2つから成り立ちます。例えば、賃貸物件アプリで、全物件を表示する`all-rentals`コンポーネントがあり、一つの物件を表示する`rental-tile`コンポーネントがあるとして、`rental-tile`コンポーネントに、ユーザが物件画像の表示や非表示ができるようにコードを書く、という感じです。
+コンポーネントは、Handlebars構文で書かれたテンプレートと、振る舞いを書いたJavaScriptの2つから成り立ちます。例えば、賃貸物件アプリで、全物件を表示する`all-rentals`コンポーネントがあり、一つの物件を表示する`rental-tile`コンポーネントがあるとして、`rental-tile`コンポーネントに、ユーザーが物件画像の表示や非表示ができるようにコードを書く、という感じです。
 
 <!--
 Let's see these core concepts in action by building a property rental application in the next lesson.

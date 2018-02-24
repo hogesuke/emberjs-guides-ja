@@ -143,7 +143,7 @@ itself](../../templates/actions/), or by child components.
 -->
 
 Emberでは、各コンポーネントに`action`というプロパティを設定できます。
-このプロパティには、[ユーザの操作によってコンポーネント自身とやりとりする](../../templates/actions/)関数か子コンポーネントから呼び出される関数を配置します。
+このプロパティには、[ユーザーの操作によってコンポーネント自身とやりとりする](../../templates/actions/)関数か子コンポーネントから呼び出される関数を配置します。
 
 <!--
 Let's look at the parent component's JavaScript file. In this example,
@@ -660,7 +660,7 @@ user's account was deleted, and passes along with it the full user profile objec
 -->
 
 多くの場合、子コンポーネントは、親がアクションを処理するために必要な情報を把握せず、ただ持っている情報をすべて渡すことがあります。
-例えば、`user-profile`コンポーネントは、親の`system-preferences-editor`に、ユーザのアカウントが削除されたことを通知し、ユーザプロファイルオブジェクトごと渡します。
+例えば、`user-profile`コンポーネントは、親の`system-preferences-editor`に、ユーザーのアカウントが削除されたことを通知し、ユーザープロファイルオブジェクトごと渡します。
 
 ```app/components/user-profile.js
 import Component from '@ember/component';
@@ -684,7 +684,7 @@ For this case, the action helper provides the `value` attribute to allow a paren
 object to pull out only what it needs.
 -->
 
-`system-preferences-editor`コンポーネントがユーザの削除に必要な情報はそのユーザーIDだけです。
+`system-preferences-editor`コンポーネントがユーザーの削除に必要な情報はそのユーザーIDだけです。
 そのような場合のために、アクションヘルパーには、親コンポーネントが渡されたオブジェクから必要なものだけを取得できる`value`属性があります。
 
 ```app/templates/components/system-preferences-editor.hbs
@@ -695,7 +695,7 @@ object to pull out only what it needs.
 Now when the `system-preferences-editor` handles the delete action, it receives only the user's account `id` string.
 -->
 
-これにより、`system-preferences-editor`が削除アクションを実行する時はユーザのアカウント`id`だけを受け取るようになります。。
+これにより、`system-preferences-editor`が削除アクションを実行する時はユーザーのアカウント`id`だけを受け取るようになります。。
 
 ```app/components/system-preferences-editor.js
 import Component from '@ember/component';

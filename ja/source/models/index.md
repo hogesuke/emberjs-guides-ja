@@ -4,7 +4,7 @@ application presents to the user. Different apps will have very
 different models, depending on what problems they're trying to solve.
 -->
 
-モデルは、ユーザに見せるデータの基礎を表すオブジェクトです。
+モデルは、ユーザーに見せるデータの基礎を表すオブジェクトです。
 解決しようとしている問題に応じて、アプリ毎に様々なモデルが存在します。
 
 <!--
@@ -26,7 +26,7 @@ the model data somewhere that it will not be lost.
 -->
 
 モデルは永続化することが多いです。
-永続化により、ユーザがブラウザを閉じるのと同時にモデルデータを失うのを防ぐことができます。
+永続化により、ユーザーがブラウザを閉じるのと同時にモデルデータを失うのを防ぐことができます。
 データが失われないようにするには、ユーザーがモデルを変更した時に、そのデータを失われない場所に保存する必要があります。
 
 <!--
@@ -140,7 +140,7 @@ lists the drafts for the currently logged in user.
 -->
 
 Webアプリ開発でよくあるやり方の1つに、ユーザーインターフェイス要素とデータ取得を密結合させるのがあります。
-例えば、ブログアプリの管理画面を開発していて、ログイン中のユーザの下書き一覧ページを作る場合...
+例えば、ブログアプリの管理画面を開発していて、ログイン中のユーザーの下書き一覧ページを作る場合...
 
 <!--
 You might be tempted to make the component responsible for fetching that

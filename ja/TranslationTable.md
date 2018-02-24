@@ -35,4 +35,5 @@
 | router                         | ルーター
 | run loop                       | 実行ループ
 | two-way binding                | 双方向バインディング
+| user                           | ユーザー
 | versioning                     | バージョニング

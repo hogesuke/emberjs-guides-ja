@@ -34,7 +34,7 @@ they must be declared on `controller:articles`.
 -->
 
 クエリーパラメーターはコントローラ上で定義します。
-`articles`ルート内でクエリーパラメータを有効するには、`controller:articles`で宣言します。
+`articles`ルート内でクエリーパラメーターを有効するには、`controller:articles`で宣言します。
 
 <!--
 To add a `category`
@@ -100,7 +100,7 @@ export default Controller.extend({
 With this code, we have established the following behaviors:
 -->
 
-このコードでは、次のような動作するようにしています。
+このコードでは、次のような動作をするようにしています。
 
 <!--
 1. If the user navigates to `/articles`, `category` will be `null`, so
@@ -116,7 +116,7 @@ With this code, we have established the following behaviors:
 
 1. ユーザーが`/articles`に移動すると、`category`は`null`になります。したがって、記事はフィルタリングされません。
 2. ユーザーが`/articles?category=recent`に移動すると、`category`は`"recent"`に設定され、記事はフィルタリングされます。
-3. `articles`ルート内で、`controller:articles`の`category`プロパティを変更すると、URL上のクエリパラメーターも更新されます。デフォルトでは、クエリパラメーターのプロパティを変更してもルータの完全なトランジションは発生しません。(例えば、`model`フックや`setupController`などは呼び出されません)URLが更新されるです。
+3. `articles`ルート内で、`controller:articles`の`category`プロパティを変更すると、URL上のクエリーパラメーターも更新されます。デフォルトでは、クエリーパラメーターのプロパティを変更してもルータの完全なトランジションは発生しません。(例えば、`model`フックや`setupController`などは呼び出されません)URLが更新されるだけです。
 
 <!--
 ### link-to Helper
@@ -162,7 +162,7 @@ active query params for this to be true.
 -->
 
 `link-to`ヘルパーは、アクティブ状態を判断するときにクエリーパラメーターを考慮に入れ、クラスを適切に設定します
-アクティブ状態は、リンクをクリックした後で、クエリパラメータが同じになるかどうかを計算して決定されます。
+アクティブ状態は、リンクをクリックした後で、クエリーパラメーターが同じになるかどうかを計算して決定されます。
 このためには、現在のアクティブなクエリーパラメーターをすべて指定する必要はありません。
 
 ### transitionTo
@@ -216,7 +216,7 @@ If you have a `category` query param and you want it to trigger a model refresh,
 you can set it as follows:
 -->
 
-クエリーパラメーター変更完でフックメソッドなど完全なトランジションをトリガしたい場合、`Route`で`queryParams`オプションを設定します。
+クエリーパラメーターの変更でフックメソッドなど完全なトランジションをトリガしたい場合、`Route`で`queryParams`オプションを設定します。
 `category`というクエリーパラメーターがあり、モデルの更新をトリガしたい場合は、次のように設定します。
 
 ```app/routes/articles.js
@@ -265,7 +265,7 @@ you can specify this as follows:
 -->
 
 デフォルトでは、Emberは`pushState`を使用して、コントローラのクエリーパラメータープロパティの変更に応じてアドレスバーのURLを更新します。
-クエリーパラメーターの変更がブラウザの履歴に追加されないにするには、`replaceState`を使います。
+クエリーパラメーターの変更がブラウザの履歴に追加されないようにするには、`replaceState`を使います。
 次のように指定します。
 
 ```app/routes/articles.js
@@ -292,7 +292,7 @@ which also lets you opt into a `replaceState` transition via `replace=true`.
 ### Map a controller's property to a different query param key
 -->
 
-### コントローラーのプロパティーを別のクエリーパラメーターのキーに割り当てる
+### コントローラーのプロパティを別のクエリーパラメーターのキーに割り当てる
 
 <!--
 By default, specifying `foo` as a controller query param property will
@@ -301,7 +301,7 @@ You can also map a controller property to a different query param key using the 
 -->
 
 デフォルトでは、コントローラのクエリーqueryParamsプロパティに`foo`指定すると、キーが`foo`であるクエリーパラメーターに(`?foo=123`が)バインドされます。
-次の設定構文を使用して、コントローラプロパティを別のクエリパラメータキーにマッピングすることもできます。
+次の設定構文を使用して、コントローラプロパティを別のクエリーパラメータキーにマッピングすることもできます。
 
 ```app/controllers/articles.js
 import Controller from '@ember/controller';
@@ -327,7 +327,7 @@ Query params that require additional customization can
 be provided along with strings in the `queryParams` array.
 -->
 
-設定が必要なクエリーパラメーターは、`queryParams`配列と内にハッシュで指定します。
+設定が必要なクエリーパラメーターは、`queryParams`配列内にハッシュで指定します。
 
 ```app/controllers/articles.js
 import Controller from '@ember/controller';
@@ -389,7 +389,7 @@ This affects query param behavior in two ways:
   ブール値のデフォルト値についても同様です。
   デフォルト値が配列の場合、`JSON.parse`を使用して文字列をパーズします。
 2. コントローラのqueryParamsプロパティのデフォルト値は、URLにシリアライズされません。
-   したがって、上記の例では、`page`が`1`の場合、URLは`/articles`になり、コントローラの`pge`の値を`2`に設定すると
+   したがって、上記の例では、`page`が`1`の場合、URLは`/articles`になり、コントローラの`page`の値を`2`に設定すると
    URLは`/articles?page=2`になります。
 
 <!--
@@ -407,7 +407,7 @@ the new value of that query param will be preserved (rather than reset to its de
 This is a particularly handy default for preserving sort/filter parameters as you navigate back and forth between routes.
 -->
 
-デフォルトでは、Emberのクエリパラメータ値は「スティッキー」(定着している)です。
+デフォルトでは、Emberのクエリーパラメータ値は「スティッキー」(定着している)です。
 クエリーパラメーター変更後にそのルートから離れてからまた戻ると、クエリーパラメーターは(デフォルト値にリセットされるのではなく)ルートを離れた時の値になっています。
 これは、ルート間を行き来する際にソートやフィルタパラメーターを保持しておくのに特に便利です。
 
@@ -420,7 +420,7 @@ and then navigate to `/potatoes` and filter by `"worst"`,
 then given the following nav bar links:
 -->
 
-さらに、これらのスティッキーなクエリパラメーター値は、ルートにロードされたモデルに従って復元されます。
+さらに、これらのスティッキーなクエリーパラメーター値は、ルートにロードされたモデルに従って復元されます。
 したがって、`team`ルートに動的セグメント`/:team_name`と、コントローラのクエリーパラメーター"filter"を指定した場合、
 `/badgers`に移動して "ルーキー"でフィルタリングし、`/bears`に移動して"best"でフィルタして、
 さらに`/potatoes`に移動し、"worst"でフィルタリングすると、以下のナビゲーションバーのリンクは、

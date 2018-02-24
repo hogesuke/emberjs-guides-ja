@@ -3,7 +3,7 @@ The Ember Router allows you to provide feedback that a route is loading, as well
 as when an error occurs in loading a route.
 -->
 
-Ember Routerでは、ルートのロード中や、エラーが発生したことを、ユーザに見せることができます。
+Ember Routerでは、ルートのロード中や、エラーが発生したことを、ユーザーに見せることができます。
 
 <!--
 The `error` and `loading` substates exist as a part of each route, so they
@@ -65,7 +65,7 @@ templates for `slow-model` load.
 -->
 
 `slow-model`に移動する時に、`model`フックでクエリが完了するまでに時間がかかることがあります。
-この間、UIは実際に何が起こっているかについてのフィードバックをユーザに与えていません。
+この間、UIは実際に何が起こっているかについてのフィードバックをユーザーに与えていません。
 ブラウザの更新でこのルートにアクセスすると、ルートの処理が完全に終わるまではテンプレートが表示されていないため、完全に空白なページが表示されます。
 `slow-model`に別のルートから移動すると、移動前のルートが表示され続け、`slow-model`のモデルのロードが完了した途端にドバッと`slow-model`のテンプレートが一気に表示されます。
 
@@ -73,7 +73,7 @@ templates for `slow-model` load.
 So, how can we provide some visual feedback during the transition?
 -->
 
-このような場合に、処理中であることをユーザに見せることできます。
+このような場合に、処理中であることをユーザーに見せることできます。
 
 <!--
 Simply define a template called `loading` (and optionally a corresponding route)
@@ -347,7 +347,7 @@ This `error` event can be handled and used to display an error message,
 redirect to a login page, etc.
 -->
 
-`articles.overview`ルートの`model`フックでPromiseがrejectされた場合(例えばサーバからエラーが返されたり、ユーザがログインしていないなど)、[`error`](https://www.emberjs.com/api/ember/2.16/classes/Route/events/error?anchor=error)イベントはそのルートから発生して、親ルートに伝播されます。
+`articles.overview`ルートの`model`フックでPromiseがrejectされた場合(例えばサーバからエラーが返されたり、ユーザーがログインしていないなど)、[`error`](https://www.emberjs.com/api/ember/2.16/classes/Route/events/error?anchor=error)イベントはそのルートから発生して、親ルートに伝播されます。
 `error`イベントは、エラーメッセージの表示、ログインページへのリダイレクトなどに使用できます。
 
 ```app/routes/articles-overview.js

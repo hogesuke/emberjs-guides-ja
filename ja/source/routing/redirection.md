@@ -10,7 +10,7 @@ or checking out items in their shopping cart.
 Usually you want to redirect them to the login page, and after they have successfully logged in, take them back to the page they originally wanted to access.
 -->
 
-例えば、ユーザがログインしていない時に、プロフィールの編集、個人情報へのアクセス、ショッピングカート内のアイテムのチェックアウトを禁止したい時があります。
+例えば、ユーザーがログインしていない時に、プロフィールの編集、個人情報へのアクセス、ショッピングカート内のアイテムのチェックアウトを禁止したい時があります。
 その場合、ユーザーをログインページにリダイレクトして、ログインに成功した後、最初にアクセスしたページに戻したいと思うでしょう。
 
 <!--

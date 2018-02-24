@@ -465,7 +465,7 @@ As another example, let's make a helper utilizing an authentication
 service that welcomes users by their name if they're logged in:
 -->
 
-別の例として、ユーザがログインしている時に、ユーザ名を表示して歓迎する認証サービスを利用するヘルパーを作ってみましょう。
+別の例として、ユーザーがログインしている時に、ユーザー名を表示して歓迎する認証サービスを利用するヘルパーを作ってみましょう。
 
 ```app/helpers/is-authenticated.js
 import Helper from '@ember/component/helper';

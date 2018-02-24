@@ -3,7 +3,7 @@ As they search for a rental, users might also want to narrow their search to a s
 While our [initial](../simple-component/) rental listing component only displayed rental information, this new filter component will also allow the user to provide input in the form of filter criteria.
 -->
 
-ユーザが物件を検索する際に、検索対象を特定の都市に絞りたくなるかもしれません。 [初めに作成した物件コンポーネント](../simple-component/)では物件情報の表示のみでしたが、これから作成するfilterコンポーネントでは、検索対象を入力できるようにします。
+ユーザーが物件を検索する際に、検索対象を特定の都市に絞りたくなるかもしれません。 [初めに作成した物件コンポーネント](../simple-component/)では物件情報の表示のみでしたが、これから作成するfilterコンポーネントでは、検索対象を入力できるようにします。
 
 <!--
 To begin, let's generate our new component.

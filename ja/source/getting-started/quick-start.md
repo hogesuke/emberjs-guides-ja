@@ -151,7 +151,7 @@ In your editor, open `app/templates/application.hbs` and change it to the follow
 -->
 
 `application`テンプレートの編集から始めていきましょう。
-このテンプレートはユーザがアプリケーションをロードしてからずっと表示されます。
+このテンプレートはユーザーがアプリケーションをロードしてからずっと表示されます。
 エディタで、`app/templates/application.hbs`を開き以下のように変更してください。
 
 
@@ -229,7 +229,7 @@ That is Ember telling you that it has created:
 4. A unit test for this route.
 -->
 
-1. ユーザが`/scientists`にアクセスした時に表示されるテンプレート
+1. ユーザーが`/scientists`にアクセスした時に表示されるテンプレート
 2. 1.のテンプレートで使用されるデータ(モデル)を取得するルート
 3. アプリケーションルーターに`/scientists`パスを追加(`app/router.js`に配置されている).
 4. 2.で作成されたルートのユニットテスト
@@ -441,7 +441,7 @@ Ember makes this easy to do.
 First add an `action` helper to the `li` in your `people-list` component.
 -->
 
-ここまでデータの一覧表示をやりましたが、まだユーザがその情報を操作できません。
+ここまでデータの一覧表示をやりましたが、まだユーザーがその情報を操作できません。
 Webアプリケーションでは、クリックやホバーといったイベントを使いたいでしょう。
 Emberでは簡単にそれをすることができます。
 まず始めに、`people-list`コンポーネント内の`li`に`action`ヘルパーを追加します。

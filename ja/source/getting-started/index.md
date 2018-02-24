@@ -43,7 +43,7 @@ download and run [this Git installer](http://git-scm.com/download/win).
 
 Emberはたくさんの依存関係を管理するためにGitを必要とします。
 GitはMacとほとんどのLinuxディストリビューションにはインストールされています。
-Windowsユーザは[こちらからGitインストーラ](http://git-scm.com/download/win)をダウンロードできます。
+Windowsユーザーは[こちらからGitインストーラ](http://git-scm.com/download/win)をダウンロードできます。
 
 
 <!--
@@ -90,8 +90,8 @@ from [Node.js](https://nodejs.org/en/download/).
 -->
 
 * WindowsかMacの方は、[Node.jsインストーラ](http://nodejs.org/en/download/)をダウンロードして実行してください
-* Macユーザは[Homebrew](http://brew.sh/)を使ってNode.jsをインストールする人も多いです。Homebrewインストール後に`brew install node` を実行し、Node.jsをインストールしてください。その他の手段では、[Node.jsのサイトのダウンロードページ](https://nodejs.org/ja/download/)から直接インストーラパッケージがあります。
-* Linuxユーザは[Node.jsのサイトのダウンロードページ](https://nodejs.org/ja/download/)を参照してください。
+* Macユーザーは[Homebrew](http://brew.sh/)を使ってNode.jsをインストールする人も多いです。Homebrewインストール後に`brew install node` を実行し、Node.jsをインストールしてください。その他の手段では、[Node.jsのサイトのダウンロードページ](https://nodejs.org/ja/download/)から直接インストーラパッケージがあります。
+* Linuxユーザーは[Node.jsのサイトのダウンロードページ](https://nodejs.org/ja/download/)を参照してください。
 
 <!--
 If you get an outdated version of npm, run `npm install -g npm`.

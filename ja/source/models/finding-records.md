@@ -122,7 +122,7 @@ The request is made via a method `queryRecord()` defined by the adapter.
 -->
 
 単一のモデルオブジェクトを返すサーバーリクエストをサポートするアダプターを使用している場合、Ember Dataでは[`store.queryRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/query?anchor=queryRecord)という便利なメソッドが使えます。返し値は単一のレコードで解決するPromiseです。
-リクエストは、アダプタで定義されている`queryRecord()`メソッドを介して行われます。
+リクエストは、アダプターで定義されている`queryRecord()`メソッドを介して行われます。
 
 <!--
 For example, if your server API provides an endpoint for the currently logged in user:
@@ -145,7 +145,7 @@ For example, if your server API provides an endpoint for the currently logged in
 and the adapter for the `User` model defines a `queryRecord()` method that targets that endpoint:
 -->
 
-`User`モデル用のアダプタは、そのエンドポイントをターゲットとする`queryRecord()`メソッドを定義します。
+`User`モデル用のアダプターは、そのエンドポイントをターゲットとする`queryRecord()`メソッドを定義します。
 
 ```app/adapters/user.js
 import DS from 'ember-data';
@@ -178,7 +178,7 @@ otherwise Ember Data will throw an exception.
 -->
 
 `store.query()`の場合と同様に、クエリーオブジェクトは`store.queryRecord()`に渡すこともでき、アダプターの`queryRecord()`でリクエストの条件の指定に使用できます。
-ただし、アダプタは1つの要素オブジェクトを含む配列ではなく、単一のモデルオブジェクトを返す必要があります。
+ただし、アダプターは1つの要素オブジェクトを含む配列ではなく、単一のモデルオブジェクトを返す必要があります。
 単一でない場合、Ember Dataは例外を投げます。
 
 <!--
@@ -191,7 +191,7 @@ Emberのデフォルトの[JSON APIアダプター](https://www.emberjs.com/api/
 If your server API or your adapter only provides array responses but you wish to retrieve just a single record, you can alternatively use the `query()` method as follows:
 -->
 
-サーバーAPIまたはアダプタで配列の応答しか提供されていない場合で、単一のレコードを取得したい場合は、以下のように`query()`メソッドを使用することで解決できます。
+サーバーAPIまたはアダプターで配列の応答しか提供されていない場合で、単一のレコードを取得したい場合は、以下のように`query()`メソッドを使用することで解決できます。
 
 ```javascript
 // GET to /users?filter[email]=tomster@example.com

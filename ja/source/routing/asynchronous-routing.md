@@ -17,7 +17,7 @@ heavy use of the concept of Promises. In short, promises are objects that
 represent an eventual value. A promise can either _fulfill_
 (successfully resolve the value) or _reject_ (fail to resolve the
 value). The way to retrieve this eventual value, or handle the cases
-when the promise rejects, is via the promise's [`then()`](https://www.emberjs.com/api/ember/2.16/classes/Promise/methods/then?anchor=then) method, which
+when the promise rejects, is via the promise's [`then()`](https://www.emberjs.com/api/ember/release/classes/Promise/methods/then?anchor=then) method, which
 accepts two optional callbacks, one for fulfillment and one for
 rejection. If the promise fulfills, the fulfillment handler gets called
 with the fulfilled value as its sole argument, and if the promise rejects,
@@ -28,7 +28,7 @@ sole argument. For example:
 ルータで非同期ロジックを扱う際、EmberではPromisesという概念を大いに活用しています。
 手短に言えば、Promiseは最終的な値を表すオブジェクトです。
 Promiseは、成功(値をうまく解決)するか、拒否する(値の解決に失敗)ことができます。
-この最終的な値を取得するには、成功時と拒否時(オプション)の2つのコールバックを受け取るpromiseの[then()](https://www.emberjs.com/api/ember/2.16/classes/Promise/methods/then?anchor=then)メソッドを使用します。
+この最終的な値を取得するには、成功時と拒否時(オプション)の2つのコールバックを受け取るpromiseの[then()](https://www.emberjs.com/api/ember/release/classes/Promise/methods/then?anchor=then)メソッドを使用します。
 Promiseが解決されれば、解決時の値がコールバックに渡され、失敗れた場合、エラーオブジェクトだけが引数に渡されます。
 
 例:
@@ -124,14 +124,14 @@ defined on it to be a promise.
 If the promise fulfills, the transition will pick up where it left off and
 begin resolving the next (child) route's model, pausing if it too is a
 promise, and so on, until all destination route models have been
-resolved. The values passed to the [`setupController()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/setupController?anchor=setupController) hook for each route
+resolved. The values passed to the [`setupController()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/setupController?anchor=setupController) hook for each route
 will be the fulfilled values from the promises.
 -->
 
 Promiseが解決されば、トランジションは中断されたところから再開します。
 そして、次の(子)ルートのモデルの解決を開始し、それがPromiseであれば一時停止するのを、
 目的地までのルートのモデルが全て解決されるまで繰り返します。
-各ルートの[`setupController()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/setupController?anchor=setupController)フックに渡される値は、Promiseから得られた値です。
+各ルートの[`setupController()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/setupController?anchor=setupController)フックに渡される値は、Promiseから得られた値です。
 
 <!--
 A basic example:

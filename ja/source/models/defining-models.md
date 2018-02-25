@@ -51,11 +51,11 @@ and [working with records](../creating-updating-and-deleting-records) of that ty
 
 <!--
 The `person` model we generated earlier didn't have any attributes. Let's
-add first and last name, as well as the birthday, using [`DS.attr`](https://www.emberjs.com/api/ember-data/2.16/classes/DS/methods/attr?anchor=attr):
+add first and last name, as well as the birthday, using [`DS.attr`](https://www.emberjs.com/api/ember-data/release/classes/DS/methods/attr?anchor=attr):
 -->
 
 以前に作成した`person`モデルにはアトリビュート(属性)がありませんでした。
-[`DS.attr`](https://www.emberjs.com/api/ember-data/2.16/classes/DS/methods/attr?anchor=attr)を使って、名字と誕生日を追加しましょう。
+[`DS.attr`](https://www.emberjs.com/api/ember-data/release/classes/DS/methods/attr?anchor=attr)を使って、名字と誕生日を追加しましょう。
 
 ```app/models/person.js
 import DS from 'ember-data';

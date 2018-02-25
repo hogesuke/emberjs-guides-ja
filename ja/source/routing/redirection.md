@@ -22,24 +22,24 @@ Ember allows you to control that access with a combination of hooks and methods 
 Emberでは、ルートのフックとメソッドの組み合わせでそのアクセスを制御することができます。
 
 <!--
-One of the methods is [`transitionTo()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=transitionTo).
+One of the methods is [`transitionTo()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=transitionTo).
 Calling `transitionTo()` from a route or
-[`transitionToRoute()`](https://www.emberjs.com/api/ember/2.16/classes/Controller/methods/transitionToRoute?anchor=transitionToRoute) from a controller will stop any transitions currently in progress and start a new one, functioning as a redirect.
+[`transitionToRoute()`](https://www.emberjs.com/api/ember/release/classes/Controller/methods/transitionToRoute?anchor=transitionToRoute) from a controller will stop any transitions currently in progress and start a new one, functioning as a redirect.
 `transitionTo()` behaves exactly like the [link-to](../../templates/links) helper.
 -->
 
-そのメソッドの1つは[`transitionTo()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=transitionTo)です。
-コントローラからの[`transitionToRoute()`](https://www.emberjs.com/api/ember/2.16/classes/Controller/methods/transitionToRoute?anchor=transitionToRoute)、またはルートからの`transitionTo()`の呼び出しは、現在進行中のトランジションを停止し、新しいトランジションを開始し、リダイレクトとして機能します。
+そのメソッドの1つは[`transitionTo()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=transitionTo)です。
+コントローラからの[`transitionToRoute()`](https://www.emberjs.com/api/ember/release/classes/Controller/methods/transitionToRoute?anchor=transitionToRoute)、またはルートからの`transitionTo()`の呼び出しは、現在進行中のトランジションを停止し、新しいトランジションを開始し、リダイレクトとして機能します。
 `transitionTo()`は、[link-to](../../templates/links)ヘルパーとまったく同じように動作します。
 
 <!--
-The other one is [`replaceWith()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=replaceWith) which works the same way as `transitionTo()`.
+The other one is [`replaceWith()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=replaceWith) which works the same way as `transitionTo()`.
 The only difference between them is how they manage history.
 `replaceWith()` substitutes the current route entry and replaces it with that of the route we are redirecting to,
 while `transitionTo()` leaves the entry for the current route and creates a new one for the redirection.
 -->
 
-もう1つは、`transitionTo()`と同じように動作する[`replaceWith()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=replaceWith) です。
+もう1つは、`transitionTo()`と同じように動作する[`replaceWith()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=replaceWith) です。
 これらの唯一の違いは、履歴をどのように管理するかです。
 `replaceWith()`は、現在のルートエントリを置換し、リダイレクト先のルートのエントリに置き換えます。
 一方、`transitionTo()`は現在のルートのエントリを残し、リダイレクトの新しいエントリを作成します。
@@ -59,11 +59,11 @@ Passing a model will skip the route's `model()` hook since the model is already 
 ## モデルが判明する前のトランジション
 
 <!--
-Since a route's [`beforeModel()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=beforeModel) executes before the `model()` hook,
+Since a route's [`beforeModel()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=beforeModel) executes before the `model()` hook,
 it's a good place to do a redirect if you don't need any information that is contained in the model.
 -->
 
-ルートの[`beforeModel()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=beforeModel)は`model()`フックの前に実行されるため、モデルに含まれている情報が必要ない場合は、ここでリダイレクトするのがよいでしょう。
+ルートの[`beforeModel()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=beforeModel)は`model()`フックの前に実行されるため、モデルに含まれている情報が必要ない場合は、ここでリダイレクトするのがよいでしょう。
 
 ```app/router.js
 Router.map(function() {
@@ -110,12 +110,12 @@ you might use a [service](../../applications/services).
 ## モデルが判明した後のトランジション
 
 <!--
-If you need information about the current model in order to decide about redirection, you can use the [`afterModel()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=afterModel) hook.
+If you need information about the current model in order to decide about redirection, you can use the [`afterModel()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=afterModel) hook.
 It receives the resolved model as the first parameter and the transition as the second one.
 For example:
 -->
 
-リダイレクトするかの判断のために、モデルに関する情報が必要な場合は、[`afterModel()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=afterModel)フックを使用します。
+リダイレクトするかの判断のために、モデルに関する情報が必要な場合は、[`afterModel()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=afterModel)フックを使用します。
 第1引数にPromiseが解決したモデルを受け取り、第2引数にトランジションを受け取ります。
 例えば、下記の場合、
 
@@ -178,11 +178,11 @@ before the redirect.
 これはリダイレクトの前にも一度発動しているため効率が悪いです。
 
 <!--
-Instead, we can use the [`redirect()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=redirect) method, which will leave the original
+Instead, we can use the [`redirect()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=redirect) method, which will leave the original
 transition validated, and not cause the parent route's hooks to fire again:
 -->
 
-そこで、[`redirect()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/transitionTo?anchor=redirect)メソッドを使います。
+そこで、[`redirect()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/transitionTo?anchor=redirect)メソッドを使います。
 このメソッドでは、元のトランジションは有効なままなので、親ルートのフックは再び発動されません。
 
 ```app/routes/posts.js

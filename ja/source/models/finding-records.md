@@ -11,11 +11,11 @@ Ember DATAのストアは、一つのタイプのレコードを取得するた�
 ### レコードを1件取得する
 
 <!--
-Use [`store.findRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=findRecord) to retrieve a record by its type and ID.
+Use [`store.findRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/findRecord?anchor=findRecord) to retrieve a record by its type and ID.
 This will return a promise that fulfills with the requested record:
 -->
 
-タイプとIDでレコードを取得するには、[`store.findRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=findRecord)を使用します。
+タイプとIDでレコードを取得するには、[`store.findRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/findRecord?anchor=findRecord)を使用します。
 要求されたレコードで解決するPromiseが返されます。
 
 ```javascript
@@ -23,11 +23,11 @@ let blogPost = this.get('store').findRecord('blog-post', 1); // => GET /blog-pos
 ```
 
 <!--
-Use [`store.peekRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=peekRecord) to retrieve a record by its type and ID, without making a network request.
+Use [`store.peekRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/findRecord?anchor=peekRecord) to retrieve a record by its type and ID, without making a network request.
 This will return the record only if it is already present in the store:
 -->
 
-ネットワークリクエストなしでタイプとIDでレコードを取得するには、[`store.peekRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findRecord?anchor=peekRecord)を使用します。
+ネットワークリクエストなしでタイプとIDでレコードを取得するには、[`store.peekRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/findRecord?anchor=peekRecord)を使用します。
 これは、データがすでにストアに存在する場合にのみレコードを返します。
 
 ```javascript
@@ -41,10 +41,10 @@ let blogPost = this.get('store').peekRecord('blog-post', 1); // => no network re
 ### レコードを複数取得する
 
 <!--
-Use [`store.findAll()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findAll?anchor=findAll) to retrieve all of the records for a given type:
+Use [`store.findAll()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/findAll?anchor=findAll) to retrieve all of the records for a given type:
 -->
 
-指定されたタイプのレコードを全件取得するには、[`store.findAll()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/findAll?anchor=findAll)を使用します。
+指定されたタイプのレコードを全件取得するには、[`store.findAll()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/findAll?anchor=findAll)を使用します。
 
 ```javascript
 let blogPosts = this.get('store').findAll('blog-post'); // => GET /blog-posts
@@ -84,11 +84,11 @@ the `[]` notation will not work--you'll have to use `objectAt(index)` instead.
 
 <!--
 Ember Data provides the ability to query for records that meet certain criteria.
-Calling [`store.query()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=query) will make a `GET` request with the passed object serialized as query params.
+Calling [`store.query()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/query?anchor=query) will make a `GET` request with the passed object serialized as query params.
 This method returns a `DS.PromiseArray` in the same way as `findAll`.
 -->
 Ember Dataには、特定の条件を満たすレコードを検索する機能があります。
-[`store.query()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=query)を呼び出すと、渡されたオブジェクトをクエリパラメータとしてシリアルライズして`GET`リクエストを行います。
+[`store.query()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/query?anchor=query)を呼び出すと、渡されたオブジェクトをクエリパラメータとしてシリアルライズして`GET`リクエストを行います。
 このメソッドは、`findAll`と同様に`DS.PromiseArray`を返します。
 
 <!--
@@ -117,11 +117,11 @@ this.get('store').query('person', {
 
 <!--
 If you are using an adapter that supports server requests capable of returning a single model object,
-Ember Data provides a convenience method [`store.queryRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=queryRecord)that will return a promise that resolves with that single record.
+Ember Data provides a convenience method [`store.queryRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/query?anchor=queryRecord)that will return a promise that resolves with that single record.
 The request is made via a method `queryRecord()` defined by the adapter.
 -->
 
-単一のモデルオブジェクトを返すサーバーリクエストをサポートするアダプターを使用している場合、Ember Dataでは[`store.queryRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=queryRecord)という便利なメソッドが使えます。返し値は単一のレコードで解決するPromiseです。
+単一のモデルオブジェクトを返すサーバーリクエストをサポートするアダプターを使用している場合、Ember Dataでは[`store.queryRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/query?anchor=queryRecord)という便利なメソッドが使えます。返し値は単一のレコードで解決するPromiseです。
 リクエストは、アダプタで定義されている`queryRecord()`メソッドを介して行われます。
 
 <!--
@@ -159,10 +159,10 @@ export default DS.Adapter.extend({
 ```
 
 <!--
-then calling [`store.queryRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=queryRecord) will retrieve that object from the server:
+then calling [`store.queryRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/query?anchor=queryRecord) will retrieve that object from the server:
 -->
 
-[`store.queryRecord()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/query?anchor=queryRecord)を呼び出すと、サーバーからそのオブジェクトが取得されます。
+[`store.queryRecord()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/query?anchor=queryRecord)を呼び出すと、サーバーからそのオブジェクトが取得されます。
 
 ```javascript
 store.queryRecord('user', {}).then(function(user) {
@@ -182,10 +182,10 @@ otherwise Ember Data will throw an exception.
 単一でない場合、Ember Dataは例外を投げます。
 
 <!--
-Note that Ember's default [JSON API adapter](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter) does not provide the functionality needed to support `queryRecord()` directly as it relies on REST request definitions that return result data in the form of an array.
+Note that Ember's default [JSON API adapter](https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPIAdapter) does not provide the functionality needed to support `queryRecord()` directly as it relies on REST request definitions that return result data in the form of an array.
 -->
 
-Emberのデフォルトの[JSON APIアダプター](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter)は、結果のデータを配列形式で返すREST要求定義に依存しているため、`queryRecord()`を直接サポートするための必要な機能は提供していません。
+Emberのデフォルトの[JSON APIアダプター](https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPIAdapter)は、結果のデータを配列形式で返すREST要求定義に依存しているため、`queryRecord()`を直接サポートするための必要な機能は提供していません。
 
 <!--
 If your server API or your adapter only provides array responses but you wish to retrieve just a single record, you can alternatively use the `query()` method as follows:

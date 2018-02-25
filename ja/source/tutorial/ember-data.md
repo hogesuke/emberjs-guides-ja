@@ -144,7 +144,7 @@ When we call `findAll`, Ember Data will attempt to fetch rentals from `/api/rent
 If you recall, in the section titled [Installing Addons](../installing-addons/) we set up an adapter to route data requests through `/api`.
 -->
 
-findAllを実行すると、Ember Dataは`/api/rentals`から物件を取得しようとします。 `/api`が付くのは、[アドオンのインストール](../installing-addons/) セクションで、リクエストが`/api`を介すようアダプタを設定したためです。
+findAllを実行すると、Ember Dataは`/api/rentals`から物件を取得しようとします。 `/api`が付くのは、[アドオンのインストール](../installing-addons/) セクションで、リクエストが`/api`を介すようアダプターを設定したためです。
 
 <!--
 You can read more about Ember Data in the [Models section](../../models/).

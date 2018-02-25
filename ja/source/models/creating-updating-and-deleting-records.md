@@ -254,7 +254,7 @@ The `backgroundReload` option is used to prevent the fetching of the destroyed r
 -->
 
 `backgroundReload`オプションは、破棄されたレコードのフェッチを防ぐために使用します。
-[findRecord()][findRecord]が自動的にアダプタからレコードのフェッチをスケジュールするためです。
+[findRecord()][findRecord]が自動的にアダプターからレコードのフェッチをスケジュールするためです。
 
 
 [findRecord]: <https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/findRecord?anchor=findRecord>

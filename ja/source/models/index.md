@@ -72,7 +72,7 @@ ecosystem of adapters][adapters] that allow your Ember app to talk to different
 types of servers without you writing any networking code.
 -->
 
-アダプタパターンが使われているお陰で、いろんな種類のバックエンドでEmber Dataを使えるよう変更できます。
+Adapterパターンが使われているお陰で、いろんな種類のバックエンドでEmber Dataを使えるよう変更できます。
 さまざまな種類のサーバーとのやり取りを可能にする[アダプターがよく揃っているエコシステム][adapters]があるため、ライブラリを使えば自分でコードを書かなくて済むでしょう。
 
 [adapters]: http://emberobserver.com/categories/ember-data-adapters
@@ -475,7 +475,7 @@ successful.
 
 アダプターはそれらの問いにすべて答える責任があります。
 キャッシュされていないレコードをストアに要求すると、アダプターにその要求がいきます。
-レコードを変更して保存すると、ストアはレコードをアダプタに渡して、適切なデータをサーバーに送信し、保存が成功したことを確認します。
+レコードを変更して保存すると、ストアはレコードをアダプターに渡して、適切なデータをサーバーに送信し、保存が成功したことを確認します。
 
 <!--
 Adapters let you completely change how your API is implemented without

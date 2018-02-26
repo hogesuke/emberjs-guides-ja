@@ -156,7 +156,7 @@
       url: "pushing-records-into-the-store"
     - title: "メタデータの処理"
       url: "handling-metadata"
-    - title: "Customizing Adapters"
+    - title: "アダプターのカスタマイズ"
       url: "customizing-adapters"
     - title: "Customizing Serializers"
       url: "customizing-serializers"

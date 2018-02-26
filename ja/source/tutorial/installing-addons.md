@@ -221,7 +221,7 @@ For now, let's generate an adapter for our application:
 これを行うには、アプリケーションアダプターを生成する必要があります。
 [アダプター]（../../models/customizing-adaptapters）は、[Ember Data]（../../models）がバックエンドと通信する方法を決定するために使用します。
 Ember Dataについては、このチュートリアルの後半で詳しく説明します。
-今はアプリケーション用のアダプタを生成しましょう。
+今はアプリケーション用のアダプターを生成しましょう。
 
 ```shell
 ember generate adapter application

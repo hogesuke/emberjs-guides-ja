@@ -12,6 +12,7 @@
 | English                        | 日本語
 |:-------------------------------|:-------------
 | acceptance test                | 受け入れテスト
+| adapter                        | アダプター
 | addon                          | アドオン
 | app                            | アプリ
 | application                    | アプリケーション
@@ -34,6 +35,7 @@
 | relationship (Ember DATA)      | 関連付け、リレーションシップ
 | router                         | ルーター
 | run loop                       | 実行ループ
+| serializer                     | シリアライザ
 | two-way binding                | 双方向バインディング
 | user                           | ユーザー
 | versioning                     | バージョニング

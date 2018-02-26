@@ -301,7 +301,7 @@ You can also map a controller property to a different query param key using the 
 -->
 
 デフォルトでは、コントローラのクエリーqueryParamsプロパティに`foo`指定すると、キーが`foo`であるクエリーパラメーターに(`?foo=123`が)バインドされます。
-次の設定構文を使用して、コントローラプロパティを別のクエリーパラメータキーにマッピングすることもできます。
+次の設定構文を使用して、コントローラプロパティを別のクエリーパラメーターキーにマッピングすることもできます。
 
 ```app/controllers/articles.js
 import Controller from '@ember/controller';
@@ -407,7 +407,7 @@ the new value of that query param will be preserved (rather than reset to its de
 This is a particularly handy default for preserving sort/filter parameters as you navigate back and forth between routes.
 -->
 
-デフォルトでは、Emberのクエリーパラメータ値は「スティッキー」(定着している)です。
+デフォルトでは、Emberのクエリーパラメーター値は「スティッキー」(定着している)です。
 クエリーパラメーター変更後にそのルートから離れてからまた戻ると、クエリーパラメーターは(デフォルト値にリセットされるのではなく)ルートを離れた時の値になっています。
 これは、ルート間を行き来する際にソートやフィルタパラメーターを保持しておくのに特に便利です。
 

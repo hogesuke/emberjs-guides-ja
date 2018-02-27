@@ -42,7 +42,7 @@ Hello, <strong>{{firstName}} {{lastName}}</strong>!
 -->
 
 ```app/templates/application.hbs
-<strong>{{lastName}}{{firstName}}</strong>さん、こんにちは!
+<strong>{{lastName}} {{firstName}}</strong>さん、こんにちは!
 ```
 
 <!--
@@ -64,12 +64,23 @@ an Ember CLI application, you may need to create this file:
 アプリケーションコントローラにプロパティを追加する必要があります。
 Ember CLIでアプリケーションを開発している場合は、以下のファイルが無ければ作成する必要があります。
 
+<!--
 ```app/controllers/application.js
 import Controller from '@ember/controller';
 
 export default Controller.extend({
   firstName: 'Trek',
   lastName: 'Glowacki'
+});
+```
+-->
+
+```app/controllers/application.js
+import Controller from '@ember/controller';
+
+export default Controller.extend({
+  firstName: '太郎',
+  lastName: '田中'
 });
 ```
 
@@ -79,8 +90,14 @@ The above template and controller render as the following HTML:
 
 上記のテンプレートとコントローラを描画すると以下のHTMになります。
 
+<!--
 ```html
 Hello, <strong>Trek Glowacki</strong>!
+```
+-->
+
+```html
+<strong>田中 太郎</strong>さん、こんにちは!
 ```
 
 <!--
@@ -109,7 +126,7 @@ controllers and components.
 Ember gives you the ability to [write your own helpers](../writing-helpers/), to bring a minimum of logic into Ember templating.
 -->
 
-Emberでは、[独自のヘルパーを書く](../writing-helpers/),ことができ、テンプレート内のロジックを最低限に抑えることができます。
+Emberでは、[独自のヘルパーを書く](../writing-helpers/)ことができ、テンプレート内のロジックを最低限に抑えることができます。
 
 <!--
 For example, let's say you would like the ability to add a few numbers together, without needing to define a computed property everywhere you would like to do so.
@@ -133,7 +150,7 @@ export default helper(sum);
 The above code will allow you invoke the `sum()` function as a `{{sum}}` handlebars "helper" in your templates:
 -->
 
-上記のコードでは、テンプレート内のHandlesbarsバーのヘルパー`{{sum}}`として`sum()`関数を呼び出すことができます：
+上記のコードでは、テンプレート内のHandlesbarsのヘルパー`{{sum}}`として`sum()`関数を呼び出すことができます：
 
 ```html
 <p>Total: {{sum 1 2 3}}</p>

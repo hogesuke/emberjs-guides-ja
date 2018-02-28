@@ -63,7 +63,7 @@ format of a concatenated string.
 
 前のセクションでは、ヘルパーを入れ子にできることを説明しました。
 入れ子により動的ヘルパーと組み合わせることができます。
-例えば、[`{{concat}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=concat)ヘルパーを使用すると、多数のパラメータを動的に文字列として連結し、一つのパラメーターにして、コンポーネントまたはヘルパーに渡すことが簡単にできます。
+例えば、[`{{concat}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=concat)ヘルパーを使用すると、多数のパラメーターを動的に文字列として連結し、一つのパラメーターにして、コンポーネントまたはヘルパーに渡すことが簡単にできます。
 
 ```handlebars
 {{get "foo" (concat "item" index)}}

@@ -3,7 +3,7 @@ This section covers some more advanced features of the router and its
 capability for handling complex async logic within your app.
 -->
 
-このセクションでは、ルータのより高度な機能と、アプリ内で複雑な非同期ロジックを処理する機能について説明します。
+このセクションでは、ルーターのより高度な機能と、アプリ内で複雑な非同期ロジックを処理する機能について説明します。
 
 <!--
 ### A Word on Promises...
@@ -25,11 +25,11 @@ the rejection handler gets called with a reason for the rejection as its
 sole argument. For example:
 -->
 
-ルータで非同期ロジックを扱う際、EmberではPromisesという概念を大いに活用しています。
+ルーターで非同期ロジックを扱う際、EmberではPromisesという概念を大いに活用しています。
 手短に言えば、Promiseは最終的な値を表すオブジェクトです。
 Promiseは、成功(値をうまく解決)するか、拒否する(値の解決に失敗)ことができます。
 この最終的な値を取得するには、成功時と拒否時(オプション)の2つのコールバックを受け取るpromiseの[then()](https://www.emberjs.com/api/ember/release/classes/Promise/methods/then?anchor=then)メソッドを使用します。
-Promiseが解決されれば、解決時の値がコールバックに渡され、失敗れた場合、エラーオブジェクトだけが引数に渡されます。
+Promiseが解決されれば、解決時の値がコールバックに渡され、失敗した場合、エラーオブジェクトだけが引数に渡されます。
 
 例:
 
@@ -118,7 +118,7 @@ The router considers any object with a `then()` method
 defined on it to be a promise.
 -->
 
-ルータは `then()`メソッドを持つオブジェクトをすべてPromiseと見なします。
+ルーターは`then()`メソッドを持つオブジェクトをすべてPromiseと見なします。
 
 <!--
 If the promise fulfills, the transition will pick up where it left off and
@@ -128,7 +128,7 @@ resolved. The values passed to the [`setupController()`](https://www.emberjs.com
 will be the fulfilled values from the promises.
 -->
 
-Promiseが解決されば、トランジションは中断されたところから再開します。
+Promiseが解決されれば、トランジションは中断されたところから再開します。
 そして、次の(子)ルートのモデルの解決を開始し、それがPromiseであれば一時停止するのを、
 目的地までのルートのモデルが全て解決されるまで繰り返します。
 各ルートの[`setupController()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/setupController?anchor=setupController)フックに渡される値は、Promiseから得られた値です。
@@ -168,9 +168,9 @@ fulfills, the router will continue transitioning and eventually call
 `route:tardy`'s `setupController()` hook with the resolved object.
 -->
 
-`route:tardy`に移動すると、`model()`フックが呼び出され、3秒後まで解決されない約束が返されます。
-その間、ルータは移行の途中で一時停止します。
-Promiseが最終的に解決されると、ルータはトランジションを継続し、解決されたオブジェクトを最終的に`route:tardy`の`setupController()`フックに渡して呼びます。
+`route:tardy`に移動すると、`model()`フックが呼び出され、3秒後まで解決されないPromiseが返されます。
+その間、ルーターは移行の途中で一時停止します。
+Promiseが最終的に解決されると、ルーターはトランジションを継続し、解決されたオブジェクトを最終的に`route:tardy`の`setupController()`フックに渡して呼びます。
 
 <!--
 This pause-on-promise behavior is extremely valuable for when you need
@@ -178,7 +178,7 @@ to guarantee that a route's data has fully loaded before displaying a
 new template.
 -->
 
-この`pause-on-promise(Promiseで一時停止)の動作は、新たにテンプレートが表示される前にルートのデータが完全にロードされていることを保証する必要があるケースで、非常に役立ちます。
+このpause-on-promise(Promiseで一時停止)の動作は、新たにテンプレートが表示される前にルートのデータが完全にロードされていることを保証する必要があるケースで、非常に役立ちます。
 
 <!--
 ### When Promises Reject...
@@ -246,7 +246,7 @@ import RSVP from 'rsvp';
 
 export default Route.extend({
   model() {
-    return RSVP.reject("FAIL");
+    return RSVP.reject("失敗");
   },
 
   actions: {

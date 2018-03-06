@@ -84,8 +84,8 @@ containing similar items.
 -->
 
 他のヘルパーと同様、`{{#each}}`ヘルパーはバインドされています。
-配列にデータが追加または削除された際に、DOMを自動的に更新されます。
-ですが、Emberでは、バインドされた配列を変更には、[専用のメソッド](../../object-model/enumerables/#toc_use-of-observable-methods-and-properties)を使う必要があります。
+配列にデータが追加または削除された際に、DOMが自動的に更新されます。
+ですが、Emberでは、バインドされた配列を変更するには、[専用のメソッド](../../object-model/enumerables/#toc_use-of-observable-methods-and-properties)を使う必要があります。
 また、[eachヘルパーで`key`オプションを使用する](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each)と、配列が似た項目を含む別のものに置き換える時の再描画のパフォーマンスが向上することを覚えておいてください。
 
 

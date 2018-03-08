@@ -10,7 +10,7 @@ You create a link to a route using the
 component.
 -->
 
-[`{{link-to}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)コンポーネントを使ってあるルートにリンクできます。
+[`{{link-to}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)コンポーネントを使って、ルートへリンクできます。
 
 ```app/router.js
 Router.map(function() {
@@ -61,7 +61,7 @@ The `{{link-to}}` component takes one or two arguments:
 
 * ルートの名前。 上記の例では、`index`、`photos`、`photos.edit`。
 * [動的セグメント](../../routing/defining-your-routes/#toc_動的セグメント)毎に1モデル。
-  デフォルトでは、Ember.jsは各セグメントを対応するオブジェクトの`id`プロパティの値で置き換えます。
+  デフォルトでは、Ember.jsは各セグメントに対応するオブジェクトの`id`プロパティの値で置き換えます。
   上記の例では、第二引数の`photo`オブジェクトの`id`プロパティが動的セグメントに`1`、`2`、
   `3`と置き換えるのに使用されます。
   コンポーネントに渡すモデルがない場合は、代わりに明示的な値を指定できます。
@@ -151,7 +151,7 @@ In the above example, the model hook for `PhotoRoute` will run with `params.phot
 populate the url according to `CommentRoute`'s `serialize` hook.
 -->
 
-上記の例では、`PhotoRoute`のmodelフックは`params.photo_id=5`で実行されます
+上記の例では、`PhotoRoute`のmodelフックは`params.photo_id=5`で実行されます。
 `CommentRoute`の`model`フックは、`comment`セグメントに**モデルオブジェクトが渡されているため実行されません。**
 コメントのIDは、`CommentRoute`の`serialize`フックに従ってURLに変換されます。
 

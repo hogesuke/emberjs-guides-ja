@@ -10,7 +10,7 @@ You create a link to a route using the
 component.
 -->
 
-[`{{link-to}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)コンポーネントを使ってあるルートにリンクできます。
+[`{{link-to}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)コンポーネントを使って、ルートへリンクできます。
 
 ```app/router.js
 Router.map(function() {
@@ -151,7 +151,7 @@ In the above example, the model hook for `PhotoRoute` will run with `params.phot
 populate the url according to `CommentRoute`'s `serialize` hook.
 -->
 
-上記の例では、`PhotoRoute`のmodelフックは`params.photo_id=5`で実行されます
+上記の例では、`PhotoRoute`のmodelフックは`params.photo_id=5`で実行されます。
 `CommentRoute`の`model`フックは、`comment`セグメントに**モデルオブジェクトが渡されているため実行されません。**
 コメントのIDは、`CommentRoute`の`serialize`フックに従ってURLに変換されます。
 

@@ -41,7 +41,7 @@ The first block parameter (`category` in the above example) is the key for this 
 while the second block parameter (`products`) is the actual value of that key.
 -->
 
-`{{#each-in}}`ブロック内のテンプレートは、渡されたオブジェクトの各キー毎に1回づつ繰り返されます。
+`{{#each-in}}`ブロック内のテンプレートは、渡されたオブジェクトの各キー毎に1回ずつ繰り返されます。
 第1ブロック変数(上記の例では`category`)はキーで、第2ブロック変数(`products`)はそのキーの値です。
 
 <!--
@@ -81,7 +81,7 @@ and use the [`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.T
 -->
 
 オブジェクトのキーの順序は、`Object.keys()`の結果と同じです。
-キーを並べ替えたい場合は、`Object.keys`で配列を取得し、JavaScriptの組み込み関数などをを使用してその配列をソートし、[`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each-in)ヘルパーを使用します。
+キーを並べ替えたい場合は、`Object.keys`で配列を取得し、JavaScriptの組み込み関数などを使用してその配列をソートし、[`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each-in)ヘルパーを使用します。
 
 <!--
 ### Empty Lists

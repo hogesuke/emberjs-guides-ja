@@ -56,7 +56,7 @@ only renders `"zoooom"` if both `isFast` and `isFueled` are true:
 
 2つ目の方法は、**ネスト**による呼び出しです。
 インラインヘルパーと同様に、ネストされたヘルパーは単一の値を生成して返します。
-以下のテンプレートは例では、`isFast`と`isFueled`の両方がtrueの場合、`"zoooom"`を描画されます。
+以下のテンプレートは例では、`isFast`と`isFueled`の両方がtrueの場合、`"zoooom"`が描画されます。
 
 ```handlebars
 <div>
@@ -80,7 +80,7 @@ recognized by the `#` before the helper name, and the closing `{{/` double
 curly brace at the end of the invocation.
 -->
 
-3つ目のはブロック形式での呼び出しです。
+3つ目はブロック形式での呼び出しです。
 ブロックヘルパーを使用して、テンプレートの一部のみを描画することができます。
 ヘルパーのブロック呼び出しは、ヘルパー名の前の`#`と、呼び出し終了時の閉じ括弧`{{/`で感知されます。
 
@@ -127,8 +127,8 @@ of that invocation is rendered:
 `{{else if}}`:
 -->
 
-`{{else}}`はヘルパー呼び出しをチェーンすることができます。最
-も一般的な使用例は`{{else if}}`のです。
+`{{else}}`はヘルパー呼び出しをチェーンすることができます。
+最も一般的な使用例は`{{else if}}`です。
 
 ```handlebars
 {{#if isAtWork}}

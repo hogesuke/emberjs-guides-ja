@@ -196,7 +196,7 @@ With `preventDefault=false` omitted, if the user clicked on the link, Ember.js
 will trigger the action, but the user will remain on the current page.
 -->
 
-`preventDefault=false`を省略すると、ユーザーがリンクをクリックすると、Ember.jsがアクションを実行しますが、ユーザーはページに留まったままになります。
+`preventDefault=false`を省略すると、ユーザーがリンクをクリックした際に、Ember.jsがアクションを実行しますが、ユーザーはページに留まったままになります。
 
 <!--
 With `preventDefault=false` present, if the user clicked on the link, Ember.js
@@ -268,7 +268,7 @@ The `newValue` parameter thus becomes the `target.value` property of the event
 object, which is the value of the input field the user typed. (e.g 'Foo Fighters')
 -->
 
-したがって、`newValue`パラメーターは、イベントオブジェクトの`target.value`プロパティーになります。
+したがって、`newValue`パラメーターは、イベントオブジェクトの`target.value`プロパティになります。
 この場合、ユーザーが入力した入力フィールドの値になります。 (例: "Foo Fighters")
 
 <!--
@@ -310,4 +310,4 @@ users of assistive technology. You will need to add additional things like
 この回避策を講じても、クリックイベントはキーボードの操作によるクリック(要素にフォーカスを当ててエンターキーを打つなど)には反応しないため注意が必要です。
 ブラウザは、デフォルトでクリック可能な要素でのみ反応します。
 この回避策は支援技術を使っているユーザーがその要素にアクセスできるようにもしてくれません。
-ユーザーがアクセスできるようにするには、`role`や`tabindex`のなどを追加する必要があります。
+ユーザーがアクセスできるようにするには、`role`や`tabindex`などを追加する必要があります。

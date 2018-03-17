@@ -79,11 +79,11 @@ you would declare the dependency with braces: `todos.@each.{priority,title}`
 
 <!--
 Ember also provides a computed property macro
-[`computed.filterBy`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fcomputed/methods/alias?anchor=filterBy&show=inherited%2Cprotected%2Cprivate%2Cdeprecated),
+[`computed.filterBy`](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed/methods/alias?anchor=filterBy&show=inherited%2Cprotected%2Cprivate%2Cdeprecated),
 which is a shorter way of expressing the above computed property:
 -->
 
-また、Emberには算出プロパティマクロ[`computed.filterBy`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fcomputed/methods/alias?anchor=filterBy&show=inherited%2Cprotected%2Cprivate%2Cdeprecated)があります。
+また、Emberには算出プロパティマクロ[`computed.filterBy`](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed/methods/alias?anchor=filterBy&show=inherited%2Cprotected%2Cprivate%2Cdeprecated)があります。
 これにより、上記の算出プロパティをより短く表現できます。
 
 ```app/components/todo-list.js
@@ -200,16 +200,16 @@ to `todos`, but won't update if the value of `isDone` on a `todo` changes.
 上記のコードでは、`indexOfSelectedTodo`は`todos.[]`に依存するので、`todos`にオブジェクトを追加すると更新されますが、todoの`isDone`の値が変更された場合は更新されません。
 
 <!--
-Several of the [Ember.computed](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fcomputed) macros
+Several of the [Ember.computed](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed) macros
 utilize the `[]` key to implement common use-cases. For instance, to
 create a computed property that mapped properties from an array, you could use
-[Ember.computed.map](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fcomputed/methods/map?anchor=map)
+[Ember.computed.map](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed/methods/map?anchor=map)
 or build the computed property yourself:
 -->
 
 
-[Ember.computed](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fcomputed)マクロの中には、共通のユースケースを実装するために`[]`キーを使用しているものがあります。
-たとえば、配列からプロパティをマップした算出プロパティを作成するには、[Ember.computed.map](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fcomputed/methods/map?anchor=map)を使用するか、算出プロパティを自分で実装します。
+[Ember.computed](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed)マクロの中には、共通のユースケースを実装するために`[]`キーを使用しているものがあります。
+たとえば、配列からプロパティをマップした算出プロパティを作成するには、[Ember.computed.map](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed/methods/map?anchor=map)を使用するか、算出プロパティを自分で実装します。
 
 
 <!--

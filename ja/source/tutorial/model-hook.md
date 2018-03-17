@@ -26,14 +26,14 @@ Here's what our homepage will look like when we're done:
 
 <!--
 In Ember, route handlers are responsible for loading the model with data for the page.
-It loads the data in a function called [`model`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/model?anchor=model).
-The `model` function acts as a **hook**, meaning that Ember will call it for us during different times in our app.
+It loads the data in a function called [`model`](https://www.emberjs.com/api/ember/release/classes/Route/methods/model?anchor=model).
+The `model` function acts as a [hook](../../getting-started/core-concepts/#toc_hooks), meaning that Ember will call it for us during different times in our app.
 The model function we've added to our `rentals` route handler will be called when a user navigates to the rentals route via root URL `http://localhost:4200`, or via `http://localhost:4200/rentals`.
 -->
 
 Emberでは、ルートハンドラがページのデータをモデルにロードします。
-[`model`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/model?anchor=model)と呼ばれる関数で行います。
-`model`関数は、その時々において実行される**フック**です。
+[`model`](https://www.emberjs.com/api/ember/release/classes/Route/methods/model?anchor=model)と呼ばれる関数で行います。
+`model`関数は、その時々において実行される[フック](../../getting-started/core-concepts/#toc_フック)です。
 `rentals`ルートハンドラに追加したモデル関数は、ルートURL`http://localhost:4200`または`http://localhost:4200/rentals`経由でレンタルルートにナビゲートすると呼び出されます。
 
 <!--
@@ -153,10 +153,10 @@ You may move onto the [next page](../installing-addons/) to keep implementing ne
 ここから先は、ここまでで作成した機能のテストの実装です。
 
 <!--
-### Acceptance Testing the Rental List
+### Application Testing the Rental List
 -->
 
-### 物件一覧の受け入れテスト
+### 物件一覧のアプリケーションテスト
 
 <!--
 To check that rentals are listed with an automated test, we will create a test to visit the index route and check that the results show 3 listings.
@@ -172,22 +172,27 @@ We will use the listing class to find out how many rentals are shown on the page
 listingクラスを使用して、ページに表示される物件数を確認します。
 
 <!--
-To find the elements that have a class called `listing`, we'll use a test helper called [find](http://emberjs.com/api/classes/Ember.Test.html#method_find).
-The `find` function returns the elements that match the given [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
+To find the elements that have a class called `listing`, we'll use the method [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll~).
+The `querySelectorAll` method returns the elements that match the given [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 In this case it will return an array of all the elements with a class called `listing`.
 -->
 
-`listing`というクラスを持つ要素を見つけるために、[find](http://emberjs.com/api/classes/Ember.Test.html#method_find)というテストヘルパーを使います。
-`find`関数は与えられた[CSS selectors(https://developer.mozilla.org/ja-JP/docs/Web/CSS/CSS_Selectors)と一致する要素を返します。
+`listing`というクラスを持つ要素を見つけるために、[`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll~)というメソッドを使います。
+`querySelectorAll`メソッドは与えられた[CSS selectors(https://developer.mozilla.org/ja-JP/docs/Web/CSS/CSS_Selectors)と一致する要素を返します。
 この場合、`listing`というクラスを持つすべての要素の配列を返します。
 
+```/tests/acceptance/list-rentals-test.js{+4}
+import {
+  click,
+  currentURL,
+  visit
+} from '@ember/test-helpers'
+```
 
-```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+5}
-test('should list available rentals.', function (assert) {
-  visit('/');
-  andThen(function() {
-    assert.equal(find('.listing').length, 3, 'should see 3 listings');
-  });
+```/tests/acceptance/list-rentals-test.js{+2,+3}
+test('should list available rentals.', async function(assert) {
+  await visit('/');
+  assert.equal(this.element.querySelectorAll('.listing').length, 3, 'should display 3 listings');
 });
 ```
 
@@ -198,11 +203,11 @@ Run the tests again using the command `ember t -s`, and toggle "Hide passed test
 `ember t -s`でテストを実行し、"Hide passed tests"を切り替えて、追加したテストがパスしたか確認してください。
 
 <!--
-Now we are listing rentals, and verifying it with an acceptance test.
-This leaves us with 2 remaining acceptance test failures (and 1 eslint failure):
+Now we are listing rentals, and verifying it with an application test.
+This leaves us with 2 remaining application test failures (and 1 eslint failure):
 -->
 
-物件一覧を表示していることをテストで検証することができました。
-これにより、残りの失敗しているテストが2件になりました。（ESLintを加えると3件）
+物件一覧を表示していることをアプリケーションテストで検証することができました。
+これにより、残りの失敗しているアプリケーションテストが2件になりました。(ESLintを加えると3件)
 
 ![list rentals test passing](../../images/model-hook/model-hook.png)

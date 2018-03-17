@@ -172,3 +172,47 @@ Let's see these core concepts in action by building a property rental applicatio
 -->
 
 では、これらのコアコンセプトを次のレッスンで賃貸不動産アプリケーションを実際に作りながら見ていきましょう。
+
+<!--
+## Hooks
+-->
+
+## フック
+
+<!--
+In Ember, we use the term **hook** for methods that are automatically called within the Ember application. These are methods that can be expected to be called automatically, rather than having to call them specifically.
+-->
+
+Emberでは、Emberアプリケーション内で自動的に呼び出されるメソッドに**フック**という用語を使用します。
+フックは、具体的に呼び出すのではなく、自動的に呼び出されるメソッドです。
+
+<!--
+Some examples of a hook are:
+-->
+
+フックの例は次のとおりです。
+
+<!--
+* [Component Lifecycle Hooks](../../components/the-component-lifecycle/): the [`willRender()`](https://emberjs.com/api/ember/release/classes/Component/methods/willRender?anchor=willRender) hook gets called before each time a component renders
+* Route Hooks: the [`model()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/model?anchor=model) hook is used to load the model on a route
+-->
+
+* [コンポーネントのライフサイクルフック](../../components/the-component-lifecycle/): [`willRender()`](https://emberjs.com/api/ember/release/classes/Component/methods/willRender?anchor=willRender)はコンポーポネントが描画される前に毎回呼ばれます。
+* ルートのフック: [`model()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/model?anchor=model)フックはルートのモデルの読み込みに使用されます。
+
+<!--
+In the following example, the [`didRender()`](https://emberjs.com/api/ember/release/classes/Component/methods?anchor=didRender) component lifecycle hook is used to log "I rendered!" to the console after each time the component is rendered.
+-->
+
+以下の例では、[`didRender()`](https://emberjs.com/api/ember/release/classes/Component/methods?anchor=didRender)フックを使って、コンポーネントが描画される度に"I rendered!"をログに出力します。
+
+```/app/components/foo-did-render-example.js
+import Component from '@ember/component';
+
+export default Component.extend({
+  didRender() {
+    this._super(...arguments);
+    console.log('I rendered!');
+  }
+});
+```

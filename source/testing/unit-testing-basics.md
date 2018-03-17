@@ -2,6 +2,7 @@ Unit tests (as well as container tests) are generally used to test a small piece
 and ensure that it is doing what was intended.
 Unlike application tests, they are narrow in scope and do not require the Ember application to be running.
 
+
 Let's have a look at a common use case - testing a service - to understand the basic principles of testing in Ember.
 This will set the foundation for other parts of your Ember application such as controllers, components, helpers and others.
 Testing a service is as simple as creating a container test,
@@ -9,7 +10,7 @@ looking up the service on the application's container and running assertions aga
 
 ### Testing Computed Properties
 
-Let's start by creating an service that has a `computedFoo` computed property
+Let's start by creating a service that has a `computedFoo` computed property
 based on a `foo` property.
 
 ```app/services/some-thing.js

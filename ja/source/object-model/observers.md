@@ -146,12 +146,12 @@ person.set('lastName', 'Smith');
 ```
 
 <!--
-To get around these problems, you should make use of [`Ember.run.once()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Frunloop/methods/once?anchor=once).
+To get around these problems, you should make use of [`Ember.run.once()`](https://www.emberjs.com/api/ember/release/classes/@ember%2Frunloop/methods/once?anchor=once).
 This will ensure that any processing you need to do only happens once, and
 happens in the next run loop once all bindings are synchronized:
 -->
 
-これらの問題を回避するには、[`Ember.run.once()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Frunloop/methods/once?anchor=once)を使用する必要があります。
+これらの問題を回避するには、[`Ember.run.once()`](https://www.emberjs.com/api/ember/release/classes/@ember%2Frunloop/methods/once?anchor=once)を使用する必要があります。
 これにより、必要な処理は一度だけ実行され、すべてのバインディングが同期されると次の実行ループで処理が行われます。
 
 
@@ -212,11 +212,11 @@ Observers never fire until after the initialization of an object is complete.
 <!--
 If you need an observer to fire as part of the initialization process, you
 cannot rely on the side effect of `set`. Instead, specify that the observer
-should also run after `init` by using [`Ember.on()`](http://emberjs.com/api/classes/Ember.html#method_on):
+should also run after `init` by using [`Ember.on()`](https://emberjs.com/api/ember/2.15/namespaces/Ember/methods/on?anchor=on):
 -->
 
 初期化プロセスの一環としてオブザーバーを作動させる必要がある場合も、`set`の副作用に頼るべきではありません。
-代わりに、[`Ember.on()`](http://emberjs.com/api/classes/Ember.html#method_on)を使かってオブザーバーを`init`の後に実行するように指定します。
+代わりに、[`Ember.on()`](https://emberjs.com/api/ember/2.15/namespaces/Ember/methods/on?anchor=on)を使かってオブザーバーを`init`の後に実行するように指定します。
 
 ```javascript
 import EmberObject, { observer } from '@ember/object';
@@ -273,10 +273,10 @@ get it in your `init()` method.
 
 <!--
 You can also add observers to an object outside of a class definition
-using [`addObserver()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fobservers/methods/addObserver?anchor=addObserver):
+using [`addObserver()`](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fobservers/methods/addObserver?anchor=addObserver):
 -->
 
-[`addObserver()`](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject%2Fobservers/methods/addObserver?anchor=addObserver)を使用して、オブザーバーをクラス定義外のオブジェクトに追加することもできます。
+[`addObserver()`](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fobservers/methods/addObserver?anchor=addObserver)を使用して、オブザーバーをクラス定義外のオブジェクトに追加することもできます。
 
 
 ```javascript

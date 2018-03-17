@@ -1,9 +1,9 @@
 <!--
 If you need to display all of the keys or values of a JavaScript object in your template,
-you can use the [`{{#each-in}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each-in) helper:
+you can use the [`{{#each-in}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each-in) helper:
 -->
 
-テンプレートにJavaScriptオブジェクトのすべてのキーまたは値を表示したい時は、[`{{#each-in}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each-in)ヘルパーを使います。
+テンプレートにJavaScriptオブジェクトのすべてのキーまたは値を表示したい時は、[`{{#each-in}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each-in)ヘルパーを使います。
 
 ```/app/components/store-categories.js
 import Component from '@ember/component';
@@ -77,11 +77,11 @@ The above example will print a list like this:
 <!--
 An object's keys will be listed in the same order as the array returned from calling `Object.keys` on that object.
 If you want a different sort order, you should use `Object.keys` to get an array, sort that array with the built-in JavaScript tools,
-and use the [`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each-in) helper instead.
+and use the [`{{#each}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each-in) helper instead.
 -->
 
 オブジェクトのキーの順序は、`Object.keys()`の結果と同じです。
-キーを並べ替えたい場合は、`Object.keys`で配列を取得し、JavaScriptの組み込み関数などを使用してその配列をソートし、[`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each-in)ヘルパーを使用します。
+キーを並べ替えたい場合は、`Object.keys`で配列を取得し、JavaScriptの組み込み関数などを使用してその配列をソートし、[`{{#each}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each-in)ヘルパーを使用します。
 
 <!--
 ### Empty Lists
@@ -90,12 +90,12 @@ and use the [`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.T
 ### 空のリストとelse
 
 <!--
-The [`{{#each-in}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each-in)
+The [`{{#each-in}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each-in)
 helper can have a matching `{{else}}`.
 The contents of this block will render if the object is empty, null, or undefined:
 -->
 
-[`{{#each-in}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each-in)ヘルパーは`{{else}}`が使えます。
+[`{{#each-in}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each-in)ヘルパーは`{{else}}`が使えます。
 else内のブロックは、オブジェクトが空、`null`、または`undefined`の場合に表示されます。
 
 ```handlebars

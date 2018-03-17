@@ -94,13 +94,13 @@ Emberアドオンはnpmパッケージなので、`ember install`はアドオン
 ### ember-cli-mirageアドオン
 
 <!--
-[Mirage](http://www.ember-cli-mirage.com/) is a client HTTP stubbing library often used for Ember acceptance testing.
+[Mirage](http://www.ember-cli-mirage.com/) is a client HTTP stubbing library often used for Ember application testing.
 For the case of this tutorial, we'll use mirage as our source of data rather than a traditional backend server.
 Mirage will allow us to create fake data to work with while developing our app and mimic an API.
 The data and endpoints we setup here will come into play later in the tutorial, when we use Ember Data to make server requests.
 -->
 
-[Mirage](http://www.ember-cli-mirage.com/)(ミラージュ)は、Emberの受け入れテストによく使用されるクライアントのHTTPスタブライブラリです。
+[Mirage](http://www.ember-cli-mirage.com/)(ミラージュ)は、Emberのアプリケーションテストによく使用されるクライアントのHTTPスタブライブラリです。
 このチュートリアルでは、伝統的なバックエンドサーバーではなく、データソースとしてMirageを使用します。
 Mirageで、開発用に偽のデータとAPIを作成できます。
 ここで設定するデータとエンドポイントは、このチュートリアルの後半の「Ember Dataを使用してサーバーリクエストを行う」で説明されています。
@@ -138,7 +138,7 @@ export default function() {
           title: 'Grand Old Mansion',
           owner: 'Veruca Salt',
           city: 'San Francisco',
-          "category": 'Estate',
+          category: 'Estate',
           bedrooms: 15,
           image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
         }
@@ -149,7 +149,7 @@ export default function() {
           title: 'Urban Living',
           owner: 'Mike Teavee',
           city: 'Seattle',
-          "category": 'Condo',
+          category: 'Condo',
           bedrooms: 1,
           image: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg'
         }
@@ -160,7 +160,7 @@ export default function() {
           title: 'Downtown Charm',
           owner: 'Violet Beauregarde',
           city: 'Portland',
-          "category": 'Apartment',
+          category: 'Apartment',
           bedrooms: 3,
           image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg'
         }
@@ -228,10 +228,10 @@ ember generate adapter application
 ```
 
 <!--
-This adapter will extend the [`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter) base class from Ember Data:
+This adapter will extend the [`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPIAdapter) base class from Ember Data:
 -->
 
-アプリケーションアダプターはEmber Dataから[`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter)基底クラスを拡張しています。
+アプリケーションアダプターはEmber Dataから[`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPIAdapter)基底クラスを拡張しています。
 
 ```app/adapters/application.js{+4}
 import DS from 'ember-data';

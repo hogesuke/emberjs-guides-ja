@@ -1,11 +1,11 @@
 <!--
-Statements like [`if`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=if)
-and [`unless`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=unless)
+Statements like [`if`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=if)
+and [`unless`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=unless)
 are implemented as built-in helpers. Helpers can be invoked three ways, each
 of which is illustrated below with conditionals.
 -->
 
-[`if`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=if)と[`unless`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=unless)のような文は、ビルトイン(組み込み)ヘルパーとして実装されています。
+[`if`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=if)と[`unless`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=unless)のような文は、ビルトイン(組み込み)ヘルパーとして実装されています。
 ヘルパーは3つの方法で呼び出すことができます
 その3つ方法を、ifを例に説明します。
 
@@ -26,13 +26,13 @@ displaying a property, but helpers accept arguments. For example:
 ```
 
 <!--
-[`{{if}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=if)
+[`{{if}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=if)
 in this case returns `"zoooom"` when `isFast` is true and
 `"putt-putt-putt"` when `isFast` is false. Helpers invoked as inline expressions
 render a single value, the same way that properties are a single value.
 -->
 
-上記の例の[`{{if}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=if)は、`isFast`がtrueの時は`"zoooom"`を返し、`isFast`がfalseの時は`"putt-putt-putt"`を返します。
+上記の例の[`{{if}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=if)は、`isFast`がtrueの時は`"zoooom"`を返し、`isFast`がfalseの時は`"putt-putt-putt"`を返します。
 インライン式として呼び出されるヘルパーは、プロパティが単一の値であるのと同じように、単一の値を描画します。
 
 <!--
@@ -98,13 +98,13 @@ properties on `person` only if that it is present:
 ```
 
 <!--
-[`{{if}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=if)
+[`{{if}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=if)
 checks for truthiness, which means all values except `false`,
 `undefined`, `null`, `''`, `0`  or `[]` (i.e., any JavaScript falsy value or an
 empty array).
 -->
 
-[`{{if}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=if)は真(truthy)であるかを確認します。
+[`{{if}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=if)は真(truthy)であるかを確認します。
 真でない値(falsy)は、`false`、`undefined`、`null`、`''`、`0`または`[]`です。
 
 <!--
@@ -140,12 +140,12 @@ of that invocation is rendered:
 
 <!--
 The inverse of `{{if}}` is
-[`{{unless}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=unless),
+[`{{unless}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=unless),
 which can be used in the same three styles of invocation. For example, this
 template only shows an amount due when the user has not paid:
 -->
 
-`{{if}}`の反対は[`{{unless}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=unless)です。
+`{{if}}`の反対は[`{{unless}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=unless)です。
 ifと同じく3つの呼び出し方が使えます。
 以下のテンプレートの例では、ユーザーが支払いを行わなかった場合に支払い額のみを表示します。
 

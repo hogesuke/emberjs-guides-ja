@@ -36,13 +36,13 @@ export default Route.extend({
 ```
 
 <!--
-Typically, the `model` hook should return an [Ember Data](../../models/) record,
+Typically, the `model` [hook](../../getting-started/core-concepts/#toc_hooks) should return an [Ember Data](../../models/) record,
 but it can also return any [promise](https://www.promisejs.org/) object (Ember Data records are promises),
 or a plain JavaScript object or array.
 Ember will wait until the data finishes loading (until the promise is resolved) before rendering the template.
 -->
 
-通常、`model`フックは[Ember Data](../../models/)レコードを返すべきですが、[Promise](https://www.promisejs.org/)オブジェクト(Ember DataレコードはPromiseです)、またはプレーンJavaScriptオブジェクトか配列を返すこともできます。
+通常、`model`[フック](../../getting-started/core-concepts/#toc_フック)は[Ember Data](../../models/)レコードを返すべきですが、[Promise](https://www.promisejs.org/)オブジェクト(Ember DataレコードはPromiseです)、またはプレーンJavaScriptオブジェクトか配列を返すこともできます。
 Emberは、テンプレートを描画する前にデータのロードの完了を(Promiseが解決されるのを)待ちます。
 
 <!--

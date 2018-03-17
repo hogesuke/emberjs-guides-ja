@@ -38,11 +38,11 @@ the `application.hbs`'s `{{outlet}}`.
 例えば、`posts.new`ルートはそのテンプレートを`posts.hbs`の`{{outlet}}`に描画し、`posts`ルートはそのテンプレートを`application.hbs`の`{{outlet}}`に描画します。
 
 <!--
-If you want to render a template other than the default one, set the route's [`templateName`](https://www.emberjs.com/api/ember/2.16/classes/Route/properties/templateName?anchor=templateName) property to the name of
+If you want to render a template other than the default one, set the route's [`templateName`](https://www.emberjs.com/api/ember/release/classes/Route/properties/templateName?anchor=templateName) property to the name of
 the template you want to render instead.
 -->
 
-デフォルト以外のテンプレートを描画したい場合は、ルートの[`templateName`](https://www.emberjs.com/api/ember/2.16/classes/Route/properties/templateName?anchor=templateName)プロパティに、描画したいテンプレートの名前を指定します。
+デフォルト以外のテンプレートを描画したい場合は、ルートの[`templateName`](https://www.emberjs.com/api/ember/release/classes/Route/properties/templateName?anchor=templateName)プロパティに、描画したいテンプレートの名前を指定します。
 
 ```app/routes/posts.js
 import Route from '@ember/routing/route';
@@ -53,9 +53,9 @@ export default Route.extend({
 ```
 
 <!--
-You can override the [`renderTemplate()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/renderTemplate?anchor=renderTemplate) hook if you want finer control over template rendering.
+You can override the [`renderTemplate()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/renderTemplate?anchor=renderTemplate) hook if you want finer control over template rendering.
 Among other things, it allows you to choose the controller used to configure the template and specific outlet to render it into.
 -->
 
-描画を細かく制御したい場合は、[`renderTemplate()`](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/renderTemplate?anchor=renderTemplate)フックをオーバーライドします。
+描画を細かく制御したい場合は、[`renderTemplate()`](https://www.emberjs.com/api/ember/release/classes/Route/methods/renderTemplate?anchor=renderTemplate)フックをオーバーライドします。
 テンプレートで使用するコントローラと、どの`{{outlet}}`に描画するかを指定することができます。

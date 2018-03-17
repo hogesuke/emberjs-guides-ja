@@ -9,12 +9,12 @@ that shows a blog title, and supports expanding the post to show the body.
 
 <!--
 If you add the
-[`{{action}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/action?anchor=action)
+[`{{action}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/action?anchor=action)
 helper to any HTML DOM element, when a user clicks the element, the named event
 will be sent to the template's corresponding component or controller.
 -->
 
-HTML DOM要素に[`{{action}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/action?anchor=action)ヘルパーを追加すると、ユーザーがその要素をクリックすると、指定されたイベントがテンプレートに付随するコンポーネントかコントローラに送信されます。
+HTML DOM要素に[`{{action}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/action?anchor=action)ヘルパーを追加すると、ユーザーがその要素をクリックすると、指定されたイベントがテンプレートに付随するコンポーネントかコントローラに送信されます。
 
 ```app/templates/components/single-post.hbs
 <h3><button {{action "toggleBody"}}>{{title}}</button></h3>
@@ -104,12 +104,12 @@ export default Component.extend({
 
 <!--
 By default, the
-[`{{action}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/action?anchor=action)
+[`{{action}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/action?anchor=action)
 helper listens for click events and triggers the action when the user clicks
 on the element.
 -->
 
-デフォルトでは、[`{{action}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/action?anchor=action)ヘルパーはクリックイベントのため、ユーザーが要素をクリックしたときにアクションを呼び出します。
+デフォルトでは、[`{{action}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/action?anchor=action)ヘルパーはクリックイベントのため、ユーザーが要素をクリックしたときにアクションを呼び出します。
 
 <!--
 You can specify an alternative event by using the `on` option.
@@ -213,13 +213,13 @@ will trigger the action *and* the user will be directed to the new page.
 
 <!--
 If a `value` option for the
-[`{{action}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/action?anchor=action)
+[`{{action}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/action?anchor=action)
 helper is specified, its value will be considered a property path that will
 be read off of the first parameter of the action. This comes very handy with
 event listeners and enables to work with one-way bindings.
 -->
 
-[`{{action}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/action?anchor=action)ヘルパーで`value`オプションが指定されている場合、その値は、アクションの第1引数から読み取るプロパティ名(パス)と見なされます。
+[`{{action}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/action?anchor=action)ヘルパーで`value`オプションが指定されている場合、その値は、アクションの第1引数から読み取るプロパティ名(パス)と見なされます。
 これはイベントリスナーで、単方向バインディングで処理する時にとてもに便利です。
 
 

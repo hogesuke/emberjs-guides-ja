@@ -435,10 +435,10 @@ Let's open it again (`/app/templates/application.hbs`) and replace its contents 
       </h1>
     {{/link-to}}
     <div class="links">
-      {{#link-to "about"}}
+      {{#link-to "about" class="menu-about"}}
         About
       {{/link-to}}
-      {{#link-to "contact"}}
+      {{#link-to "contact" class="menu-contact"}}
         Contact
       {{/link-to}}
     </div>
@@ -476,10 +476,10 @@ From here you can move on to the [next page](../model-hook/) or dive into testin
 読み進めれば、追加したばかりの新機能を自動テストする方法を学べます。
 
 <!--
-## Implementing Acceptance Tests
+## Implementing Application Tests
 -->
 
-## 受け入れテストの実装
+## アプリケーションテストの実装
 
 <!--
 Now that we have various pages in our application, let's walk through how to build tests for them.
@@ -489,18 +489,18 @@ Now that we have various pages in our application, let's walk through how to bui
 
 <!--
 As mentioned earlier on the [Planning the Application page](../acceptance-test/),
-an Ember acceptance test automates interacting with our app in a similar way to a visitor.
+an Ember application test automates interacting with our app in a similar way to a visitor.
 -->
 
 前に[プランニングページ](../acceptance-test/)で説明したように、
-Emberの受け入れテストは、ユーザーがアプリケーションとやりとりするようなやり方でテストを自動化します。
+Emberのアプリケーションテストは、ユーザーがアプリケーションとやりとりするようなやり方でテストを自動化します。
 
 <!--
-If you open the acceptance test we created (`/tests/acceptance/list-rentals-test.js`), you'll see our
+If you open the application test we created (`/tests/acceptance/list-rentals-test.js`), you'll see our
 goals, which include the ability to navigate to an `about` page and a `contact` page. Let's start there.
 -->
 
-作成された受け入れテストファイル(`/tests/acceptance/list-rentals-test.js`)を開いてくと、そのページにアクセスできることがテストされているのがわかります。
+作成されたアプリケーションテストファイル(`/tests/acceptance/list-rentals-test.js`)を開いてくと、そのページにアクセスできることがテストされているのがわかります。
 
 <!--
 First, we want to test that visiting `/` properly redirects to `/rentals`. We'll use the Ember `visit` helper
@@ -509,10 +509,16 @@ and then make sure our current URL is `/rentals` once the redirect occurs.
 
 まず、 `/`を訪問すると `/rentals`に正しくリダイレ​​クトされることをテストします。 Emberの `visit`ヘルパーを使用し、リダイレクトが発生し、現在のURLが`/rentals`であることを確認します。
 
-```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+5}
-test('should show rentals as the home page', function (assert) {
-  visit('/');
-  andThen(function() {
+```/tests/acceptance/list-rentals-test.js{+9,+10}
+import { module, test } from 'qunit';
+import { visit, currentURL } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
+
+module('Acceptance | list rentals', function (hooks) {
+  setupApplicationTest(hooks);
+
+  test('should show rentals as the home page', async function (assert) {
+    await visit('/');
     assert.equal(currentURL(), '/rentals', 'should redirect automatically');
   });
 });
@@ -525,12 +531,12 @@ Now run the tests by typing `ember test --server` in the command line (or `ember
 コマンドラインで `ember test --server`と打ってテストを実行します(`ember t -s`と省略可)。
 
 <!--
-Instead of 7 failures there should now be 6 (5 acceptance failures and 1 ESLint).
+Instead of 7 failures there should now be 6 (5 application failures and 1 ESLint).
 You can also run our specific test by selecting the entry called "Acceptance | list rentals"
 in the drop down input labeled "Module" on the test UI.
 -->
 
-失敗したテストが7件から6件(受け入れテストが5、ESLintが1)になったはずです。
+失敗したテストが7件から6件(アプリケーションテストが5、ESLintが1)になったはずです。
 また、「Acceptance | list rentals」という項目を選択して、実行するテストを指定できます。
 テストUIの「Module」というラベルが付いているフォームを使います。
 
@@ -550,11 +556,11 @@ failing (because we haven't yet built them).
 ### Emberのテストヘルパー
 
 <!--
-Ember provides a variety of acceptance test helpers to make common tasks easier,
+Ember provides a variety of application test helpers to make common tasks easier,
 such as visiting routes, filling in fields, clicking on links/buttons, and waiting for pages to display.
 -->
 
-Emberは、ページのアクセス、フィールドの入力、リンク/ボタンのクリック、ページの表示の待機など、一般的なタスクを簡単にするためのさまざまな受け入れテストヘルパーを提供しています。
+Emberは、ページのアクセス、フィールドの入力、リンク/ボタンのクリック、ページの表示の待機など、一般的なタスクを簡単にするためのさまざまなアプリケーションテストヘルパーを提供しています。
 
 
 <!--
@@ -564,18 +570,28 @@ Some of the helpers we'll use commonly are:
 よく使うヘルパーをいくつか紹介します。
 
 <!--
-* [`visit`](http://emberjs.com/api/classes/Ember.Test.html#method_visit) - loads a given URL
-* [`click`](http://emberjs.com/api/classes/Ember.Test.html#method_click) - pretends to be a user clicking on a specific part of the screen
-* `andThen` - waits for our previous commands to run before executing our function.
-  In our test below, we want to wait for our page to load after `click` is called so that we can double-check that the new page has loaded
-* [`currentURL`](http://emberjs.com/api/classes/Ember.Test.html#method_currentURL) - returns the URL of the page we're currently on
+* [`visit`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#visit) - loads a given URL
+* [`click`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#click) - pretends to be a user clicking on a specific part of the screen
+* [`currentURL`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#currenturl) - returns the URL of the page we're currently on
 -->
 
-* [`visit`](http://emberjs.com/api/classes/Ember.Test.html#method_visit) - 指定されたURLを読み込む
-* [`click`](http://emberjs.com/api/classes/Ember.Test.html#method_click) - 画面の特定の部分をクリックする
-* `andThen` - 以前のコマンドが実行されるのを待ってから関数を実行する
-  下記のテストでは、クリック後に次のページがロードされたことをちゃんと確認するために使っている
-* [`currentURL`](http://emberjs.com/api/classes/Ember.Test.html#method_currentURL) - 現在表示されているページのURLを返す
+* [`visit`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#visit) - 指定されたURLを読み込む
+* [`click`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#click) - 画面の特定の部分をクリックする
+* [`currentURL`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#currenturl) - 現在表示されているページのURLを返す
+
+<!--
+Let's import these helpers into our application test:
+-->
+
+これらのヘルパーをアプリケーションテストにインポートしましょう。
+
+```/tests/acceptance/list-rentals-test.js
+import {
+  click,
+  currentURL,
+  visit
+} from '@ember/test-helpers'
+```
 
 <!--
 ### Test visiting our About and Contact pages
@@ -589,21 +605,17 @@ Now let's add code that simulates a visitor arriving on our homepage, clicking o
 
 次に、ユーザーがトップページにアクセスし、リンクをクリックし、別のページにアクセスするのをシミュレートするコードを追加します。
 
-```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+5,+6,+10,+11,+12,+13,+14}
-test('should link to information about the company.', function (assert) {
-  visit('/');
-  click('a:contains("About")');
-  andThen(function() {
-    assert.equal(currentURL(), '/about', 'should navigate to about');
-  });
+```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+8,+9,+10}
+test('should link to about page', async function(assert) {
+  await visit('/');
+  await click(".menu-about");
+  assert.equal(currentURL(), '/about', 'should navigate to about');
 });
 
-test('should link to contact information', function (assert) {
-  visit('/');
-  click('a:contains("Contact")');
-  andThen(function() {
-    assert.equal(currentURL(), '/contact', 'should navigate to contact');
-  });
+test('should link to contacts page', async function(assert) {
+  await visit('/');
+  await click(".menu-contact");
+  assert.equal(currentURL(), '/contact', 'should navigate to contact');
 });
 ```
 
@@ -636,10 +648,10 @@ navigating have now passed.
 `ember test`を実行したままにしておくと、自動的に更新され、ナビゲートに関連する3つのテストがパスされたことが示されます。
 
 <!--
-In the screen recording below, we run the tests, deselect "Hide passed tests", and set the module to our acceptance test,
+In the screen recording below, we run the tests, deselect "Hide passed tests", and set the module to our application test,
 revealing the 3 tests we got passing.
 -->
 
-以下のスクリーンレコーディングでは、テストを実行し、「Hide passed tests」の選択を解除し、モジュールを受け入れテストに設定し、合格した3つのテストを見せています。
+以下のスクリーンレコーディングでは、テストを実行し、「Hide passed tests」の選択を解除し、モジュールをアプリケーションテストに設定し、合格した3つのテストを見せています。
 
 ![passing navigation tests](../../images/routes-and-templates/ember-route-tests.gif)

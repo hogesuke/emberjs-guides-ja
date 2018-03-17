@@ -200,12 +200,12 @@ To utilize an `event` object as a function parameter:
 <!--
 The event handling examples described above respond to one set of events.
 The names of the built-in events are listed below. Custom events can be
-registered by using [Application.customEvents](https://www.emberjs.com/api/ember/2.16/classes/Application/properties/customEvents?anchor=customEvents).
+registered by using [Application.customEvents](https://www.emberjs.com/api/ember/release/classes/Application/properties/customEvents?anchor=customEvents).
 -->
 
 上記で説明したものは組み込みイベントの一例です。
 組み込みイベントの名前一覧は次のとおりです。
-カスタムイベントは、[Application.customEvents](https://www.emberjs.com/api/ember/2.16/classes/Application/properties/customEvents?anchor=customEvents)を使用して登録できます。
+カスタムイベントは、[Application.customEvents](https://www.emberjs.com/api/ember/release/classes/Application/properties/customEvents?anchor=customEvents)を使用して登録できます。
 
 <!--
 Touch events:

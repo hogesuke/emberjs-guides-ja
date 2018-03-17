@@ -1,4 +1,4 @@
-_Container testing methods and computed properties follows previous patterns shown
+_Container testing methods and computed properties follow previous patterns shown
 in [Testing Basics] because Ember.Route extends Ember.Object._
 
 Testing routes can be done both via application tests or container tests. Application tests
@@ -63,7 +63,7 @@ module('Unit | Route | application', function(hooks) {
   test('should display an alert', function(assert) {
     assert.expect(2);
 
-    // with moduleFor, the subject returns an instance of the route
+    // get the route instance
     let route = this.owner.lookup('route:application');
 
     // stub window.alert to perform a qunit test

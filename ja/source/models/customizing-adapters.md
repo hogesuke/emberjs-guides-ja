@@ -1,28 +1,33 @@
+
 <!--
-In Ember Data, the Adapter determines how data is persisted to a
-backend data store, such as the URL format and headers for a REST API.
-(The format of the data itself is determined by the
-[serializer](../customizing-serializers/).)
-Ember Data's default Adapter has some built-in
-assumptions of how a [REST API should look](http://jsonapi.org/). If
-your backend conventions differ from these assumptions Ember Data
-makes it easy to change its functionality by swapping out or extending
-the default Adapter.
+In Ember Data, an Adapter determines how data is persisted to a
+backend data store. Things such as the backend host, URL format
+ and headers used to talk to a REST API can all be configured 
+ in an adapter. You can even switch to storing data in local storage
+ using a [local storage adapter](https://github.com/locks/ember-localstorage-adapter). 
 -->
 
-Ember Dataでは、アダプターはURL形式やREST APIのヘッダーなど、バックエンドとデータのやり取りをどの行うかを判断します。
-(データ自体のフォーマットは[シリアライザ](../customizing-serializers/)が処理します。)
+Ember Dataでは、アダプターがデータをバックエンドデータストアに永続化する方法を決定します。
+バックエンドホスト、URLのフォーマット、REST APIの送受信に使用されるヘッダーなどは、すべてアダプターで設定できます。
+[ローカルストレージアダプター](https://github.com/locks/ember-localstorage-adapter)を使用してローカルストレージにデータを格納するように切り替えることもできます。
+
+<!--
+Ember Data's default Adapter has some built-in assumptions about
+how a [REST API should look](http://jsonapi.org/). If your backend conventions
+differ from those assumptions, Ember Data allows either slight adjustments
+or you can switch to a different adapter if your backend works noticeably
+differently.
+-->
+
 Ember Dataのデフォルトアダプターには、[REST APIはどうあるべきか](http://jsonapi.org/)のいくつかの組み込みの前提があります。
-バックエンドの規約がこれらの前提条件と異なる場合、Ember Dataはデフォルトのアダプターを交換または拡張することにより、その機能を簡単に変更することができます。
+バックエンドの規約がこれらの前提と異なる場合、Ember Dataは少し調整するか、バックエンドが著しく異なる場合に、別のアダプタに切り替えることができます。
 
 <!--
-Some reasons for customizing an Adapter include using
-`underscores_case` in your urls, using a medium other than REST to
-communicate with your backend API or even using a
-[local storage backend](https://github.com/locks/ember-localstorage-adapter).
+_(If you're looking to adjust how the data sent to the backend is formatted,
+check the [serializer](../customizing-serializers/) page.)_
 -->
 
-アダプターをカスタマイズする理由の1つに、URLでアンダースコアを使う、REST以外の手段でバックエンドAPIと通信、[ローカルストレージ](https://github.com/locks/ember-localstorage-adapter)を使うなどがあります。
+_バックエンドに送信するデータのフォーマットの変更については、[シリアライザー](../customizing-serializers/)のページを確認してください。_
 
 <!--
 Extending Adapters is a natural process in Ember Data. Ember takes the

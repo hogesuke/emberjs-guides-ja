@@ -9,6 +9,14 @@ ember generate component my-component-name
 ```
 
 <!--
+Ember components are used to encapsulate markup and style into reusable content.
+Components consist of two parts: a JavaScript component file that defines behavior, and its accompanying Handlebars template that defines the markup for the component's UI.
+-->
+
+Emberコンポーネントは、マークアップとスタイルを再利用可能なコンテンツにカプセル化するために使用紙ます。
+コンポーネントは、振る舞いを定義するJavaScriptコンポーネントファイルと、コンポーネントのUIのマークアップを定義するHandlebarsテンプレートの2つの部分で構成されています。
+
+<!--
 Components must have at least one dash in their name. So `blog-post` is an acceptable
 name, and so is `audio-player-controls`, but `post` is not. This prevents clashes with
 current or future HTML element names, aligns Ember components with the W3C [Custom
@@ -66,7 +74,7 @@ export default Route.extend({
 ```
 
 <!--
-Each component is backed by an element under the hood. By default, 
+Each component is backed by an element under the hood. By default,
 Ember will use a `<div>` element to contain your component's template.
 To learn how to change the element Ember uses for your component, see
 [Customizing a Component's
@@ -97,13 +105,13 @@ created.
 
 <!--
 If you need to customize the behavior of the component you'll
-need to define a subclass of [`Component`](https://www.emberjs.com/api/ember/2.16/classes/Component). For example, you would
+need to define a subclass of [`Component`](https://www.emberjs.com/api/ember/release/classes/Component). For example, you would
 need a custom subclass if you wanted to change a component's element,
 respond to actions from the component's template, or manually make
 changes to the component's element using JavaScript.
 -->
 
-コンポーネントの動作をカスタマイズする必要がある場合は、[`Component`](https://www.emberjs.com/api/ember/2.16/classes/Component)のサブクラスを定義する必要があります。
+コンポーネントの動作をカスタマイズする必要がある場合は、[`Component`](https://www.emberjs.com/api/ember/release/classes/Component)のサブクラスを定義する必要があります。
 例えば、コンポーネントの要素を変更したり、コンポーネントのテンプレートからのアクションに応答したり、JavaScriptを使用してコンポーネントの要素を手動で変更したりする場合は、サブクラスでカスタマイズします。
 
 <!--
@@ -125,7 +133,7 @@ Emberは、ファイル名に基づいてコンポーネントのサブクラス
 ## コンポーネントの動的レンダリング
 
 <!--
-The [`{{component}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/component?anchor=component) helper can be used to defer the selection of a component to
+The [`{{component}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/component?anchor=component) helper can be used to defer the selection of a component to
 run time. The `{{my-component}}` syntax always renders the same component,
 while using the `{{component}}` helper allows choosing a component to render on
 the fly. This is useful in cases where you want to interact with different
@@ -133,7 +141,7 @@ external libraries depending on the data. Using the `{{component}}` helper would
 allow you to keep different logic well separated.
 -->
 
-[`{{component}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/component?anchor=component)ヘルパーを使用して、コンポーネントの選択を実行時まで保留することができます。
+[`{{component}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/component?anchor=component)ヘルパーを使用して、コンポーネントの選択を実行時まで保留することができます。
 `{{my-component}}`構文は常に同じコンポーネントを描画しますが、`{{component}}`ヘルパーを使用すると、実行時に描画するコンポーネントを選択できます。
 これは、データに応じて異なる外部ライブラリとやり取りしたい場合に便利です。
 `{{component}}`ヘルパーを使用すると、別のロジックを適切に分離しておくことができます。
@@ -147,12 +155,12 @@ string. So `{{component 'blog-post'}}` is the same as using `{{blog-post}}`.
 つまり`{{component 'blog-post'}}`は`{{blog-post}}`と同じです。
 
 <!--
-The real value of [`{{component}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/component?anchor=component) comes from being able to dynamically pick
+The real value of [`{{component}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/component?anchor=component) comes from being able to dynamically pick
 the component being rendered. Below is an example of using the helper as a
 means of choosing different components for displaying different kinds of posts:
 -->
 
-[`{{component}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/component?anchor=component)の真の価値は、描画するコンポーネントを動的に選択できることにあります。
+[`{{component}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/component?anchor=component)の真の価値は、描画するコンポーネントを動的に選択できることにあります。
 以下は、さまざまな種類の投稿を表示するためのさまざまなコンポーネントを選択する手段としてヘルパーを使用する例です。
 
 ```app/templates/components/foo-component.hbs

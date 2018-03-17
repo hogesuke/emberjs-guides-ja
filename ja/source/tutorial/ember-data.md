@@ -167,3 +167,63 @@ A remote server will allow for data to be shared and updated across users.
 アプリをプロダクションサーバーにデプロイする時など、
 Ember Dataが永続化されたデータの保存や検索の通信をするように、Mirageからリモートサーバに置き換えることもできます。
 リモートサーバーを使えば、ユーザー間でデータの共有や更新ができるようになります。
+
+<!--
+### Setting up Application Tests to use Mirage
+-->
+
+### アプリケーションテストでMirageを使うようセットアップする
+
+<!--
+If you remember back in the [Installing Addons](../installing-addons) section, we installed `ember-cli-mirage` for faking data coming from HTTP requests.
+Now that we've hooked in Ember Data, which by default attempts to fetch data via HTTP request, we will need to tell our application test to use Mirage for data faking.
+-->
+
+[アドオンのインストール](../installing-addons)セクションで、HTTPリクエストからのデータを偽造するために`ember-cli-mirage`をインストールしました。
+Ember Dataを使うように変更しましたが、Ember DATAはデフォルトでHTTPリクエストを介してデータを取得しようとします。
+データの偽造のためにMirageを使用するよう、アプリケーションテストで指示する必要があります。
+
+<!--
+To tell our application tests to use Mirage, open `/tests/acceptance/list-rentals-test.js` and add the following code:
+-->
+
+アプリケーションテストでMirageを使用するように指示するには、`/tests/acceptance/list-rentals-test.js`を開いて次のコードを追加します。
+
+<!--
+First Add the import for Mirage's test setup function.
+-->
+
+まず、Mirageのテストセットアップ関数のインポートを追加します。
+
+```/tests/acceptance/list-rentals-test.js{+3}
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
+import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
+import {
+  click,
+  currentURL,
+  visit
+} from '@ember/test-helpers'
+
+```
+
+<!--
+Next, call the setup function immediately after your call to set up the application test.
+-->
+
+次に、アプリケーションテストのセットアップ直後にMirageのセットアップ関数を実行します。
+
+```/tests/acceptance/list-rentals-test.js{+3}
+module('Acceptance | list rentals', function(hooks) {
+  setupApplicationTest(hooks);
+  setupMirage(hooks);
+  ...
+}
+
+```
+
+<!--
+Now your tests should behave as before, except that they are now using the data we've set up for Mirage.
+-->
+
+これで、Mirage用に設定したデータを使用していることを除けば、テストは以前と同じように動作するはずです。

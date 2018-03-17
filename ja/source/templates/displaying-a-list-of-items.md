@@ -1,12 +1,12 @@
 <!--
 To iterate over a list of items, use the
-[`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each)
+[`{{#each}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each)
 helper. The first argument to this helper is the array to be iterated, and
 the value being iterated is yielded as a block param. Block params are only
 available inside the block of their helper.
 -->
 
-リスト状のデータをイテレート(反復)するには、[`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each)ヘルパーを使用します。
+リスト状のデータをイテレート(反復)するには、[`{{#each}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each)ヘルパーを使用します。
 このヘルパーの第1引数はイテレートされる配列であり、イテレートされる値はブロックに引数として渡されます。
 ブロック変数は、ヘルパーのブロック内でのみ使用できます。
 
@@ -78,7 +78,7 @@ or removed from the iterated array, the DOM will be updated without having to
 write any additional code. That said, Ember requires that you use [special
 methods](../../object-model/enumerables/#toc_use-of-observable-methods-and-properties)
 to update bound arrays. Also be aware that [using the `key` option with an each
-helper](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each)
+helper](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each)
 can improve re-render performance when an array is replaced with another
 containing similar items.
 -->
@@ -86,7 +86,7 @@ containing similar items.
 他のヘルパーと同様、`{{#each}}`ヘルパーはバインドされています。
 配列にデータが追加または削除された際に、DOMが自動的に更新されます。
 ですが、Emberでは、バインドされた配列を変更するには、[専用のメソッド](../../object-model/enumerables/#toc_use-of-observable-methods-and-properties)を使う必要があります。
-また、[eachヘルパーで`key`オプションを使用する](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each)と、配列が似た項目を含む別のものに置き換える時の再描画のパフォーマンスが向上することを覚えておいてください。
+また、[eachヘルパーで`key`オプションを使用する](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each)と、配列が似た項目を含む別のものに置き換える時の再描画のパフォーマンスが向上することを覚えておいてください。
 
 
 <!--
@@ -116,7 +116,7 @@ block param. Block params are space-separated, without commas. For example:
 ### 空のリストとelse
 
 <!--
-The [`{{#each}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/if?anchor=each)
+The [`{{#each}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/if?anchor=each)
 helper can have a corresponding `{{else}}`. The contents of this block will
 render if the array passed to `{{#each}}` is empty:
 -->

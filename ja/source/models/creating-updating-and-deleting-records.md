@@ -48,11 +48,11 @@ this.get('store').findRecord('person', 1).then(function(tyrion) {
 <!--
 All of the Ember.js conveniences are available for
 modifying attributes. For example, you can use `Ember.Object`'s
-[`incrementProperty`](http://emberjs.com/api/classes/Ember.Object.html#method_incrementProperty) helper:
+[`incrementProperty`](https://emberjs.com/api/ember/2.15/classes/Ember.Object/methods/incrementProperty?anchor=incrementProperty) helper:
 -->
 
 Ember.jsの便利さは属性が変更可能なところです。
-例えば、`Ember.Object`の[`incrementProperty`](http://emberjs.com/api/classes/Ember.Object.html#method_incrementProperty)ヘルパーを使用できます。
+例えば、`Ember.Object`の[`incrementProperty`](https://emberjs.com/api/ember/2.15/classes/Ember.Object/methods/incrementProperty?anchor=incrementProperty)ヘルパーを使用できます。
 
 ```js
 person.incrementProperty('age'); // Happy birthday!

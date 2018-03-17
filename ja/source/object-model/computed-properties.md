@@ -305,7 +305,7 @@ Person = EmberObject.extend({
 
 <!--
 To see the full list of computed property macros, have a look at
-[the API documentation](https://www.emberjs.com/api/ember/2.16/modules/@ember%2Fobject)
+[the API documentation](https://www.emberjs.com/api/ember/release/modules/@ember%2Fobject)
 -->
 
-算出プロパティマクロの完全なリストは、[APIドキュメント](https://www.emberjs.com/api/ember/2.16/modules/@ember%2Fobject)をご覧ください。
+算出プロパティマクロの完全なリストは、[APIドキュメント](https://www.emberjs.com/api/ember/release/modules/@ember%2Fobject)をご覧ください。

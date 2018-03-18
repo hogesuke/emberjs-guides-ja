@@ -1,4 +1,77 @@
 <!--
+When a computed property depends on the contents of an array, there are a few
+extra methods you'll need to use in order to correctly recognize when the
+contents of the array change. Arrays have two special keys you can append to
+array properties to track changes on them, `[]` and `@each`.
+-->
+
+算出プロパティが配列の内容に依存する場合、配列の内容がいつ変化するかを正しく認識するためのメソッドを使用します。
+配列には、配列プロパティに追加できる2つの特殊なキーがあり、配列の変更を`[]`と`@each`で追跡できます。
+
+## `[]`
+
+<!--
+Sometimes a computed property needs to update when items are added to, removed from, or replaced in an array.
+In those cases we can use the `[]` array key to tell the property to update at the right time.
+We'll use the familiar todo list for our examples:
+-->
+
+時々、算出プロパティは、配列に項目を追加、削除、または置換した時に更新される必要があります。
+その場合は`[]`配列キーを使用して、プロパティを適切なタイミングで更新するように指示できます。
+以下は、よくあるtodoリストの例です。
+
+```app/components/todo-list.js
+import EmberObject, { computed } from '@ember/object';
+import Component from '@ember/component';
+
+export default Component.extend({
+  todos: null,
+
+  init() {
+    this.set('todos', [
+      EmberObject.create({ title: 'Buy food', isDone: true }),
+      EmberObject.create({ title: 'Eat food', isDone: false }),
+      EmberObject.create({ title: 'Catalog Tomster collection', isDone: true }),
+    ]);
+  },
+
+  titles: computed('todos.[]', function() {
+    let todos = this.get('todos');
+    return todos.mapBy('title');
+  })
+});
+```
+
+<!--
+The dependent key `todos.[]` instructs Ember.js to update bindings
+and fire observers when any of the following events occurs:
+-->
+
+依存キー`todos.[]`は、Ember.jsに以下のイベントが発生した時にバインディングを更新し、オブザーバーを起動するように指示します。
+
+<!--
+1. The `todos` property of the component is changed to a different array.
+2. An item is added to the `todos` array.
+3. An item is removed from the `todos` array.
+4. An item is replaced in the `todos` array.
+-->
+
+1. コンポーネントの `todos`プロパティが別の配列に変更された。
+2. `todos`配列に項目が追加された。
+3. `todos`配列から項目が削除された。
+4. `todos`配列の項目が置き換えられた。
+
+<!--
+Notably, the computed property will not update if an individual todo is mutated.
+For that to happen, we need to use the special `@each` key.
+-->
+
+注意すべき点は、個々のtodoが変更された場合、プロパティは更新されないことです。
+個々の更新を追跡するには、`@each`キーを使用する必要があります。
+
+## `@each`
+
+<!--
 Sometimes you have a computed property whose value depends on the properties of
 items in an array. For example, you may have an array of todo items, and want
 to calculate the incomplete todo's based on their `isDone` property.
@@ -6,8 +79,6 @@ to calculate the incomplete todo's based on their `isDone` property.
 
 算出プロパティが、配列内のオブジェクトのプロパティに依存する時もあります。
 たとえば、ToDoの配列があり、その`isDone`プロパティに基づいて未完了のToDoを算出する場合です。
-
-## `@each`
 
 <!--
 To facilitate this, Ember provides the `@each` key illustrated below:
@@ -42,19 +113,21 @@ Here, the dependent key `todos.@each.isDone` instructs Ember.js to update bindin
 and fire observers when any of the following events occurs:
 -->
 
-上記のコードでは、依存キー`todos.@each.isDone`は、Ember.jsに次のイベントが発生したときにバインディングを更新しオブザーバーが作動するように指示してします。
+上記のコードでは、依存キー`todos.@each.isDone`は、Ember.jsに以下のイベントが発生した時にバインディングを更新しオブザーバーが作動するように指示してします。
 
 <!--
-1. The `isDone` property of any of the objects in the `todos` array changes.
+1. The `todos` property of the component is changed to a different array.
 2. An item is added to the `todos` array.
 3. An item is removed from the `todos` array.
-4. The `todos` property of the component is changed to a different array.
+4. An item is replaced in the `todos` array.
+5. The `isDone` property of any of the objects in the `todos` array changes.
 -->
 
-1. todos配列のいずれかのオブジェクトのisDoneプロパティが変更された時
-2. アイテムがtodos配列に追加された時
-3. アイテムがtodos配列から削除された時
-4. コンポーネントのtodosプロパティが別の配列に変更された時
+1. コンポーネントの`todos`プロパティが別の配列に変更された。
+2. `todos`配列に項目が追加された。
+3. `todos`配列から項目が削除された。
+4. `todos`配列の項目が置き換えられた。
+5. `todos`配列内のいずれかのオブジェクトの`isDone`プロパティが変化した。
 
 <!--
 ### Multiple Dependent Keys
@@ -72,6 +145,43 @@ you would declare the dependency with braces: `todos.@each.{priority,title}`
 たとえば、`Ember.computed`を使用して複数のキーで配列をソートする場合、中括弧を使用して依存関係を`todos.@each.{priority,title}`のように宣言できます。
 
 <!--
+### When to use `[]` and `@each`
+-->
+
+### `[]`と`@each`をいつ使うか
+
+```
+Both `[]` and `@each` will update bindings when the array is replaced and when the members of the
+array are changed.  If you're using `@each` on a particular property, you don't also need to use `[]`:
+```
+
+`[]`と`@each`のどちらも、配列が置換された時、および配列のメンバーが変更された時にバインディングを更新します。
+特定のプロパティで`@each`を使用している場合は、`[]`を使用する必要はありません。
+
+<!--
+```javascript
+  //specifying both '[]' and '@each' is redundant here
+  incomplete: computed('todos.[]', 'todos.@each.isDone', function() {
+  ...
+  })
+```
+-->
+
+```javascript
+  // '[]'と'@each'の両方を指定することは、以下のケースでは冗長です
+  incomplete: computed('todos.[]', 'todos.@each.isDone', function() {
+  ...
+  })
+```
+
+<!--
+Using `@each` is more expensive than `[]`, so default to `[]` if you don't actually have to observe property
+changes on individual members of the array.
+-->
+
+`@each`の使用は`[]`よりも負荷が高いため、配列の個々のメンバーのプロパティの変更を監視する必要がない場合は`[]`を使いましょう。
+
+<!--
 ### Computed Property Macros
 -->
 
@@ -79,11 +189,11 @@ you would declare the dependency with braces: `todos.@each.{priority,title}`
 
 <!--
 Ember also provides a computed property macro
-[`computed.filterBy`](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed/methods/alias?anchor=filterBy&show=inherited%2Cprotected%2Cprivate%2Cdeprecated),
+[`computed.filterBy`](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed/methods/alias?anchor=filterBy),
 which is a shorter way of expressing the above computed property:
 -->
 
-また、Emberには算出プロパティマクロ[`computed.filterBy`](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed/methods/alias?anchor=filterBy&show=inherited%2Cprotected%2Cprivate%2Cdeprecated)があります。
+また、Emberには算出プロパティマクロ[`computed.filterBy`](https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject%2Fcomputed/methods/alias?anchor=filterBy)があります。
 これにより、上記の算出プロパティをより短く表現できます。
 
 ```app/components/todo-list.js

@@ -72,6 +72,105 @@ Changing any of the dependent properties causes the cache to invalidate, so that
 依存プロパティのいずれかを変更すると、キャッシュが無効になり、計算された関数が次のアクセス時に再び実行されます。
 
 <!--
+### Computed properties only recompute when they are consumed
+-->
+
+### 算出プロパティは使われる時にのみ再計算される
+
+<!--
+A computed property will only recompute its value when it is _consumed._ Properties are consumed in two ways:
+-->
+
+算出プロパティは、使われる時にのみその値を再計算します。
+プロパティは2つの方法で使われます。
+
+<!--
+1. By a `get`, for example `ironMan.get('fullName')`
+2. By being referenced in a handlebars template that is currently being rendered, for example `{{ironMan.fullName}}`
+-->
+
+1. `get`する、例: `ironMan.get('fullName')`
+2. `{{ironMan.fullName}`}のように、現在レンダリング中のHandlebarsテンプレートで参照する
+
+<!--
+Outside of those two circumstances the code in the property will not run, even if one of the property's dependencies are changed.
+-->
+
+これらの2つの状況以外では、プロパティの依存関係の1つが変更されても、プロパティのコードは実行されません。
+
+<!--
+We'll modify the `fullName` property from the previous example to log to the console:
+-->
+
+前述の例の`fullName`プロパティを変更してコンソールにログ出力します。
+
+<!--
+```javascript
+import Ember from 'ember':
+
+…
+  fullName: computed('firstName', 'lastName', function() {
+    console.log('compute fullName'); // track when the property recomputes
+    let firstName = this.get('firstName');
+    let lastName = this.get('lastName');
+
+    return `${firstName} ${lastName}`;
+  })
+…
+```
+-->
+
+```javascript
+import Ember from 'ember':
+
+…
+  fullName: computed('firstName', 'lastName', function() {
+    console.log('compute fullName'); // プロパティ再計算をトラッキング
+    let firstName = this.get('firstName');
+    let lastName = this.get('lastName');
+
+    return `${firstName} ${lastName}`;
+  })
+…
+```
+
+<!--
+Using the new property, it will only log after a `get`, and then only if either the `firstName` or `lastName` has been previously changed:
+-->
+
+新しいプロパティを使用すると、取得後(`get`)にのみログに出力され、`firstName`または`lastName`のいずれかが以前に変更されている場合にのみログに出力されます。
+
+<!--
+```javascript
+
+let ironMan = Person.create({
+  firstName: 'Tony',
+  lastName:  'Stark'
+});
+
+ironMan.get('fullName'); // 'compute fullName'
+ironMan.set('firstName', 'Bruce') // no console output
+
+ironMan.get('fullName'); // 'compute fullName'
+ironMan.get('fullName'); // no console output since dependencies have not changed
+```
+-->
+
+```javascript
+
+let ironMan = Person.create({
+  firstName: 'Tony',
+  lastName:  'Stark'
+});
+
+ironMan.get('fullName'); // fullNameを計算させる
+ironMan.set('firstName', 'Bruce') // コンソールには出力されない
+
+ironMan.get('fullName'); // fullNameを計算させる
+ironMan.get('fullName'); // 依存しているものが変更されていないので、コンソールには何も出力されない
+```
+
+<!--
 ### Multiple dependents on the same object
 -->
 
@@ -131,10 +230,13 @@ let obj = EmberObject.extend({
   baz: {foo: 'BLAMMO', bar: 'BLAZORZ'},
 
   something: computed('baz.foo', 'baz.bar', function() {
-    return this.get('baz.foo') + ' ' + this.get('baz.bar');
+    return `${this.get('baz.foo')} ${this.get('baz.bar')}`;
   })
 });
 ```
+<!--
+With:
+-->
 
 次のように置き換えることができます。
 
@@ -145,7 +247,7 @@ let obj = EmberObject.extend({
   baz: {foo: 'BLAMMO', bar: 'BLAZORZ'},
 
   something: computed('baz.{foo,bar}', function() {
-    return this.get('baz.foo') + ' ' + this.get('baz.bar');
+    return `${this.get('baz.foo')} ${this.get('baz.bar')}`;
   })
 });
 ```

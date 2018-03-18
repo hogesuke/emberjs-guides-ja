@@ -150,10 +150,10 @@ you would declare the dependency with braces: `todos.@each.{priority,title}`
 
 ### `[]`と`@each`をいつ使うか
 
-```
+<!--
 Both `[]` and `@each` will update bindings when the array is replaced and when the members of the
 array are changed.  If you're using `@each` on a particular property, you don't also need to use `[]`:
-```
+-->
 
 `[]`と`@each`のどちらも、配列が置換された時、および配列のメンバーが変更された時にバインディングを更新します。
 特定のプロパティで`@each`を使用している場合は、`[]`を使用する必要はありません。

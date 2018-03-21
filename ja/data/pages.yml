@@ -158,7 +158,7 @@
       url: "handling-metadata"
     - title: "アダプターのカスタマイズ"
       url: "customizing-adapters"
-    - title: "Customizing Serializers"
+    - title: "シリアライザのカスタマイズ"
       url: "customizing-serializers"
 
 - title: "Application Concerns"

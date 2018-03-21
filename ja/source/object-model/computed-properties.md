@@ -177,74 +177,41 @@ ironMan.get('fullName'); // 依存しているものが変更されていない�
 ### 同じオブジェクト上での複数依存
 
 <!--
-In the previous example, the `fullName` computed property depends on two other properties:
+In the previous example, the `fullName` computed property depends on two other properties of the same object.  
+However, you may find that you have to observe properties a different object.
+For example, look at this computed property:
 -->
 
-前の例では、`fullName`算出プロパティは、他の2つのプロパティに依存しています。
-
-```javascript
-import Ember from 'ember':
-
-…
-  fullName: computed('firstName', 'lastName', function() {
-    let firstName = this.get('firstName');
-    let lastName = this.get('lastName');
-
-    return `${firstName} ${lastName}`;
-  })
-…
-```
-<!--
-We can also use a short-hand syntax called _brace expansion_ to declare the dependents.
-You surround the dependent properties with braces (`{}`), and separate with commas, like so:
--->
-
-また、Brace Expansion(ブレース展開)と呼ばれる簡潔な構文を使用して、依存を宣言することもできます。
-依存しているプロパティを中括弧(`{}`)で囲み、カンマで区切ります。
-次のようにします。
-
-```javascript
-import Ember from 'ember':
-
-…
-  fullName: computed('{firstName,lastName}', function() {
-    let firstName = this.get('firstName');
-    let lastName = this.get('lastName');
-
-    return `${firstName} ${lastName}`;
-  })
-…
-```
-
-<!--
-This is especially useful when you depend on properties of an object, since it allows you to replace:
--->
-
-これは、オブジェクトのプロパティに依存する場合に特に便利です。
-以下の書き方を、
+上記の例の`fullName`算出プロパティは、同じオブジェクト内の他の2つのプロパティに依存しています。
+しかし、別のオブジェクトのプロパティの監視が必要になることもあるでしょう。
+例えば、以下の算出プロパティを見てみましょう。
 
 ```javascript
 import EmberObject, { computed } from '@ember/object';
 
 let obj = EmberObject.extend({
-  baz: {foo: 'BLAMMO', bar: 'BLAZORZ'},
+  baz: { foo: 'BLAMMO', bar: 'BLAZORZ' },
 
   something: computed('baz.foo', 'baz.bar', function() {
     return `${this.get('baz.foo')} ${this.get('baz.bar')}`;
   })
 });
 ```
+
 <!--
-With:
+Since both `foo` and `bar` are properties on the `baz` object, we can use a short-hand syntax called _brace expansion_ to declare the dependents keys.
+You surround the dependent properties with braces (`{}`), and separate with commas, like so:
 -->
 
-次のように置き換えることができます。
+`foo`と`bar`の両方が`baz`オブジェクトのプロパティであるため、ブレース展開(brace expansion)と呼ばれる簡潔な構文を使用して、依存キーを宣言することができます。
+依存しているプロパティを中括弧(`{}`)で囲み、カンマで区切ります。
+次のようにします。
 
 ```javascript
 import EmberObject, { computed } from '@ember/object';
 
 let obj = EmberObject.extend({
-  baz: {foo: 'BLAMMO', bar: 'BLAZORZ'},
+  baz: { foo: 'BLAMMO', bar: 'BLAZORZ' },
 
   something: computed('baz.{foo,bar}', function() {
     return `${this.get('baz.foo')} ${this.get('baz.bar')}`;

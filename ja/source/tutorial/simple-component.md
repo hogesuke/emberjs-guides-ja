@@ -485,6 +485,19 @@ image要素はCSSセレクタ`.image`を使って検索していることに注�
 ```
 
 <!--
+Since we're using the new function "click", we need to import it.
+-->
+
+clickという新しい関数を使っていますので、インポートする必要があります。
+
+```tests/integration/components/rental-listing-test.js{+3}
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click } from '@ember/test-helpers';
+import hbs from 'htmlbars-inline-precompile';
+```
+
+<!--
 The final test should look as follows:
 -->
 

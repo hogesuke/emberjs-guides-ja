@@ -172,12 +172,12 @@ We will use the listing class to find out how many rentals are shown on the page
 listingクラスを使用して、ページに表示される物件数を確認します。
 
 <!--
-To find the elements that have a class called `listing`, we'll use the method [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll~).
+To find the elements that have a class called `listing`, we'll use the method [`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll).
 The `querySelectorAll` method returns the elements that match the given [CSS selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors).
 In this case it will return an array of all the elements with a class called `listing`.
 -->
 
-`listing`というクラスを持つ要素を見つけるために、[`querySelectorAll`](https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll~)というメソッドを使います。
+`listing`というクラスを持つ要素を見つけるために、[`querySelectorAll`](https://developer.mozilla.org/ja/docs/Web/API/Element/querySelectorAll)というメソッドを使います。
 `querySelectorAll`メソッドは与えられた[CSS selectors(https://developer.mozilla.org/ja-JP/docs/Web/CSS/CSS_Selectors)と一致する要素を返します。
 この場合、`listing`というクラスを持つすべての要素の配列を返します。
 

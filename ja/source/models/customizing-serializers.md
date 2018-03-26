@@ -919,16 +919,6 @@ base class.
 ただし、ペイロードがこれらのシリアライザと大きく異なる場合は、`DS.Serializer`を拡張して独自のシリアライザを作成できます。
 
 <!--
-A serializer in Ember Data is responsible for normalizing a payload
-from an adapter into the format that Ember Data understands.
-It is also responsible for transforming a snapshot of a record into
-the payload that an adapter will send to the backend.
--->
-
-Ember Dataのシリアライザは、アダプターからペイロードをEmber Dataが理解できる形式に正規化する役割があります。
-また、アダプターがバックエンドに送信する際に、レコードのスナップショットをペイロードに変換する役割も果たします。
-
-<!--
 A serializer has two main roles in Ember Data.
 First, it is responsible for taking a response from an adapter and
 serializing it into the normalized JSON format that Ember Data

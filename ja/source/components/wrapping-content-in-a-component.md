@@ -130,13 +130,13 @@ We will give them the option to specify either `markdown-style` or `html-style`.
 <!--
 Supporting different editing styles will require different body components to provide special validation and highlighting.
 To load a different body component based on editing style,
-you can yield the component using the [`component helper`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/component?anchor=component) and [`hash helper`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/hash?anchor=hash). 
+you can yield the component using the [`component helper`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/component?anchor=component) and [`hash helper`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/hash?anchor=hash).
 Here, the appropriate component is assigned to a hash using nested helpers and yielded to the template.
 Notice `editStyle` being used as an argument to the component helper.
 -->
 
 異なる編集スタイルをサポートするには、特別なバリデーションとハイライトを提供するために異なるボディコンポーネントが必要です。
-編集スタイルに基づいて別のボディコンポーネントをロードするには、[`componentヘルパー`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/component?anchor=component)と[`hashヘルパー`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/hash?anchor=hash)コンポーネントヘルパーとハッシュヘルパーを使用してコンポーネントを渡します。
+編集スタイルに基づいて別のボディコンポーネントをロードするには、[`componentヘルパー`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/component?anchor=component)と[`hashヘルパー`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/hash?anchor=hash)コンポーネントヘルパーとハッシュヘルパーを使用してコンポーネントを渡します。
 ここでは、ネストされたヘルパーを使用して適切なコンポーネントがハッシュに割り当てられ、テンプレートに渡されます。
 `editStyle`はcomponentヘルパーの引数として使用されています。
 

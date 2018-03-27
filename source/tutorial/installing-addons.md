@@ -41,7 +41,7 @@ incorporate the new CSS and refreshing the browser window will give you this:
 
 ### ember-cli-mirage
 
-[Mirage](http://www.ember-cli-mirage.com/) is a client HTTP stubbing library often used for Ember acceptance testing.
+[Mirage](http://www.ember-cli-mirage.com/) is a client HTTP stubbing library often used for Ember application testing.
 For the case of this tutorial, we'll use mirage as our source of data rather than a traditional backend server.
 Mirage will allow us to create fake data to work with while developing our app and mimic an API.
 The data and endpoints we setup here will come into play later in the tutorial, when we use Ember Data to make server requests.
@@ -142,7 +142,7 @@ For now, let's generate an adapter for our application:
 ember generate adapter application
 ```
 
-This adapter will extend the [`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter) base class from Ember Data:
+This adapter will extend the [`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPIAdapter) base class from Ember Data:
 
 ```app/adapters/application.js{+4}
 import DS from 'ember-data';

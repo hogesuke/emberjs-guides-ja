@@ -26,13 +26,13 @@ Emberにはいくつかのヘルパーが用意されているので、テンプ
 ### ヘルパーを使ってプロパティを動的に取得する
 
 <!--
-The [`{{get}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=get) helper makes it easy to dynamically send the value of a
+The [`{{get}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=get) helper makes it easy to dynamically send the value of a
 variable to another helper or component.
 This can be useful if you want
 to output one of several values based on the result of a computed property.
 -->
 
-[`{{get}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=get)ヘルパーを使うと、変数の値を他のヘルパーやコンポーネントに動的に簡単に送ることができます。
+[`{{get}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=get)ヘルパーを使うと、変数の値を他のヘルパーやコンポーネントに動的に簡単に送ることができます。
 これは、計算されたプロパティの結果に基づいていくつかの値のいずれかを出力する場合に便利です。
 
 ```handlebars
@@ -56,14 +56,14 @@ if the `part` computed property returns "zip", this will display the result of
 <!--
 In the last section it was discussed that helpers can be nested.
 This can be combined with these sorts of dynamic helpers.
-For example, the [`{{concat}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=concat) helper makes it easy to dynamically send
+For example, the [`{{concat}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=concat) helper makes it easy to dynamically send
 a number of parameters to a component or helper as a single parameter in the
 format of a concatenated string.
 -->
 
 前のセクションでは、ヘルパーを入れ子にできることを説明しました。
 入れ子により動的ヘルパーと組み合わせることができます。
-例えば、[`{{concat}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=concat)ヘルパーを使用すると、多数のパラメーターを動的に文字列として連結し、一つのパラメーターにして、コンポーネントまたはヘルパーに渡すことが簡単にできます。
+例えば、[`{{concat}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=concat)ヘルパーを使用すると、多数のパラメーターを動的に文字列として連結し、一つのパラメーターにして、コンポーネントまたはヘルパーに渡すことが簡単にできます。
 
 ```handlebars
 {{get "foo" (concat "item" index)}}

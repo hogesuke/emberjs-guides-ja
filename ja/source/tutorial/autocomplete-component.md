@@ -75,7 +75,7 @@ In this case we are passing, or "yielding", our filter data to the inner markup 
 
 {{#list-filter
    filter=(action 'filterByCity')
-   as |filteredResults|}}}}
+   as |filteredResults|}}
   <ul class="results">
     {{#each filteredResults as |rentalUnit|}}
       <li>{{rental-listing rental=rentalUnit}}</li>
@@ -175,20 +175,20 @@ Our `handleFilterEntry` action calls a function called `filter` based on the `va
 上記の例では、`init`アクションを使用して、`filter`アクションを文字を渡して実行して初期値を生成しています。 `handleFilterEntry`アクションは、inputヘルパーのvalue属性を対象に`filter`という関数を実行しています。
 
 <!--
-The `filter` function is passed in by the calling object. This is a pattern known as [closure actions](../../components/triggering-changes-with-actions/#toc_passing-the-action-to-the-component). 
+The `filter` function is passed in by the calling object. This is a pattern known as [closure actions](../../components/triggering-changes-with-actions/#toc_passing-the-action-to-the-component).
 -->
 
-`filter`関数は呼び出し元のオブジェクトによって渡されます。 これは[クロージャーアクション](../../components/triggering-changes-with-actions/#toc_passing-the-action-to-the-component)と呼ばれるパターンです。
+`filter`関数は呼び出し元のオブジェクトによって渡されます。 これは[クロージャーアクション](../../components/triggering-changes-with-actions/#toc_アクションをコンポーネントに渡す)と呼ばれるパターンです。
 
 <!--
 Notice the `then` function called on the result of calling the `filter` function.
 The code expects the `filter` function to return a promise.
-A [promise](https://www.emberjs.com/api/ember/2.16/classes/Promise) is a JavaScript object that represents the result of an asynchronous function.
+A [promise](https://www.emberjs.com/api/ember/release/classes/Promise) is a JavaScript object that represents the result of an asynchronous function.
 A promise may or may not be executed at the time you receive it.
 To account for this, it provides functions, like `then` that let you give it code it will run when it eventually does receive a result.
 -->
 
-`filter`関数の実行結果に対して、`then`関数が呼び出されたことに注目してください。 このコードでは、`filter`関数がPromiseを返すことを期待しています。 [Promise](https://www.emberjs.com/api/ember/2.16/classes/Promise)は、非同期関数の結果を表すJavaScriptオブジェクトです。 Promiseは、Promiseを受け取った時点で実行される場合もあれば、実行されない場合もあります。 そのため、`then`関数のような、結果を受け取ったときに最終的に実行されるコードを渡せる関数があります。
+`filter`関数の実行結果に対して、`then`関数が呼び出されたことに注目してください。 このコードでは、`filter`関数がPromiseを返すことを期待しています。 [Promise](https://www.emberjs.com/api/ember/release/classes/Promise)は、非同期関数の結果を表すJavaScriptオブジェクトです。 Promiseは、Promiseを受け取った時点で実行される場合もあれば、実行されない場合もあります。 そのため、`then`関数のような、結果を受け取ったときに最終的に実行されるコードを渡せる関数があります。
 
 <!--
 To implement the `filter` function to do the actual filter of rentals by city, we'll create a `rentals` controller.
@@ -197,7 +197,7 @@ In our case we want to generate a controller called `rentals`.
 Ember will know that a controller with the name of `rentals` will apply to the route with the same name.
 -->
 
-都市別の物件のフィルタリングを実行する`filter`関数を実装するため、`rentals`コントローラを作成します。 [コントローラ][Controllers](../../controllers/)には、対応するルートのテンプレートで使用できるアクションとプロパティ(属性)が含まれています。 そのためこの場合は、`rentals`というコントローラーを作成することになります。 Emberでは、`rentals`という名前のコントローラーが同じ名前のルートに適用されます。
+都市別の物件のフィルタリングを実行する`filter`関数を実装するため、`rentals`コントローラを作成します。 [コントローラ](../../controllers/)には、対応するルートのテンプレートで使用できるアクションとプロパティ(属性)が含まれています。 そのためこの場合は、`rentals`というコントローラーを作成することになります。 Emberでは、`rentals`という名前のコントローラーが同じ名前のルートに適用されます。
 
 <!--
 Generate a controller for the `rentals` route by running the following:
@@ -247,7 +247,7 @@ The result of the query is returned to the caller.
 
 <!--
 For this action to work, we need to replace our Mirage `config.js` file with the following, so that it can respond to our queries.
-Instead of simply returning the list of rentals, our Mirage HTTP GET handler for `rentals` will return rentals matching the string provided in the URL query parameter called `city`. 
+Instead of simply returning the list of rentals, our Mirage HTTP GET handler for `rentals` will return rentals matching the string provided in the URL query parameter called `city`.
 -->
 
 この動作を有効にするには、Mirageの`config.js`ファイルを次のように置き換えて、クエリに応答できるようにする必要があります。 単に全物件データを返す代わりに、Mirage HTTP GETハンドラの`rentals`で、`city`というURLクエリパラメータで指定された文字列と一致する物件を返すようにします。
@@ -266,7 +266,7 @@ export default function() {
         title: 'Grand Old Mansion',
         owner: 'Veruca Salt',
         city: 'San Francisco',
-        "category": 'Estate',
+        category: 'Estate',
         bedrooms: 15,
         image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
         description: "This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests."
@@ -278,7 +278,7 @@ export default function() {
         title: 'Urban Living',
         owner: 'Mike Teavee',
         city: 'Seattle',
-        "category": 'Condo',
+        category: 'Condo',
         bedrooms: 1,
         image: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg',
         description: "A commuters dream. This rental is within walking distance of 2 bus stops and the Metro."
@@ -290,7 +290,7 @@ export default function() {
         title: 'Downtown Charm',
         owner: 'Violet Beauregarde',
         city: 'Portland',
-        "category": 'Apartment',
+        category: 'Apartment',
         bedrooms: 3,
         image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
         description: "Convenience is at your doorstep with this charming downtown rental. Great restaurants and active night life are within a few feet."
@@ -417,12 +417,12 @@ Therefore we now check that results match the input field, ensuring that results
 
 <!--
 While this approach will keep our results order consistent, there are other things to consider when dealing with multiple concurrent tasks,
-such as [limiting the number of requests made to the server](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Frunloop/methods/debounce?anchor=debounce).
+such as [limiting the number of requests made to the server](https://www.emberjs.com/api/ember/release/classes/@ember%2Frunloop/methods/debounce?anchor=debounce).
 To create effective and robust autocomplete behavior for your applications,
 we recommend considering the [`ember-concurrency`](http://ember-concurrency.com/#/docs/introduction) addon project.
 -->
 
-この方法では、結果の順序を一致させることができますが、[サーバーへの要求数を制限する](https://www.emberjs.com/api/ember/2.16/classes/@ember%2Frunloop/methods/debounce?anchor=debounce)など、複数の並行タスクを処理する場合は、他に考慮すべき事項があります。 アプリケーションの効果的で堅牢な補完動作を作成するには、[`ember-concurrency`](http://ember-concurrency.com/#/docs/introduction)アドオンプロジェクトを検討することをお勧めします。
+この方法では、結果の順序を一致させることができますが、[サーバーへの要求数を制限する](https://www.emberjs.com/api/ember/release/classes/@ember%2Frunloop/methods/debounce?anchor=debounce)など、複数の並行タスクを処理する場合は、他に考慮すべき事項があります。 アプリケーションの効果的で堅牢な補完動作を作成するには、[`ember-concurrency`](http://ember-concurrency.com/#/docs/introduction)アドオンプロジェクトを検討することをお勧めします。
 
 <!--
 You can now proceed on to implement the [next feature](../service/), or continue on to test our newly created filter component.
@@ -453,69 +453,72 @@ Remove the default test, and create a new test that verifies that by default, th
 
 まず、`list-filter`コンポーネントを生成したときに作成されたコンポーネント統合テスト`tests/integration/components/list-filter-test.js`を開きます。 既存のテストを削除し、コンポーネントがデフォルトですべてのアイテムを一覧表示することを確認する新しいテストを作成します。
 
-```tests/integration/components/list-filter-test.js{+8,+9,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27}
-import { moduleForComponent, test } from 'ember-qunit';
+```tests/integration/components/list-filter-test.js{+9,+10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28}
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('list-filter', 'Integration | Component | filter listing', {
-  integration: true
-});
+module('Integration | Component | rental-listing', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('should initially load all listings', function (assert) {
-});
+  test('should initially load all listings', function (assert) {
+  });
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  test('it renders', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
 
-  this.render(hbs`{{list-filter}}`);
+    await render(hbs`{{rental-listing}}`);
 
-  assert.equal(this.$().text().trim(), '');
+    assert.equal(this.element.textContent.trim(), '');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#list-filter}}
-      template block text
-    {{/list-filter}}
-  `);
+    // Template block usage:
+    await render(hbs`
+      {{#rental-listing}}
+        template block text
+      {{/rental-listing}}
+    `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'template block text');
+  });
+
 });
 ```
 
 <!--
 Our list-filter component takes a function as an argument, used to find the list of matching rentals based on the filter string provided by the user.
-We provide an action function by setting it to the local scope of our test by calling `this.on`.
 -->
 
-list-filterコンポーネントは関数を引数でとり、ユーザーが入力する文字列に基づいて一致する物件を検索に使います。テストのローカルスコープに設定するために`this.on`を使ってアクション関数をセットします。
+list-filterコンポーネントは関数を引数でとり、ユーザーが入力する文字列に基づいて一致する物件を検索に使います。
 
-```tests/integration/components/list-filter-test.js{+3,+5,+6,+13,+14,+15,+16,+17}
-import { moduleForComponent, test } from 'ember-qunit';
+```tests/integration/components/list-filter-test.js{+5,+7,+8,+14,+15,+16,+17,+18}
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import RSVP from 'rsvp';
+import { resolve } from 'rsvp';
 
 const ITEMS = [{city: 'San Francisco'}, {city: 'Portland'}, {city: 'Seattle'}];
 const FILTERED_ITEMS = [{city: 'San Francisco'}];
 
-moduleForComponent('list-filter', 'Integration | Component | filter listing', {
-  integration: true
-});
+module('Integration | Component | rental-listing', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('should initially load all listings', function (assert) {
-  // we want our actions to return promises,
-  //since they are potentially fetching data asynchronously
-  this.on('filterByCity', () => {
-    return RSVP.resolve({ results: ITEMS });
+  test('should initially load all listings', async function (assert) {
+    // we want our actions to return promises,
+    //since they are potentially fetching data asynchronously
+    this.set('filterByCity', () => resolve({ results: ITEMS }));
   });
+
 });
 ```
 
 <!--
-`this.on` will add the provided function to the test local scope as `filterByCity`, which we can use to provide to the component.
+Calling `this.set` on `filterByCity` will add the provided function to the test local scope.
 -->
 
-`this.on`は、渡された関数を`filterByCity`としてテストのローカルスコープに追加しています。コンポーネントに渡すのに使用できます。
+`this.set`は、渡された関数を`filterByCity`としてテストのローカルスコープに追加しています。
 
 <!--
 Our `filterByCity` function is going to pretend to be the action function for our component, that does the actual filtering of the rental list.
@@ -525,16 +528,16 @@ Our `filterByCity` function is going to pretend to be the action function for ou
 
 <!--
 We are not testing the actual filtering of rentals in this test, since it is focused on only the capability of the component.
-We will test the full logic of filtering in acceptance tests, described in the next section. 
+We will test the full logic of filtering in application tests, described in the next section.
 -->
 
-このテストでは、コンポーネントの機能のみに焦点を絞っているため、実際の物件のフィルタリングはテストしていません。次のセクションは受け入れテストの説明です。フィルタリングのロジックを全てテストします。
+このテストでは、コンポーネントの機能のみに焦点を絞っているため、実際の物件のフィルタリングはテストしていません。次のセクションはアプリケーションテストの説明です。フィルタリングのロジックを全てテストします。
 
 <!--
-Since our component is expecting the filter process to be asynchronous, we return promises from our filter, using [Ember's RSVP library](https://www.emberjs.com/api/ember/2.16/modules/rsvp).
+Since our component is expecting the filter process to be asynchronous, we return promises from our filter, using [Ember's RSVP library](https://www.emberjs.com/api/ember/release/modules/rsvp).
 -->
 
-コンポーネントはフィルタプロセスが非同期であることを期待しているので、[EmberのRSVPライブラリ](https://www.emberjs.com/api/ember/2.16/modules/rsvp)を使用してPromiseを返します。
+コンポーネントはフィルタプロセスが非同期であることを期待しているので、[EmberのRSVPライブラリ](https://www.emberjs.com/api/ember/release/modules/rsvp)を使用してPromiseを返します。
 
 <!--
 Next, we'll add the call to render the component to show the cities we've provided above.
@@ -542,102 +545,103 @@ Next, we'll add the call to render the component to show the cities we've provid
 
 次に、コンポーネントをレンダリングする呼び出しを追加して、上に示した都市を表示します。
 
-```tests/integration/components/list-filter-test.js{+19,+20,+21,+22,+23,+24,+25,+26,+27,+28,+29,+30,+31,+32}
-import { moduleForComponent, test } from 'ember-qunit';
+```tests/integration/components/list-filter-test.js{+20,+21,+22,+23,+24,+25,+26,+27,+28,+29,+30,+31,+32,+33}
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import RSVP from 'rsvp';
+import { resolve } from 'rsvp';
 
 const ITEMS = [{city: 'San Francisco'}, {city: 'Portland'}, {city: 'Seattle'}];
 const FILTERED_ITEMS = [{city: 'San Francisco'}];
 
-moduleForComponent('list-filter', 'Integration | Component | filter listing', {
-  integration: true
-});
+module('Integration | Component | rental-listing', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('should initially load all listings', function (assert) {
-  // we want our actions to return promises,
-  //since they are potentially fetching data asynchronously
-  this.on('filterByCity', () => {
-    return RSVP.resolve({ results: ITEMS });
+  test('should initially load all listings', async function (assert) {
+    // we want our actions to return promises,
+    //since they are potentially fetching data asynchronously
+    this.set('filterByCity', () => resolve({ results: ITEMS }));
+
+    // with an integration test,
+    // you can set up and use your component in the same way your application
+    // will use it.
+    await render(hbs`
+      {{#list-filter filter=(action filterByCity) as |results|}}
+        <ul>
+        {{#each results as |item|}}
+          <li class="city">
+            {{item.city}}
+          </li>
+        {{/each}}
+        </ul>
+      {{/list-filter}}
+    `);
+
   });
-
-  // with an integration test,
-  // you can set up and use your component in the same way your application
-  // will use it.
-  this.render(hbs`
-    {{#list-filter filter=(action 'filterByCity') as |results|}}
-      <ul>
-      {{#each results as |item|}}
-        <li class="city">
-          {{item.city}}
-        </li>
-      {{/each}}
-      </ul>
-    {{/list-filter}}
-  `);
 
 });
 ```
 
 <!--
-Finally we add a `wait` call at the end of our test to assert the results.
+Finally we add a `settled` call at the end of our test to assert the results.
 -->
 
-最後に、テストの最後に`wait`を追加して結果をアサートします。
+最後に、テストの最後に`settled`を追加して結果をアサートします。
 
 <!--
-Ember's [wait helper](../../testing/testing-components/#toc_waiting-on-asynchronous-behavior)
+Ember's [settled helper](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#settled)
 waits for all asynchronous tasks to complete before running the given function callback.
 It returns a promise that we also return from the test.
 -->
 
-Emberの[waitヘルパー](../../testing/testing-components/#toc_waiting-on-asynchronous-behavior)は、指定された関数コールバックを実行する前に、すべての非同期タスクが完了するのを待ちます。テストから復帰するPromiseを返します。
+Emberの[settledヘルパー](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#settled)は、指定された関数コールバックを実行する前に、すべての非同期タスクが完了するのを待ちます。テストから復帰するPromiseを返します。
 
 <!--
 If you return a promise from a QUnit test, the test will wait to finish until that promise is resolved.
-In this case our test completes when the `wait` helper decides that processing is finished,
+In this case our test completes when the `settled` helper decides that processing is finished,
 and the function we provide that asserts the resulting state is completed.
 -->
 
-QUnitテストでPromiseを返すと、そのPromiseが解決されるまでテストは終了せず待機されます。 下記のコードでは、`wait`ヘルパーの処理の終了の判断と、結果の状態をアサートする関数が完了すると、テストが完了します。
+QUnitテストでPromiseを返すと、そのPromiseが解決されるまでテストは終了せず待機されます。 下記のコードでは、`settled`ヘルパーの処理の終了の判断と、結果の状態をアサートする関数が完了すると、テストが完了します。
 
-```tests/integration/components/list-filter-test.js{+3,+33,+34,+35,+36}
-import { moduleForComponent, test } from 'ember-qunit';
+```tests/integration/components/list-filter-test.js{+3,+31,+32,+33,+34}
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, settled } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import wait from 'ember-test-helpers/wait';
-import RSVP from 'rsvp';
+import { resolve } from 'rsvp';
 
 const ITEMS = [{city: 'San Francisco'}, {city: 'Portland'}, {city: 'Seattle'}];
 const FILTERED_ITEMS = [{city: 'San Francisco'}];
 
-moduleForComponent('list-filter', 'Integration | Component | filter listing', {
-  integration: true
-});
+module('Integration | Component | rental-listing', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('should initially load all listings', function (assert) {
-  // we want our actions to return promises, since they are potentially fetching data asynchronously
-  this.on('filterByCity', () => {
-    return RSVP.resolve({ results: ITEMS });
+  test('should initially load all listings', async function (assert) {
+    // we want our actions to return promises, since they are potentially fetching data asynchronously
+    this.set('filterByCity', () => resolve({ results: ITEMS }));
+
+    // with an integration test,
+    // you can set up and use your component in the same way your application will use it.
+    await render(hbs`
+      {{#list-filter filter=(action filterByCity) as |results|}}
+        <ul>
+        {{#each results as |item|}}
+          <li class="city">
+            {{item.city}}
+          </li>
+        {{/each}}
+        </ul>
+      {{/list-filter}}
+    `);
+
+    return settled().then(() => {
+      assert.equal(this.element.querySelectorAll('.city').length, 3);
+      assert.equal(this.element.querySelector('.city').textContent.trim(), 'San Francisco');
+    });
   });
 
-  // with an integration test,
-  // you can set up and use your component in the same way your application will use it.
-  this.render(hbs`
-    {{#list-filter filter=(action 'filterByCity') as |results|}}
-      <ul>
-      {{#each results as |item|}}
-        <li class="city">
-          {{item.city}}
-        </li>
-      {{/each}}
-      </ul>
-    {{/list-filter}}
-  `);
-
-  return wait().then(() => {
-    assert.equal(this.$('.city').length, 3);
-    assert.equal(this.$('.city').first().text().trim(), 'San Francisco');
-  });
 });
 ```
 
@@ -660,22 +664,42 @@ We force the action by generating a `keyUp` event on our input field, and then a
 
 入力フィールドで`keyUp`イベントを生成してアクションを強制的に実行し、次に1つのアイテムだけがレンダリングされることをアサートします。
 
+<!--
+First add `triggerKeyEvent` and `fillIn` to the list of imports.  The [`fillIn`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#fillin) helper simulates the user filling in the element. The [`triggerKeyEvent`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#triggerkeyevent) helper sends a key stroke event to the UI, simulating the user typing a key.
+-->
+
+まず、インポートのリストに`triggerKeyEvent`と`fillIn`を追加します。
+[`fillIn`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#fillin)ヘルパーは、ユーザが要素に入力するのをシミュレートします。
+[`triggerKeyEvent`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#triggerkeyevent)ヘルパーは、キーストロークイベントをUIに送信し、ユーザーのキー入力をシミュレートします。
+
+
 ```tests/integration/components/list-filter-test.js
-test('should update with matching listings', function (assert) {
-  this.on('filterByCity', (val) => {
+import { render, settled, triggerKeyEvent, fillIn } from '@ember/test-helpers';
+```
+
+<!--
+Now use it to simulate the user typing a key into the search field.
+-->
+
+これを使用して、ユーザーが検索フィールドにキー入力するのをシミュレートします。
+
+
+```tests/integration/components/list-filter-test.js{+27}
+test('should update with matching listings', async function (assert) {
+  this.set('filterByCity', (val) =>  {
     if (val === '') {
-      return RSVP.resolve({
+      return resolve({
         query: val,
         results: ITEMS });
     } else {
-      return RSVP.resolve({
+      return resolve({
         query: val,
         results: FILTERED_ITEMS });
     }
   });
 
-  this.render(hbs`
-    {{#list-filter filter=(action 'filterByCity') as |results|}}
+  await render(hbs`
+    {{#list-filter filter=(action filterByCity) as |results|}}
       <ul>
       {{#each results as |item|}}
         <li class="city">
@@ -686,12 +710,14 @@ test('should update with matching listings', function (assert) {
     {{/list-filter}}
   `);
 
+  // filling in the component's input field with 's'
+  await fillIn(this.element.querySelector('.list-filter input'),'s');
   // The keyup event here should invoke an action that will cause the list to be filtered
-  this.$('.list-filter input').val('San').keyup();
+  await triggerKeyEvent(this.element.querySelector('.list-filter input'), "keyup", 83);
 
-  return wait().then(() => {
-    assert.equal(this.$('.city').length, 1);
-    assert.equal(this.$('.city').text().trim(), 'San Francisco');
+  return settled().then(() => {
+    assert.equal(this.element.querySelectorAll('.city').length, 1, 'One result returned');
+    assert.equal(this.element.querySelector('.city').textContent.trim(), 'San Francisco');
   });
 });
 
@@ -705,49 +731,63 @@ You can verify this by starting up our test suite by typing `ember t -s` at the 
 これで、２件の統合テストシナリオはパスするはずです。 確認するには、コマンドラインで`ember t -s`とタイプしてテストスイートを起動します。
 
 <!--
-### Acceptance Tests
+### Application Tests
 -->
 
-### 受け入れテスト
+### アプリケーションテスト
 
 <!--
-Now that we've tested that the `list-filter` component behaves as expected, let's test that the page itself also behaves properly with an acceptance test.
+Now that we've tested that the `list-filter` component behaves as expected, let's test that the page itself also behaves properly with an application test.
 We'll verify that a user visiting the rentals page can enter text into the search field and narrow the list of rentals by city.
 -->
 
-`list-filter`コンポーネントが期待どおりに動作することをテストしたので、ページ自体も受け入れテストで正しく動作することをテストしましょう。 物件一覧ページにアクセスしたユーザーが検索フィールドにテキストを入力し、都市別に物件一覧を絞り込むことができることを確認します。
+`list-filter`コンポーネントが期待どおりに動作することをテストしたので、ページ自体もアプリケーションテストで正しく動作することをテストしましょう。
+物件一覧ページにアクセスしたユーザーが検索フィールドにテキストを入力し、都市別に物件一覧を絞り込むことができることを確認します。
 
 <!--
-Open our existing acceptance test, `tests/acceptance/list-rentals-test.js`, and implement the test labeled "should filter the list of rentals by city".
+Open our existing application test, `tests/acceptance/list-rentals-test.js`, and implement the test labeled "should filter the list of rentals by city".
 -->
 
-既存の受け入れテスト、`tests/acceptance/list-rentals-test.js`を開き、"should filter the list of rentals by city"(都市別に物件一覧をフィルタリングする)というラベルのテストを実装します。
+既存のアプリケーションテスト、`tests/acceptance/list-rentals-test.js`を開き、"should filter the list of rentals by city"(都市別に物件一覧をフィルタリングする)というラベルのテストを実装します。
 
 ```/tests/acceptance/list-rentals-test.js
-test('should filter the list of rentals by city.', function (assert) {
-  visit('/');
-  fillIn('.list-filter input', 'Seattle');
-  keyEvent('.list-filter input', 'keyup', 69);
-  andThen(function() {
-    assert.equal(find('.listing').length, 1, 'should show 1 listing');
-    assert.equal(find('.listing .location:contains("Seattle")').length, 1, 'should contain 1 listing with location Seattle');
-  });
+test('should filter the list of rentals by city', async function(assert) {
+  await visit('/');
+  await fillIn('.list-filter input', 'seattle');
+  await triggerKeyEvent('.list-filter input', 'keyup', 69);
+  assert.ok(this.element.querySelector('.results .listing'), 'should display 1 listing');
+  assert.ok(this.element.querySelector('.listing .location').textContent.includes('Seattle'), 'should contain 1 listing with location Seattle');
 });
 ```
 
 <!--
-We introduce two new helpers into this test, `fillIn` and `keyEvent`.
+Notice we introduce a new helper into this test, `fillIn`.
 -->
 
-このテストでは、`fillIn`と`keyEvent`の2つの新しいヘルパーを使います。
+このテストでは、`fillIn`というヘルパーを使っています。
 
 <!--
-* The [`fillIn`](http://emberjs.com/api/classes/Ember.Test.html#method_fillIn) helper "fills in" the given text into an input field matching the given selector.
-* The [`keyEvent`](http://emberjs.com/api/classes/Ember.Test.html#method_keyEvent) helper sends a key stroke event to the UI, simulating the user typing a key
+* The [`fillIn`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#fillin) helper "fills in" the given text into an input field matching the given selector.
 -->
 
-* [`fillIn`](http://emberjs.com/api/classes/Ember.Test.html#method_fillIn)ヘルパーは、指定されたテキストを指定されたセレクタに一致する入力フィールドに入力します。
-* [`keyEvent`](http://emberjs.com/api/classes/Ember.Test.html#method_keyEvent)ヘルパーは、キーストロークイベントをUIに送り、ユーザーのキー入力をシミュレートします。
+* [`fillIn`](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#fillin)ヘルパーは、指定されたテキストを指定されたセレクタに一致する入力フィールドに入力します。
+
+<!--
+Let's not forget to add these two helpers to our list of imports.
+-->
+
+この2つのヘルパーをインポートリストに追加することを忘れないようにしましょう。
+
+
+```/tests/acceptance/list-rentals-test.js{+5,+6}
+import {
+  click,
+  currentURL,
+  visit,
+  fillIn,
+  triggerKeyEvent
+} from '@ember/test-helpers'
+```
 
 <!--
 In `app/components/list-filter.js`, we have as the top-level element rendered by the component a class called `list-filter`.
@@ -759,10 +799,18 @@ since we know that there is only one input element located in the list-filter co
 
 <!--
 Our test fills out "Seattle" as the search criteria in the search field,
-and then sends a `keyup` event to the same field with a code of `69` (the `e` key) to simulate a user typing.
+and then sends a `keyup` event to the same field with a code of `69` (the `e` key) to simulate a user typing, which is the event our code is looking for.
 -->
 
 このテストでは、検索フィールドの検索条件として、「Seattle(シアトル)」を入力し、ユーザー入力をシミュレートするためにコード69（eキー）を使用して同じフィールドに`keyup`イベントを送信しています。
+
+<!--
+In the case of our code the key code sent can be anything, since we read the value of the input field, and not the key events coming in.
+We only use the key event to let our code know that its time to make a search.
+-->
+
+上記のコードの場合、送信するキーコードは何でもかまいません。なぜなら、入力フィールドの値を読み込んでおり、発生するキーイベントではないからです。
+キーイベントは、コードに検索するタイミングを知らせるためだけに使用します。
 
 <!--
 The test locates the results of the search by finding elements with a class of `listing`,
@@ -786,9 +834,9 @@ and the item displayed shows "Seattle" as the location.
 入力欄にSeattleを入力すると、物件数が3から1に減少し、表示された項目にの場所がSeattleであることを検証しています。
 
 <!--
-You should be down to only 2 failing tests: One remaining acceptance test failure; and our ESLint test that fails on an unused assert for our unimplemented test.
+You should be down to only 2 failing tests: One remaining application test failure; and our ESLint test that fails on an unused assert for our unimplemented test.
 -->
 
-これで失敗しているテストは2件に減っているはずです。実装されていない受け入れテストと未使用のassertで失敗しているESLintテストだけになりました。
+これで失敗しているテストは2件に減っているはずです。実装されていないアプリケーションテストと未使用のassertで失敗しているESLintテストだけになりました。
 
-![passing acceptance tests](../../images/autocomplete-component/passing-acceptance-tests.png)
+![passing application tests](../../images/autocomplete-component/passing-acceptance-tests.png)

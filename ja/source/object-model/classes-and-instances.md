@@ -20,8 +20,8 @@ To define a new Ember _class_, call the [`extend()`][1] method on
 
 新しいEmberクラスを定義するには、[`EmberObject`][2]の[`extend()`][1]メソッドを呼び出します。
 
-[1]: https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject/methods/extend?anchor=extend
-[2]: https://www.emberjs.com/api/ember/2.16/modules/@ember%2Fobject
+[1]: https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject/methods/extend?anchor=extend
+[2]: https://www.emberjs.com/api/ember/release/modules/@ember%2Fobject
 
 ```javascript
 import EmberObject from '@ember/object';
@@ -47,7 +47,7 @@ of Ember's built-in [`Component`][3] class:
 
 既存のクラスからサブクラスを作成するには、`extend()`メソッドを呼び出します。 たとえば、Emberのビルトインコンポーネントクラスのサブクラスを作成する場合、以下のようになります。
 
-[3]: https://www.emberjs.com/api/ember/2.16/classes/Component
+[3]: https://www.emberjs.com/api/ember/release/classes/Component
 
 ```app/components/todo-item.js
 import Component from '@ember/component';
@@ -147,7 +147,7 @@ A handy shortcut for this is to use a "spread operator", like `...arguments`:
 
 `...arguments`のように、スプレッド演算子を使うと便利です:
 
-[4]: https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPISerializer/methods/normalizeResponse?anchor=normalizeResponse
+[4]: https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPISerializer/methods/normalizeResponse?anchor=normalizeResponse
 
 <!--
 ```javascript
@@ -187,7 +187,7 @@ instances:
 クラスを定義したら、[`create()`][5]メソッドを呼び出すことでそのクラスの新しいインスタンスを作成できます。
 クラスで定義したメソッド、プロパティ、および算出プロパティは、インスタンスで使用できるようになります。
 
-[5]: https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject/methods/create?anchor=create
+[5]: https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject/methods/create?anchor=create
 
 ```javascript
 import EmberObject from '@ember/object';
@@ -264,7 +264,7 @@ instances:
 新しいインスタンスが作成されると、[`init()`][6]メソッドが自動で呼び出されます。
 これは、インスタンスで必須なものをセットアップするのに理想的な場所です。
 
-[6]: https://www.emberjs.com/api/ember/2.16/classes/EmberObject/methods/init?anchor=init
+[6]: https://www.emberjs.com/api/ember/release/classes/EmberObject/methods/init?anchor=init
 
 ```js
 import EmberObject from '@ember/object';
@@ -428,8 +428,8 @@ and [`set()`][8] accessor methods:
 オブジェクトのプロパティにアクセスするときは、[`get()`][7]
 および[`set()`][8]アクセサメソッドを使用します。
 
-[7]: https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject/methods/get?anchor=get
-[8]: https://www.emberjs.com/api/ember/2.16/classes/@ember%2Fobject/methods/set?anchor=set
+[7]: https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject/methods/get?anchor=get
+[8]: https://www.emberjs.com/api/ember/release/classes/@ember%2Fobject/methods/set?anchor=set
 
 ```js
 import EmberObject from '@ember/object';

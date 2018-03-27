@@ -6,11 +6,11 @@
 
 <!--
 You create a link to a route using the
-[`{{link-to}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)
+[`{{link-to}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=link-to)
 component.
 -->
 
-[`{{link-to}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)コンポーネントを使って、ルートへリンクできます。
+[`{{link-to}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=link-to)コンポーネントを使って、ルートへリンクできます。
 
 ```app/router.js
 Router.map(function() {
@@ -183,12 +183,12 @@ The `query-params` helper can be used to set query params on a link:
 
 <!--
 In addition to being used as a block expression, the
-[`link-to`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)
+[`link-to`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=link-to)
 component can also be used in inline form by specifying the link text as the first
 argument to the component:
 -->
 
-[`link-to`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)コンポーネントは、ブロック式として使用されるほか、リンクテキストをコンポーネントの第1引数として指定することで、インライン形式でも使用できます。
+[`link-to`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=link-to)コンポーネントは、ブロック式として使用されるほか、リンクテキストをコンポーネントの第1引数として指定することで、インライン形式でも使用できます。
 
 ```handlebars
 A link in {{#link-to "index"}}Block Expression Form{{/link-to}},
@@ -241,13 +241,13 @@ adding class names, Ember will also apply the standard `ember-view` and possibly
 
 <!--
 The default behavior for
-[`link-to`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)
+[`link-to`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=link-to)
 is to add entries to the browser's history when transitioning between the
 routes. However, to replace the current entry in the browser's history you
 can use the `replace=true` option:
 -->
 
-[`link-to`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/get?anchor=link-to)はデフォルトで、ルート間を移動する際にブラウザの履歴にエントリを追加します。
+[`link-to`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/get?anchor=link-to)はデフォルトで、ルート間を移動する際にブラウザの履歴にエントリを追加します。
 ブラウザの履歴にある現在のエントリを置き換えたい場合は、`replace=true`オプションを指定します。
 
 ```handlebars

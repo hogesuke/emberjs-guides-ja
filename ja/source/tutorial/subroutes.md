@@ -18,12 +18,12 @@ Up to this point, we've generated four top level routes.
 
 <!--
 Our `rentals` route is going to serve multiple functions.
-From our [acceptance tests](../acceptance-test), we've shown that we want our users to be able to browse and search rentals, as well as see detailed information for individual rentals.
+From our [application tests](../acceptance-test), we've shown that we want our users to be able to browse and search rentals, as well as see detailed information for individual rentals.
 To satisfy that requirement, we are going to make use of Ember's [nested route capability](../../routing/defining-your-routes/#toc_nested-routes).
 -->
 
 `rentals`ルートにさらに機能を追加します。
-[受け入れテスト](../acceptance-test)から、ユーザーが物件を閲覧したり、検索したり、個々の物件の詳細情報を参照できることを定義しました。
+[アプリケーションテスト](../acceptance-test)から、ユーザーが物件を閲覧したり、検索したり、個々の物件の詳細情報を参照できることを定義しました。
 この要件を満たすために、Emberの[ルートのネスト(入れ子)機能](../../routing/defining-your-routes/#toc_nested-routes)を利用します。
 
 <!--
@@ -194,9 +194,9 @@ Now that we are returning all of our rentals to the nested route's model, we wil
 </div>
 {{#list-filter
    filter=(action 'filterByCity')
-   as |rentals|}}
+   as |filteredResults|}}
   <ul class="results">
-    {{#each rentals as |rentalUnit|}}
+    {{#each filteredResults as |rentalUnit|}}
       <li>{{rental-listing rental=rentalUnit}}</li>
     {{/each}}
   </ul>
@@ -225,7 +225,7 @@ Finally, we need to make our controller that has our filter action available to 
 最後に、ネストしたインデックスルートで検索機能を使えるよう、コントローラを作成する必要があります。
 
 <!--
-Start by running the following command to create an index controller for our nested route: 
+Start by running the following command to create an index controller for our nested route:
 -->
 
 次のコマンドを実行して、ネストしたインデックスルートのコントローラを作成します。
@@ -259,7 +259,8 @@ export default RentalsController;
 Next, we will want to create a sub-route that will list information for a specific rental.
 To do this, we will need to update a couple of files.
 To find a specific rental, we will want to use Ember Data's `findRecord` function [(see "Finding Records" for more details)](../../models/finding-records/).
-The `findRecord` function requires that we search by a unique key. -->
+The `findRecord` function requires that we search by a unique key.
+-->
 
 次に、特定の物件の詳細情報を表示する子ルートを作成します。
 そのためには、いくつかのファイルの変更が必要です。
@@ -519,14 +520,21 @@ Now browse to `localhost:4200/rentals/grand-old-mansion` and you should see the 
 <!--
 Now that we can load pages for individual rentals, we'll add a link (using the `link-to` helper) within our `rental-listing` component to navigate to individual pages.
 Here, the `link-to` helper takes the route name and the rental model object as arguments.
-When you pass an object as second argument into the `link-to` block helper, it will by default [serialize](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/beforeModel?anchor=serialize) the object to the ID of the model into the URL.
+When you pass an object as second argument into the `link-to` block helper, it will by default [serialize](https://www.emberjs.com/api/ember/release/classes/Route/methods/beforeModel?anchor=serialize) the object to the ID of the model into the URL.
 Alternately, you may just pass `rental.id` for clarity.
 -->
 
 個々の物件のページを読み込むことができるようになりましたので、`rental-listing`コンポーネント内にリンク( `link-to`ヘルパーを使用)を追加して個々のページに遷移できるようにします。
 `link-to`ヘルパーには、ルート名とRentalモデルのインスタンスを引数として渡します。
-`link-to`ヘルパーの2番目の引数にオブジェクトを渡すると、デフォルトでモデルのIDがURLに[シアライズ](https://www.emberjs.com/api/ember/2.16/classes/Route/methods/beforeModel?anchor=serialize)されます。
+`link-to`ヘルパーの2番目の引数にオブジェクトを渡すると、デフォルトでモデルのIDがURLに[シアライズ](https://www.emberjs.com/api/ember/release/classes/Route/methods/beforeModel?anchor=serialize)されます。
 わかりやすくするために`rent.id`を渡すこともできます。
+
+<!--
+Notice also that we are providing `rental.id` as the class attribute on the `link-to`.  The class name will help us find the link later on in testing.
+-->
+
+`link-to`のクラス属性に`rental.id`を渡していることにも注意してください。
+クラス名は、後でテストでリンクを見つけるのに役立ちます。
 
 <!--
 Clicking on the title will load the detail page for that rental.
@@ -541,7 +549,7 @@ Clicking on the title will load the detail page for that rental.
     <small>View Larger</small>
   </a>
   <h3>{{rental.title}}</h3>
-  <h3>{{#link-to "rentals.show" rental}}{{rental.title}}{{/link-to}}</h3>
+  <h3>{{#link-to "rentals.show" rental class=rental.id}}{{rental.title}}{{/link-to}}</h3>
   <div class="detail owner">
     <span>Owner:</span> {{rental.owner}}
   </div>
@@ -566,41 +574,38 @@ or you can use this as a base to explore other Ember features and addons.
 Regardless, we hope this has helped you get started with creating your own ambitious applications with Ember!
 -->
 
-お疲れ様でした！
 この時点であなたはEmberを使えるようになっているはずです。
 Super Rentalsを[デプロイ](../deploying/)して、世界中に共有したり、これをベースとして他のEmberの機能やアドオンを探索したりできますね。
 これからEmberを使って野心的なアプリケーションの開発をする際、このチュートリアルがあなたの手助けになっていれば幸いです。
 
 <!--
-### Acceptance Tests
+### Application Tests
 -->
 
-### 受け入れテスト
+### アプリケーションテスト
 
 <!--
 We want to verify that we can click on a specific rental and load a detailed view to the page.
-We'll click on the title and validate that an expanded description of the rental is shown. 
+We'll click on the title and validate that an expanded description of the rental is shown.
 -->
 
 特定の物件をクリックしてページの詳細ページを読み込むことができることを確認したいと思います。
 タイトルをクリックし、物件の詳細情報が表示されることを確認します。
 
-```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+5,+6,+7,+8}
-test('should show details for a specific rental', function (assert) {
-  visit('/rentals');
-  click('a:contains("Grand Old Mansion")');
-  andThen(function() {
-    assert.equal(currentURL(), '/rentals/grand-old-mansion', 'should navigate to show route');
-    assert.equal(find('.show-listing h2').text(), "Grand Old Mansion", 'should list rental title');
-    assert.equal(find('.description').length, 1, 'should list a description of the property');
-  });
+```/tests/acceptance/list-rentals-test.js{+2,+3,+4,+5,+6}
+test('should show details for a specific rental', async function(assert) {
+  await visit('/rentals');
+  await click(".grand-old-mansion");
+  assert.equal(currentURL(), '/rentals/grand-old-mansion', "should navigate to show route");
+  assert.ok(this.element.querySelector('.show-listing h2').textContent.includes("Grand Old Mansion"), 'should list rental title');
+  assert.ok(this.element.querySelector('.show-listing .description'), 'should list a description of the property');
 });
 ```
 
 <!--
-At this point all our tests should pass, including the [list of acceptance tests](../acceptance-test) we created as our beginning requirements.
+At this point all our tests should pass, including the [list of application tests](../acceptance-test) we created as our beginning requirements.
 -->
 
-この時点で、最初に要件定義した受け入れテストを含む、すべてのテストがパスしているはずです。
+この時点で、最初に[要件定義したアプリケーションテスト](../acceptance-test)を含む、すべてのテストがパスしているはずです。
 
-![Acceptance Tests Pass](../../images/subroutes/all-acceptance-pass.png)
+![Application Tests Pass](../../images/subroutes/all-acceptance-pass.png)

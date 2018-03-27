@@ -68,12 +68,12 @@ let blogPosts = this.get('store').peekAll('blog-post'); // => no network request
 `store.findAll()`は`DS.RecordArray`を解決する`DS.PromiseArray`を返し、`store.peekAll`は`DS.RecordArray`を直接返します。
 
 <!--
-It's important to note that `DS.RecordArray` is not a JavaScript array, it's an object that implements [`Ember.Enumerable`](http://emberjs.com/api/classes/Ember.Enumerable.html).
+It's important to note that `DS.RecordArray` is not a JavaScript array, it's an object that implements [`Ember.Enumerable`](https://emberjs.com/api/ember/release/classes/Ember.Enumerable).
 This is important because, for example, if you want to retrieve records by index,
 the `[]` notation will not work--you'll have to use `objectAt(index)` instead.
 -->
 
-`DS.RecordArray`はJavaScript配列ではなく、[`Ember.Enumerable`](http://emberjs.com/api/classes/Ember.Enumerable.html)を実装しているオブジェクトであることに注意してください。
+`DS.RecordArray`はJavaScript配列ではなく、[`Ember.Enumerable`](https://emberjs.com/api/ember/release/classes/Ember.Enumerable)を実装しているオブジェクトであることに注意してください。
 例えば、インデックスでレコードを取得する場合は、`[]`を使うことはできず、代わりに`objectAt(index)`を使用する必要があります。
 
 <!--

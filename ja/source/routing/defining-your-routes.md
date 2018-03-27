@@ -33,14 +33,14 @@ It also adds the route to the router.
 ## ルートの基本
 
 <!--
-The [`map()`](https://www.emberjs.com/api/ember/2.16/classes/Router/methods/map?anchor=map) method
+The [`map()`](https://www.emberjs.com/api/ember/release/classes/Router/methods/map?anchor=map) method
 of your Ember application's router can be invoked to define URL mappings. When
 calling `map()`, you should pass a function that will be invoked with the value
 `this` set to an object which you can use to create routes.
 -->
 
 Emberアプリケーションのルータの
-[`map()`](https://www.emberjs.com/api/ember/2.16/classes/Router/methods/map?anchor=map)メソッドを呼び出して、URLマッピングを定義することができます。
+[`map()`](https://www.emberjs.com/api/ember/release/classes/Router/methods/map?anchor=map)メソッドを呼び出して、URLマッピングを定義することができます。
 `map()`を呼び出すときには、ルートを作成するのに使う`this`を使用した関数を渡します。
 
 ```app/router.js
@@ -74,11 +74,11 @@ Router.map(function() {
 ```
 
 <!--
-Inside your templates, you can use [`{{link-to}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/link-to?anchor=link-to) to navigate between
+Inside your templates, you can use [`{{link-to}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/link-to?anchor=link-to) to navigate between
 routes, using the name that you provided to the `route` method.
 -->
 
-テンプレート内では、[`{{link-to}}`](https://www.emberjs.com/api/ember/2.16/classes/Ember.Templates.helpers/methods/link-to?anchor=link-to)を使用して、`route`メソッドに指定した名前を使用して各ルートにリンクできます。
+テンプレート内では、[`{{link-to}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/link-to?anchor=link-to)を使用して、`route`メソッドに指定した名前を使用して各ルートにリンクできます。
 
 ```handlebars
 {{#link-to "index"}}<img class="logo">{{/link-to}}

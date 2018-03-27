@@ -25,10 +25,10 @@ To get the most use out of a component, it is important to understand these life
 ## 呼び出されるライフサイクルフックの順序
 
 <!--
-Listed below are the component lifecycle hooks in order of execution according to render scenario.
+Listed below are the component lifecycle [hooks](../../getting-started/core-concepts/#toc_hooks) in order of execution according to render scenario.
 -->
 
-以下は、描画時のシナリオに従って実行されるコンポーネントのライフサイクルフックを示しています。
+以下は、描画時のシナリオに従って実行されるコンポーネントのライフサイクル[フック](../../getting-started/core-concepts/#toc_フック)を示しています。
 
 <!--
 ### On Initial Render
@@ -337,8 +337,8 @@ There are a few things to note about the `didInsertElement()` hook:
 - [`didInsertElement()`][did-insert-element]は厳密には`on()`を使用してリッスンできるイベントですが、特に実行順序が重要な場合は、デフォルトのメソッド自体をオーバーライドすることが推奨されています
 
 
-[did-insert-element]: https://www.emberjs.com/api/ember/2.16/classes/Component/events/didInsertElement?anchor=didInsertElement
-[dollar]: https://www.emberjs.com/api/ember/2.16/classes/Component/methods/$?anchor=%24
+[did-insert-element]: https://www.emberjs.com/api/ember/release/classes/Component/events/didInsertElement?anchor=didInsertElement
+[dollar]: https://www.emberjs.com/api/ember/release/classes/Component/methods/$?anchor=%24
 [event-names]: http://guides.emberjs.com/v2.1.0/components/handling-events/#toc_event-names
 
 
@@ -426,11 +426,11 @@ export default Component.extend({
 ### `willDestroyElement`でコンポーネントのデタッチと削除
 
 <!--
-When a component detects that it is time to remove itself from the DOM, Ember will trigger the [`willDestroyElement()`](https://www.emberjs.com/api/ember/2.16/classes/Component/events/willDestroyElement?anchor=willDestroyElement) method,
+When a component detects that it is time to remove itself from the DOM, Ember will trigger the [`willDestroyElement()`](https://www.emberjs.com/api/ember/release/classes/Component/events/willDestroyElement?anchor=willDestroyElement) method,
 allowing for any teardown logic to be performed.
 -->
 
-コンポーネントがDOMから自身を削除する時間であることを検出すると、Emberは[`willDestroyElement()`](https://www.emberjs.com/api/ember/2.16/classes/Component/events/willDestroyElement?anchor=willDestroyElement)メソッドを呼び出し、解体処理を実行できるようにします。
+コンポーネントがDOMから自身を削除する時間であることを検出すると、Emberは[`willDestroyElement()`](https://www.emberjs.com/api/ember/release/classes/Component/events/willDestroyElement?anchor=willDestroyElement)メソッドを呼び出し、解体処理を実行できるようにします。
 
 <!--
 Component teardown can be triggered by a number of different conditions.

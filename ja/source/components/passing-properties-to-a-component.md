@@ -106,10 +106,10 @@ In other words, you can invoke the above component example like this:
 
 <!--
 To set the component up to receive parameters this way, you need to
-set the [`positionalParams`](https://www.emberjs.com/api/ember/2.16/classes/Component/properties/positionalParams?anchor=positionalParams) attribute in your component class.
+set the [`positionalParams`](https://www.emberjs.com/api/ember/release/classes/Component/properties/positionalParams?anchor=positionalParams) attribute in your component class.
 -->
 
-このようにパラメーターを受け取れるようにするにはコンポーネントクラスで[`positionalParams`](https://www.emberjs.com/api/ember/2.16/classes/Component/properties/positionalParams?anchor=positionalParams)属性を設定する必要があります。
+このようにパラメーターを受け取れるようにするにはコンポーネントクラスで[`positionalParams`](https://www.emberjs.com/api/ember/release/classes/Component/properties/positionalParams?anchor=positionalParams)属性を設定する必要があります。
 
 ```app/components/blog-post.js
 import Component from '@ember/component';

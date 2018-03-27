@@ -47,10 +47,10 @@ you want to update the UI immediately.
 ### レコードをプッシュする
 
 <!--
-To push a record into the store, call the store's [`push()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/push?anchor=push) method.
+To push a record into the store, call the store's [`push()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/push?anchor=push) method.
 -->
 
-レコードをストアにプッシュするには、ストアの[`push()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/push?anchor=push)メソッドを使います。
+レコードをストアにプッシュするには、ストアの[`push()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/push?anchor=push)メソッドを使います。
 
 <!--
 For example, imagine we want to preload some data into the store when
@@ -125,10 +125,10 @@ JSON APIドキュメントの型名は、モデルの型名と正確に一致す
 <!--
 If you would like the data to be normalized by the model's default
 serializer before pushing it into the store, you can use the
-[`store.pushPayload()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/push?anchor=pushPayload) method.
+[`store.pushPayload()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/push?anchor=pushPayload) method.
 -->
 
-モデルをストアにプッシュする前に、モデルのデフォルトシリアライザでデータを正規化したい場合は、[`store.pushPayload()`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.Store/methods/push?anchor=pushPayload)メソッドを使用できます。
+モデルをストアにプッシュする前に、モデルのデフォルトシリアライザでデータを正規化したい場合は、[`store.pushPayload()`](https://www.emberjs.com/api/ember-data/release/classes/DS.Store/methods/push?anchor=pushPayload)メソッドを使用できます。
 
 ```app/serializers/album.js
 import DS from 'ember-data';

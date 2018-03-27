@@ -40,15 +40,23 @@ The first time you access the `fullName` property, the function will be called a
 Subsequent access of `fullName` will read from the cache without calling the function.
 Changing any of the dependent properties causes the cache to invalidate, so that the computed function runs again on the next access.
 
-### Multiple dependents on the same object
+### Computed properties only recompute when they are consumed
 
-In the previous example, the `fullName` computed property depends on two other properties:
+A computed property will only recompute its value when it is _consumed._ Properties are consumed in two ways:
+
+1. By a `get`, for example `ironMan.get('fullName')`
+2. By being referenced in a handlebars template that is currently being rendered, for example `{{ironMan.fullName}}`
+
+Outside of those two circumstances the code in the property will not run, even if one of the property's dependencies are changed.
+
+We'll modify the `fullName` property from the previous example to log to the console:
 
 ```javascript
 import Ember from 'ember':
 
 …
   fullName: computed('firstName', 'lastName', function() {
+    console.log('compute fullName'); // track when the property recomputes
     let firstName = this.get('firstName');
     let lastName = this.get('lastName');
 
@@ -57,46 +65,52 @@ import Ember from 'ember':
 …
 ```
 
-We can also use a short-hand syntax called _brace expansion_ to declare the dependents.
-You surround the dependent properties with braces (`{}`), and separate with commas, like so:
+Using the new property, it will only log after a `get`, and then only if either the `firstName` or `lastName` has been previously changed:
 
 ```javascript
-import Ember from 'ember':
 
-…
-  fullName: computed('{firstName,lastName}', function() {
-    let firstName = this.get('firstName');
-    let lastName = this.get('lastName');
+let ironMan = Person.create({
+  firstName: 'Tony',
+  lastName:  'Stark'
+});
 
-    return `${firstName} ${lastName}`;
-  })
-…
+ironMan.get('fullName'); // 'compute fullName'
+ironMan.set('firstName', 'Bruce') // no console output
+
+ironMan.get('fullName'); // 'compute fullName'
+ironMan.get('fullName'); // no console output since dependencies have not changed
 ```
 
-This is especially useful when you depend on properties of an object, since it allows you to replace:
+
+### Multiple dependents on the same object
+
+In the previous example, the `fullName` computed property depends on two other properties of the same object.  
+However, you may find that you have to observe properties a different object.
+For example, look at this computed property:
 
 ```javascript
 import EmberObject, { computed } from '@ember/object';
 
 let obj = EmberObject.extend({
-  baz: {foo: 'BLAMMO', bar: 'BLAZORZ'},
+  baz: { foo: 'BLAMMO', bar: 'BLAZORZ' },
 
   something: computed('baz.foo', 'baz.bar', function() {
-    return this.get('baz.foo') + ' ' + this.get('baz.bar');
+    return `${this.get('baz.foo')} ${this.get('baz.bar')}`;
   })
 });
 ```
 
-With:
+Since both `foo` and `bar` are properties on the `baz` object, we can use a short-hand syntax called _brace expansion_ to declare the dependents keys.
+You surround the dependent properties with braces (`{}`), and separate with commas, like so:
 
 ```javascript
 import EmberObject, { computed } from '@ember/object';
 
 let obj = EmberObject.extend({
-  baz: {foo: 'BLAMMO', bar: 'BLAZORZ'},
+  baz: { foo: 'BLAMMO', bar: 'BLAZORZ' },
 
   something: computed('baz.{foo,bar}', function() {
-    return this.get('baz.foo') + ' ' + this.get('baz.bar');
+    return `${this.get('baz.foo')} ${this.get('baz.bar')}`;
   })
 });
 ```
@@ -206,4 +220,4 @@ Person = EmberObject.extend({
 ```
 
 To see the full list of computed property macros, have a look at
-[the API documentation](https://www.emberjs.com/api/ember/2.16/modules/@ember%2Fobject)
+[the API documentation](https://www.emberjs.com/api/ember/release/modules/@ember%2Fobject)

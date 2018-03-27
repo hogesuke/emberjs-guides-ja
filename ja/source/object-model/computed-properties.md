@@ -72,22 +72,60 @@ Changing any of the dependent properties causes the cache to invalidate, so that
 依存プロパティのいずれかを変更すると、キャッシュが無効になり、計算された関数が次のアクセス時に再び実行されます。
 
 <!--
-### Multiple dependents on the same object
+### Computed properties only recompute when they are consumed
 -->
 
-### 同じオブジェクト上での複数依存
+### 算出プロパティは使われる時にのみ再計算される
 
 <!--
-In the previous example, the `fullName` computed property depends on two other properties:
+A computed property will only recompute its value when it is _consumed._ Properties are consumed in two ways:
 -->
 
-前の例では、`fullName`算出プロパティは、他の2つのプロパティに依存しています。
+算出プロパティは、使われる時にのみその値を再計算します。
+プロパティは2つの方法で使われます。
+
+<!--
+1. By a `get`, for example `ironMan.get('fullName')`
+2. By being referenced in a handlebars template that is currently being rendered, for example `{{ironMan.fullName}}`
+-->
+
+1. `get`する、例: `ironMan.get('fullName')`
+2. `{{ironMan.fullName}`}のように、現在レンダリング中のHandlebarsテンプレートで参照する
+
+<!--
+Outside of those two circumstances the code in the property will not run, even if one of the property's dependencies are changed.
+-->
+
+これらの2つの状況以外では、プロパティの依存関係の1つが変更されても、プロパティのコードは実行されません。
+
+<!--
+We'll modify the `fullName` property from the previous example to log to the console:
+-->
+
+前述の例の`fullName`プロパティを変更してコンソールにログ出力します。
+
+<!--
+```javascript
+import Ember from 'ember':
+
+…
+  fullName: computed('firstName', 'lastName', function() {
+    console.log('compute fullName'); // track when the property recomputes
+    let firstName = this.get('firstName');
+    let lastName = this.get('lastName');
+
+    return `${firstName} ${lastName}`;
+  })
+…
+```
+-->
 
 ```javascript
 import Ember from 'ember':
 
 …
   fullName: computed('firstName', 'lastName', function() {
+    console.log('compute fullName'); // プロパティ再計算をトラッキング
     let firstName = this.get('firstName');
     let lastName = this.get('lastName');
 
@@ -95,57 +133,88 @@ import Ember from 'ember':
   })
 …
 ```
+
 <!--
-We can also use a short-hand syntax called _brace expansion_ to declare the dependents.
-You surround the dependent properties with braces (`{}`), and separate with commas, like so:
+Using the new property, it will only log after a `get`, and then only if either the `firstName` or `lastName` has been previously changed:
 -->
 
-また、Brace Expansion(ブレース展開)と呼ばれる簡潔な構文を使用して、依存を宣言することもできます。
-依存しているプロパティを中括弧(`{}`)で囲み、カンマで区切ります。
-次のようにします。
+新しいプロパティを使用すると、取得後(`get`)にのみログに出力され、`firstName`または`lastName`のいずれかが以前に変更されている場合にのみログに出力されます。
+
+<!--
+```javascript
+
+let ironMan = Person.create({
+  firstName: 'Tony',
+  lastName:  'Stark'
+});
+
+ironMan.get('fullName'); // 'compute fullName'
+ironMan.set('firstName', 'Bruce') // no console output
+
+ironMan.get('fullName'); // 'compute fullName'
+ironMan.get('fullName'); // no console output since dependencies have not changed
+```
+-->
 
 ```javascript
-import Ember from 'ember':
 
-…
-  fullName: computed('{firstName,lastName}', function() {
-    let firstName = this.get('firstName');
-    let lastName = this.get('lastName');
+let ironMan = Person.create({
+  firstName: 'Tony',
+  lastName:  'Stark'
+});
 
-    return `${firstName} ${lastName}`;
-  })
-…
+ironMan.get('fullName'); // fullNameを計算させる
+ironMan.set('firstName', 'Bruce') // コンソールには出力されない
+
+ironMan.get('fullName'); // fullNameを計算させる
+ironMan.get('fullName'); // 依存しているものが変更されていないので、コンソールには何も出力されない
 ```
 
 <!--
-This is especially useful when you depend on properties of an object, since it allows you to replace:
+### Multiple dependents on the same object
 -->
 
-これは、オブジェクトのプロパティに依存する場合に特に便利です。
-以下の書き方を、
+### 同じオブジェクト上での複数依存
+
+<!--
+In the previous example, the `fullName` computed property depends on two other properties of the same object.  
+However, you may find that you have to observe properties a different object.
+For example, look at this computed property:
+-->
+
+上記の例の`fullName`算出プロパティは、同じオブジェクト内の他の2つのプロパティに依存しています。
+しかし、別のオブジェクトのプロパティの監視が必要になることもあるでしょう。
+例えば、以下の算出プロパティを見てみましょう。
 
 ```javascript
 import EmberObject, { computed } from '@ember/object';
 
 let obj = EmberObject.extend({
-  baz: {foo: 'BLAMMO', bar: 'BLAZORZ'},
+  baz: { foo: 'BLAMMO', bar: 'BLAZORZ' },
 
   something: computed('baz.foo', 'baz.bar', function() {
-    return this.get('baz.foo') + ' ' + this.get('baz.bar');
+    return `${this.get('baz.foo')} ${this.get('baz.bar')}`;
   })
 });
 ```
 
-次のように置き換えることができます。
+<!--
+Since both `foo` and `bar` are properties on the `baz` object, we can use a short-hand syntax called _brace expansion_ to declare the dependents keys.
+You surround the dependent properties with braces (`{}`), and separate with commas, like so:
+-->
+
+`foo`と`bar`の両方が`baz`オブジェクトのプロパティであるため、ブレース展開(brace expansion)と呼ばれる簡潔な構文を使用して、依存キーを宣言することができます。
+依存しているプロパティを中括弧(`{}`)で囲み、カンマで区切ります。
+次のようにします。
 
 ```javascript
 import EmberObject, { computed } from '@ember/object';
 
 let obj = EmberObject.extend({
-  baz: {foo: 'BLAMMO', bar: 'BLAZORZ'},
+  baz: { foo: 'BLAMMO', bar: 'BLAZORZ' },
 
   something: computed('baz.{foo,bar}', function() {
-    return this.get('baz.foo') + ' ' + this.get('baz.bar');
+    return `${this.get('baz.foo')} ${this.get('baz.bar')}`;
   })
 });
 ```
@@ -305,7 +374,7 @@ Person = EmberObject.extend({
 
 <!--
 To see the full list of computed property macros, have a look at
-[the API documentation](https://www.emberjs.com/api/ember/2.16/modules/@ember%2Fobject)
+[the API documentation](https://www.emberjs.com/api/ember/release/modules/@ember%2Fobject)
 -->
 
-算出プロパティマクロの完全なリストは、[APIドキュメント](https://www.emberjs.com/api/ember/2.16/modules/@ember%2Fobject)をご覧ください。
+算出プロパティマクロの完全なリストは、[APIドキュメント](https://www.emberjs.com/api/ember/release/modules/@ember%2Fobject)をご覧ください。

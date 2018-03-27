@@ -257,6 +257,8 @@ import { computed } from '@ember/object';
 import PaymentMethod from './payment-method';
 
 export default PaymentMethod.extend({
+  last4: DS.attr(),
+
   obfuscatedIdentifier: computed('last4', function () {
     return `**** **** **** ${this.get('last4')}`;
   })
@@ -491,13 +493,13 @@ relationships required.
 パラメーターの値は、必要な関係モデルの名前をコンマ区切って指定します。
 
 <!--
-If you are using an adapter that supports JSON API, such as Ember's default [`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter),
+If you are using an adapter that supports JSON API, such as Ember's default [`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPIAdapter),
 you can easily add the `include` parameter to the server requests created by
 the `findRecord()`, `findAll()`,
 `query()` and `queryRecord()` methods.
 -->
 
-Emberのデフォルト[`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/2.16/classes/DS.JSONAPIAdapter)などのJSON APIをサポートするアダプターを使用している場合は、`findRecord()`、`findAll()`、`query()`および`queryRecord()`メソッドで`include`パラメーターを簡単に追加できます。
+Emberのデフォルト[`JSONAPIAdapter`](https://www.emberjs.com/api/ember-data/release/classes/DS.JSONAPIAdapter)などのJSON APIをサポートするアダプターを使用している場合は、`findRecord()`、`findAll()`、`query()`および`queryRecord()`メソッドで`include`パラメーターを簡単に追加できます。
 
 <!--
 `findRecord()` and `findAll()` each take an `options` argument in which you can

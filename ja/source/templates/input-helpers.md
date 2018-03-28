@@ -141,7 +141,7 @@ Which can be bound or set as described in the previous section.
 Will bind the value of the text area to `name` on the current context.
 -->
 
-上記の例では、コンテキストの`name`でテキストエリアの値をバインドしています。
+上記の例では、テキストエリアの値をコンテキストのnameにバインドしています。
 
 <!--
 [`{{textarea}}`](https://www.emberjs.com/api/ember/release/classes/Ember.Templates.helpers/methods/textarea?anchor=textarea) supports binding and/or setting the following properties:
